@@ -511,8 +511,8 @@
 <span class="material-symbols-outlined text-xl">smart_toy</span>
 </div>
 <div>
-<h5 class="font-body-lg font-bold text-on-surface">ChatGPT / GPT-4o</h5>
-<p class="font-body-md text-on-surface-variant text-sm mt-1">コード生成・仕様策定・ドキュメント作成</p>
+<h5 class="font-body-lg font-bold text-on-surface">ChatGPT</h5>
+<p class="font-body-md text-on-surface-variant text-sm mt-1">仕様策定・ドキュメント作成</p>
 </div>
 </div>
 <!-- Tool 2 -->
@@ -523,16 +523,6 @@
 <div>
 <h5 class="font-body-lg font-bold text-on-surface">Stitch / Figma Make</h5>
 <p class="font-body-md text-on-surface-variant text-sm mt-1">UIデザイン生成・ワイヤーフレーム作成・プロトタイプ制作</p>
-</div>
-</div>
-<!-- Tool 3 -->
-<div class="border border-surface-variant rounded-xl p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
-<div class="w-10 h-10 bg-primary text-on-primary rounded-lg flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-xl">code</span>
-</div>
-<div>
-<h5 class="font-body-lg font-bold text-on-surface">GitHub Copilot</h5>
-<p class="font-body-md text-on-surface-variant text-sm mt-1">リアルタイムコード補完・レビュー支援</p>
 </div>
 </div>
 <!-- Tool 4 -->
@@ -566,7 +556,7 @@
 <div class="text-center mb-16"><h2 class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">Works</h2><h3 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d]">制作実績</h3></div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Work Card 1 -->
-<div class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col" onclick="openModal('modal-work-1')">
+<div aria-label="Corporate Site の制作実績詳細を開く" class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest" onclick="openModal('modal-work-1')" onkeydown="handleWorkCardKeydown(event, 'modal-work-1')" role="button" tabindex="0">
 <div class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
 <img alt="Corporate Site Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" data-alt="A clean, modern corporate website layout displayed on a digital screen, showing a structured hero section with clear typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz_mYHJqdKJt9PkhjlWGAkOMDSGFqTlRNZtFZ90_ZTRdoVQrP-XWpAFj0X02T7udo9lzm7gyZ0oIZMN6XyQptrydseAJt0nq9HLmT1vLjY4md_WCcWXouQF-8eHaM36PfeELnZHYXNhaDgz7vdKKaUMF-yR53bfmUiNYdHpwRnnXWudR52_akp0OWR-ZRn1IW2R5KbvfpPqk1m1xONGOC2K-qPaxtL7YkSFbHIBVtwB58HVw1H3RgjWuctv4O2hMlEjYhCmT_RZYSu"/>
 <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300"></div>
@@ -575,17 +565,15 @@
 <div class="flex items-center gap-2 mb-3">
 <span class="text-[10px] font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-2 py-1 rounded-sm">Corporate Site</span>
 </div>
-<h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">株式会社〇〇様 企業サイト刷新</h4>
+<h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">アーリーホーム株式会社様<br/>企業サイトのリニューアル</h4>
 <p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">ブランドイメージの向上と採用強化を目的に、モダンでクリーンなデザインへリニューアル。</p>
 <div class="flex flex-wrap gap-2 mt-auto">
 <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span>
-<span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">Tailwind CSS</span>
-<span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">AI Text Gen</span>
 </div>
 </div>
 </div>
 <!-- Work Card 2 -->
-<div class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col" onclick="openModal('modal-work-2')">
+<div aria-label="E-Commerce の制作実績詳細を開く" class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest" onclick="openModal('modal-work-2')" onkeydown="handleWorkCardKeydown(event, 'modal-work-2')" role="button" tabindex="0">
 <div class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
 <img alt="E-Commerce Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" data-alt="An elegant e-commerce interface showing high-quality product imagery and a clean, user-friendly shopping cart layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTMT4NOVNdzC7_Q6LsREu5UMpojZhr3dEQFhykE9mFlUGhUPD1XRfxqcVvbCylWAvfVpzm6IrB7vjNulYaTPfZ15aoy68EA687xzdVkAdiZZOLwPrO2bqX37uwQSTAGr8kHhiHiNlMcNDomF-7opcX51UdyMgrjZtnwf1rFXw-pdCBnxqQuXx_Uip-OvtVEbtF-y0rwQ9Vl5iVBrAhssnO3qLitbUpZoP4-BB1UC8qB5nG_shPoj0tVkqCtCLMYaf1l6GlR4QUUuLn"/>
 <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300"></div>
@@ -604,7 +592,7 @@
 </div>
 </div>
 <!-- Work Card 3 -->
-<div class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col" onclick="openModal('modal-work-3')">
+<div aria-label="Landing Page の制作実績詳細を開く" class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest" onclick="openModal('modal-work-3')" onkeydown="handleWorkCardKeydown(event, 'modal-work-3')" role="button" tabindex="0">
 <div class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
 <img alt="Landing Page Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" data-alt="A striking landing page design with bold typography, engaging call-to-action buttons, and smooth conceptual illustrations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz_mYHJqdKJt9PkhjlWGAkOMDSGFqTlRNZtFZ90_ZTRdoVQrP-XWpAFj0X02T7udo9lzm7gyZ0oIZMN6XyQptrydseAJt0nq9HLmT1vLjY4md_WCcWXouQF-8eHaM36PfeELnZHYXNhaDgz7vdKKaUMF-yR53bfmUiNYdHpwRnnXWudR52_akp0OWR-ZRn1IW2R5KbvfpPqk1m1xONGOC2K-qPaxtL7YkSFbHIBVtwB58HVw1H3RgjWuctv4O2hMlEjYhCmT_RZYSu"/>
 <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300"></div>
@@ -636,9 +624,9 @@
 <p class="font-body-md text-body-md text-on-surface-variant text-sm">顧客がWeb上で条件を選択するだけで、概算見積もりを即座に提示できる計算アプリ。</p>
 </div>
 <div class="bg-surface-container-lowest p-8 rounded-xl soft-shadow border border-surface-variant">
-<span class="material-symbols-outlined text-4xl text-primary mb-4">event_available</span>
-<h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-3">簡易予約・シフト管理</h4>
-<p class="font-body-md text-body-md text-on-surface-variant text-sm">スプレッドシートや既存ツールと連携し、現場のオペレーションに特化した予約管理画面を構築。</p>
+<span class="material-symbols-outlined text-4xl text-primary mb-4">event_seat</span>
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-3">フリーアドレス座席表</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">座席の利用状況や配置を見える化し、出社時の席選びをスムーズにする管理ツール。</p>
 </div>
 <div class="bg-surface-container-lowest p-8 rounded-xl soft-shadow border border-surface-variant">
 <span class="material-symbols-outlined text-4xl text-primary mb-4">format_list_bulleted</span>
@@ -686,7 +674,8 @@
 <!-- Contact Section -->
 <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface-container-low" id="contact">
 <div class="max-w-2xl mx-auto">
-<div class="text-center mb-12"><h2 class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">Contact</h2><h3 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d] mb-6">お問い合わせ</h3><p class="font-body-md text-body-md text-on-surface-variant">プロジェクトのご相談や、提供サービスに関するご質問など、お気軽にお問い合わせください。</p></div>
+<div class="text-center mb-12"><h2 class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">Contact</h2><h3 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d] mb-6">お問い合わせ</h3><p class="font-body-md text-body-md text-on-surface-variant">「まず何から始めればいい？」という段階からでも大丈夫です。<br>
+WEBまわりのことを、気軽にご相談ください。</p></div>
 <form class="bg-surface-container-lowest p-8 rounded-xl soft-shadow border border-surface-variant space-y-6" id="contact-form">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
@@ -818,6 +807,103 @@ if (flowLine) {
     }
 }
 
+let activeModal = null;
+let lastFocusedElement = null;
+
+const getFocusableElements = (modal) => {
+    return Array.from(modal.querySelectorAll("a[href], button:not([disabled]), [tabindex]:not([tabindex='-1'])"));
+};
+
+const openModal = (modalId) => {
+    const modal = document.getElementById(modalId);
+    if (!modal) {
+        return;
+    }
+
+    if (activeModal && activeModal !== modal) {
+        closeModal(activeModal.id, { restoreFocus: false });
+    }
+
+    lastFocusedElement = document.activeElement;
+    activeModal = modal;
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.classList.add("overflow-hidden");
+    modal.setAttribute("aria-hidden", "false");
+
+    const firstFocusable = getFocusableElements(modal)[0];
+    requestAnimationFrame(() => {
+        firstFocusable?.focus();
+    });
+};
+
+const closeModal = (modalId, options = {}) => {
+    const modal = document.getElementById(modalId);
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    modal.setAttribute("aria-hidden", "true");
+
+    if (activeModal === modal) {
+        activeModal = null;
+    }
+
+    if (!document.querySelector("[id^='modal-work-']:not(.hidden)")) {
+        document.body.classList.remove("overflow-hidden");
+    }
+
+    if (options.restoreFocus !== false && lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
+    }
+};
+
+const handleWorkCardKeydown = (event, modalId) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+        return;
+    }
+
+    event.preventDefault();
+    openModal(modalId);
+};
+
+document.addEventListener("keydown", (event) => {
+    if (!activeModal) {
+        return;
+    }
+
+    if (event.key === "Escape") {
+        closeModal(activeModal.id);
+        return;
+    }
+
+    if (event.key !== "Tab") {
+        return;
+    }
+
+    const focusableElements = getFocusableElements(activeModal);
+    if (!focusableElements.length) {
+        return;
+    }
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+    }
+});
+
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.handleWorkCardKeydown = handleWorkCardKeydown;
+
 const contactForm = document.getElementById("contact-form");
 const contactFormStatus = document.getElementById("contact-form-status");
 const contactEmail = "your-email@example.com";
@@ -869,15 +955,74 @@ if (contactForm) {
 </script>
 </footer>
 <!-- Modals for Works -->
-<!-- Modal 1 -->
-<div aria-modal="true" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-1" role="dialog">
-<div class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm transition-opacity cursor-pointer" onclick="closeModal('modal-work-1')"></div>
-<div class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col z-10 overscroll-contain">
-<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/80 backdrop-blur-sm" onclick="closeModal('modal-work-1')">
+<div aria-hidden="true" aria-labelledby="modal-work-1-title" aria-modal="true" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-1" role="dialog">
+<div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer" onclick="closeModal('modal-work-1')"></div>
+<div class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+<button aria-label="詳細を閉じる" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary" onclick="closeModal('modal-work-1')">
 <span class="material-symbols-outlined">close</span>
 </button>
-<div class="p-8 sm:p-10">
-<div class="mb-6">
-<span class="text-xs font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-sm inline-block mb-3">Corporate Site</span>
-<h2 class="font-headline-md text-[28px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight">株式会社〇〇様 企業サイト刷新</h2>
-</div></div></div></div></body></html>
+<img alt="Corporate Site detail preview" class="w-full h-56 sm:h-72 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz_mYHJqdKJt9PkhjlWGAkOMDSGFqTlRNZtFZ90_ZTRdoVQrP-XWpAFj0X02T7udo9lzm7gyZ0oIZMN6XyQptrydseAJt0nq9HLmT1vLjY4md_WCcWXouQF-8eHaM36PfeELnZHYXNhaDgz7vdKKaUMF-yR53bfmUiNYdHpwRnnXWudR52_akp0OWR-ZRn1IW2R5KbvfpPqk1m1xONGOC2K-qPaxtL7YkSFbHIBVtwB58HVw1H3RgjWuctv4O2hMlEjYhCmT_RZYSu"/>
+<div class="p-6 sm:p-10">
+<span class="text-xs font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-sm inline-block mb-4">Corporate Site</span>
+<h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight" id="modal-work-1-title">アーリーホーム株式会社様<br/>企業サイトのリニューアル</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">ブランドイメージの向上と採用強化を目的に、情報設計からデザイン、WordPress実装まで一貫して支援したコーポレートサイトリニューアルです。</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5"><h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">事業内容と採用情報が伝わりにくく、問い合わせ導線も分散していました。</p></div>
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5"><h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">トップページで強みを整理し、下層導線とCTAを目的別に再設計しました。</p></div>
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5"><h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">信頼感のある見た目と更新しやすい管理画面で、運用負荷を抑えました。</p></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+<div><h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">情報設計 / UIデザイン / WordPress実装 / 文章調整 / 基本SEO</p></div>
+<div><h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3><div class="flex flex-wrap gap-2"><span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span></div></div>
+</div>
+<div class="flex flex-col sm:flex-row gap-3"><a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#contact" onclick="closeModal('modal-work-1', { restoreFocus: false })">このような制作を相談する<span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" onclick="closeModal('modal-work-1')">閉じる</button></div>
+</div>
+</div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="modal-work-2-title" aria-modal="true" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-2" role="dialog">
+<div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer" onclick="closeModal('modal-work-2')"></div>
+<div class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+<button aria-label="詳細を閉じる" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary" onclick="closeModal('modal-work-2')"><span class="material-symbols-outlined">close</span></button>
+<img alt="E-Commerce detail preview" class="w-full h-56 sm:h-72 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTMT4NOVNdzC7_Q6LsREu5UMpojZhr3dEQFhykE9mFlUGhUPD1XRfxqcVvbCylWAvfVpzm6IrB7vjNulYaTPfZ15aoy68EA687xzdVkAdiZZOLwPrO2bqX37uwQSTAGr8kHhiHiNlMcNDomF-7opcX51UdyMgrjZtnwf1rFXw-pdCBnxqQuXx_Uip-OvtVEbtF-y0rwQ9Vl5iVBrAhssnO3qLitbUpZoP4-BB1UC8qB5nG_shPoj0tVkqCtCLMYaf1l6GlR4QUUuLn"/>
+<div class="p-6 sm:p-10">
+<span class="text-xs font-label-sm text-secondary font-bold uppercase tracking-wider bg-secondary-container/50 px-3 py-1 rounded-sm inline-block mb-4">E-Commerce</span>
+<h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight" id="modal-work-2-title">アパレルブランド ECサイト構築</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">Shopifyを活用し、ブランドの世界観を保ちながら、購入まで迷わず進めるオンラインストアを構築しました。</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5"><h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">商品数の増加により、カテゴリ整理と在庫管理の負担が大きくなっていました。</p></div>
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5"><h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">Shopifyの管理機能を活かし、商品登録とキャンペーン更新を簡単にしました。</p></div>
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5"><h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">商品を探しやすく、購入導線の離脱を抑えたストア体験に整えました。</p></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+<div><h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">EC設計 / Shopifyテーマ調整 / 商品導線設計 / 決済導線確認</p></div>
+<div><h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3><div class="flex flex-wrap gap-2"><span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">Shopify</span><span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">Liquid</span><span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">JavaScript</span></div></div>
+</div>
+<div class="flex flex-col sm:flex-row gap-3"><a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#contact" onclick="closeModal('modal-work-2', { restoreFocus: false })">ECサイト制作を相談する<span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" onclick="closeModal('modal-work-2')">閉じる</button></div>
+</div>
+</div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="modal-work-3-title" aria-modal="true" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-3" role="dialog">
+<div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer" onclick="closeModal('modal-work-3')"></div>
+<div class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+<button aria-label="詳細を閉じる" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary" onclick="closeModal('modal-work-3')"><span class="material-symbols-outlined">close</span></button>
+<img alt="Landing Page detail preview" class="w-full h-56 sm:h-72 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz_mYHJqdKJt9PkhjlWGAkOMDSGFqTlRNZtFZ90_ZTRdoVQrP-XWpAFj0X02T7udo9lzm7gyZ0oIZMN6XyQptrydseAJt0nq9HLmT1vLjY4md_WCcWXouQF-8eHaM36PfeELnZHYXNhaDgz7vdKKaUMF-yR53bfmUiNYdHpwRnnXWudR52_akp0OWR-ZRn1IW2R5KbvfpPqk1m1xONGOC2K-qPaxtL7YkSFbHIBVtwB58HVw1H3RgjWuctv4O2hMlEjYhCmT_RZYSu"/>
+<div class="p-6 sm:p-10">
+<span class="text-xs font-label-sm text-[#4e6c41] font-bold uppercase tracking-wider bg-[#c9edb6]/50 px-3 py-1 rounded-sm inline-block mb-4">Landing Page</span>
+<h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight" id="modal-work-3-title">新サービス プロモーションLP</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">新サービスの魅力を短時間で理解できるよう、ストーリー性のある構成と軽やかなアニメーションを取り入れたLPです。</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5"><h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">サービスの価値が一目で伝わらず、資料請求までの動機づけが弱い状態でした。</p></div>
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5"><h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">ファーストビューから課題、解決策、導入メリットへ自然に進む構成にしました。</p></div>
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5"><h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">訴求軸が明確になり、広告流入後に読み進めやすいページへ改善しました。</p></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+<div><h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3><p class="font-body-md text-sm text-on-surface-variant leading-7">LP構成 / コピー整理 / UIデザイン / フロントエンド実装 / アニメーション調整</p></div>
+<div><h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3><div class="flex flex-wrap gap-2"><span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">HTML/CSS</span><span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">GSAP</span><span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">Figma</span></div></div>
+</div>
+<div class="flex flex-col sm:flex-row gap-3"><a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#contact" onclick="closeModal('modal-work-3', { restoreFocus: false })">LP制作を相談する<span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" onclick="closeModal('modal-work-3')">閉じる</button></div>
+</div>
+</div>
+</div>
+</body></html>
