@@ -1,5 +1,44 @@
 document.documentElement.classList.add("motion-ready");
 
+const mobileMenuToggle = document.querySelector("[data-mobile-menu-toggle]");
+const mobileMenu = mobileMenuToggle ? document.getElementById(mobileMenuToggle.getAttribute("aria-controls")) : null;
+
+const closeMobileMenu = () => {
+    if (!mobileMenu || !mobileMenuToggle) {
+        return;
+    }
+
+    mobileMenu.classList.add("hidden");
+    mobileMenuToggle.setAttribute("aria-expanded", "false");
+    mobileMenuToggle.setAttribute("aria-label", "メニューを開く");
+    mobileMenuToggle.querySelector(".material-symbols-outlined").textContent = "menu";
+};
+
+const openMobileMenu = () => {
+    if (!mobileMenu || !mobileMenuToggle) {
+        return;
+    }
+
+    mobileMenu.classList.remove("hidden");
+    mobileMenuToggle.setAttribute("aria-expanded", "true");
+    mobileMenuToggle.setAttribute("aria-label", "メニューを閉じる");
+    mobileMenuToggle.querySelector(".material-symbols-outlined").textContent = "close";
+};
+
+if (mobileMenu && mobileMenuToggle) {
+    mobileMenuToggle.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("hidden")) {
+            openMobileMenu();
+        } else {
+            closeMobileMenu();
+        }
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMobileMenu);
+    });
+}
+
 const supportsRevealObserver = "IntersectionObserver" in window;
 const revealObserver = supportsRevealObserver ? new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
@@ -127,6 +166,10 @@ const handleWorkCardKeydown = (event, modalId) => {
 };
 
 document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeMobileMenu();
+    }
+
     if (!activeModal) {
         return;
     }

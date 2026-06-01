@@ -3,21 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Sirona Designで利用するCookie、アクセス解析、Cookieの管理方法について説明するCookieポリシーです。" />
     <title>Cookie Policy | Sirona Design</title>
+    <link rel="icon" href="images/favicon.png" type="image/png" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <script src="js/tailwind-config.js"></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=20260601" />
 </head>
 <body class="bg-surface text-on-surface font-body-md antialiased">
     <!-- TopNavBar -->
     <header class="bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 bg-surface shadow-sm">
         <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
             <a class="font-display-lg text-headline-md font-bold text-primary" href="index.html#hero">Sirona Design</a>
-            <nav class="hidden md:flex items-center gap-8">
+            <nav class="mobile-nav hidden md:flex items-center gap-8" id="mobile-menu">
                 <a class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-all duration-300 active:scale-95 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="index.html#profile">Profile</a>
                 <a class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-all duration-300 active:scale-95 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="index.html#concerns">Concerns</a>
                 <a class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-all duration-300 active:scale-95 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="index.html#services">Services</a>
@@ -27,8 +29,8 @@
                 <a class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-all duration-300 active:scale-95 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="index.html#flow">Flow</a>
             </nav>
             <a class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:opacity-90 transition-all duration-300 active:scale-95" href="index.html#contact">Contact</a>
-            <button class="md:hidden text-primary p-2">
-                <span class="material-symbols-outlined text-2xl">menu</span>
+            <button aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く" class="md:hidden text-primary p-2" data-mobile-menu-toggle type="button">
+                <span aria-hidden="true" class="material-symbols-outlined text-2xl">menu</span>
             </button>
         </div>
     </header>
@@ -98,7 +100,6 @@
             </div>
             <div class="flex flex-col gap-4">
                 <a class="font-body-md text-body-md hover:text-primary transition-colors opacity-100 hover:opacity-80 text-white" href="privacy-policy.html">Privacy Policy</a>
-                <a class="font-body-md text-body-md hover:text-primary transition-colors opacity-100 hover:opacity-80 text-white" href="#">Terms of Service</a>
                 <a class="font-body-md text-body-md hover:text-primary transition-colors opacity-100 hover:opacity-80 text-white" href="cookie-policy.html">Cookie Policy</a>
             </div>
             <div class="flex flex-col gap-4">
@@ -109,5 +110,6 @@
             </div>
         </div>
     </footer>
+    <script src="js/main.js" defer></script>
 </body>
 </html>

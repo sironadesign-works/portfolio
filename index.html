@@ -1,15 +1,11 @@
 <html class="light" lang="ja">
 
-<head></head>
-
-<body class="bg-surface text-on-surface font-body-md antialiased">
-
-
-
-
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Sirona Designは、Web制作、デザイン、コーディング、運用改善、AI活用まで相談できるフリーランスWeb制作パートナーです。" />
     <title>Sirona Design - Web Designer &amp; Freelance Engineer</title>
+    <link rel="icon" href="images/favicon.png" type="image/png" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -20,12 +16,15 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <script src="js/tailwind-config.js"></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=20260601" />
+</head>
+
+<body class="bg-surface text-on-surface font-body-md antialiased">
     <!-- TopNavBar -->
     <header class="bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 bg-surface shadow-sm">
         <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
-            <a class="font-display-lg text-headline-md font-bold text-primary" href="#">Sirona Design</a>
-            <nav class="hidden md:flex items-center gap-8">
+            <a class="font-display-lg text-headline-md font-bold text-primary" href="#hero">Sirona Design</a>
+            <nav class="mobile-nav hidden md:flex items-center gap-8" id="mobile-menu">
                 <a class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-all duration-300 active:scale-95 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                     href="#profile">Profile</a>
                 <a class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-all duration-300 active:scale-95 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
@@ -43,8 +42,9 @@
             </nav>
             <a class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:opacity-90 transition-all duration-300 active:scale-95"
                 href="#contact">Contact</a>
-            <button class="md:hidden text-primary p-2">
-                <span class="material-symbols-outlined text-2xl">menu</span>
+            <button aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く"
+                class="md:hidden text-primary p-2" data-mobile-menu-toggle type="button">
+                <span aria-hidden="true" class="material-symbols-outlined text-2xl">menu</span>
             </button>
         </div>
     </header>
@@ -52,7 +52,7 @@
         <!-- Hero Section -->
         <section
             class="relative min-h-[90vh] flex items-center pt-32 pb-section-gap-mobile md:pb-section-gap-desktop px-grid-margin overflow-hidden bg-surface-container-lowest"
-            id="hero" style="background-image: url('hero.png'); background-size: cover; background-position: center;">
+            id="hero" style="background-image: url('images/hero.png'); background-size: cover; background-position: center;">
             <div class="absolute inset-0 z-0 backdrop-blur-[4px] bg-primary/50"></div>
             <!-- Abstract Background Pattern -->
             <div class="relative z-10 max-w-container-max mx-auto w-full">
@@ -98,9 +98,9 @@
                         <div class="relative mb-8 inline-block">
                             <img alt="中村 浩樹 Profile"
                                 class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-contain object-bottom shadow-lg bg-white"
-                                src="prf.png" />
+                                src="images/prf.png" />
                             <div class="absolute -bottom-4 -right-4 bg-white p-2 rounded-xl shadow-md">
-                                <img alt="Logo" class="w-8 h-8 object-contain" src="logo.png" />
+                                <img alt="Logo" class="w-8 h-8 object-contain" src="images/logo.png" />
                             </div>
                         </div>
                         <div class="mb-8">
@@ -262,9 +262,9 @@
                         <span
                             class="inline-flex font-label-sm text-label-sm text-[#93000a] font-bold uppercase tracking-[0.2em] mb-5 bg-white/70 px-3 py-1 rounded-full">04
                             / Operation</span>
-                        <h3 class="font-headline-md text-xl md:text-2xl font-bold text-primary mb-4">更新しやすいサイトにしたい</h3>
+                        <h3 class="font-headline-md text-xl md:text-2xl font-bold text-primary mb-4">サイトまわりをまとめて任せたい</h3>
                         <p class="font-body-md text-on-surface-variant leading-relaxed">
-                            納品後の運用も考え、できるだけ管理・更新しやすい構成で制作します。必要に応じて、更新方法のサポートも対応しています。</p>
+                            サーバー・ドメインの取得から公開後の更新、保守、ちょっとした修正までまとめて対応します。専門的な設定や日々の運用をこちらで引き受けることで、本業に集中できる状態をつくります。</p>
                     </article>
                 </div>
                 <div class="mt-10 text-center">
@@ -640,7 +640,7 @@
                         <div class="p-6 flex-grow flex flex-col">
                             <div class="flex items-center gap-2 mb-3">
                                 <span
-                                    class="text-[10px] font-label-sm text-[#4e6c41] font-bold uppercase tracking-wider bg-[#c9edb6]/50 px-2 py-1 rounded-sm">Temple
+                                    class="text-[10px] font-label-sm text-[#4f3b66] font-bold uppercase tracking-wider bg-[#ece5f3] px-2 py-1 rounded-sm">Temple
                                     Site</span>
                             </div>
                             <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
@@ -650,7 +650,8 @@
                                 永代合同墓の安心感と相談導線を前面に出し、検討者が問い合わせしやすい公式サイトを新規制作。</p>
                             <div class="flex flex-wrap gap-2 mt-auto">
                                 <span
-                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span>
+                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span><span
+                                    class="text-xs text-on-surface-variant bg-secondary-container/50 px-2 py-1 rounded-sm">まるごと運用サポート</span>
                             </div>
                         </div>
                     </div>
@@ -672,7 +673,7 @@
                         <div class="p-6 flex-grow flex flex-col">
                             <div class="flex items-center gap-2 mb-3">
                                 <span
-                                    class="text-[10px] font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-2 py-1 rounded-sm">Temple
+                                    class="text-[10px] font-label-sm text-[#4f3b66] font-bold uppercase tracking-wider bg-[#ece5f3] px-2 py-1 rounded-sm">Temple
                                     Site</span>
                             </div>
                             <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
@@ -682,20 +683,21 @@
                                 合同墓・年間行事・寺ヨガ・アクセス情報を整理し、地域の方が相談しやすい公式サイトを新規制作。</p>
                             <div class="flex flex-wrap gap-2 mt-auto">
                                 <span
-                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span>
+                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span><span
+                                    class="text-xs text-on-surface-variant bg-secondary-container/50 px-2 py-1 rounded-sm">まるごと運用サポート</span>
                             </div>
                         </div>
                     </div>
                     <!-- Work Card 5 -->
-                    <div aria-label="Reservation Site の制作実績詳細を開く"
+                    <div aria-label="10GAI 公式サイト の制作実績詳細を開く"
                         class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-5')" onkeydown="handleWorkCardKeydown(event, 'modal-work-5')"
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="Reservation Site Thumbnail"
+                            <img alt="10GAI 公式サイト Thumbnail"
                                 class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
-                                data-alt="店舗サイトの予約導線とメニュー情報を整理したWebページのプレビュー。"
+                                data-alt="会員制グルメイベントのLPを想起させる上質な食事会のプレビュー。"
                                 src="images/works/reservation-site.jpg" />
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
@@ -704,16 +706,15 @@
                         <div class="p-6 flex-grow flex flex-col">
                             <div class="flex items-center gap-2 mb-3">
                                 <span
-                                    class="text-[10px] font-label-sm text-[#633f0f] font-bold uppercase tracking-wider bg-[#f2bc82]/40 px-2 py-1 rounded-sm">Reservation</span>
+                                    class="text-[10px] font-label-sm text-[#633f0f] font-bold uppercase tracking-wider bg-[#f2bc82]/40 px-2 py-1 rounded-sm">Event LP</span>
                             </div>
-                            <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">店舗サイト
-                                予約導線改善</h4>
+                            <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">10GAI<br />公式サイト</h4>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
-                                メニュー・営業情報・予約ボタンを見直し、スマートフォンから迷わず問い合わせできる構成に調整。</p>
+                                会員制グルメイベントの世界観と参加導線を整理した、上質感のあるランディングページ。</p>
                             <div class="flex flex-wrap gap-2 mt-auto">
                                 <span
-                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span>
+                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">LP</span>
                             </div>
                         </div>
                     </div>
@@ -808,7 +809,7 @@
                         <div
                             class="bg-surface-container-lowest p-6 md:py-8 rounded-xl soft-shadow border border-surface-variant relative flex flex-col items-center text-center min-h-[320px]">
                             <div
-                                class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md shrink-0">
+                                class="w-12 h-12 bg-[#455f88] text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md shrink-0">
                                 1</div>
                             <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">ヒアリング</h4>
                             <p
@@ -820,7 +821,7 @@
                         <div
                             class="bg-surface-container-lowest p-6 rounded-xl soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
-                                class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md">
+                                class="w-12 h-12 bg-secondary text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md">
                                 2</div>
                             <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">企画・提案</h4>
                             <p
@@ -832,7 +833,7 @@
                         <div
                             class="bg-surface-container-lowest p-6 rounded-xl soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
-                                class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md">
+                                class="w-12 h-12 bg-[#c6955e] text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md">
                                 3</div>
                             <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">デザイン・開発</h4>
                             <p
@@ -844,7 +845,7 @@
                         <div
                             class="bg-surface-container-lowest p-6 rounded-xl soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
-                                class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md">
+                                class="w-12 h-12 bg-[#ba1a1a] text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md">
                                 4</div>
                             <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">テスト・納品</h4>
                             <p
@@ -946,8 +947,6 @@
             <div class="flex flex-col gap-4">
                 <a class="font-body-md text-body-md hover:text-primary transition-colors opacity-100 hover:opacity-80 text-white"
                     href="privacy-policy.html">Privacy Policy</a>
-                <a class="font-body-md text-body-md hover:text-primary transition-colors opacity-100 hover:opacity-80 text-white"
-                    href="#">Terms of Service</a>
                 <a class="font-body-md text-body-md hover:text-primary transition-colors opacity-100 hover:opacity-80 text-white"
                     href="cookie-policy.html">Cookie Policy</a>
             </div>
@@ -1100,7 +1099,7 @@
                 src="images/works/ganryuji.jpg" />
             <div class="p-6 sm:p-10">
                 <span
-                    class="text-xs font-label-sm text-[#4e6c41] font-bold uppercase tracking-wider bg-[#c9edb6]/50 px-3 py-1 rounded-sm inline-block mb-4">Temple
+                    class="text-xs font-label-sm text-[#4f3b66] font-bold uppercase tracking-wider bg-[#ece5f3] px-3 py-1 rounded-sm inline-block mb-4">Temple
                     Site</span>
                 <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
                     id="modal-work-3-title">元立寺様<br />公式サイト</h2>
@@ -1132,7 +1131,8 @@
                     <div>
                         <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
                         <div class="flex flex-wrap gap-2"><span
-                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span>
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span><span
+                                class="text-xs text-on-surface-variant bg-secondary-container/50 px-2 py-1 rounded-sm">まるごと運用サポート</span>
                         </div>
                     </div>
                 </div>
@@ -1162,7 +1162,7 @@
                 src="images/works/shougakuji.jpg" />
             <div class="p-6 sm:p-10">
                 <span
-                    class="text-xs font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-sm inline-block mb-4">Temple
+                    class="text-xs font-label-sm text-[#4f3b66] font-bold uppercase tracking-wider bg-[#ece5f3] px-3 py-1 rounded-sm inline-block mb-4">Temple
                     Site</span>
                 <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
                     id="modal-work-4-title">正覚寺様<br />公式サイト</h2>
@@ -1194,7 +1194,8 @@
                     <div>
                         <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
                         <div class="flex flex-wrap gap-2"><span
-                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span>
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span><span
+                                class="text-xs text-on-surface-variant bg-secondary-container/50 px-2 py-1 rounded-sm">まるごと運用サポート</span>
                         </div>
                     </div>
                 </div>
@@ -1220,48 +1221,50 @@
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-5')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="Reservation Site detail preview" class="w-full h-56 sm:h-72 object-cover"
+            <img alt="10GAI 公式サイト detail preview" class="w-full h-56 sm:h-72 object-cover"
                 src="images/works/reservation-site.jpg" />
             <div class="p-6 sm:p-10">
                 <span
-                    class="text-xs font-label-sm text-[#633f0f] font-bold uppercase tracking-wider bg-[#f2bc82]/40 px-3 py-1 rounded-sm inline-block mb-4">Reservation</span>
+                    class="text-xs font-label-sm text-[#633f0f] font-bold uppercase tracking-wider bg-[#f2bc82]/40 px-3 py-1 rounded-sm inline-block mb-4">Event LP</span>
                 <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
-                    id="modal-work-5-title">店舗サイト 予約導線改善</h2>
+                    id="modal-work-5-title">10GAI<br />公式サイト</h2>
                 <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
-                    店舗の魅力、メニュー、営業情報、予約導線をスマートフォンで見やすく整理し、問い合わせしやすいサイトへ改善しました。</p>
+                    会員制グルメイベントのコンセプト、開催体験、参加までの流れを整理し、特別感と信頼感が伝わるランディングページとして制作しました。</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
                     <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
-                            予約ボタンや営業情報が分散し、初めて訪れるユーザーが次の行動を取りにくい状態でした。</p>
+                            会員制イベントの魅力や参加価値を、初めて知る人にも短時間で伝えきる必要がありました。</p>
                     </div>
                     <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
-                            ファーストビューと各セクションに予約導線を配置し、メニュー情報と店舗情報を簡潔に整理しました。</p>
+                            コンセプト、体験イメージ、参加メリット、申し込み導線を一連の流れで読めるLP構成にしました。</p>
                     </div>
                     <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
-                            スマートフォンから必要情報を確認しやすくなり、予約・問い合わせまでの迷いを減らしました。</p>
+                            イベントの上質感を保ちながら、興味喚起から問い合わせまで進みやすいページに整えました。</p>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                     <div>
                         <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
-                        <p class="font-body-md text-sm text-on-surface-variant leading-7">導線設計 / スマホUI改善 / WordPress調整 /
-                            表示内容整理</p>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">LP構成 / コピー整理 / UIデザイン /
+                            フロントエンド実装 / 参加導線設計</p>
                     </div>
                     <div>
                         <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
                         <div class="flex flex-wrap gap-2"><span
-                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span>
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">HTML/CSS</span><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">JavaScript</span><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">LP</span>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3"><a
                         class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                        href="#contact" onclick="closeModal('modal-work-5', { restoreFocus: false })">店舗サイト制作を相談する<span
+                        href="#contact" onclick="closeModal('modal-work-5', { restoreFocus: false })">イベントLP制作を相談する<span
                             class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
                         class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         onclick="closeModal('modal-work-5')">閉じる</button></div>
