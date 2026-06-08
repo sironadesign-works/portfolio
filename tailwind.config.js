@@ -1,13 +1,27 @@
 // サイト全体で使う Tailwind の共通デザイントークン。
 // 手動変更: 色・角丸・余白・フォント・文字サイズを全ページまとめて変える場合は、このファイルを変更する。
-tailwind.config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
     // 現在は class="dark" が付いた時だけダークモードを有効にする設定。
     darkMode: "class",
+    content: [
+        "./*.html",
+        "./js/**/*.js"
+    ],
+    safelist: [
+        "cursor-not-allowed",
+        "flex",
+        "hidden",
+        "opacity-70",
+        "overflow-hidden",
+        "text-error",
+        "text-on-surface-variant"
+    ],
     theme: {
         extend: {
             // サイト全体の配色。HTML では bg-primary、text-on-surface などのクラス名で参照する。
             // 手動変更: ブランドカラーを変える場合は primary 系、背景色は surface 系、エラー色は error 系を変更する。
-            "colors": {
+            colors: {
                 "error-container": "#ffdad6",
                 "inverse-surface": "#2f3033",
                 "on-primary": "#ffffff",
@@ -57,26 +71,26 @@ tailwind.config = {
                 "on-secondary-container": "#4e6c41"
             },
             // カード・ボタン・モーダルなどの角丸サイズ。
-            "borderRadius": {
-                "sm": "0.25rem",
-                "DEFAULT": "0.5rem",
-                "md": "0.75rem",
-                "lg": "1.0rem",
-                "xl": "1.5rem",
-                "full": "9999px"
+            borderRadius: {
+                sm: "0.25rem",
+                DEFAULT: "0.5rem",
+                md: "0.75rem",
+                lg: "1.0rem",
+                xl: "1.5rem",
+                full: "9999px"
             },
             // コンテンツ幅、グリッド間隔、セクション上下余白の共通値。
             // 手動変更: ページ全体の余白感を変える場合は section-gap-*、最大幅は container-max を変更する。
-            "spacing": {
+            spacing: {
                 "container-max": "1200px",
                 "grid-gutter": "24px",
                 "section-gap-desktop": "120px",
                 "grid-margin": "24px",
                 "section-gap-mobile": "64px",
-                "base": "8px"
+                base: "8px"
             },
             // 用途別フォント。英字見出しは Manrope、本文と日本語見出しは Noto Sans JP を使用する。
-            "fontFamily": {
+            fontFamily: {
                 "label-sm": ["Manrope"],
                 "display-lg-mobile": ["Manrope"],
                 "body-md": ["Noto Sans JP"],
@@ -86,14 +100,18 @@ tailwind.config = {
             },
             // 用途別の文字サイズ・行間・太さ。
             // 手動変更: 見出しは display-lg / headline-md、本文は body-md / body-lg、補助表示は label-sm を変更する。
-            "fontSize": {
-                "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
-                "body-md": ["16px", { "lineHeight": "1.7", "fontWeight": "400" }],
-                "body-lg": ["18px", { "lineHeight": "1.8", "fontWeight": "400" }],
-                "headline-md": ["24px", { "lineHeight": "1.6", "letterSpacing": "0.05em", "fontWeight": "700" }],
-                "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+            fontSize: {
+                "label-sm": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "600" }],
+                "display-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+                "body-md": ["16px", { lineHeight: "1.7", fontWeight: "400" }],
+                "body-lg": ["18px", { lineHeight: "1.8", fontWeight: "400" }],
+                "headline-md": ["24px", { lineHeight: "1.6", letterSpacing: "0.05em", fontWeight: "700" }],
+                "display-lg": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }]
             }
         }
-    }
+    },
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("@tailwindcss/container-queries")
+    ]
 };
