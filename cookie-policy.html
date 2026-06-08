@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html class="light" lang="ja">
 <head>
+    <!--
+        ページ基本設定: 検索結果の説明は meta description、ブラウザ名は title、アイコンは favicon を変更する。
+        手動変更: CSS・JavaScript 更新後は、末尾の ?v=YYYYMMDD を index.html・privacy-policy.html と同じ値へ更新する。
+    -->
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="Sirona Designで利用するCookie、アクセス解析、Cookieの管理方法について説明するCookieポリシーです。" />
@@ -11,11 +15,14 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <script src="js/tailwind-config.js?v=20260601"></script>
-    <link rel="stylesheet" href="css/style.css?v=20260601" />
+    <script src="js/tailwind-config.js?v=20260608"></script>
+    <link rel="stylesheet" href="css/style.css?v=20260608" />
 </head>
 <body class="bg-surface text-on-surface font-body-md antialiased">
-    <!-- TopNavBar -->
+    <!--
+        共通ヘッダー: ホームページ内の各セクションへ移動する。
+        手動変更: ナビ項目を変える場合は index.html・privacy-policy.html のヘッダーも同じ内容へ更新する。
+    -->
     <header class="bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 shadow-sm">
         <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
             <a class="font-display-lg text-headline-md font-bold text-primary" href="index.html#hero">Sirona Design</a>
@@ -35,6 +42,10 @@
         </div>
     </header>
     <main class="pt-20">
+        <!--
+            Cookieポリシー本文: 導入文、規約5項目、問い合わせ導線、制定日を表示する。
+            手動変更: 各項目は下記 section 内の h2 と本文、制定日は本文末尾の日付を変更する。項目追加時は番号も揃える。
+        -->
         <section class="px-grid-margin py-section-gap-mobile md:py-section-gap-desktop">
             <div class="max-w-3xl mx-auto">
                 <p class="text-sm font-bold uppercase tracking-wider text-primary mb-4">Cookie Policy</p>
@@ -43,10 +54,12 @@
                     Sirona Design（以下、「当サイト」といいます。）は、お客様のウェブサイト利用体験の向上、およびアクセス状況の解析のためにクッキー（Cookie）を使用しています。本ポリシーでは、当サイトが使用するクッキーの種類、利用目的、および設定の管理方法について説明します。
                 </p>
                 <div class="space-y-10">
+                    <!-- 項目1: Cookieの説明。説明内容を更新する場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">1. クッキー（Cookie）とは</h2>
                         <p class="text-on-surface-variant leading-8">クッキーとは、ウェブサイトを訪問した際にお客様のコンピューターやスマートフォンなどのデバイスに保存される小さなテキストファイルです。これにより、ウェブサイトはお客様の行動や好みの設定（ログイン状態、言語設定など）を一定期間記憶することができます。</p>
                     </section>
+                    <!-- 項目2: 利用目的。Cookieの用途が変わった場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">2. クッキーの利用目的</h2>
                         <p class="text-on-surface-variant leading-8 mb-4">当サイトでは、以下の目的でクッキーを使用しています。</p>
@@ -55,6 +68,7 @@
                             <li><strong>アクセス解析とパフォーマンス改善:</strong> 訪問者数や閲覧されたページ、滞在時間などの統計的データを分析し、サイト設計の改善やコンテンツの質向上に役立てるため。</li>
                         </ul>
                     </section>
+                    <!-- 項目3: 使用サービス。解析ツール等を追加・削除した場合に提供者名と説明を変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">3. 当サイトが使用する主なクッキー</h2>
                         <p class="text-on-surface-variant leading-8 mb-4">当サイトでは、主に以下のツールを通じてクッキーを取得・利用しています。</p>
@@ -64,6 +78,7 @@
                             <p class="text-sm text-on-surface-variant leading-7">当サイトではアクセス状況の計測・分析のために Google アナリティクス を利用しています。取得するデータは匿名化されており、個人を特定する情報は含まれません。</p>
                         </div>
                     </section>
+                    <!-- 項目4: Cookie管理方法。ブラウザ別リンクや注意文を変更する場合に更新する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">4. クッキーの管理・無効化方法</h2>
                         <p class="text-on-surface-variant leading-8 mb-4">お客様は、ご利用のウェブブラウザの設定を変更することにより、クッキーの受け入れを拒否したり、保存されたクッキーを削除したりすることができます。主要なブラウザの設定方法は以下のリンクをご参照ください。</p>
@@ -75,6 +90,7 @@
                         </ul>
                         <p class="text-sm text-on-surface-variant leading-7 mt-4">※ クッキーを無効に設定した場合、当サイトの一部機能が正常に動作しない場合がありますので、あらかじめご了承ください。</p>
                     </section>
+                    <!-- 項目5: お問い合わせ。連絡方法を変える場合はリンク先も確認する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">5. お問い合わせ</h2>
                         <p class="text-on-surface-variant leading-8">本ポリシーに関するご質問やご相談は、当サイトのお問い合わせフォームよりご連絡ください。</p>
@@ -88,6 +104,7 @@
             </div>
         </section>
     </main>
+    <!-- 共通フッター: 文章・年・リンク変更時は index.html・privacy-policy.html も同じ内容へ更新する。 -->
     <footer class="py-section-gap-mobile md:py-section-gap-desktop bg-primary-container">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-grid-gutter px-grid-margin max-w-container-max mx-auto">
             <div class="col-span-1 lg:col-span-2">
@@ -110,6 +127,6 @@
             </div>
         </div>
     </footer>
-    <script src="js/main.js?v=20260601" defer></script>
+    <script src="js/main.js?v=20260608" defer></script>
 </body>
 </html>

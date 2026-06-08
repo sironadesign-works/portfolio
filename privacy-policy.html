@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html class="light" lang="ja">
 <head>
+    <!--
+        ページ基本設定: 検索結果の説明は meta description、ブラウザ名は title、アイコンは favicon を変更する。
+        手動変更: CSS・JavaScript 更新後は、末尾の ?v=YYYYMMDD を index.html・cookie-policy.html と同じ値へ更新する。
+    -->
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta name="description" content="Sirona Designにおける個人情報の取り扱い、利用目的、第三者提供、アクセス解析、免責事項などをまとめたプライバシーポリシーです。"/>
@@ -11,10 +15,14 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <script src="js/tailwind-config.js?v=20260601"></script>
-    <link rel="stylesheet" href="css/style.css?v=20260601" />
+    <script src="js/tailwind-config.js?v=20260608"></script>
+    <link rel="stylesheet" href="css/style.css?v=20260608" />
 </head>
 <body class="bg-surface text-on-surface font-body-md antialiased">
+    <!--
+        共通ヘッダー: ホームページ内の各セクションへ移動する。
+        手動変更: ナビ項目を変える場合は index.html・cookie-policy.html のヘッダーも同じ内容へ更新する。
+    -->
     <header class="bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 shadow-sm">
         <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
             <a class="font-display-lg text-headline-md font-bold text-primary" href="index.html#hero">Sirona Design</a>
@@ -34,6 +42,10 @@
         </div>
     </header>
     <main class="pt-20">
+        <!--
+            プライバシーポリシー本文: 導入文、規約9項目、問い合わせ導線、制定日を表示する。
+            手動変更: 各項目は下記 section 内の h2 と本文、制定日は本文末尾の日付を変更する。項目追加時は番号も揃える。
+        -->
         <section class="px-grid-margin py-section-gap-mobile md:py-section-gap-desktop">
             <div class="max-w-3xl mx-auto">
                 <p class="text-sm font-bold uppercase tracking-wider text-primary mb-4">Privacy Policy</p>
@@ -42,38 +54,47 @@
                     Sirona Design（以下、「当サイト」といいます。）は、お問い合わせや制作相談に際して取得する個人情報を、適切に取り扱うため、以下の方針を定めます。
                 </p>
                 <div class="space-y-10">
+                    <!-- 項目1: 取得する情報。取得項目が変わった場合に見出しと本文を変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">1. 取得する情報</h2>
                         <p class="text-on-surface-variant leading-8">当サイトでは、お問い合わせフォームの送信時に、お名前、会社名、メールアドレス、相談内容など、必要な範囲の情報を取得する場合があります。</p>
                     </section>
+                    <!-- 項目2: 利用目的。情報の利用目的が変わった場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">2. 利用目的</h2>
                         <p class="text-on-surface-variant leading-8">取得した情報は、お問い合わせへの回答、制作相談への対応、見積もりや業務連絡、サービス改善のために利用します。</p>
                     </section>
+                    <!-- 項目3: 第三者提供。外部提供の方針が変わった場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">3. 第三者提供</h2>
                         <p class="text-on-surface-variant leading-8">法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供することはありません。</p>
                     </section>
+                    <!-- 項目4: 管理方法。個人情報の管理方法が変わった場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">4. 管理方法</h2>
                         <p class="text-on-surface-variant leading-8">取得した個人情報は、不正アクセス、紛失、改ざん、漏えい等を防ぐため、適切な管理に努めます。</p>
                     </section>
+                    <!-- 項目5: Cookie等の利用。利用状況が変わった場合は cookie-policy.html も確認する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">5. Cookie等の利用</h2>
                         <p class="text-on-surface-variant leading-8">当サイトでは、アクセス解析や表示改善のためにCookie等を利用する場合があります。ブラウザの設定によりCookieを無効にすることも可能です。</p>
                     </section>
+                    <!-- 項目6: 開示・訂正・削除。受付方法や対応方針が変わった場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">6. 開示・訂正・削除</h2>
                         <p class="text-on-surface-variant leading-8">ご本人から個人情報の開示、訂正、利用停止、削除等のご依頼があった場合は、本人確認のうえ、合理的な範囲で対応します。</p>
                     </section>
+                    <!-- 項目7: 免責事項。外部サイト等への責任範囲が変わった場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">7. 免責事項</h2>
                         <p class="text-on-surface-variant leading-8">当サイトからリンクされた外部サイトにおける個人情報の取り扱いについて、当サイトは責任を負いません。</p>
                     </section>
+                    <!-- 項目8: 改定。ポリシー変更時の扱いが変わった場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">8. 改定</h2>
                         <p class="text-on-surface-variant leading-8">本ポリシーの内容は、法令の変更や運営方針に応じて、予告なく変更する場合があります。</p>
                     </section>
+                    <!-- 項目9: お問い合わせ。連絡方法を変える場合はリンク先も確認する。 -->
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">9. お問い合わせ</h2>
                         <p class="text-on-surface-variant leading-8">本ポリシーに関するお問い合わせは、当サイトのお問い合わせフォームよりご連絡ください。</p>
@@ -87,6 +108,7 @@
             </div>
         </section>
     </main>
+    <!-- 共通フッター: 文章・年・リンク変更時は index.html・cookie-policy.html も同じ内容へ更新する。 -->
     <footer class="py-section-gap-mobile md:py-section-gap-desktop bg-primary-container">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-grid-gutter px-grid-margin max-w-container-max mx-auto">
             <div class="col-span-1 lg:col-span-2">
@@ -109,6 +131,6 @@
             </div>
         </div>
     </footer>
-    <script src="js/main.js?v=20260601" defer></script>
+    <script src="js/main.js?v=20260608" defer></script>
 </body>
 </html>

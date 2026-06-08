@@ -1,7 +1,12 @@
+// サイト全体で使う Tailwind の共通デザイントークン。
+// 手動変更: 色・角丸・余白・フォント・文字サイズを全ページまとめて変える場合は、このファイルを変更する。
 tailwind.config = {
+    // 現在は class="dark" が付いた時だけダークモードを有効にする設定。
     darkMode: "class",
     theme: {
         extend: {
+            // サイト全体の配色。HTML では bg-primary、text-on-surface などのクラス名で参照する。
+            // 手動変更: ブランドカラーを変える場合は primary 系、背景色は surface 系、エラー色は error 系を変更する。
             "colors": {
                 "error-container": "#ffdad6",
                 "inverse-surface": "#2f3033",
@@ -51,6 +56,7 @@ tailwind.config = {
                 "on-tertiary-container": "#c6955e",
                 "on-secondary-container": "#4e6c41"
             },
+            // カード・ボタン・モーダルなどの角丸サイズ。
             "borderRadius": {
                 "sm": "0.25rem",
                 "DEFAULT": "0.5rem",
@@ -59,6 +65,8 @@ tailwind.config = {
                 "xl": "1.5rem",
                 "full": "9999px"
             },
+            // コンテンツ幅、グリッド間隔、セクション上下余白の共通値。
+            // 手動変更: ページ全体の余白感を変える場合は section-gap-*、最大幅は container-max を変更する。
             "spacing": {
                 "container-max": "1200px",
                 "grid-gutter": "24px",
@@ -67,6 +75,7 @@ tailwind.config = {
                 "section-gap-mobile": "64px",
                 "base": "8px"
             },
+            // 用途別フォント。英字見出しは Manrope、本文と日本語見出しは Noto Sans JP を使用する。
             "fontFamily": {
                 "label-sm": ["Manrope"],
                 "display-lg-mobile": ["Manrope"],
@@ -75,6 +84,8 @@ tailwind.config = {
                 "headline-md": ["Noto Sans JP"],
                 "display-lg": ["Manrope"]
             },
+            // 用途別の文字サイズ・行間・太さ。
+            // 手動変更: 見出しは display-lg / headline-md、本文は body-md / body-lg、補助表示は label-sm を変更する。
             "fontSize": {
                 "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
                 "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],

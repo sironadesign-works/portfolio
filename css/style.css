@@ -1,19 +1,24 @@
+/* ページ内リンクを滑らかにスクロールする。手動変更: 即時移動へ戻す場合は smooth を auto にする。 */
 html {
     scroll-behavior: smooth;
 }
 
+/* Material Symbols の標準表示。手動変更: 太さは 'wght'、塗りつぶしは 'FILL' を変更する。 */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
+/* fill クラス付きアイコンだけ塗りつぶして表示する。 */
 .material-symbols-outlined.fill {
     font-variation-settings: 'FILL' 1;
 }
 
+/* カードなどで使う共通の薄い影。手動変更: 影の濃さは rgba の最後の値を変更する。 */
 .soft-shadow {
     box-shadow: 0 10px 30px -10px rgba(0, 32, 69, 0.08);
 }
 
+/* hover-lift を付けた要素を、ホバー時に少し持ち上げて影を強める。 */
 .hover-lift {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -23,6 +28,8 @@ html {
     box-shadow: 0 20px 40px -15px rgba(0, 32, 69, 0.12);
 }
 
+/* モバイル幅で開いたナビゲーションを、ヘッダー直下の縦並びメニューにする。
+   手動変更: モバイルメニューの余白・背景・区切り線はこのブロック内を変更する。 */
 @media (max-width: 767px) {
     .mobile-nav:not(.hidden) {
         position: absolute;
@@ -45,6 +52,8 @@ html {
     }
 }
 
+/* JavaScript が reveal を付けた要素の初期状態と表示アニメーション。
+   手動変更: 移動量は translateY、速度は 0.7s、遅延は --reveal-delay を変更する。 */
 .motion-ready .reveal {
     opacity: 0;
     transform: translateY(18px);
@@ -55,15 +64,18 @@ html {
     will-change: opacity, transform;
 }
 
+/* reveal-scale 付きのカードや画像は、少し縮小した状態から表示する。 */
 .motion-ready .reveal-scale {
     transform: translateY(14px) scale(0.98);
 }
 
+/* 画面内へ入った要素を本来の位置・大きさへ戻して表示する。 */
 .motion-ready .reveal.is-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
 
+/* 制作フローの横線を左から右へ伸ばすアニメーション。 */
 .motion-ready .flow-line {
     transform: scaleX(0) translateY(-50%);
     transform-origin: left center;
@@ -74,6 +86,7 @@ html {
     transform: scaleX(1) translateY(-50%);
 }
 
+/* OS で視差効果を減らす設定が有効な場合は、スクロールと表示アニメーションを無効化する。 */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;

@@ -2,6 +2,10 @@
 <html class="light" lang="ja">
 
 <head>
+    <!--
+        ページ基本設定: 検索結果の説明は meta description、ブラウザ名は title、アイコンは favicon を変更する。
+        手動変更: CSS・JavaScript 更新後は、末尾の ?v=YYYYMMDD を更新するとブラウザの古いキャッシュを避けられる。
+    -->
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="Sirona Designは、Web制作、デザイン、コーディング、運用改善、AI活用まで相談できるフリーランスWeb制作パートナーです。" />
@@ -16,12 +20,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <script src="js/tailwind-config.js?v=20260601"></script>
-    <link rel="stylesheet" href="css/style.css?v=20260601" />
+    <script src="js/tailwind-config.js?v=20260608"></script>
+    <link rel="stylesheet" href="css/style.css?v=20260608" />
 </head>
 
 <body class="bg-surface text-on-surface font-body-md antialiased">
-    <!-- TopNavBar -->
+    <!--
+        共通ヘッダー: ロゴ、各セクションへのナビゲーション、Contact ボタン、モバイルメニューボタンを表示する。
+        手動変更: 項目を増減する場合は nav 内のリンクを変更し、移動先セクションの id と href を一致させる。
+    -->
     <header class="bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 shadow-sm">
         <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
             <a class="font-display-lg text-headline-md font-bold text-primary" href="#hero">Sirona Design</a>
@@ -50,12 +57,14 @@
         </div>
     </header>
     <main class="pt-0">
-        <!-- Hero Section -->
+        <!--
+            ヒーロー: 最初に見える背景画像、メインコピー、説明文、主要ボタンを表示する。
+            手動変更: 背景画像は style 内の images/hero.png、文章とボタンリンクはこのセクション内を変更する。
+        -->
         <section
             class="relative min-h-[90vh] flex items-center pt-32 pb-section-gap-mobile md:pb-section-gap-desktop px-grid-margin overflow-hidden bg-surface-container-lowest"
             id="hero" style="background-image: url('images/hero.png'); background-size: cover; background-position: center;">
             <div class="absolute inset-0 z-0 backdrop-blur-[4px] bg-primary/50"></div>
-            <!-- Abstract Background Pattern -->
             <div class="relative z-10 max-w-container-max mx-auto w-full">
                 <div class="max-w-3xl">
                     <div
@@ -89,12 +98,15 @@
                 </div>
             </div>
         </section>
-        <!-- Profile Section -->
+        <!--
+            プロフィール: 写真、氏名、肩書き、紹介文、スキル、大切にしている価値観を表示する。
+            手動変更: 写真は images/prf.png、ロゴは images/logo.png、文章・スキル・価値観カードはこのセクション内を変更する。
+        -->
         <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface-container-lowest"
             id="profile">
             <div class="max-w-container-max mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-                    <!-- Left Column: Personal Info & Bio -->
+                    <!-- プロフィール左側: 写真・基本情報・自己紹介・スキル一覧。 -->
                     <div class="lg:col-span-5">
                         <div class="relative mb-8 inline-block">
                             <img alt="中村 浩樹 Profile"
@@ -143,11 +155,11 @@
                                 class="px-3 py-1 bg-surface-container text-on-surface-variant font-label-sm text-[12px] rounded-full">Gemini</span>
                         </div>
                     </div>
-                    <!-- Right Column: Values -->
+                    <!-- プロフィール右側: 大切にしていること。カードを増減する場合は space-y-6 内を変更する。 -->
                     <div class="lg:col-span-7">
                         <h3 class="font-headline-md text-2xl font-bold text-primary mb-8">大切にしていること</h3>
                         <div class="space-y-6">
-                            <!-- Value Card 1 -->
+                            <!-- 価値観カード1: アイコン、見出し、説明文を変更する。 -->
                             <div
                                 class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-md hover:border-primary/30 transition-colors duration-300">
                                 <div
@@ -161,7 +173,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- Value Card 2 -->
+                            <!-- 価値観カード2: アイコン、見出し、説明文を変更する。 -->
                             <div
                                 class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-md hover:border-primary/30 transition-colors duration-300">
                                 <div
@@ -175,7 +187,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- Value Card 3 -->
+                            <!-- 価値観カード3: アイコン、見出し、説明文を変更する。 -->
                             <div
                                 class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-md hover:border-primary/30 transition-colors duration-300">
                                 <div
@@ -189,7 +201,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- Value Card 4 -->
+                            <!-- 価値観カード4: アイコン、見出し、説明文を変更する。 -->
                             <div
                                 class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-md hover:border-primary/30 transition-colors duration-300">
                                 <div
@@ -208,7 +220,10 @@
                 </div>
             </div>
         </section>
-        <!-- Concerns Section -->
+        <!--
+            お悩み: 相談前によくある課題を4枚のカードで表示する。
+            手動変更: 課題を増減する場合は、このセクション内の article を追加・削除し、番号・見出し・説明文を変更する。
+        -->
         <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface-container-low"
             id="concerns">
             <div class="max-w-container-max mx-auto">
@@ -274,7 +289,10 @@
                 </div>
             </div>
         </section>
-        <!-- Services Section -->
+        <!--
+            サービス: 対応可能な制作内容をカード一覧で表示する。
+            手動変更: 各サービスはカード内の Material Symbols 名、h3、説明文を変更する。カード数の変更時はグリッド列数も確認する。
+        -->
         <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface-container-low"
             id="services">
             <div class="max-w-container-max mx-auto">
@@ -284,7 +302,7 @@
                     <h2 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-primary-container">提供サービス
                     </h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><!-- Service Card 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><!-- サービスカード1: アイコン・名称・説明文を変更する。 -->
                     <div
                         class="bg-surface-container-lowest p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
                         <div
@@ -297,7 +315,7 @@
                             ただ綺麗なだけではなく、目的やターゲットに合わせた“伝わるデザイン”を大切にしています。
                             お客様の想いや世界観に寄り添いながら、使いやすさと成果につながるサイトを丁寧に制作します。</p>
                     </div>
-                    <!-- Service Card 2 -->
+                    <!-- サービスカード2: アイコン・名称・説明文を変更する。 -->
                     <div
                         class="bg-surface p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
                         <div
@@ -310,7 +328,7 @@
                             デザインの再現性だけでなく、更新のしやすさや扱いやすさも意識してコーディングしています。
                             スマートフォン対応や表示の快適さにも配慮し、安心して運用できるサイトを制作します。</p>
                     </div>
-                    <!-- Service Card 3 -->
+                    <!-- サービスカード3: アイコン・名称・説明文を変更する。 -->
                     <div
                         class="bg-surface-container-lowest p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
                         <div
@@ -323,7 +341,7 @@
                             WordPressやShopifyを使ったサイト制作・ECサイト構築に対応しています。
                             更新のしやすさにも配慮しながら、運用しやすい環境を整えます。</p>
                     </div>
-                    <!-- Service Card 4 -->
+                    <!-- サービスカード4: アイコン・名称・説明文を変更する。 -->
                     <div
                         class="bg-surface p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
                         <div
@@ -336,7 +354,7 @@
                             サービスや商品の魅力が伝わるLPを、構成や導線設計から丁寧に制作します。
                             見やすさや使いやすさにも配慮し、目的につながるページを目指します。</p>
                     </div>
-                    <!-- Service Card 5 -->
+                    <!-- サービスカード5: アイコン・名称・説明文を変更する。 -->
                     <div
                         class="bg-surface p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
                         <div
@@ -349,7 +367,7 @@
                             Webサイトやサービス内容に合わせて、記事作成や編集を行っています。
                             読みやすさや情報整理を意識しながら、AIも活用して効率よく制作を進めています。</p>
                     </div>
-                    <!-- Service Card 6 -->
+                    <!-- サービスカード6: アイコン・名称・説明文を変更する。 -->
                     <div
                         class="bg-surface-container-lowest p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
                         <div
@@ -362,7 +380,7 @@
                             Webサイトの雰囲気や内容に合わせて、写真撮影にも対応しています。
                             お店や人物、空間の空気感が伝わるよう、サイト全体との統一感を意識して撮影します。</p>
                     </div>
-                    <!-- Service Card 7 -->
+                    <!-- サービスカード7: アイコン・名称・説明文を変更する。 -->
                     <div
                         class="bg-surface p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
                         <div
@@ -375,7 +393,7 @@
                             「これちょっと不便だな」を解消する、小さな業務ツール制作にも対応しています。
                             現場の流れに合わせながら、使いやすい“隙間アプリ”を形にします。</p>
                     </div>
-                    <!-- Service Card 8 -->
+                    <!-- サービスカード8: アイコン・名称・説明文を変更する。 -->
                     <div
                         class="bg-surface-container-lowest p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
                         <div
@@ -391,7 +409,10 @@
                 </div>
             </div>
         </section>
-        <!-- AI Integration Section -->
+        <!--
+            AI活用: AIを取り入れる利点、運用方針、使用ツールを表示する。
+            手動変更: 上段の効果カード、左下の説明・箇条書き、右下のツール一覧をそれぞれ変更する。
+        -->
         <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface-container-lowest"
             id="ai">
             <div class="max-w-container-max mx-auto">
@@ -412,7 +433,7 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-                    <!-- Card 1 -->
+                    <!-- AI効果カード1: アイコン・見出し・補足・説明文を変更する。 -->
                     <div class="bg-[#f0f7ff] p-8 rounded-md flex flex-col">
                         <div class="flex items-center gap-4 mb-4">
                             <div
@@ -427,7 +448,7 @@
                         <p class="font-body-md text-on-surface-variant text-sm mt-2">
                             AI補完で定型コードを自動生成。実装時間を大幅に短縮し、本質的な課題解決に注力します。</p>
                     </div>
-                    <!-- Card 2 -->
+                    <!-- AI効果カード2: アイコン・見出し・補足・説明文を変更する。 -->
                     <div class="bg-[#f0f7ff] p-8 rounded-md flex flex-col">
                         <div class="flex items-center gap-4 mb-4">
                             <div
@@ -442,7 +463,7 @@
                         <p class="font-body-md text-on-surface-variant text-sm mt-2">
                             AIレビューで潜在バグを早期発見。テストカバレッジも向上し、堅牢なシステムを構築します。</p>
                     </div>
-                    <!-- Card 3 -->
+                    <!-- AI効果カード3: アイコン・見出し・補足・説明文を変更する。 -->
                     <div class="bg-[#f0f7ff] p-8 rounded-md flex flex-col">
                         <div class="flex items-center gap-4 mb-4">
                             <div
@@ -492,7 +513,7 @@
                     <div>
                         <h3 class="font-headline-md text-2xl font-bold text-on-surface mb-6">主に活用しているAIツール</h3>
                         <div class="space-y-4">
-                            <!-- Tool 1 -->
+                            <!-- AIツール1: アイコン・ツール名・用途を変更する。 -->
                             <div
                                 class="border border-surface-variant rounded-md p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
                                 <div
@@ -504,7 +525,7 @@
                                     <p class="font-body-md text-on-surface-variant text-sm mt-1">仕様策定・ドキュメント作成</p>
                                 </div>
                             </div>
-                            <!-- Tool 2 -->
+                            <!-- AIツール2: アイコン・ツール名・用途を変更する。 -->
                             <div
                                 class="border border-surface-variant rounded-md p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
                                 <div
@@ -517,7 +538,7 @@
                                         UIデザイン生成・ワイヤーフレーム作成・プロトタイプ制作</p>
                                 </div>
                             </div>
-                            <!-- Tool 4 -->
+                            <!-- AIツール3: アイコン・ツール名・用途を変更する。 -->
                             <div
                                 class="border border-surface-variant rounded-md p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
                                 <div
@@ -529,7 +550,7 @@
                                     <p class="font-body-md text-on-surface-variant text-sm mt-1">長文分析・要件整理・テスト設計</p>
                                 </div>
                             </div>
-                            <!-- Tool 5 -->
+                            <!-- AIツール4: アイコン・ツール名・用途を変更する。 -->
                             <div
                                 class="border border-surface-variant rounded-md p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
                                 <div
@@ -547,7 +568,10 @@
                 </div>
             </div>
         </section>
-        <!-- Works Section -->
+        <!--
+            制作実績: 一覧カードを表示し、クリックまたはキーボード操作で対応する詳細モーダルを開く。
+            手動変更: 実績を変更する場合は、一覧カードとページ末尾の同じ modal-work-* の両方を更新する。
+        -->
         <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface-container-lowest"
             id="works">
             <div class="max-w-container-max mx-auto">
@@ -557,10 +581,8 @@
                     <h2 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-primary-container">制作実績</h2>
                 </div>
                 <!--
-                    Manual update guide: Works cards and modals are edited in separate places.
-                    When changing a work item, update both the card below and the matching modal near "Modals for Works".
-
-                    Card order / modal mapping:
+                    手動変更チェック: タイトル、画像、概要、ラベル、モーダル導入文、詳細3列、タグ、CTAを確認する。
+                    カードとモーダルの対応:
                     1. アーリーホーム株式会社 -> modal-work-1
                     2. ごちそうさん -> modal-work-2
                     3. 元立寺 -> modal-work-3
@@ -569,7 +591,7 @@
                     6. サブカルDJパーティカレンダー -> modal-work-4
                 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Work Card 1 -->
+                    <!-- 実績カード1: アーリーホーム株式会社。内容変更時は modal-work-1 も更新する。 -->
                     <div aria-label="Corporate Site の制作実績詳細を開く"
                         class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-1')" onkeydown="handleWorkCardKeydown(event, 'modal-work-1')"
@@ -598,7 +620,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Work Card 2 -->
+                    <!-- 実績カード2: ごちそうさん。内容変更時は modal-work-2 も更新する。 -->
                     <div aria-label="ごちそうさん の制作実績詳細を開く"
                         class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-2')" onkeydown="handleWorkCardKeydown(event, 'modal-work-2')"
@@ -626,7 +648,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Work Card 3 -->
+                    <!-- 実績カード3: 元立寺。内容変更時は modal-work-3 も更新する。 -->
                     <div aria-label="元立寺 の制作実績詳細を開く"
                         class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-3')" onkeydown="handleWorkCardKeydown(event, 'modal-work-3')"
@@ -656,7 +678,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Work Card 4 -->
+                    <!-- 実績カード4: 10GAI 公式サイト。内容変更時は modal-work-5 も更新する。 -->
                     <div aria-label="10GAI 公式サイト の制作実績詳細を開く"
                         class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-5')" onkeydown="handleWorkCardKeydown(event, 'modal-work-5')"
@@ -685,7 +707,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Work Card 5 -->
+                    <!-- 実績カード5: 大阪ガス フリーアドレス座席表。内容変更時は modal-work-6 も更新する。 -->
                     <div aria-label="大阪ガス様 フリーアドレス座席表アプリ の制作実績詳細を開く"
                         class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-6')" onkeydown="handleWorkCardKeydown(event, 'modal-work-6')"
@@ -718,7 +740,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Work Card 6 -->
+                    <!-- 実績カード6: サブカルDJパーティカレンダー。内容変更時は modal-work-4 も更新する。 -->
                     <div aria-label="サブカルDJパーティカレンダー の制作実績詳細を開く"
                         class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-4')" onkeydown="handleWorkCardKeydown(event, 'modal-work-4')"
@@ -751,7 +773,10 @@
                 </div>
             </div>
         </section>
-        <!-- Mini-App Section -->
+        <!--
+            ミニアプリ: 制作できる小規模業務ツールの例を表示する。
+            手動変更: 各カードのアイコン、見出し、説明文を変更する。カード追加時はグリッド列数も確認する。
+        -->
         <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface-container-low"
             id="app">
             <div class="max-w-container-max mx-auto">
@@ -785,7 +810,10 @@
                 </div>
             </div>
         </section>
-        <!-- Flow Section -->
+        <!--
+            制作フロー: 相談から納品までの手順を4段階で表示する。
+            手動変更: 手順を変える場合は各 Step の番号・見出し・説明文を変更する。横線の演出は js/main.js と css/style.css が担当する。
+        -->
         <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface" id="flow">
             <div class="max-w-container-max mx-auto">
                 <div class="text-center mb-16">
@@ -799,7 +827,7 @@
                         class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-surface-variant -translate-y-1/2 z-0">
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10 items-stretch">
-                        <!-- Step 1 -->
+                        <!-- 制作フロー1: 番号・見出し・説明文を変更する。 -->
                         <div
                             class="bg-surface-container-lowest p-6 rounded-md soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
@@ -811,7 +839,7 @@
                                 まずはお客様の想いや目的、現在のお悩み、ご希望の機能やデザイン、ご予算などを丁寧にお伺いします。<br />「どんなサイトにしたいか」がまだ明確でない場合でも、一緒に整理しながら方向性を固めていきますので、安心してご相談ください。
                             </p>
                         </div>
-                        <!-- Step 2 -->
+                        <!-- 制作フロー2: 番号・見出し・説明文を変更する。 -->
                         <div
                             class="bg-surface-container-lowest p-6 rounded-md soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
@@ -823,7 +851,7 @@
                                 サイトの目的やターゲット層をもとに、ページ構成や導線設計、デザインの方向性をご提案いたします。<br />また、AIを活用した業務効率化やコンテンツ改善、問い合わせ導線の最適化など、目的達成につながるアイデアも含めて、実用性の高いプランをご提案します。
                             </p>
                         </div>
-                        <!-- Step 3 -->
+                        <!-- 制作フロー3: 番号・見出し・説明文を変更する。 -->
                         <div
                             class="bg-surface-container-lowest p-6 rounded-md soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
@@ -835,7 +863,7 @@
                                 デザインイメージや構成をご確認いただきながら、サイト制作を進めていきます。<br />プロトタイプや制作途中の画面をご共有し、認識のズレがないよう調整を重ねながら、デザイン制作からコーディングまで丁寧に対応いたします。
                             </p>
                         </div>
-                        <!-- Step 4 -->
+                        <!-- 制作フロー4: 番号・見出し・説明文を変更する。 -->
                         <div
                             class="bg-surface-container-lowest p-6 rounded-md soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
@@ -851,7 +879,10 @@
                 </div>
             </div>
         </section>
-        <!-- Contact Section -->
+        <!--
+            お問い合わせ: 入力内容を Formspree へ送信するフォーム。
+            手動変更: 送信先は form の action、入力項目は label/input/select/textarea、送信結果文言は js/main.js を変更する。
+        -->
         <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface-container-low"
             id="contact">
             <div class="max-w-2xl mx-auto">
@@ -927,10 +958,9 @@
             </div>
         </section>
     </main>
-    <!-- Footer -->
     <!--
-        Manual update guide: This footer copy is duplicated in privacy-policy.html and cookie-policy.html.
-        If the tagline, copyright, or policy links change, update those pages too.
+        共通フッター: ブランド説明、コピーライト、ポリシーリンク、Contact リンクを表示する。
+        手動変更: 同じ内容が privacy-policy.html と cookie-policy.html にもあるため、文章・年・リンクを変更する場合は3ページすべて更新する。
     -->
     <footer class="py-section-gap-mobile md:py-section-gap-desktop bg-primary-container">
         <div
@@ -958,14 +988,12 @@
                 </a>
             </div>
         </div>
-        <script src="js/main.js?v=20260601" defer></script>
+        <script src="js/main.js?v=20260608" defer></script>
     </footer>
-    <!-- Modals for Works -->
     <!--
-        Manual update guide: These modals provide the detail view for the Works cards above.
-        Keep each modal's title, image, tags, lead text, and CTA consistent with its matching card.
-
-        Modal mapping:
+        制作実績モーダル: Works カードを選択した時に詳細を表示する。
+        手動変更: タイトル、画像、タグ、導入文、詳細3列、進行状況、CTAを対応する一覧カードと一致させる。
+        モーダル対応:
         modal-work-1 -> アーリーホーム株式会社
         modal-work-2 -> ごちそうさん
         modal-work-3 -> 元立寺
@@ -973,6 +1001,7 @@
         modal-work-5 -> 10GAI 公式サイト
         modal-work-6 -> 大阪ガス フリーアドレス座席表
     -->
+    <!-- modal-work-1: アーリーホーム株式会社 -->
     <div aria-hidden="true" aria-labelledby="modal-work-1-title" aria-modal="true"
         class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-1" role="dialog">
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
@@ -1036,6 +1065,7 @@
         </div>
     </div>
 
+    <!-- modal-work-2: ごちそうさん -->
     <div aria-hidden="true" aria-labelledby="modal-work-2-title" aria-modal="true"
         class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-2" role="dialog">
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
@@ -1096,6 +1126,7 @@
         </div>
     </div>
 
+    <!-- modal-work-3: 元立寺 -->
     <div aria-hidden="true" aria-labelledby="modal-work-3-title" aria-modal="true"
         class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-3" role="dialog">
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
@@ -1158,6 +1189,7 @@
         </div>
     </div>
 
+    <!-- modal-work-4: サブカルDJパーティカレンダー -->
     <div aria-hidden="true" aria-labelledby="modal-work-4-title" aria-modal="true"
         class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-4" role="dialog">
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
@@ -1188,7 +1220,7 @@
                             カレンダー表示を軸に、ジャンル、開催エリア、イベント詳細を整理し、気になる予定へすぐ進めるUIにしました。</p>
                     </div>
                     <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
-                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">進行状況</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             現在は公開に向けて、サブカルイベントを横断して探せる入口として使いやすくなるよう、掲載情報や導線を整えています。</p>
                     </div>
@@ -1218,6 +1250,7 @@
         </div>
     </div>
 
+    <!-- modal-work-5: 10GAI 公式サイト -->
     <div aria-hidden="true" aria-labelledby="modal-work-5-title" aria-modal="true"
         class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-5" role="dialog">
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
@@ -1234,7 +1267,7 @@
                 <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
                     id="modal-work-5-title">10GAI<br />公式サイト</h2>
                 <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
-                    天満・天神界隈の個人店を応援し、常連の輪を広げるグルメガイドブック「10GAI」のサポーター会員募集LPを制作しました。冊子、カード特典、加盟25店舗、街への想いを一つの流れで伝え、購入・問い合わせへ進みやすい構成にしています。</p>
+                    天満・天神界隈の個人店を応援し、常連の輪を広げるグルメガイドブック「10GAI」のサポーター会員募集LPを現在制作しています。冊子、カード特典、加盟25店舗、街への想いを一つの流れで伝え、購入・問い合わせへ進みやすい構成を整えています。</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
                     <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
@@ -1244,10 +1277,10 @@
                     <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
-                            夜の飲食街の空気感を入口に、会員特典、25店舗の紹介、冊子の魅力、購入方法まで順に理解できるLP構成にしました。</p>
+                            夜の飲食街の空気感を入口に、会員特典、25店舗の紹介、冊子の魅力、購入方法まで順に理解できるLP構成を整えています。</p>
                     </div>
                     <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
-                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">進行状況</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             現在は公開に向けて、10GAIの世界観やサポーター参加のメリットが伝わるよう、情報設計と申し込み導線を整えています。</p>
                     </div>
@@ -1278,6 +1311,7 @@
         </div>
     </div>
 
+    <!-- modal-work-6: 大阪ガス フリーアドレス座席表 -->
     <div aria-hidden="true" aria-labelledby="modal-work-6-title" aria-modal="true"
         class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-6" role="dialog">
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
