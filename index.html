@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html class="light" lang="ja">
 
 <head>
@@ -65,7 +66,7 @@
                     </div>
                     <h1
                         class="font-display-lg text-[40px] md:text-[56px] lg:text-[64px] leading-[1.1] mb-8 text-white drop-shadow-md">
-                        <span>WEBまわり、</span><br /><span>まとめて相談できます。</span>
+                        <span>Webまわり、</span><br /><span>まとめて相談できます。</span>
                     </h1>
                     <p
                         class="font-body-lg text-body-lg md:text-xl mb-12 leading-relaxed max-w-2xl text-white/90 drop-shadow-sm">
@@ -74,7 +75,7 @@
                     <div class="flex flex-wrap gap-6 items-center">
                         <a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm px-10 py-5 rounded-DEFAULT hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:bg-primary-container active:scale-95 shadow-lg group text-body-md"
                             href="#contact">
-                            WEBまわりの相談をする
+                            Webまわりの相談をする
                             <span
                                 class="material-symbols-outlined ml-2 text-xl group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
                         </a>
@@ -558,6 +559,18 @@
                     </h2>
                     <h3 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d]">制作実績</h3>
                 </div>
+                <!--
+                    Manual update guide: Works cards and modals are edited in separate places.
+                    When changing a work item, update both the card below and the matching modal near "Modals for Works".
+
+                    Card order / modal mapping:
+                    1. アーリーホーム株式会社 -> modal-work-1
+                    2. ごちそうさん -> modal-work-2
+                    3. 元立寺 -> modal-work-3
+                    4. 10GAI 公式サイト -> modal-work-5
+                    5. 大阪ガス フリーアドレス座席表 -> modal-work-6
+                    6. サブカルDJパーティカレンダー -> modal-work-4
+                -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Work Card 1 -->
                     <div aria-label="Corporate Site の制作実績詳細を開く"
@@ -688,39 +701,6 @@
                         </div>
                     </div>
                     <!-- Work Card 5 -->
-                    <div aria-label="サブカルDJパーティカレンダー の制作実績詳細を開く"
-                        class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
-                        onclick="openModal('modal-work-4')" onkeydown="handleWorkCardKeydown(event, 'modal-work-4')"
-                        role="button" tabindex="0">
-                        <div
-                            class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="サブカルDJパーティカレンダー Thumbnail"
-                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
-                                data-alt="空いている日に開催されるサブカル系DJイベントを一覧できるカレンダーアプリのプレビュー。"
-                                src="images/works/reservation-site.jpg" />
-                            <div
-                                class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
-                            </div>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span
-                                    class="text-[10px] font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-2 py-1 rounded-sm">Web
-                                    App</span>
-                            </div>
-                            <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
-                                サブカルDJパーティ<br />カレンダー</h4>
-                            <p
-                                class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
-                                イベント慣れした人が、空いている日にどこでどんなDJパーティがあるか一目で確認できるカレンダー。</p>
-                            <div class="flex flex-wrap gap-2 mt-auto">
-                                <span
-                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">Web App</span><span
-                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">カレンダー</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Work Card 6 -->
                     <div aria-label="大阪ガス様 フリーアドレス座席表アプリ の制作実績詳細を開く"
                         class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-6')" onkeydown="handleWorkCardKeydown(event, 'modal-work-6')"
@@ -753,6 +733,39 @@
                                     class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">CSS</span>
                                 <span
                                     class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Work Card 6 -->
+                    <div aria-label="サブカルDJパーティカレンダー の制作実績詳細を開く"
+                        class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
+                        onclick="openModal('modal-work-4')" onkeydown="handleWorkCardKeydown(event, 'modal-work-4')"
+                        role="button" tabindex="0">
+                        <div
+                            class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
+                            <img alt="サブカルDJパーティカレンダー Thumbnail"
+                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
+                                data-alt="空いている日に開催されるサブカル系DJイベントを一覧できるカレンダーアプリのプレビュー。"
+                                src="images/works/subculture-dj-party-calendar.jpeg" />
+                            <div
+                                class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span
+                                    class="text-[10px] font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-2 py-1 rounded-sm">Web
+                                    App</span>
+                            </div>
+                            <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
+                                サブカルDJパーティ<br />カレンダー</h4>
+                            <p
+                                class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
+                                現在進行中。イベント慣れした人が、空いている日にどこでどんなDJパーティがあるか一目で確認できるカレンダー。</p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span
+                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">Web App</span><span
+                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">カレンダー</span>
                             </div>
                         </div>
                     </div>
@@ -869,7 +882,7 @@
                     <h3 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d] mb-6">
                         お問い合わせ</h3>
                     <p class="font-body-md text-body-md text-on-surface-variant">「まず何から始めればいい？」という段階からでも大丈夫です。<br>
-                        WEBまわりのことを、気軽にご相談ください。</p>
+                        Webまわりのことを、気軽にご相談ください。</p>
                 </div>
                 <form
                     class="bg-surface-container-lowest p-8 rounded-xl soft-shadow border border-surface-variant space-y-6"
@@ -934,6 +947,10 @@
         </section>
     </main>
     <!-- Footer -->
+    <!--
+        Manual update guide: This footer copy is duplicated in privacy-policy.html and cookie-policy.html.
+        If the tagline, copyright, or policy links change, update those pages too.
+    -->
     <footer class="py-section-gap-mobile md:py-section-gap-desktop bg-primary-container">
         <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-grid-gutter px-grid-margin max-w-container-max mx-auto">
@@ -942,7 +959,7 @@
                     Design</a>
                 <p class="font-body-md text-body-md mb-6 max-w-sm text-white/80">
                     伝わるデザインと小さな業務改善を。<br />
-                    AI活用 × 実務経験で、使われるWEB制作を。
+                    AI活用 × 実務経験で、使われるWeb制作を。
                 </p>
                 <p class="font-label-sm text-label-sm text-white/60">© 2026 Sirona Design</p>
             </div>
@@ -963,6 +980,18 @@
         <script src="js/main.js" defer></script>
     </footer>
     <!-- Modals for Works -->
+    <!--
+        Manual update guide: These modals provide the detail view for the Works cards above.
+        Keep each modal's title, image, tags, lead text, and CTA consistent with its matching card.
+
+        Modal mapping:
+        modal-work-1 -> アーリーホーム株式会社
+        modal-work-2 -> ごちそうさん
+        modal-work-3 -> 元立寺
+        modal-work-4 -> サブカルDJパーティカレンダー
+        modal-work-5 -> 10GAI 公式サイト
+        modal-work-6 -> 大阪ガス フリーアドレス座席表
+    -->
     <div aria-hidden="true" aria-labelledby="modal-work-1-title" aria-modal="true"
         class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-1" role="dialog">
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
@@ -1161,7 +1190,7 @@
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-4')"><span class="material-symbols-outlined">close</span></button>
             <img alt="サブカルDJパーティカレンダー detail preview" class="w-full h-56 sm:h-72 object-cover"
-                src="images/works/reservation-site.jpg" />
+                src="images/works/subculture-dj-party-calendar.jpeg" />
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-3 py-1 rounded-sm inline-block mb-4">Web
@@ -1169,7 +1198,7 @@
                 <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
                     id="modal-work-4-title">サブカルDJパーティ<br />カレンダー</h2>
                 <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
-                    主にサブカル系DJパーティの開催情報を、日付・ジャンル・エリアごとに探せるイベントカレンダーとして整理しました。空いている日にどこでどんなパーティがあるのかを、イベントに慣れたユーザーでも素早く見比べられるよう、一覧性と探しやすさを意識して設計しています。</p>
+                    主にサブカル系DJパーティの開催情報を、日付・ジャンル・エリアごとに探せるイベントカレンダーとして整理しました。空いている日にどこでどんなパーティがあるのかを、イベントに慣れたユーザーでもスマホから素早く見比べられるよう、一覧性と探しやすさを重視して設計しています。</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
                     <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
@@ -1184,7 +1213,7 @@
                     <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
-                            サブカルイベントを横断して探せる入口をつくり、参加者と主催者の接点を増やすサービスとして形にしました。</p>
+                            現在は公開に向けて、サブカルイベントを横断して探せる入口として使いやすくなるよう、掲載情報や導線を整えています。</p>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
@@ -1244,7 +1273,7 @@
                     <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
-                            10GAIの世界観と参加メリットを整理し、街の個人店を応援するサポーター募集ページとして公開できる状態に整えました。</p>
+                            現在は公開に向けて、10GAIの世界観やサポーター参加のメリットが伝わるよう、情報設計と申し込み導線を整えています。</p>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">

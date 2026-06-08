@@ -206,7 +206,7 @@ window.handleWorkCardKeydown = handleWorkCardKeydown;
 
 const contactForm = document.getElementById("contact-form");
 const contactFormStatus = document.getElementById("contact-form-status");
-const contactEmail = "your-email@example.com";
+const contactEmail = "info@sironadesign.net";
 
 if (contactForm) {
     contactForm.addEventListener("submit", (event) => {
@@ -226,7 +226,7 @@ if (contactForm) {
         const message = formData.get("message") || document.getElementById("message")?.value || "";
 
         if (contactEmail === "your-email@example.com") {
-            contactFormStatus.textContent = "送信先メールアドレスを設定してください。index.html の contactEmail をあなたのメールアドレスに変更します。";
+            contactFormStatus.textContent = "送信先メールアドレスを設定してください。js/main.js の contactEmail をあなたのメールアドレスに変更します。";
             contactFormStatus.classList.remove("hidden");
             contactFormStatus.classList.add("text-error");
             return;
