@@ -886,7 +886,7 @@
                 </div>
                 <form
                     class="bg-surface-container-lowest p-8 rounded-xl soft-shadow border border-surface-variant space-y-6"
-                    id="contact-form">
+                    id="contact-form" action="https://formspree.io/f/mbdeoowz" method="POST">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block font-label-sm text-label-sm text-on-surface mb-2" for="name">お名前 <span
@@ -934,6 +934,7 @@
                     <div class="text-center pt-4">
                         <button
                             class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-DEFAULT hover:-translate-y-1 hover:shadow-lg transition-all duration-300 w-full md:w-auto hover:bg-primary-container active:scale-95 shadow-md hover:shadow-xl transition-all duration-300"
+                            id="contact-form-submit"
                             onmousedown="this.classList.add('opacity-80')"
                             onmouseup="this.classList.remove('opacity-80')" type="submit">
                             メッセージを送信する

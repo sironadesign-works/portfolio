@@ -206,10 +206,10 @@ window.handleWorkCardKeydown = handleWorkCardKeydown;
 
 const contactForm = document.getElementById("contact-form");
 const contactFormStatus = document.getElementById("contact-form-status");
-const contactEmail = "info@sironadesign.net";
+const contactFormSubmit = document.getElementById("contact-form-submit");
 
 if (contactForm) {
-    contactForm.addEventListener("submit", (event) => {
+    contactForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         if (!contactForm.checkValidity()) {
@@ -217,38 +217,41 @@ if (contactForm) {
             return;
         }
 
+        const endpoint = contactForm.getAttribute("action");
         const formData = new FormData(contactForm);
-        const name = formData.get("name") || document.getElementById("name")?.value || "";
-        const company = formData.get("company") || document.getElementById("company")?.value || "";
-        const email = formData.get("email") || document.getElementById("email")?.value || "";
-        const typeSelect = document.getElementById("type");
-        const type = typeSelect?.selectedOptions[0]?.textContent || "";
-        const message = formData.get("message") || document.getElementById("message")?.value || "";
 
-        if (contactEmail === "your-email@example.com") {
-            contactFormStatus.textContent = "送信先メールアドレスを設定してください。js/main.js の contactEmail をあなたのメールアドレスに変更します。";
-            contactFormStatus.classList.remove("hidden");
-            contactFormStatus.classList.add("text-error");
-            return;
+        contactFormStatus.textContent = "送信しています...";
+        contactFormStatus.classList.remove("hidden", "text-error");
+        contactFormStatus.classList.add("text-on-surface-variant");
+        if (contactFormSubmit) {
+            contactFormSubmit.disabled = true;
+            contactFormSubmit.classList.add("opacity-70", "cursor-not-allowed");
         }
 
-        const subject = `お問い合わせ: ${name}`;
-        const body = [
-            "Webサイトからお問い合わせがありました。",
-            "",
-            `お名前: ${name}`,
-            `会社名: ${company || "未入力"}`,
-            `メールアドレス: ${email}`,
-            `相談内容: ${type || "未選択"}`,
-            "",
-            "メッセージ:",
-            message
-        ].join("\n");
+        try {
+            const response = await fetch(endpoint, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
 
-        const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoUrl;
+            if (!response.ok) {
+                throw new Error("Form submission failed");
+            }
 
-        contactFormStatus.textContent = "メールアプリを開きました。内容を確認して送信してください。";
-        contactFormStatus.classList.remove("hidden", "text-error");
+            contactForm.reset();
+            contactFormStatus.textContent = "送信ありがとうございました。内容を確認のうえ、折り返しご連絡します。";
+            contactFormStatus.classList.remove("text-error");
+        } catch (error) {
+            contactFormStatus.textContent = "送信できませんでした。時間をおいて再度お試しください。";
+            contactFormStatus.classList.add("text-error");
+        } finally {
+            if (contactFormSubmit) {
+                contactFormSubmit.disabled = false;
+                contactFormSubmit.classList.remove("opacity-70", "cursor-not-allowed");
+            }
+        }
     });
 }
