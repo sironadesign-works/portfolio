@@ -11,12 +11,12 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <script src="js/tailwind-config.js"></script>
+    <script src="js/tailwind-config.js?v=20260601"></script>
     <link rel="stylesheet" href="css/style.css?v=20260601" />
 </head>
 <body class="bg-surface text-on-surface font-body-md antialiased">
     <!-- TopNavBar -->
-    <header class="bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 bg-surface shadow-sm">
+    <header class="bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 shadow-sm">
         <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
             <a class="font-display-lg text-headline-md font-bold text-primary" href="index.html#hero">Sirona Design</a>
             <nav class="mobile-nav hidden md:flex items-center gap-8" id="mobile-menu">
@@ -28,7 +28,7 @@
                 <a class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-all duration-300 active:scale-95 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="index.html#app">App</a>
                 <a class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-all duration-300 active:scale-95 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="index.html#flow">Flow</a>
             </nav>
-            <a class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:opacity-90 transition-all duration-300 active:scale-95" href="index.html#contact">Contact</a>
+            <a class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:opacity-90 transition-all duration-300 active:scale-95" href="index.html#contact">Contact</a>
             <button aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く" class="md:hidden text-primary p-2" data-mobile-menu-toggle type="button">
                 <span aria-hidden="true" class="material-symbols-outlined text-2xl">menu</span>
             </button>
@@ -58,7 +58,7 @@
                     <section class="border-t border-outline-variant pt-8">
                         <h2 class="text-xl font-bold text-on-surface mb-4">3. 当サイトが使用する主なクッキー</h2>
                         <p class="text-on-surface-variant leading-8 mb-4">当サイトでは、主に以下のツールを通じてクッキーを取得・利用しています。</p>
-                        <div class="bg-surface-container rounded-xl p-6 border border-surface-variant">
+                        <div class="bg-surface-container rounded-md p-6 border border-surface-variant">
                             <h3 class="font-bold text-primary mb-2">Google アナリティクス</h3>
                             <p class="text-sm text-on-surface-variant leading-7 mb-3">提供者: Google Inc.</p>
                             <p class="text-sm text-on-surface-variant leading-7">当サイトではアクセス状況の計測・分析のために Google アナリティクス を利用しています。取得するデータは匿名化されており、個人を特定する情報は含まれません。</p>
@@ -81,8 +81,8 @@
                     </section>
                 </div>
                 <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                    <a class="inline-flex items-center justify-center bg-primary text-on-primary font-bold px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-colors" href="index.html#contact">お問い合わせへ</a>
-                    <a class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-bold px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-colors" href="index.html#hero">トップへ戻る</a>
+                    <a class="inline-flex items-center justify-center bg-primary text-on-primary font-bold px-6 py-3 rounded-md hover:bg-primary-container transition-colors" href="index.html#contact">お問い合わせへ</a>
+                    <a class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-bold px-6 py-3 rounded-md hover:border-primary hover:text-primary transition-colors" href="index.html#hero">トップへ戻る</a>
                 </div>
                 <p class="text-sm text-on-surface-variant mt-10">制定日：2026年5月20日</p>
             </div>
@@ -99,17 +99,17 @@
                 <p class="font-label-sm text-label-sm text-white/60">© 2026 Sirona Design</p>
             </div>
             <div class="flex flex-col gap-4">
-                <a class="font-body-md text-body-md hover:text-primary transition-colors opacity-100 hover:opacity-80 text-white" href="privacy-policy.html">Privacy Policy</a>
-                <a class="font-body-md text-body-md hover:text-primary transition-colors opacity-100 hover:opacity-80 text-white" href="cookie-policy.html">Cookie Policy</a>
+                <a class="font-body-md text-body-md hover:text-primary-fixed transition-colors opacity-100 hover:opacity-80 text-white" href="privacy-policy.html">Privacy Policy</a>
+                <a class="font-body-md text-body-md hover:text-primary-fixed transition-colors opacity-100 hover:opacity-80 text-white" href="cookie-policy.html">Cookie Policy</a>
             </div>
             <div class="flex flex-col gap-4">
-                <h5 class="font-label-sm text-label-sm uppercase tracking-widest mb-2 text-primary-fixed">Connect</h5>
-                <a class="font-body-md text-body-md hover:text-primary transition-colors flex items-center gap-2 text-white" href="index.html#contact">
+                <p class="font-label-sm text-label-sm uppercase tracking-widest mb-2 text-primary-fixed">Connect</p>
+                <a class="font-body-md text-body-md hover:text-primary-fixed transition-colors flex items-center gap-2 text-white" href="index.html#contact">
                     <span class="material-symbols-outlined text-sm">mail</span> Contact Us
                 </a>
             </div>
         </div>
     </footer>
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js?v=20260601" defer></script>
 </body>
 </html>

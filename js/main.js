@@ -76,7 +76,7 @@ document.querySelectorAll("#hero .inline-flex, #hero h1, #hero p, #hero .flex.fl
 });
 
 document.querySelectorAll("main section:not(#hero)").forEach((section) => {
-    section.querySelectorAll(":scope > div > .text-center, :scope h2, :scope h3").forEach((element, index) => {
+    section.querySelectorAll(":scope > div > .text-center, :scope h2:not(.text-center h2), :scope h3:not(.text-center h3)").forEach((element, index) => {
         addReveal(element, index);
     });
 

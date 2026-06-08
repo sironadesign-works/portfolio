@@ -16,13 +16,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <script src="js/tailwind-config.js"></script>
+    <script src="js/tailwind-config.js?v=20260601"></script>
     <link rel="stylesheet" href="css/style.css?v=20260601" />
 </head>
 
 <body class="bg-surface text-on-surface font-body-md antialiased">
     <!-- TopNavBar -->
-    <header class="bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 bg-surface shadow-sm">
+    <header class="bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 shadow-sm">
         <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
             <a class="font-display-lg text-headline-md font-bold text-primary" href="#hero">Sirona Design</a>
             <nav class="mobile-nav hidden md:flex items-center gap-8" id="mobile-menu">
@@ -41,7 +41,7 @@
                 <a class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-all duration-300 active:scale-95 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                     href="#flow">Flow</a>
             </nav>
-            <a class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:opacity-90 transition-all duration-300 active:scale-95"
+            <a class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:opacity-90 transition-all duration-300 active:scale-95"
                 href="#contact">Contact</a>
             <button aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く"
                 class="md:hidden text-primary p-2" data-mobile-menu-toggle type="button">
@@ -73,7 +73,7 @@
                         Webサイト制作を軸に、デザイン・コーディング・運用まで一貫して対応。
                         記事作成や撮影、小規模アプリ制作まで、AIも活用しながら“ちょうどいい形”をご提案します。</p>
                     <div class="flex flex-wrap gap-6 items-center">
-                        <a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm px-10 py-5 rounded-DEFAULT hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:bg-primary-container active:scale-95 shadow-lg group text-body-md"
+                        <a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm px-10 py-5 rounded-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:bg-primary-container active:scale-95 shadow-lg group text-body-md"
                             href="#contact">
                             Webまわりの相談をする
                             <span
@@ -98,16 +98,16 @@
                     <div class="lg:col-span-5">
                         <div class="relative mb-8 inline-block">
                             <img alt="中村 浩樹 Profile"
-                                class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-contain object-bottom shadow-lg bg-white"
+                                class="w-48 h-48 md:w-64 md:h-64 rounded-lg object-contain object-bottom shadow-lg bg-white"
                                 src="images/prf.png" />
-                            <div class="absolute -bottom-4 -right-4 bg-white p-2 rounded-xl shadow-md">
+                            <div class="absolute -bottom-4 -right-4 bg-white p-2 rounded-md shadow-md">
                                 <img alt="Logo" class="w-8 h-8 object-contain" src="images/logo.png" />
                             </div>
                         </div>
                         <div class="mb-8">
-                            <h3
+                            <h2
                                 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-primary mb-2">
-                                中村 浩樹</h3>
+                                中村 浩樹</h2>
                             <p class="font-headline-md text-body-lg font-bold text-primary mb-4">Freelance Engineer /
                                 Web Designer</p>
                             <div class="flex items-center gap-2 text-on-surface-variant font-body-md">
@@ -119,9 +119,6 @@
                             Web制作の現場で培った確かな技術力と、最新のAIツールを活用した効率的な制作プロセスにより、高品質なアウトプットを迅速に提供しています。<br />
                             WebサイトやLP制作を中心に、少し特殊なものではお寺のホームページ制作や隙間アプリ開発など、それぞれの目的や世界観に合わせた制作にも対応しています。<br />
                             単なる制作にとどまらず、お客様に寄り添うパートナーとして、目的達成に向けた最適なアプローチをご提案します。
-                        </p>
-                        <p class="hidden">
-                            Web制作の最前線で培った確かな技術力と、最新のAIツールを活用した効率的なプロセスを組み合わせることで、高品質なアウトプットを迅速に提供します。単なる制作にとどまらず、お客様のビジネスに寄り添うパートナーとして、目的達成に向けた最適なアプローチを提案します。
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span
@@ -148,17 +145,17 @@
                     </div>
                     <!-- Right Column: Values -->
                     <div class="lg:col-span-7">
-                        <h4 class="font-headline-md text-2xl font-bold text-primary mb-8">大切にしていること</h4>
+                        <h3 class="font-headline-md text-2xl font-bold text-primary mb-8">大切にしていること</h3>
                         <div class="space-y-6">
                             <!-- Value Card 1 -->
                             <div
-                                class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-xl hover:border-primary/30 transition-colors duration-300">
+                                class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-md hover:border-primary/30 transition-colors duration-300">
                                 <div
-                                    class="w-14 h-14 bg-primary/5 rounded-xl flex items-center justify-center shrink-0">
+                                    class="w-14 h-14 bg-primary/5 rounded-md flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-primary text-3xl">lightbulb</span>
                                 </div>
                                 <div>
-                                    <h5 class="font-headline-md text-lg font-bold text-primary mb-2">アイデアを形にする</h5>
+                                    <h4 class="font-headline-md text-lg font-bold text-primary mb-2">アイデアを形にする</h4>
                                     <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">
                                         「こんなものがあったら」を実際に動くプロダクトへ。技術とデザインの両輪で動かします。
                                     </p>
@@ -166,13 +163,13 @@
                             </div>
                             <!-- Value Card 2 -->
                             <div
-                                class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-xl hover:border-primary/30 transition-colors duration-300">
+                                class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-md hover:border-primary/30 transition-colors duration-300">
                                 <div
-                                    class="w-14 h-14 bg-primary/5 rounded-xl flex items-center justify-center shrink-0">
+                                    class="w-14 h-14 bg-primary/5 rounded-md flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-primary text-3xl">speed</span>
                                 </div>
                                 <div>
-                                    <h5 class="font-headline-md text-lg font-bold text-primary mb-2">小さく速く届ける</h5>
+                                    <h4 class="font-headline-md text-lg font-bold text-primary mb-2">小さく速く届ける</h4>
                                     <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">
                                         大きな仕様書より、動くプロトタイプ。フィードバックを重ねながら育てるスタイルです。
                                     </p>
@@ -180,13 +177,13 @@
                             </div>
                             <!-- Value Card 3 -->
                             <div
-                                class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-xl hover:border-primary/30 transition-colors duration-300">
+                                class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-md hover:border-primary/30 transition-colors duration-300">
                                 <div
-                                    class="w-14 h-14 bg-primary/5 rounded-xl flex items-center justify-center shrink-0">
+                                    class="w-14 h-14 bg-primary/5 rounded-md flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-primary text-3xl">favorite</span>
                                 </div>
                                 <div>
-                                    <h5 class="font-headline-md text-lg font-bold text-primary mb-2">使う人目線で作る</h5>
+                                    <h4 class="font-headline-md text-lg font-bold text-primary mb-2">使う人目線で作る</h4>
                                     <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">
                                         機能の多さより使いやすさ。エンドユーザーの体験を常に中心に設計します。
                                     </p>
@@ -194,13 +191,13 @@
                             </div>
                             <!-- Value Card 4 -->
                             <div
-                                class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-xl hover:border-primary/30 transition-colors duration-300">
+                                class="flex gap-6 p-6 bg-surface border border-outline-variant rounded-md hover:border-primary/30 transition-colors duration-300">
                                 <div
-                                    class="w-14 h-14 bg-primary/5 rounded-xl flex items-center justify-center shrink-0">
+                                    class="w-14 h-14 bg-primary/5 rounded-md flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-primary text-3xl">eco</span>
                                 </div>
                                 <div>
-                                    <h5 class="font-headline-md text-lg font-bold text-primary mb-2">一緒に育てる</h5>
+                                    <h4 class="font-headline-md text-lg font-bold text-primary mb-2">一緒に育てる</h4>
                                     <p class="font-body-md text-on-surface-variant text-sm leading-relaxed">
                                         作って終わりではなく、更新や改善を重ねながら、長く使いやすい形へ育てていくことを大切にしています。
                                     </p>
@@ -219,7 +216,7 @@
                     <p class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">
                         Concerns</p>
                     <h2
-                        class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d] leading-tight mb-5">
+                        class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-primary-container leading-tight mb-5">
                         こんなお悩みはありませんか？</h2>
                     <p
                         class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-2xl mx-auto text-left">
@@ -227,7 +224,7 @@
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <article
-                        class="bg-[#f4f8ff] border border-[#adc7f7]/50 rounded-xl p-6 md:p-8 soft-shadow relative overflow-hidden">
+                        class="bg-[#f4f8ff] border border-[#adc7f7]/50 rounded-md p-6 md:p-8 soft-shadow relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1.5 bg-[#455f88]"></div>
                         <span
                             class="inline-flex font-label-sm text-label-sm text-[#2d476f] font-bold uppercase tracking-[0.2em] mb-5 bg-white/70 px-3 py-1 rounded-full">01
@@ -238,7 +235,7 @@
                             「とりあえず相談したい」という段階からでも大丈夫です。目的や課題を一緒に整理しながら、最適な方向性をご提案します。</p>
                     </article>
                     <article
-                        class="bg-[#f3fbef] border border-[#aed09c]/60 rounded-xl p-6 md:p-8 soft-shadow relative overflow-hidden">
+                        class="bg-[#f3fbef] border border-[#aed09c]/60 rounded-md p-6 md:p-8 soft-shadow relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1.5 bg-secondary"></div>
                         <span
                             class="inline-flex font-label-sm text-label-sm text-[#314e26] font-bold uppercase tracking-[0.2em] mb-5 bg-white/70 px-3 py-1 rounded-full">02
@@ -248,7 +245,7 @@
                             現在のサイトの課題を整理し、デザイン・使いやすさ・情報設計を見直します。スマートフォン対応や更新性の改善もサポート可能です。</p>
                     </article>
                     <article
-                        class="bg-[#fff6ec] border border-[#f2bc82]/70 rounded-xl p-6 md:p-8 soft-shadow relative overflow-hidden">
+                        class="bg-[#fff6ec] border border-[#f2bc82]/70 rounded-md p-6 md:p-8 soft-shadow relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1.5 bg-[#c6955e]"></div>
                         <span
                             class="inline-flex font-label-sm text-label-sm text-[#633f0f] font-bold uppercase tracking-[0.2em] mb-5 bg-white/70 px-3 py-1 rounded-full">03
@@ -258,7 +255,7 @@
                             お寺のホームページ制作などを通して培った経験を活かし、雰囲気や想いが伝わるデザインを大切にしています。ただ綺麗なだけではなく、“伝わるサイト”を丁寧に制作します。</p>
                     </article>
                     <article
-                        class="bg-[#fff7f6] border border-[#ffdad6]/80 rounded-xl p-6 md:p-8 soft-shadow relative overflow-hidden">
+                        class="bg-[#fff7f6] border border-[#ffdad6]/80 rounded-md p-6 md:p-8 soft-shadow relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1.5 bg-[#ba1a1a]"></div>
                         <span
                             class="inline-flex font-label-sm text-label-sm text-[#93000a] font-bold uppercase tracking-[0.2em] mb-5 bg-white/70 px-3 py-1 rounded-full">04
@@ -269,7 +266,7 @@
                     </article>
                 </div>
                 <div class="mt-10 text-center">
-                    <a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-DEFAULT hover:-translate-y-1 hover:shadow-lg transition-all duration-300 active:scale-95"
+                    <a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 active:scale-95"
                         href="#contact">
                         まずは相談してみる
                         <span class="material-symbols-outlined ml-2 text-sm">arrow_right_alt</span>
@@ -282,111 +279,111 @@
             id="services">
             <div class="max-w-container-max mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">
-                        Services</h2>
-                    <h3 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d]">提供サービス
-                    </h3>
+                    <p class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">
+                        Services</p>
+                    <h2 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-primary-container">提供サービス
+                    </h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><!-- Service Card 1 -->
                     <div
-                        class="bg-surface-container-lowest p-8 rounded-xl soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
+                        class="bg-surface-container-lowest p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
                         <div
-                            class="w-16 h-16 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
+                            class="w-16 h-16 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
                             <span
                                 class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">web</span>
                         </div>
-                        <h4 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">Webデザイン</h4>
+                        <h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">Webデザイン</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
                             ただ綺麗なだけではなく、目的やターゲットに合わせた“伝わるデザイン”を大切にしています。
                             お客様の想いや世界観に寄り添いながら、使いやすさと成果につながるサイトを丁寧に制作します。</p>
                     </div>
                     <!-- Service Card 2 -->
                     <div
-                        class="bg-[#faf9fd] p-8 rounded-xl soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
+                        class="bg-surface p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
                         <div
-                            class="w-16 h-16 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
+                            class="w-16 h-16 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
                             <span
                                 class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">code</span>
                         </div>
-                        <h4 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">Coding</h4>
+                        <h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">Coding</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
                             デザインの再現性だけでなく、更新のしやすさや扱いやすさも意識してコーディングしています。
                             スマートフォン対応や表示の快適さにも配慮し、安心して運用できるサイトを制作します。</p>
                     </div>
                     <!-- Service Card 3 -->
                     <div
-                        class="bg-surface-container-lowest p-8 rounded-xl soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
+                        class="bg-surface-container-lowest p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
                         <div
-                            class="w-16 h-16 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
+                            class="w-16 h-16 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
                             <span
                                 class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">storefront</span>
                         </div>
-                        <h4 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">WordPress/Shopify</h4>
+                        <h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">WordPress/Shopify</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
                             WordPressやShopifyを使ったサイト制作・ECサイト構築に対応しています。
                             更新のしやすさにも配慮しながら、運用しやすい環境を整えます。</p>
                     </div>
                     <!-- Service Card 4 -->
                     <div
-                        class="bg-[#faf9fd] p-8 rounded-xl soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
+                        class="bg-surface p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
                         <div
-                            class="w-16 h-16 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
+                            class="w-16 h-16 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
                             <span
                                 class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">view_carousel</span>
                         </div>
-                        <h4 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">ランディングページ</h4>
+                        <h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">ランディングページ</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
                             サービスや商品の魅力が伝わるLPを、構成や導線設計から丁寧に制作します。
                             見やすさや使いやすさにも配慮し、目的につながるページを目指します。</p>
                     </div>
                     <!-- Service Card 5 -->
                     <div
-                        class="bg-[#faf9fd] p-8 rounded-xl soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
+                        class="bg-surface p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
                         <div
-                            class="w-16 h-16 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
+                            class="w-16 h-16 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
                             <span
                                 class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">edit_document</span>
                         </div>
-                        <h4 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">記事制作/編集</h4>
+                        <h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">記事制作/編集</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
                             Webサイトやサービス内容に合わせて、記事作成や編集を行っています。
                             読みやすさや情報整理を意識しながら、AIも活用して効率よく制作を進めています。</p>
                     </div>
                     <!-- Service Card 6 -->
                     <div
-                        class="bg-surface-container-lowest p-8 rounded-xl soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
+                        class="bg-surface-container-lowest p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
                         <div
-                            class="w-16 h-16 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
+                            class="w-16 h-16 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
                             <span
                                 class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">photo_camera</span>
                         </div>
-                        <h4 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">写真撮影</h4>
+                        <h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">写真撮影</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
                             Webサイトの雰囲気や内容に合わせて、写真撮影にも対応しています。
                             お店や人物、空間の空気感が伝わるよう、サイト全体との統一感を意識して撮影します。</p>
                     </div>
                     <!-- Service Card 7 -->
                     <div
-                        class="bg-[#faf9fd] p-8 rounded-xl soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
+                        class="bg-surface p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-outline-variant/35 hover:border-primary/20 flex flex-col items-start hover:bg-surface-container-low">
                         <div
-                            class="w-16 h-16 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
+                            class="w-16 h-16 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
                             <span
                                 class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">app_shortcut</span>
                         </div>
-                        <h4 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">ミニアプリ開発</h4>
+                        <h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">ミニアプリ開発</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
                             「これちょっと不便だな」を解消する、小さな業務ツール制作にも対応しています。
                             現場の流れに合わせながら、使いやすい“隙間アプリ”を形にします。</p>
                     </div>
                     <!-- Service Card 8 -->
                     <div
-                        class="bg-surface-container-lowest p-8 rounded-xl soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
+                        class="bg-surface-container-lowest p-8 rounded-md soft-shadow hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-primary/10 flex flex-col items-start hover:border-primary/30 hover:bg-surface-bright">
                         <div
-                            class="w-16 h-16 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
+                            class="w-16 h-16 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
                             <span
                                 class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">psychology</span>
                         </div>
-                        <h4 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">AI活用</h4>
+                        <h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">AI活用</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
                             制作工程にもAIを取り入れながら、情報整理やコンテンツ作成、業務効率化などをサポートしています。
                             ツールありきではなく、実際の運用に合わせた使いやすい形を意識しています。</p>
@@ -402,12 +399,12 @@
                     <div>
                         <div class="flex items-center gap-4 mb-4">
                             <div class="h-0.5 w-8 bg-primary"></div>
-                            <h2 class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em]">AI
-                                INTEGRATION</h2>
+                            <p class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em]">AI
+                                INTEGRATION</p>
                         </div>
-                        <h3
-                            class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d] leading-tight">
-                            AIを取り入れた制作・開発</h3>
+                        <h2
+                            class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-primary-container leading-tight">
+                            AIを取り入れた制作・開発</h2>
                     </div>
                     <div class="md:max-w-md">
                         <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
@@ -416,14 +413,14 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
                     <!-- Card 1 -->
-                    <div class="bg-[#f0f7ff] p-8 rounded-xl flex flex-col">
+                    <div class="bg-[#f0f7ff] p-8 rounded-md flex flex-col">
                         <div class="flex items-center gap-4 mb-4">
                             <div
-                                class="w-12 h-12 bg-primary text-on-primary rounded-xl flex items-center justify-center">
+                                class="w-12 h-12 bg-primary text-on-primary rounded-md flex items-center justify-center">
                                 <span class="material-symbols-outlined">schedule</span>
                             </div>
                             <div>
-                                <h4 class="font-headline-md text-xl font-bold text-primary leading-tight">開発効率の向上</h4>
+                                <h3 class="font-headline-md text-xl font-bold text-primary leading-tight">開発効率の向上</h3>
                                 <p class="font-label-sm text-primary/80 text-sm">開発スピード</p>
                             </div>
                         </div>
@@ -431,14 +428,14 @@
                             AI補完で定型コードを自動生成。実装時間を大幅に短縮し、本質的な課題解決に注力します。</p>
                     </div>
                     <!-- Card 2 -->
-                    <div class="bg-[#f0f7ff] p-8 rounded-xl flex flex-col">
+                    <div class="bg-[#f0f7ff] p-8 rounded-md flex flex-col">
                         <div class="flex items-center gap-4 mb-4">
                             <div
-                                class="w-12 h-12 bg-primary text-on-primary rounded-xl flex items-center justify-center">
+                                class="w-12 h-12 bg-primary text-on-primary rounded-md flex items-center justify-center">
                                 <span class="material-symbols-outlined">bar_chart</span>
                             </div>
                             <div>
-                                <h4 class="font-headline-md text-xl font-bold text-primary leading-tight">品質UP</h4>
+                                <h3 class="font-headline-md text-xl font-bold text-primary leading-tight">品質UP</h3>
                                 <p class="font-label-sm text-primary/80 text-sm">コード品質</p>
                             </div>
                         </div>
@@ -446,14 +443,14 @@
                             AIレビューで潜在バグを早期発見。テストカバレッジも向上し、堅牢なシステムを構築します。</p>
                     </div>
                     <!-- Card 3 -->
-                    <div class="bg-[#f0f7ff] p-8 rounded-xl flex flex-col">
+                    <div class="bg-[#f0f7ff] p-8 rounded-md flex flex-col">
                         <div class="flex items-center gap-4 mb-4">
                             <div
-                                class="w-12 h-12 bg-primary text-on-primary rounded-xl flex items-center justify-center">
+                                class="w-12 h-12 bg-primary text-on-primary rounded-md flex items-center justify-center">
                                 <span class="material-symbols-outlined">bolt</span>
                             </div>
                             <div>
-                                <h4 class="font-headline-md text-xl font-bold text-primary leading-tight">即対応</h4>
+                                <h3 class="font-headline-md text-xl font-bold text-primary leading-tight">即対応</h3>
                                 <p class="font-label-sm text-primary/80 text-sm">アイデア検証</p>
                             </div>
                         </div>
@@ -465,7 +462,7 @@
                     <div>
                         <div class="flex items-center gap-3 mb-6">
                             <span class="material-symbols-outlined text-primary text-2xl">precision_manufacturing</span>
-                            <h4 class="font-headline-md text-2xl font-bold text-on-surface">AIをツールではなくチームメンバーとして</h4>
+                            <h3 class="font-headline-md text-2xl font-bold text-on-surface">AIをツールではなくチームメンバーとして</h3>
                         </div>
                         <p class="font-body-md text-on-surface-variant mb-6 leading-relaxed">
                             AIに「作業を任せる」のではなく、エンジニアとしての判断軸を持ちながらAIを活用することで、品質を落とさずにスピードを実現しています。
@@ -493,54 +490,54 @@
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-headline-md text-2xl font-bold text-on-surface mb-6">主に活用しているAIツール</h4>
+                        <h3 class="font-headline-md text-2xl font-bold text-on-surface mb-6">主に活用しているAIツール</h3>
                         <div class="space-y-4">
                             <!-- Tool 1 -->
                             <div
-                                class="border border-surface-variant rounded-xl p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
+                                class="border border-surface-variant rounded-md p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
                                 <div
                                     class="w-10 h-10 bg-primary text-on-primary rounded-lg flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-xl">smart_toy</span>
                                 </div>
                                 <div>
-                                    <h5 class="font-body-lg font-bold text-on-surface">ChatGPT</h5>
+                                    <h4 class="font-body-lg font-bold text-on-surface">ChatGPT</h4>
                                     <p class="font-body-md text-on-surface-variant text-sm mt-1">仕様策定・ドキュメント作成</p>
                                 </div>
                             </div>
                             <!-- Tool 2 -->
                             <div
-                                class="border border-surface-variant rounded-xl p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
+                                class="border border-surface-variant rounded-md p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
                                 <div
                                     class="w-10 h-10 bg-primary text-on-primary rounded-lg flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-xl">draw</span>
                                 </div>
                                 <div>
-                                    <h5 class="font-body-lg font-bold text-on-surface">Stitch / Figma Make</h5>
+                                    <h4 class="font-body-lg font-bold text-on-surface">Stitch / Figma Make</h4>
                                     <p class="font-body-md text-on-surface-variant text-sm mt-1">
                                         UIデザイン生成・ワイヤーフレーム作成・プロトタイプ制作</p>
                                 </div>
                             </div>
                             <!-- Tool 4 -->
                             <div
-                                class="border border-surface-variant rounded-xl p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
+                                class="border border-surface-variant rounded-md p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
                                 <div
                                     class="w-10 h-10 bg-primary text-on-primary rounded-lg flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-xl">auto_awesome</span>
                                 </div>
                                 <div>
-                                    <h5 class="font-body-lg font-bold text-on-surface">Claude</h5>
+                                    <h4 class="font-body-lg font-bold text-on-surface">Claude</h4>
                                     <p class="font-body-md text-on-surface-variant text-sm mt-1">長文分析・要件整理・テスト設計</p>
                                 </div>
                             </div>
                             <!-- Tool 5 -->
                             <div
-                                class="border border-surface-variant rounded-xl p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
+                                class="border border-surface-variant rounded-md p-5 flex items-center gap-5 bg-surface hover:border-primary/30 transition-colors">
                                 <div
                                     class="w-10 h-10 bg-primary text-on-primary rounded-lg flex items-center justify-center shrink-0">
                                     <span class="material-symbols-outlined text-xl">terminal</span>
                                 </div>
                                 <div>
-                                    <h5 class="font-body-lg font-bold text-on-surface">Codex</h5>
+                                    <h4 class="font-body-lg font-bold text-on-surface">Codex</h4>
                                     <p class="font-body-md text-on-surface-variant text-sm mt-1">
                                         AIペアプログラミング・実装支援・リファクタリング</p>
                                 </div>
@@ -555,9 +552,9 @@
             id="works">
             <div class="max-w-container-max mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">Works
-                    </h2>
-                    <h3 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d]">制作実績</h3>
+                    <p class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">Works
+                    </p>
+                    <h2 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-primary-container">制作実績</h2>
                 </div>
                 <!--
                     Manual update guide: Works cards and modals are edited in separate places.
@@ -574,15 +571,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Work Card 1 -->
                     <div aria-label="Corporate Site の制作実績詳細を開く"
-                        class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
+                        class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-1')" onkeydown="handleWorkCardKeydown(event, 'modal-work-1')"
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="Corporate Site Thumbnail"
-                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
-                                data-alt="アーリーホームの不動産事業を想起させる建物外観の写真。"
-                                src="images/works/early-home.jpg" />
+                            <img alt="アーリーホームの不動産事業を想起させる建物外観の写真。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/early-home.jpg"/>
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -593,8 +587,8 @@
                                     class="text-[10px] font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-2 py-1 rounded-sm">Corporate
                                     Site</span>
                             </div>
-                            <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
-                                アーリーホーム株式会社<br />企業サイトのリニューアル</h4>
+                            <h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
+                                アーリーホーム株式会社<br />企業サイトのリニューアル</h3>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
                                 不動産・美容・フードなど多角的な事業展開を分かりやすく整理し、信頼感を伝えるデザインへ刷新。</p>
@@ -606,15 +600,12 @@
                     </div>
                     <!-- Work Card 2 -->
                     <div aria-label="ごちそうさん の制作実績詳細を開く"
-                        class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
+                        class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-2')" onkeydown="handleWorkCardKeydown(event, 'modal-work-2')"
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="ごちそうさん Thumbnail"
-                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
-                                data-alt="ごちそうさんのグルメ記事を想起させる料理写真。"
-                                src="images/works/gochisosan.jpg" />
+                            <img alt="ごちそうさんのグルメ記事を想起させる料理写真。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/gochisosan.jpg"/>
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -624,8 +615,8 @@
                                 <span
                                     class="text-[10px] font-label-sm text-secondary font-bold uppercase tracking-wider bg-secondary-container/50 px-2 py-1 rounded-sm">Media Site</span>
                             </div>
-                            <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
-                                ごちそうさん<br />グルメメディアサイト</h4>
+                            <h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
+                                ごちそうさん<br />グルメメディアサイト</h3>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
                                 関西の名店紹介とお取り寄せ情報を届けるメディア。記事制作・編集にも携わりました。</p>
@@ -637,15 +628,12 @@
                     </div>
                     <!-- Work Card 3 -->
                     <div aria-label="元立寺 の制作実績詳細を開く"
-                        class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
+                        class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-3')" onkeydown="handleWorkCardKeydown(event, 'modal-work-3')"
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="元立寺 Thumbnail"
-                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
-                                data-alt="大阪府堺市の寺院サイト、元立寺の外観イメージ。"
-                                src="images/works/ganryuji.jpg" />
+                            <img alt="大阪府堺市の寺院サイト、元立寺の外観イメージ。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/ganryuji.jpg"/>
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -656,8 +644,8 @@
                                     class="text-[10px] font-label-sm text-[#4f3b66] font-bold uppercase tracking-wider bg-[#ece5f3] px-2 py-1 rounded-sm">Temple
                                     Site</span>
                             </div>
-                            <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
-                                元立寺<br />公式サイト</h4>
+                            <h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
+                                元立寺<br />公式サイト</h3>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
                                 永代合同墓の安心感と相談導線を前面に出し、検討者が問い合わせしやすい公式サイトを新規制作。</p>
@@ -670,15 +658,12 @@
                     </div>
                     <!-- Work Card 4 -->
                     <div aria-label="10GAI 公式サイト の制作実績詳細を開く"
-                        class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
+                        class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-5')" onkeydown="handleWorkCardKeydown(event, 'modal-work-5')"
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="10GAI 公式サイト Thumbnail"
-                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
-                                data-alt="10GAI公式サイトのページ画面を分割して横並びにしたプレビュー。"
-                                src="images/works/10gai-site-collage.png" />
+                            <img alt="10GAI公式サイトのページ画面を分割して横並びにしたプレビュー。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/10gai-site-collage.png"/>
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -688,7 +673,7 @@
                                 <span
                                     class="text-[10px] font-label-sm text-[#633f0f] font-bold uppercase tracking-wider bg-[#f2bc82]/40 px-2 py-1 rounded-sm">Supporter LP</span>
                             </div>
-                            <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">10GAI<br />公式サイト</h4>
+                            <h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">10GAI<br />公式サイト</h3>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
                                 現在進行中。天満・天神の外飲みパスポートを、25店舗の魅力とサポーター会員募集につなげるLP。</p>
@@ -702,15 +687,12 @@
                     </div>
                     <!-- Work Card 5 -->
                     <div aria-label="大阪ガス様 フリーアドレス座席表アプリ の制作実績詳細を開く"
-                        class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
+                        class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-6')" onkeydown="handleWorkCardKeydown(event, 'modal-work-6')"
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="大阪ガス様 フリーアドレス座席表アプリ Thumbnail"
-                                class="w-[118%] max-w-none h-full object-cover -translate-x-[8%] opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
-                                data-alt="70インチタッチディスプレイで操作するフリーアドレス座席表アプリの画面。"
-                                src="images/works/osaka-gas-seat-map.jpg" />
+                            <img alt="70インチタッチディスプレイで操作するフリーアドレス座席表アプリの画面。" class="w-[118%] max-w-none h-full object-cover -translate-x-[8%] opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/osaka-gas-seat-map.jpg"/>
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -721,8 +703,8 @@
                                     class="text-[10px] font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-2 py-1 rounded-sm">Web
                                     App</span>
                             </div>
-                            <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">大阪ガス
-                                フリーアドレス座席表</h4>
+                            <h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">大阪ガス
+                                フリーアドレス座席表</h3>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
                                 70インチのタッチディスプレイ上で、名札をドラッグ&ドロップして座席状況を更新できるアプリ。</p>
@@ -738,15 +720,12 @@
                     </div>
                     <!-- Work Card 6 -->
                     <div aria-label="サブカルDJパーティカレンダー の制作実績詳細を開く"
-                        class="bg-surface rounded-2xl overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
+                        class="bg-surface rounded-lg overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
                         onclick="openModal('modal-work-4')" onkeydown="handleWorkCardKeydown(event, 'modal-work-4')"
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="サブカルDJパーティカレンダー Thumbnail"
-                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
-                                data-alt="空いている日に開催されるサブカル系DJイベントを一覧できるカレンダーアプリのプレビュー。"
-                                src="images/works/subculture-dj-party-calendar.jpeg" />
+                            <img alt="空いている日に開催されるサブカル系DJイベントを一覧できるカレンダーアプリのプレビュー。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/subculture-dj-party-calendar.jpeg"/>
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -757,8 +736,8 @@
                                     class="text-[10px] font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-2 py-1 rounded-sm">Web
                                     App</span>
                             </div>
-                            <h4 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
-                                サブカルDJパーティ<br />カレンダー</h4>
+                            <h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
+                                サブカルDJパーティ<br />カレンダー</h3>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
                                 現在進行中。イベント慣れした人が、空いている日にどこでどんなDJパーティがあるか一目で確認できるカレンダー。</p>
@@ -777,29 +756,29 @@
             id="app">
             <div class="max-w-container-max mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">
-                        Mini-App</h2>
-                    <h3 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d]">
-                        ちょっとした不便を解決する隙間アプリの制作</h3>
+                    <p class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">
+                        Mini-App</p>
+                    <h2 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-primary-container">
+                        ちょっとした不便を解決する隙間アプリの制作</h2>
                     <p class="font-body-md text-body-md text-on-surface-variant mt-6 max-w-2xl mx-auto">
                         大規模なシステム開発ではなく、日々のちょっとした業務の不便を解消する小規模ツールをスピーディーに開発します。</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-surface-container-lowest p-8 rounded-xl soft-shadow border border-surface-variant">
+                    <div class="bg-surface-container-lowest p-8 rounded-md soft-shadow border border-surface-variant">
                         <span class="material-symbols-outlined text-4xl text-primary mb-4">calculate</span>
-                        <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-3">自動見積もりツール</h4>
+                        <h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-3">自動見積もりツール</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm">
                             顧客がWeb上で条件を選択するだけで、概算見積もりを即座に提示できる計算アプリ。</p>
                     </div>
-                    <div class="bg-surface-container-lowest p-8 rounded-xl soft-shadow border border-surface-variant">
+                    <div class="bg-surface-container-lowest p-8 rounded-md soft-shadow border border-surface-variant">
                         <span class="material-symbols-outlined text-4xl text-primary mb-4">event_seat</span>
-                        <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-3">フリーアドレス座席表</h4>
+                        <h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-3">フリーアドレス座席表</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm">
                             座席の利用状況や配置を見える化し、出社時の席選びをスムーズにする管理ツール。</p>
                     </div>
-                    <div class="bg-surface-container-lowest p-8 rounded-xl soft-shadow border border-surface-variant">
+                    <div class="bg-surface-container-lowest p-8 rounded-md soft-shadow border border-surface-variant">
                         <span class="material-symbols-outlined text-4xl text-primary mb-4">format_list_bulleted</span>
-                        <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-3">業務チェックリスト生成</h4>
+                        <h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-3">業務チェックリスト生成</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm">
                             案件の種類に応じて必要なタスクを自動生成し、進捗をチームで共有できるシンプルなツール。</p>
                     </div>
@@ -810,10 +789,10 @@
         <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface" id="flow">
             <div class="max-w-container-max mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">Flow
+                    <p class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">Flow
+                    </p>
+                    <h2 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-primary-container">制作の流れ
                     </h2>
-                    <h3 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d]">制作の流れ
-                    </h3>
                 </div>
                 <div class="relative">
                     <div
@@ -822,11 +801,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10 items-stretch">
                         <!-- Step 1 -->
                         <div
-                            class="bg-surface-container-lowest p-6 md:py-8 rounded-xl soft-shadow border border-surface-variant relative flex flex-col items-center text-center min-h-[320px]">
+                            class="bg-surface-container-lowest p-6 rounded-md soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
                                 class="w-12 h-12 bg-[#455f88] text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md shrink-0">
                                 1</div>
-                            <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">ヒアリング</h4>
+                            <h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">ヒアリング</h3>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed text-left">
                                 まずはお客様の想いや目的、現在のお悩み、ご希望の機能やデザイン、ご予算などを丁寧にお伺いします。<br />「どんなサイトにしたいか」がまだ明確でない場合でも、一緒に整理しながら方向性を固めていきますので、安心してご相談ください。
@@ -834,11 +813,11 @@
                         </div>
                         <!-- Step 2 -->
                         <div
-                            class="bg-surface-container-lowest p-6 rounded-xl soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
+                            class="bg-surface-container-lowest p-6 rounded-md soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
                                 class="w-12 h-12 bg-secondary text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md">
                                 2</div>
-                            <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">企画・提案</h4>
+                            <h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">企画・提案</h3>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed text-left">
                                 サイトの目的やターゲット層をもとに、ページ構成や導線設計、デザインの方向性をご提案いたします。<br />また、AIを活用した業務効率化やコンテンツ改善、問い合わせ導線の最適化など、目的達成につながるアイデアも含めて、実用性の高いプランをご提案します。
@@ -846,11 +825,11 @@
                         </div>
                         <!-- Step 3 -->
                         <div
-                            class="bg-surface-container-lowest p-6 rounded-xl soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
+                            class="bg-surface-container-lowest p-6 rounded-md soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
                                 class="w-12 h-12 bg-[#c6955e] text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md">
                                 3</div>
-                            <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">デザイン・開発</h4>
+                            <h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">デザイン・開発</h3>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed text-left">
                                 デザインイメージや構成をご確認いただきながら、サイト制作を進めていきます。<br />プロトタイプや制作途中の画面をご共有し、認識のズレがないよう調整を重ねながら、デザイン制作からコーディングまで丁寧に対応いたします。
@@ -858,11 +837,11 @@
                         </div>
                         <!-- Step 4 -->
                         <div
-                            class="bg-surface-container-lowest p-6 rounded-xl soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
+                            class="bg-surface-container-lowest p-6 rounded-md soft-shadow border border-surface-variant relative flex flex-col items-center text-center">
                             <div
                                 class="w-12 h-12 bg-[#ba1a1a] text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4 shadow-md">
                                 4</div>
-                            <h4 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">テスト・納品</h4>
+                            <h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-2">テスト・納品</h3>
                             <p
                                 class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed text-left">
                                 公開前には、スマートフォン・PCでの表示確認やフォーム動作、各種リンクチェックなどを細かく確認し、品質チェックを行います。<br />修正・最終調整を経たうえで公開・納品まで丁寧に対応し、納品後の運用サポートや改善提案についても継続してサポート可能です。
@@ -877,29 +856,30 @@
             id="contact">
             <div class="max-w-2xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">
-                        Contact</h2>
-                    <h3 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-[#1a365d] mb-6">
-                        お問い合わせ</h3>
+                    <p class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-[0.2em] mb-4">
+                        Contact</p>
+                    <h2 class="font-display-lg text-display-lg-mobile lg:text-[40px] font-bold text-primary-container mb-6">
+                        お問い合わせ</h2>
                     <p class="font-body-md text-body-md text-on-surface-variant">「まず何から始めればいい？」という段階からでも大丈夫です。<br>
                         Webまわりのことを、気軽にご相談ください。</p>
                 </div>
                 <form
-                    class="bg-surface-container-lowest p-8 rounded-xl soft-shadow border border-surface-variant space-y-6"
+                    class="bg-surface-container-lowest p-8 rounded-md soft-shadow border border-surface-variant space-y-6"
                     id="contact-form" action="https://formspree.io/f/mbdeoowz" method="POST">
+                    <input type="text" name="_gotcha" style="display:none" />
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block font-label-sm text-label-sm text-on-surface mb-2" for="name">お名前 <span
                                     class="text-error">*</span></label>
                             <input
-                                class="w-full px-4 py-3 rounded-DEFAULT border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all focus:ring-offset-2 placeholder:transition-opacity focus:placeholder:opacity-50"
+                                class="w-full px-4 py-3 rounded-md border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all focus:ring-offset-2 placeholder:transition-opacity focus:placeholder:opacity-50"
                                 id="name" name="name" placeholder="中村 浩樹" required="" type="text" />
                         </div>
                         <div>
                             <label class="block font-label-sm text-label-sm text-on-surface mb-2"
                                 for="company">貴社名</label>
                             <input
-                                class="w-full px-4 py-3 rounded-DEFAULT border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all focus:ring-offset-2 placeholder:transition-opacity focus:placeholder:opacity-50"
+                                class="w-full px-4 py-3 rounded-md border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all focus:ring-offset-2 placeholder:transition-opacity focus:placeholder:opacity-50"
                                 id="company" name="company" placeholder="株式会社〇〇" type="text" />
                         </div>
                     </div>
@@ -907,14 +887,14 @@
                         <label class="block font-label-sm text-label-sm text-on-surface mb-2" for="email">メールアドレス <span
                                 class="text-error">*</span></label>
                         <input
-                            class="w-full px-4 py-3 rounded-DEFAULT border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all focus:ring-offset-2 placeholder:transition-opacity focus:placeholder:opacity-50"
+                            class="w-full px-4 py-3 rounded-md border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all focus:ring-offset-2 placeholder:transition-opacity focus:placeholder:opacity-50"
                             id="email" name="email" placeholder="example@email.com" required="" type="email" />
                     </div>
                     <div>
                         <label class="block font-label-sm text-label-sm text-on-surface mb-2"
                             for="type">ご相談内容（種別）</label>
                         <select
-                            class="w-full px-4 py-3 rounded-DEFAULT border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all focus:ring-offset-2 placeholder:transition-opacity focus:placeholder:opacity-50"
+                            class="w-full px-4 py-3 rounded-md border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all focus:ring-offset-2 placeholder:transition-opacity focus:placeholder:opacity-50"
                             id="type" name="type">
                             <option value="">選択してください</option>
                             <option value="web">Webサイト制作・リニューアル</option>
@@ -928,12 +908,12 @@
                         <label class="block font-label-sm text-label-sm text-on-surface mb-2" for="message">メッセージ <span
                                 class="text-error">*</span></label>
                         <textarea
-                            class="w-full px-4 py-3 rounded-DEFAULT border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all h-32 resize-none focus:ring-offset-2 placeholder:transition-opacity focus:placeholder:opacity-50"
+                            class="w-full px-4 py-3 rounded-md border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all h-32 resize-none focus:ring-offset-2 placeholder:transition-opacity focus:placeholder:opacity-50"
                             id="message" name="message" placeholder="ご相談内容やプロジェクトの概要をご記入ください。" required=""></textarea>
                     </div>
                     <div class="text-center pt-4">
                         <button
-                            class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-DEFAULT hover:-translate-y-1 hover:shadow-lg transition-all duration-300 w-full md:w-auto hover:bg-primary-container active:scale-95 shadow-md hover:shadow-xl transition-all duration-300"
+                            class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 w-full md:w-auto hover:bg-primary-container active:scale-95 shadow-md hover:shadow-xl transition-all duration-300"
                             id="contact-form-submit"
                             onmousedown="this.classList.add('opacity-80')"
                             onmouseup="this.classList.remove('opacity-80')" type="submit">
@@ -965,20 +945,20 @@
                 <p class="font-label-sm text-label-sm text-white/60">© 2026 Sirona Design</p>
             </div>
             <div class="flex flex-col gap-4">
-                <a class="font-body-md text-body-md hover:text-primary transition-colors opacity-100 hover:opacity-80 text-white"
+                <a class="font-body-md text-body-md hover:text-primary-fixed transition-colors opacity-100 hover:opacity-80 text-white"
                     href="privacy-policy.html">Privacy Policy</a>
-                <a class="font-body-md text-body-md hover:text-primary transition-colors opacity-100 hover:opacity-80 text-white"
+                <a class="font-body-md text-body-md hover:text-primary-fixed transition-colors opacity-100 hover:opacity-80 text-white"
                     href="cookie-policy.html">Cookie Policy</a>
             </div>
             <div class="flex flex-col gap-4">
-                <h5 class="font-label-sm text-label-sm uppercase tracking-widest mb-2 text-primary-fixed">Connect</h5>
-                <a class="font-body-md text-body-md hover:text-primary transition-colors flex items-center gap-2 text-white"
+                <p class="font-label-sm text-label-sm uppercase tracking-widest mb-2 text-primary-fixed">Connect</p>
+                <a class="font-body-md text-body-md hover:text-primary-fixed transition-colors flex items-center gap-2 text-white"
                     href="#contact">
                     <span class="material-symbols-outlined text-sm">mail</span> Contact Us
                 </a>
             </div>
         </div>
-        <script src="js/main.js" defer></script>
+        <script src="js/main.js?v=20260601" defer></script>
     </footer>
     <!-- Modals for Works -->
     <!--
@@ -998,14 +978,13 @@
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
             onclick="closeModal('modal-work-1')"></div>
         <div
-            class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-1')">
                 <span class="material-symbols-outlined">close</span>
             </button>
-            <img alt="Corporate Site detail preview" class="w-full h-56 sm:h-72 object-cover"
-                src="images/works/early-home.jpg" />
+            <img alt="アーリーホームの不動産事業を想起させる建物外観の写真。" class="w-full h-56 sm:h-72 object-cover" src="images/works/early-home.jpg"/>
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-sm inline-block mb-4">Corporate
@@ -1015,17 +994,17 @@
                 <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
                     不動産、美容事業（まつげパーマ専門店）、グルメプラットフォーム等、多角的に事業を展開するアーリーホーム様のコーポレートサイトリニューアルです。情報設計からデザイン、WordPress実装まで一貫して支援しました。</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             多角展開する事業（不動産・美容・フード）の全体像と信頼性が伝わりにくい状態でした。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             3つの主要事業をトップページで整理し、各ターゲットに合わせた明快な導線を設計しました。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             多角的な事業の魅力が直感的に伝わる構成に刷新し、企業全体の信頼感を高めました。</p>
@@ -1045,13 +1024,13 @@
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3"><a
-                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         href="https://early-home.com/" target="_blank" rel="noopener noreferrer">Webサイトを見る<span
                             class="material-symbols-outlined ml-2 text-sm">open_in_new</span></a><a
-                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         href="#contact" onclick="closeModal('modal-work-1', { restoreFocus: false })">このような制作を相談する<span
                             class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
-                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         onclick="closeModal('modal-work-1')">閉じる</button></div>
             </div>
         </div>
@@ -1062,12 +1041,11 @@
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
             onclick="closeModal('modal-work-2')"></div>
         <div
-            class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-2')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="ごちそうさん detail preview" class="w-full h-56 sm:h-72 object-cover"
-                src="images/works/gochisosan.jpg" />
+            <img alt="ごちそうさんのグルメ記事を想起させる料理写真。" class="w-full h-56 sm:h-72 object-cover" src="images/works/gochisosan.jpg"/>
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-secondary font-bold uppercase tracking-wider bg-secondary-container/50 px-3 py-1 rounded-sm inline-block mb-4">Media Site</span>
@@ -1076,17 +1054,17 @@
                 <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
                     関西の予約困難店や名店の取材記事、特集記事、全国のお取り寄せ情報を届けるグルメメディアサイトです。サイト構築に加え、記事の制作・編集にも携わりました。</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             取材記事・特集記事・オンラインショップへの導線を整理し、読者が目的の情報へ進みやすい構成が求められていました。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             WordPressをベースに、記事一覧・カテゴリ・ショップ導線を分かりやすく見せるメディア設計に整えました。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             名店紹介とお取り寄せ情報を横断しやすく、記事コンテンツの制作・更新を続けやすいサイト運用を支えています。</p>
@@ -1106,13 +1084,13 @@
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3"><a
-                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         href="https://gochisosan.com/" target="_blank" rel="noopener noreferrer">Webサイトを見る<span
                             class="material-symbols-outlined ml-2 text-sm">open_in_new</span></a><a
-                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         href="#contact" onclick="closeModal('modal-work-2', { restoreFocus: false })">メディアサイト制作を相談する<span
                             class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
-                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         onclick="closeModal('modal-work-2')">閉じる</button></div>
             </div>
         </div>
@@ -1123,12 +1101,11 @@
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
             onclick="closeModal('modal-work-3')"></div>
         <div
-            class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-3')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="元立寺 detail preview" class="w-full h-56 sm:h-72 object-cover"
-                src="images/works/ganryuji.jpg" />
+            <img alt="大阪府堺市の寺院サイト、元立寺の外観イメージ。" class="w-full h-56 sm:h-72 object-cover" src="images/works/ganryuji.jpg"/>
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-[#4f3b66] font-bold uppercase tracking-wider bg-[#ece5f3] px-3 py-1 rounded-sm inline-block mb-4">Temple
@@ -1138,17 +1115,17 @@
                 <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
                     大阪府堺市の浄土真宗本願寺派寺院「元立寺」様の公式サイトを新規制作しました。堺市認定の永代合同墓を検討する方へ向けて、安心感、供養内容、相談導線が伝わる構成にしています。</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             永代合同墓の存在や安心して相談できる理由が伝わりにくく、検討者が問い合わせ前に不安を解消できる導線が必要でした。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             永代合同墓を主要コンテンツとして見せ、寺院のご案内、法要・儀式、アクセス、お問い合わせまで自然につながる構成にしました。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             寺院としての信頼感を保ちながら、永代合同墓の魅力と相談先を明確にし、公開後は合同墓に関する問い合わせ増加にもつながっています。</p>
@@ -1169,13 +1146,13 @@
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3"><a
-                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         href="https://honpa-ganryuji.jp/" target="_blank" rel="noopener noreferrer">Webサイトを見る<span
                             class="material-symbols-outlined ml-2 text-sm">open_in_new</span></a><a
-                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         href="#contact" onclick="closeModal('modal-work-3', { restoreFocus: false })">寺院サイト制作を相談する<span
                             class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
-                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         onclick="closeModal('modal-work-3')">閉じる</button></div>
             </div>
         </div>
@@ -1186,12 +1163,11 @@
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
             onclick="closeModal('modal-work-4')"></div>
         <div
-            class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-4')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="サブカルDJパーティカレンダー detail preview" class="w-full h-56 sm:h-72 object-cover"
-                src="images/works/subculture-dj-party-calendar.jpeg" />
+            <img alt="空いている日に開催されるサブカル系DJイベントを一覧できるカレンダーアプリのプレビュー。" class="w-full h-56 sm:h-72 object-cover" src="images/works/subculture-dj-party-calendar.jpeg"/>
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-3 py-1 rounded-sm inline-block mb-4">Web
@@ -1201,17 +1177,17 @@
                 <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
                     主にサブカル系DJパーティの開催情報を、日付・ジャンル・エリアごとに探せるイベントカレンダーとして整理しました。空いている日にどこでどんなパーティがあるのかを、イベントに慣れたユーザーでもスマホから素早く見比べられるよう、一覧性と探しやすさを重視して設計しています。</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             イベント情報がSNSや告知ページに分散し、空いている日に行けるイベントを日程・場所・ジャンルで横断して探しにくい状態でした。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             カレンダー表示を軸に、ジャンル、開催エリア、イベント詳細を整理し、気になる予定へすぐ進めるUIにしました。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             現在は公開に向けて、サブカルイベントを横断して探せる入口として使いやすくなるよう、掲載情報や導線を整えています。</p>
@@ -1233,10 +1209,10 @@
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3"><a
-                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         href="#contact" onclick="closeModal('modal-work-4', { restoreFocus: false })">Webアプリ制作を相談する<span
                             class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
-                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         onclick="closeModal('modal-work-4')">閉じる</button></div>
             </div>
         </div>
@@ -1247,12 +1223,11 @@
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
             onclick="closeModal('modal-work-5')"></div>
         <div
-            class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-5')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="10GAI 公式サイト detail preview" class="w-full h-56 sm:h-72 object-cover"
-                src="images/works/10gai-site-collage.png" />
+            <img alt="10GAI公式サイトのページ画面を分割して横並びにしたプレビュー。" class="w-full h-56 sm:h-72 object-cover" src="images/works/10gai-site-collage.png"/>
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-[#633f0f] font-bold uppercase tracking-wider bg-[#f2bc82]/40 px-3 py-1 rounded-sm inline-block mb-4">Supporter LP</span>
@@ -1261,17 +1236,17 @@
                 <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
                     天満・天神界隈の個人店を応援し、常連の輪を広げるグルメガイドブック「10GAI」のサポーター会員募集LPを制作しました。冊子、カード特典、加盟25店舗、街への想いを一つの流れで伝え、購入・問い合わせへ進みやすい構成にしています。</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             ガイドブック、サポーターカード、加盟店特典、地域支援という複数の価値を、初めて知る人にも短時間で伝える必要がありました。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             夜の飲食街の空気感を入口に、会員特典、25店舗の紹介、冊子の魅力、購入方法まで順に理解できるLP構成にしました。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             現在は公開に向けて、10GAIの世界観やサポーター参加のメリットが伝わるよう、情報設計と申し込み導線を整えています。</p>
@@ -1294,10 +1269,10 @@
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3"><a
-                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         href="#contact" onclick="closeModal('modal-work-5', { restoreFocus: false })">LP制作を相談する<span
                             class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
-                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         onclick="closeModal('modal-work-5')">閉じる</button></div>
             </div>
         </div>
@@ -1308,12 +1283,11 @@
         <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
             onclick="closeModal('modal-work-6')"></div>
         <div
-            class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-6')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="大阪ガス様 フリーアドレス座席表アプリ detail preview" class="w-[118%] max-w-none h-56 sm:h-72 object-cover -translate-x-[8%]"
-                src="images/works/osaka-gas-seat-map.jpg" />
+            <img alt="70インチタッチディスプレイで操作するフリーアドレス座席表アプリの画面。" class="w-[118%] max-w-none h-56 sm:h-72 object-cover -translate-x-[8%]" src="images/works/osaka-gas-seat-map.jpg"/>
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-3 py-1 rounded-sm inline-block mb-4">Web
@@ -1323,17 +1297,17 @@
                 <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
                     大阪ガス様向けに、70インチのタッチディスプレイで操作するフリーアドレス座席表アプリを制作しました。画面上の名札をドラッグ&ドロップで移動させ、誰がどの席にいるかを直感的に更新できます。</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             フリーアドレス運用で在席状況が分かりにくく、メンバーの所在確認に時間がかかる場面がありました。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             70インチ画面で見やすい座席レイアウトを設計し、名札を指でドラッグ&ドロップして配置できる操作にしました。</p>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-5">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
                         <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
                         <p class="font-body-md text-sm text-on-surface-variant leading-7">
                             大型タッチディスプレイ上で座席状況を共有でき、現場での確認や席移動の反映がスムーズになりました。</p>
@@ -1355,10 +1329,10 @@
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3"><a
-                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         href="#contact" onclick="closeModal('modal-work-6', { restoreFocus: false })">Webアプリ制作を相談する<span
                             class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
-                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:border-primary hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         onclick="closeModal('modal-work-6')">閉じる</button></div>
             </div>
         </div>
