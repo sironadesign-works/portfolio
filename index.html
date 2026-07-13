@@ -420,10 +420,10 @@
                             <span
                                 class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">psychology</span>
                         </div>
-                        <h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">AI活用</h3>
+                        <h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">AI駆動開発</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant text-sm leading-relaxed">
-                            制作工程にもAIを取り入れながら、情報整理やコンテンツ作成、業務効率化などをサポートしています。
-                            ツールありきではなく、実際の運用に合わせた使いやすい形を意識しています。</p>
+                            要件定義からコーディング、テストにいたるまで、AIと協調した先進的な開発プロセスを採用。
+                            開発スピードを最大化しつつ、エンジニアとしての確かな設計力で、安全かつ高品質なプロダクトを構築します。</p>
                     </div>
                 </div>
             </div>
@@ -786,6 +786,36 @@
                                 <span
                                     class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">Web App</span><span
                                     class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">カレンダー</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 実績カード7: さわやかデンタルクリニック。内容変更時は modal-work-7 も更新する。 -->
+                    <div aria-label="さわやかデンタルクリニック の制作実績詳細を開く"
+                        class="bg-surface rounded-md overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
+                        onclick="openModal('modal-work-7')" onkeydown="handleWorkCardKeydown(event, 'modal-work-7')"
+                        role="button" tabindex="0">
+                        <div
+                            class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
+                            <img alt="さわやかデンタルクリニックのホームページ画面。パステルカラーのやさしいデザイン。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/wp-dental-clinic.jpeg"/>
+                            <div
+                                class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span
+                                    class="text-[10px] font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-2 py-1 rounded-sm">WordPress Site</span>
+                            </div>
+                            <h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
+                                さわやかデンタルクリニック<br />歯科医院サイト構築（習作）</h3>
+                            <p
+                                class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
+                                WordPressオリジナルテーマ制作の習作デモサイト。AI駆動での要件定義・コード生成を活用し、ブロックエディタのカスタマイズまで実装。</p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span
+                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress(オリジナルテーマ)</span>
+                                <span
+                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">AI駆動開発</span>
                             </div>
                         </div>
                     </div>
@@ -1387,6 +1417,67 @@
                             class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
                         class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         onclick="closeModal('modal-work-6')">閉じる</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-work-7: さわやかデンタルクリニック（習作） -->
+    <div aria-hidden="true" aria-labelledby="modal-work-7-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-7" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-7')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-7')"><span class="material-symbols-outlined">close</span></button>
+            <img alt="さわやかデンタルクリニックのホームページ画面。パステルカラーのやさしいデザイン。" class="w-full h-56 sm:h-72 object-cover" src="images/works/wp-dental-clinic.jpeg"/>
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-sm inline-block mb-4">WordPress Site</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-7-title">さわやかデンタルクリニック<br />歯科医院サイト構築（習作）</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    WordPressオリジナルテーマ制作とAI駆動開発の検証を目的として構築した、歯科医院「さわやかデンタルクリニック」のデモサイト（習作）です。AIとの協調開発による効率化や、ブロックエディタのカスタマイズによるノンプログラミング更新を盛り込んでいます。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">テーマ設定 (想定課題)</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            地域住民（ファミリー層）に信頼感とやさしさを伝えるデザインの再現、およびHTML知識のないスタッフでも更新しやすい編集画面の実装。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">アプローチ</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            AI駆動で要件定義やコード生成を高速化し、やさしい配色でオリジナルテーマを構築。ブロックエディタを高度にカスタマイズしました。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">学び・成果</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            デザインの再現とブロックパーツ化による運用性を両立。AI連携による開発期間の短縮と、実用性の高いテーマ設計を検証できました。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">AI要件定義・設計 / UIデザイン / WordPressオリジナルテーマ構築 / ブロックカスタマイズ</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress(オリジナルテーマ)</span>
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">AI駆動開発</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3"><a
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="https://preview.sironadesign.net/wp_dental_clinic/" target="_blank" rel="noopener noreferrer">デモサイトを見る<span
+                            class="material-symbols-outlined ml-2 text-sm">open_in_new</span></a><a
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-7', { restoreFocus: false })">このような制作を相談する<span
+                            class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-7')">閉じる</button></div>
             </div>
         </div>
     </div>
