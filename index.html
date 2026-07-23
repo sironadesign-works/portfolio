@@ -17,7 +17,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="Sirona Designは、Web制作、デザイン、コーディング、運用改善、AI活用まで相談できるフリーランスWeb制作パートナーです。" />
     <title>Sirona Design - Web Designer &amp; Freelance Engineer</title>
-    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="icon" href="images/favicon-64.png" type="image/png" sizes="64x64" />
+    <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
@@ -26,7 +27,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="css/tailwind.css?v=20260609" />
+    <link rel="stylesheet" href="css/tailwind.css?v=20260713" />
     <link rel="stylesheet" href="css/style.css?v=20260609" />
 </head>
 
@@ -69,11 +70,11 @@
     <main class="pt-0">
         <!--
             ヒーロー: 最初に見える背景画像、メインコピー、説明文、主要ボタンを表示する。
-            手動変更: 背景画像は style 内の images/hero.png、文章とボタンリンクはこのセクション内を変更する。
+            手動変更: 背景画像は style 内の images/hero.webp、文章とボタンリンクはこのセクション内を変更する。
         -->
         <section
             class="relative min-h-[90vh] flex items-center pt-32 pb-section-gap-mobile md:pb-section-gap-desktop px-grid-margin overflow-hidden bg-surface-container-lowest"
-            id="hero" style="background-image: url('images/hero.png'); background-size: cover; background-position: center;">
+            id="hero" style="background-image: url('images/hero.webp'); background-size: cover; background-position: center;">
             <div class="absolute inset-0 z-0 backdrop-blur-[4px] bg-primary/50"></div>
             <div class="relative z-10 max-w-container-max mx-auto w-full">
                 <div class="max-w-3xl">
@@ -110,7 +111,7 @@
         </section>
         <!--
             プロフィール: 写真、氏名、肩書き、紹介文、スキル、大切にしている価値観を表示する。
-            手動変更: 写真は images/prf.png、ロゴは images/logo.png、文章・スキル・価値観カードはこのセクション内を変更する。
+            手動変更: 写真は images/prf.webp、ロゴは images/logo.webp、文章・スキル・価値観カードはこのセクション内を変更する。
         -->
         <section class="py-section-gap-mobile md:py-section-gap-desktop px-grid-margin bg-surface-container-lowest"
             id="profile">
@@ -121,9 +122,9 @@
                         <div class="relative mb-8 inline-block">
                             <img alt="中村 浩樹 Profile"
                                 class="w-48 h-48 md:w-64 md:h-64 rounded-lg object-contain object-bottom shadow-lg bg-white"
-                                src="images/prf.png" />
+                                src="images/prf.webp" width="512" height="512" loading="lazy" decoding="async" />
                             <div class="absolute -bottom-4 -right-4 bg-white p-2 rounded-md shadow-md">
-                                <img alt="Logo" class="w-8 h-8 object-contain" src="images/logo.png" />
+                                <img alt="Logo" class="w-8 h-8 object-contain" src="images/logo.webp" width="96" height="97" loading="lazy" decoding="async" />
                             </div>
                         </div>
                         <div class="mb-8">
@@ -608,6 +609,8 @@
                     4. 10GAI 公式サイト -> modal-work-5
                     5. 大阪ガス フリーアドレス座席表 -> modal-work-6
                     6. サブカルDJパーティカレンダー -> modal-work-4
+                    7. さわやかデンタルクリニック -> modal-work-7
+                    8. まち水道レスキュー -> modal-work-8
                 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- 実績カード1: アーリーホーム株式会社。内容変更時は modal-work-1 も更新する。 -->
@@ -617,7 +620,7 @@
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="アーリーホームの不動産事業を想起させる建物外観の写真。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/early-home.jpg"/>
+                            <img alt="アーリーホームの不動産事業を想起させる建物外観の写真。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/early-home.webp" width="1024" height="683" loading="lazy" decoding="async" />
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -646,7 +649,7 @@
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="ごちそうさんのグルメ記事を想起させる料理写真。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/gochisosan.jpg"/>
+                            <img alt="ごちそうさんのグルメ記事を想起させる料理写真。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/gochisosan.webp" width="820" height="480" loading="lazy" decoding="async" />
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -674,7 +677,7 @@
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="大阪府堺市の寺院サイト、元立寺の外観イメージ。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/ganryuji.jpg"/>
+                            <img alt="大阪府堺市の寺院サイト、元立寺の外観イメージ。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/ganryuji.webp" width="750" height="1000" loading="lazy" decoding="async" />
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -704,7 +707,7 @@
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="10GAI公式サイトのページ画面を分割して横並びにしたプレビュー。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/10gai-site-collage.png"/>
+                            <img alt="10GAI公式サイトのページ画面を分割して横並びにしたプレビュー。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/10gai-site-collage.webp" width="1200" height="600" loading="lazy" decoding="async" />
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -733,7 +736,7 @@
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="70インチタッチディスプレイで操作するフリーアドレス座席表アプリの画面。" class="w-[118%] max-w-none h-full object-cover -translate-x-[8%] opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/osaka-gas-seat-map.jpg"/>
+                            <img alt="70インチタッチディスプレイで操作するフリーアドレス座席表アプリの画面。" class="w-[118%] max-w-none h-full object-cover -translate-x-[8%] opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/osaka-gas-seat-map.webp" width="1280" height="720" loading="lazy" decoding="async" />
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -766,7 +769,7 @@
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="空いている日に開催されるサブカル系DJイベントを一覧できるカレンダーアプリのプレビュー。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/subculture-dj-party-calendar.jpeg"/>
+                            <img alt="空いている日に開催されるサブカル系DJイベントを一覧できるカレンダーアプリのプレビュー。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/subculture-dj-party-calendar.webp" width="1200" height="838" loading="lazy" decoding="async" />
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -796,7 +799,7 @@
                         role="button" tabindex="0">
                         <div
                             class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
-                            <img alt="さわやかデンタルクリニックのホームページ画面。パステルカラーのやさしいデザイン。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/wp-dental-clinic.jpeg"/>
+                            <img alt="さわやかデンタルクリニックのホームページ画面。パステルカラーのやさしいデザイン。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/wp-dental-clinic.webp" width="1200" height="800" loading="lazy" decoding="async" />
                             <div
                                 class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
                             </div>
@@ -816,6 +819,36 @@
                                     class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress(オリジナルテーマ)</span>
                                 <span
                                     class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">AI駆動開発</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 実績カード8: まち水道レスキュー。内容変更時は modal-work-8 も更新する。 -->
+                    <div aria-label="まち水道レスキュー の制作実績詳細を開く"
+                        class="bg-surface rounded-md overflow-hidden soft-shadow border border-surface-variant group hover-lift cursor-pointer flex flex-col focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-surface-container-lowest"
+                        onclick="openModal('modal-work-8')" onkeydown="handleWorkCardKeydown(event, 'modal-work-8')"
+                        role="button" tabindex="0">
+                        <div
+                            class="h-56 bg-surface-container-high flex items-center justify-center overflow-hidden relative">
+                            <img alt="水しぶきの中で工具を持つ水道修理スタッフを大きく配置した、まち水道レスキューのランディングページ。" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105" src="images/works/machimizu.webp" width="960" height="1200" loading="lazy" decoding="async" />
+                            <div
+                                class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300">
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span
+                                    class="text-[10px] font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-2 py-1 rounded-sm">Landing Page</span>
+                            </div>
+                            <h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-3 line-clamp-2">
+                                まち水道レスキュー<br />水道修理サービスLP（習作）</h3>
+                            <p
+                                class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2 mb-4 flex-grow">
+                                水漏れ・詰まりの緊急時に、料金と対応の早さがひと目で伝わる地域密着型サービスのLPデザイン。</p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span
+                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">LP</span>
+                                <span
+                                    class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">レスポンシブデザイン</span>
                             </div>
                         </div>
                     </div>
@@ -1062,7 +1095,7 @@
                 onclick="closeModal('modal-work-1')">
                 <span class="material-symbols-outlined">close</span>
             </button>
-            <img alt="アーリーホームの不動産事業を想起させる建物外観の写真。" class="w-full h-56 sm:h-72 object-cover" src="images/works/early-home.jpg"/>
+            <img alt="アーリーホームの不動産事業を想起させる建物外観の写真。" class="w-full h-56 sm:h-72 object-cover" src="images/works/early-home.webp" width="1024" height="683" loading="lazy" decoding="async" />
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-sm inline-block mb-4">Corporate
@@ -1124,7 +1157,7 @@
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-2')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="ごちそうさんのグルメ記事を想起させる料理写真。" class="w-full h-56 sm:h-72 object-cover" src="images/works/gochisosan.jpg"/>
+            <img alt="ごちそうさんのグルメ記事を想起させる料理写真。" class="w-full h-56 sm:h-72 object-cover" src="images/works/gochisosan.webp" width="820" height="480" loading="lazy" decoding="async" />
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-secondary font-bold uppercase tracking-wider bg-secondary-container/50 px-3 py-1 rounded-sm inline-block mb-4">Media Site</span>
@@ -1185,7 +1218,7 @@
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-3')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="大阪府堺市の寺院サイト、元立寺の外観イメージ。" class="w-full h-56 sm:h-72 object-cover" src="images/works/ganryuji.jpg"/>
+            <img alt="大阪府堺市の寺院サイト、元立寺の外観イメージ。" class="w-full h-56 sm:h-72 object-cover" src="images/works/ganryuji.webp" width="750" height="1000" loading="lazy" decoding="async" />
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-[#4f3b66] font-bold uppercase tracking-wider bg-[#ece5f3] px-3 py-1 rounded-sm inline-block mb-4">Temple
@@ -1248,7 +1281,7 @@
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-4')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="空いている日に開催されるサブカル系DJイベントを一覧できるカレンダーアプリのプレビュー。" class="w-full h-56 sm:h-72 object-cover" src="images/works/subculture-dj-party-calendar.jpeg"/>
+            <img alt="空いている日に開催されるサブカル系DJイベントを一覧できるカレンダーアプリのプレビュー。" class="w-full h-56 sm:h-72 object-cover" src="images/works/subculture-dj-party-calendar.webp" width="1200" height="838" loading="lazy" decoding="async" />
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-3 py-1 rounded-sm inline-block mb-4">Web
@@ -1309,7 +1342,7 @@
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-5')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="10GAI公式サイトのページ画面を分割して横並びにしたプレビュー。" class="w-full h-56 sm:h-72 object-cover" src="images/works/10gai-site-collage.png"/>
+            <img alt="10GAI公式サイトのページ画面を分割して横並びにしたプレビュー。" class="w-full h-56 sm:h-72 object-cover" src="images/works/10gai-site-collage.webp" width="1200" height="600" loading="lazy" decoding="async" />
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-[#633f0f] font-bold uppercase tracking-wider bg-[#f2bc82]/40 px-3 py-1 rounded-sm inline-block mb-4">Supporter LP</span>
@@ -1370,7 +1403,7 @@
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-6')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="70インチタッチディスプレイで操作するフリーアドレス座席表アプリの画面。" class="w-[118%] max-w-none h-56 sm:h-72 object-cover -translate-x-[8%]" src="images/works/osaka-gas-seat-map.jpg"/>
+            <img alt="70インチタッチディスプレイで操作するフリーアドレス座席表アプリの画面。" class="w-[118%] max-w-none h-56 sm:h-72 object-cover -translate-x-[8%]" src="images/works/osaka-gas-seat-map.webp" width="1280" height="720" loading="lazy" decoding="async" />
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-3 py-1 rounded-sm inline-block mb-4">Web
@@ -1431,7 +1464,7 @@
             <button aria-label="詳細を閉じる"
                 class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 onclick="closeModal('modal-work-7')"><span class="material-symbols-outlined">close</span></button>
-            <img alt="さわやかデンタルクリニックのホームページ画面。パステルカラーのやさしいデザイン。" class="w-full h-56 sm:h-72 object-cover" src="images/works/wp-dental-clinic.jpeg"/>
+            <img alt="さわやかデンタルクリニックのホームページ画面。パステルカラーのやさしいデザイン。" class="w-full h-56 sm:h-72 object-cover" src="images/works/wp-dental-clinic.webp" width="1200" height="800" loading="lazy" decoding="async" />
             <div class="p-6 sm:p-10">
                 <span
                     class="text-xs font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-sm inline-block mb-4">WordPress Site</span>
@@ -1478,6 +1511,67 @@
                             class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
                         class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         onclick="closeModal('modal-work-7')">閉じる</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-work-8: まち水道レスキュー（習作） -->
+    <div aria-hidden="true" aria-labelledby="modal-work-8-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-8" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-8')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-8')"><span class="material-symbols-outlined">close</span></button>
+            <img alt="水しぶきの中で工具を持つ水道修理スタッフを大きく配置した、まち水道レスキューのランディングページ。" class="w-full h-56 sm:h-72 object-cover" src="images/works/machimizu.webp" width="960" height="1200" loading="lazy" decoding="async" />
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-3 py-1 rounded-sm inline-block mb-4">Landing Page</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-8-title">まち水道レスキュー<br />水道修理サービスLP（習作）</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    水漏れや詰まりなど、急な水まわりトラブルへの対応サービスを想定したランディングページの習作です。緊急時でも料金、対応スピード、相談方法を迷わず確認できる情報設計を目指しました。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">テーマ設定（想定課題）</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            水道トラブルで焦っている利用者に、対応の早さと明朗な料金体系を短時間で伝え、安心して相談できる状態をつくること。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">アプローチ</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            ファーストビューに強い訴求と電話・LINEの相談導線を集約し、料金シミュレーションやサービス一覧、FAQへ自然に読み進められる構成にしました。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">学び・成果</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            緊急性の高いサービスに必要な視認性と情報の優先順位を整理し、スマートフォンでも相談ボタンへ迷わず到達できるLPに仕上げました。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">情報設計 / UIデザイン / レスポンシブ実装</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">HTML</span>
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3"><a
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="https://preview.sironadesign.net/machimizu/" target="_blank" rel="noopener noreferrer">デモサイトを見る<span
+                            class="material-symbols-outlined ml-2 text-sm">open_in_new</span></a><a
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-8', { restoreFocus: false })">このような制作を相談する<span
+                            class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-8')">閉じる</button></div>
             </div>
         </div>
     </div>
