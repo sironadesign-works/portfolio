@@ -2104,6 +2104,11 @@ window.runWorkbenchScenario = function(scenarioKey) {
     });
   }
 
+  const summaryEl = document.getElementById("wb-ai-output");
+  if (summaryEl) {
+    summaryEl.innerHTML = "<div class='flex items-center gap-2 text-xs font-bold text-emerald-300'><span class='material-symbols-outlined text-sm'>check_circle</span>" + data.title + " の要件定義・画面設計・初期プロトタイプコード生成が完了しました。</div>";
+  }
+
   if (humanReviewEl) {
     humanReviewEl.innerHTML = "";
     data.reviews.forEach((rev, idx) => {
