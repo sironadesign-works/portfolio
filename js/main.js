@@ -2078,7 +2078,7 @@ window.runWorkbenchScenario = function(scenarioKey) {
     }
   });
 
-  const aiOutputEl = document.getElementById("wb-ai-output");
+  const aiOutputEl = document.getElementById("wb-steps-container") || (document.getElementById("wb-steps-container") || document.getElementById("wb-ai-output"));
   const humanReviewEl = document.getElementById("wb-human-review");
   const statusEl = document.getElementById("wb-status");
 
@@ -2093,7 +2093,7 @@ window.runWorkbenchScenario = function(scenarioKey) {
       setTimeout(() => {
         const p = document.createElement("p");
         p.innerHTML = line;
-        p.className = "fade-in";
+        p.className = "p-3 rounded-lg bg-[#1e293b] border border-gray-700/60 leading-relaxed fade-in";
         aiOutputEl.appendChild(p);
 
         if (index === data.aiLines.length - 1 && statusEl) {
@@ -2123,7 +2123,7 @@ window.runWorkbenchScenario = function(scenarioKey) {
 
 // 初期ロード時にシナリオ実行
 document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("wb-ai-output")) {
+  if (document.getElementById("wb-steps-container") || (document.getElementById("wb-steps-container") || document.getElementById("wb-ai-output"))) {
     runWorkbenchScenario("temple");
   }
 
@@ -2240,3 +2240,20 @@ window.switchAiView = function(viewId) {
     runWorkbenchScenario("temple");
   }
 };
+
+// AIセクション進入時に自動でアニメーション開始
+const aiSection = document.getElementById("ai");
+if (aiSection && "IntersectionObserver" in window) {
+  let aiTriggered = false;
+  const aiObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !aiTriggered) {
+        aiTriggered = true;
+        if (typeof runWorkbenchScenario === "function") {
+          runWorkbenchScenario("temple");
+        }
+      }
+    });
+  }, { threshold: 0.2 });
+  aiObserver.observe(aiSection);
+}
