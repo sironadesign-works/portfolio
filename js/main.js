@@ -2068,7 +2068,7 @@ window.runWorkbenchScenario = function(scenarioKey) {
   const data = workbenchScenarios[scenarioKey] || workbenchScenarios.temple;
 
   // ボタンアクティブ
-  document.querySelectorAll(".scenario-btn").forEach(btn => {
+  document.querySelectorAll(".wb-scenario-btn, .scenario-btn").forEach(btn => {
     if (btn.dataset.scenario === scenarioKey) {
       btn.classList.add("active", "bg-[#0f172a]", "text-white");
       btn.classList.remove("bg-white", "text-[#475569]");
@@ -2205,5 +2205,38 @@ window.toggleMoreWorksMobile = function() {
       moreIcon.innerText = "expand_less";
       moreIcon.style.transform = "rotate(180deg)";
     }
+  }
+};
+
+
+/**
+ * ========================================================
+ * 🤖 AI開発 表示モード切り替え（workbench / metrics）
+ * ========================================================
+ */
+window.switchAiView = function(viewId) {
+  const workbenchView = document.getElementById("ai-view-workbench");
+  const metricsView = document.getElementById("ai-view-metrics");
+
+  if (viewId === "workbench") {
+    if (workbenchView) workbenchView.classList.remove("hidden");
+    if (metricsView) metricsView.classList.add("hidden");
+  } else {
+    if (workbenchView) workbenchView.classList.add("hidden");
+    if (metricsView) metricsView.classList.remove("hidden");
+  }
+
+  document.querySelectorAll(".ai-tab-btn").forEach(btn => {
+    if (btn.dataset.target === viewId) {
+      btn.classList.add("active", "bg-[#2563eb]", "text-white", "shadow-sm");
+      btn.classList.remove("text-[#64748b]");
+    } else {
+      btn.classList.remove("active", "bg-[#2563eb]", "text-white", "shadow-sm");
+      btn.classList.add("text-[#64748b]");
+    }
+  });
+
+  if (viewId === "workbench") {
+    runWorkbenchScenario("temple");
   }
 };
