@@ -2064,10 +2064,14 @@ const workbenchScenarios = {
   }
 };
 
+let scenarioTimeouts = [];
+
 window.runWorkbenchScenario = function(scenarioKey) {
+  scenarioTimeouts.forEach(t => clearTimeout(t));
+  scenarioTimeouts = [];
+
   const data = workbenchScenarios[scenarioKey] || workbenchScenarios.temple;
 
-  // ボタンアクティブ（選択中は黒背景、非選択時は白背景）
   document.querySelectorAll(".wb-scenario-btn, .scenario-btn").forEach(btn => {
     if (btn.dataset.scenario === scenarioKey) {
       btn.classList.add("active", "bg-[#0f172a]", "text-white", "border-[#0f172a]", "shadow-sm");
@@ -2078,8 +2082,9 @@ window.runWorkbenchScenario = function(scenarioKey) {
     }
   });
 
-  const aiOutputEl = document.getElementById("wb-steps-container") || (document.getElementById("wb-steps-container") || document.getElementById("wb-ai-output"));
+  const aiOutputEl = document.getElementById("wb-steps-container");
   const humanReviewEl = document.getElementById("wb-human-review");
+  const summaryEl = document.getElementById("wb-ai-output");
   const statusEl = document.getElementById("wb-status");
 
   if (statusEl) {
@@ -2090,7 +2095,7 @@ window.runWorkbenchScenario = function(scenarioKey) {
   if (aiOutputEl) {
     aiOutputEl.innerHTML = "";
     data.aiLines.forEach((line, index) => {
-      setTimeout(() => {
+      const tId = setTimeout(() => {
         const p = document.createElement("p");
         p.innerHTML = line;
         p.className = "p-3 rounded-lg bg-[#1e293b] border border-gray-700/60 leading-relaxed fade-in";
@@ -2100,27 +2105,27 @@ window.runWorkbenchScenario = function(scenarioKey) {
           statusEl.innerText = "CO-PILOT READY";
           statusEl.className = "text-[10px] bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800";
         }
-      }, index * 120);
+      }, index * 100);
+      scenarioTimeouts.push(tId);
     });
   }
 
-  const summaryEl = document.getElementById("wb-ai-output");
   if (summaryEl) {
     summaryEl.innerHTML = "<div class='flex items-center gap-2 text-xs font-bold text-emerald-300'><span class='material-symbols-outlined text-sm'>check_circle</span>" + data.title + " の要件定義・画面設計・初期プロトタイプコード生成が完了しました。</div>";
   }
 
   if (humanReviewEl) {
     humanReviewEl.innerHTML = "";
-    data.reviews.forEach((rev, idx) => {
+    data.reviews.forEach((rev) => {
       const card = document.createElement("div");
       card.className = "p-4 rounded-xl bg-[#1e293b] border border-gray-700/80 space-y-2 transition-all hover:border-cyan-500/50 shadow-md";
-      card.innerHTML = `
+      card.innerHTML = 
         <div class="flex items-center gap-2 text-sm sm:text-base font-black text-cyan-300">
-          <span class="material-symbols-outlined text-base text-[#38bdf8]">${rev.icon}</span>
-          <span>${rev.title}</span>
+          <span class="material-symbols-outlined text-base text-[#38bdf8]"></span>
+          <span></span>
         </div>
-        <p class="text-xs sm:text-sm text-gray-200 leading-relaxed font-sans">${rev.desc}</p>
-      `;
+        <p class="text-xs sm:text-sm text-gray-200 leading-relaxed font-sans"></p>
+      ;
       humanReviewEl.appendChild(card);
     });
   }
