@@ -2067,14 +2067,14 @@ const workbenchScenarios = {
 window.runWorkbenchScenario = function(scenarioKey) {
   const data = workbenchScenarios[scenarioKey] || workbenchScenarios.temple;
 
-  // ボタンアクティブ
+  // ボタンアクティブ（選択中は黒背景、非選択時は白背景）
   document.querySelectorAll(".wb-scenario-btn, .scenario-btn").forEach(btn => {
     if (btn.dataset.scenario === scenarioKey) {
-      btn.classList.add("active", "bg-[#0f172a]", "text-white");
-      btn.classList.remove("bg-white", "text-[#475569]");
+      btn.classList.add("active", "bg-[#0f172a]", "text-white", "border-[#0f172a]", "shadow-sm");
+      btn.classList.remove("bg-white", "text-[#64748b]", "border-gray-200");
     } else {
-      btn.classList.remove("active", "bg-[#0f172a]", "text-white");
-      btn.classList.add("bg-white", "text-[#475569]");
+      btn.classList.remove("active", "bg-[#0f172a]", "text-white", "border-[#0f172a]", "shadow-sm");
+      btn.classList.add("bg-white", "text-[#64748b]", "border-gray-200");
     }
   });
 
