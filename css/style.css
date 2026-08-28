@@ -1,101 +1,1125 @@
-/* ページ内リンクを滑らかにスクロールする。手動変更: 即時移動へ戻す場合は smooth を auto にする。 */
+@charset "UTF-8";
+
+/* ==========================================================================
+   Emology Style Creative Web System
+   Clean light aesthetic (#F9FAFB), organic canvas metaballs, custom cursor
+   ========================================================================== */
+
+:root {
+  --bg-main: #F9FAFB;
+  --bg-surface: #FFFFFF;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #9CA3AF;
+  --accent-cyan: #06b6d4;
+  --accent-blue: #2563eb;
+  --accent-green: #10b981;
+  --accent-yellow: #f59e0b;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-focus: rgba(37, 99, 235, 0.3);
+}
+
+/* Base Body */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Material Symbols の標準表示。手動変更: 太さは 'wght'、塗りつぶしは 'FILL' を変更する。 */
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* fill クラス付きアイコンだけ塗りつぶして表示する。 */
-.material-symbols-outlined.fill {
-    font-variation-settings: 'FILL' 1;
+/* Custom Cursor */
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.2);
+  border: 1.5px solid rgba(37, 99, 235, 0.6);
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease,
+              border-color 0.25s ease,
+              opacity 0.2s ease;
+  backdrop-filter: blur(2px);
 }
 
-/* カードなどで使う共通の薄い影。手動変更: 影の濃さは rgba の最後の値を変更する。 */
-.soft-shadow {
-    box-shadow: 0 10px 30px -10px rgba(0, 32, 69, 0.08);
+#custom-cursor.cursor-hover {
+  width: 56px;
+  height: 56px;
+  background: rgba(6, 182, 212, 0.2);
+  border-color: rgba(6, 182, 212, 0.8);
 }
 
-/* hover-lift を付けた要素を、ホバー時に少し持ち上げて影を強める。 */
-.hover-lift {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+@media (pointer: coarse) {
+  #custom-cursor {
+    display: none;
+  }
 }
 
-.hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -15px rgba(0, 32, 69, 0.12);
+/* Canvas Metaballs Container */
+.canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* モバイル幅で開いたナビゲーションを、ヘッダー直下の縦並びメニューにする。
-   手動変更: モバイルメニューの余白・背景・区切り線はこのブロック内を変更する。 */
+.canvas-container.gooey-active {
+  filter: url(#metaball-goo);
+  -webkit-filter: url(#metaball-goo);
+}
+
+#metaballs-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Decorative Badges & Headings */
+.emology-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-blue);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.emology-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.6; }
+}
+
+/* Card & Tile Aesthetics */
+.emology-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.emology-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.emology-card-dark {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3) !important;
+}
+
+.emology-card-dark:hover {
+  border-color: rgba(6, 182, 212, 0.4) !important;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.45) !important;
+}
+
+/* 提供サービス用 フルカラーカード（確実な背景グラデーション） */
+.emology-card-tint-blue {
+  background: linear-gradient(145deg, #ffffff 10%, #eff6ff 100%) !important;
+  border-color: #bfdbfe !important;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08) !important;
+}
+
+.emology-card-tint-cyan {
+  background: linear-gradient(145deg, #ffffff 10%, #e0f7fa 100%) !important;
+  border-color: #a5f3fc !important;
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08) !important;
+}
+
+.emology-card-tint-emerald {
+  background: linear-gradient(145deg, #ffffff 10%, #ecfdf5 100%) !important;
+  border-color: #a7f3d0 !important;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.08) !important;
+}
+
+.emology-card-tint-amber {
+  background: linear-gradient(145deg, #ffffff 10%, #fef3c7 100%) !important;
+  border-color: #fde68a !important;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.08) !important;
+}
+
+.emology-card-tint-purple {
+  background: linear-gradient(145deg, #ffffff 10%, #f3e8ff 100%) !important;
+  border-color: #e9d5ff !important;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.08) !important;
+}
+
+.emology-card-tint-rose {
+  background: linear-gradient(145deg, #ffffff 10%, #ffe4e6 100%) !important;
+  border-color: #fecdd3 !important;
+  box-shadow: 0 4px 20px rgba(244, 63, 94, 0.08) !important;
+}
+
+.emology-card-tint-indigo {
+  background: linear-gradient(145deg, #ffffff 10%, #e0e7ff 100%) !important;
+  border-color: #c7d2fe !important;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08) !important;
+}
+
+.emology-card-tint-teal {
+  background: linear-gradient(145deg, #ffffff 10%, #ccfbf1 100%) !important;
+  border-color: #99f6e4 !important;
+  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.08) !important;
+}
+
+
+
+
+/* Works Tile Gallery */
+.work-tile {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-tile:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+.work-tile-img-box {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  background: #f1f5f9;
+}
+
+.work-tile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-tile:hover .work-tile-img {
+  transform: scale(1.06);
+}
+
+/* Cinematic Works Responsive Layout (Mobile Vertical Grid, Desktop Horizontal Carousel) */
+.works-carousel-container {
+  position: relative;
+  width: 100%;
+  margin-left: 0;
+  padding: 10px 0 0;
+  overflow: visible;
+}
+
+.works-carousel-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0;
+  overflow: visible;
+  cursor: default;
+}
+
+/* Mobile Works Visibility Limit (Initial 5 items) */
 @media (max-width: 767px) {
-    .mobile-nav:not(.hidden) {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 8px 24px 24px;
-        background: rgba(250, 249, 253, 0.98);
-        border-top: 1px solid #e3e2e6;
-        box-shadow: 0 18px 30px -24px rgba(0, 32, 69, 0.35);
-    }
-
-    .mobile-nav a {
-        padding: 14px 0;
-        border-bottom: 1px solid #e3e2e6;
-    }
+  .works-mobile-hidden:not(.expanded) {
+    display: none !important;
+  }
+  .works-mobile-hidden.expanded {
+    display: flex !important;
+    animation: fadeInWorksCard 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
 
-/* JavaScript が reveal を付けた要素の初期状態と表示アニメーション。
-   手動変更: 移動量は translateY、速度は 0.7s、遅延は --reveal-delay を変更する。 */
-.motion-ready .reveal {
+@keyframes fadeInWorksCard {
+  from {
     opacity: 0;
-    transform: translateY(18px);
-    transition:
-        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
-}
-
-/* reveal-scale 付きのカードや画像は、少し縮小した状態から表示する。 */
-.motion-ready .reveal-scale {
-    transform: translateY(14px) scale(0.98);
-}
-
-/* 画面内へ入った要素を本来の位置・大きさへ戻して表示する。 */
-.motion-ready .reveal.is-visible {
+    transform: translateY(16px);
+  }
+  to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
+  }
 }
 
-/* 制作フローの横線を左から右へ伸ばすアニメーション。 */
-.motion-ready .flow-line {
-    transform: scaleX(0) translateY(-50%);
-    transform-origin: left center;
-    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+.carousel-clone-item {
+  display: none !important;
 }
 
-.motion-ready .flow-line.is-visible {
-    transform: scaleX(1) translateY(-50%);
+@media (min-width: 768px) {
+  .carousel-clone-item {
+    display: flex !important;
+  }
 }
 
-/* OS で視差効果を減らす設定が有効な場合は、スクロールと表示アニメーションを無効化する。 */
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
+.cinematic-card {
+  flex: none;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
 
-    .motion-ready .reveal,
-    .motion-ready .flow-line {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
+@media (min-width: 768px) {
+  .works-carousel-container {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 20px 0 40px;
+    overflow: hidden;
+  }
+
+  .works-carousel-track {
+    display: flex;
+    gap: 24px;
+    padding: 10px max(24px, calc((100vw - 1280px) / 2)) 20px;
+    overflow-x: auto;
+    scroll-behavior: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+  }
+
+  .works-carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .works-carousel-track:active {
+    cursor: grabbing;
+  }
+
+  .cinematic-card {
+    flex: 0 0 380px;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cinematic-card {
+    flex: 0 0 440px;
+  }
+}
+
+.cinematic-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 28px 56px rgba(37, 99, 235, 0.14);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.cinematic-card-img-box {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: #f1f5f9;
+}
+
+@media (min-width: 640px) {
+  .cinematic-card-img-box {
+    height: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cinematic-card-img-box {
+    height: 270px;
+  }
+}
+
+.cinematic-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Flow Timeline Storytelling */
+.flow-step-node {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flow-step-node::before {
+  content: '';
+  position: absolute;
+  left: calc(-1.5rem - 1px);
+  top: 1.75rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .flow-step-node::before {
+    left: calc(-2rem - 1px);
+  }
+}
+
+.flow-step-node:hover::before {
+  background: #06b6d4;
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 6px rgba(6, 182, 212, 0.25);
+  transform: translateX(-50%) scale(1.2);
+}
+
+/* Before / After Comparison Slider */
+.ba-comparison-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: #ffffff;
+}
+
+.ba-layer {
+  width: 100%;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 前面レイヤー（左から幅可変で広がる BEFORE レイヤー） */
+.ba-before-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  z-index: 10;
+  border-right: 2px solid #2563eb;
+  background: #f8fafc;
+}
+
+.ba-before-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+}
+
+.ba-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: ew-resize;
+  z-index: 20;
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.25), 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.ba-handle:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: #06b6d4;
+}
+
+/* 🔥 超目立つ立体パルスハンドル（New Style） */
+.ba-handle-prominent {
+  width: 58px !important;
+  height: 58px !important;
+  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%) !important;
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.25), 0 12px 28px rgba(37, 99, 235, 0.45) !important;
+  border: 2px solid #ffffff !important;
+}
+
+.ba-handle-prominent::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.35);
+  animation: ba-pulse-wave 2s infinite cubic-bezier(0.24, 0, 0.38, 1);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes ba-pulse-wave {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.ba-handle-prominent:hover {
+  transform: translate(-50%, -50%) scale(1.12) !important;
+  box-shadow: 0 0 0 8px rgba(6, 182, 212, 0.3), 0 16px 36px rgba(6, 182, 212, 0.5) !important;
+}
+
+/* 🎨 案内バッジのカラーバリエーション */
+.ba-guide-badge {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ba-guide-badge.color-black {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35) !important;
+}
+.ba-guide-badge.color-black .guide-icon {
+  color: #facc15 !important; /* ゴールド */
+}
+
+.ba-guide-badge.color-orange {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.35) !important;
+}
+.ba-guide-badge.color-orange .guide-icon {
+  color: #ffffff !important;
+}
+
+.ba-guide-badge.color-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #4f46e5 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35) !important;
+}
+.ba-guide-badge.color-purple .guide-icon {
+  color: #ffffff !important;
+}
+
+.ba-guide-badge.color-white {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 2px solid #0f172a !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12) !important;
+}
+.ba-guide-badge.color-white .guide-icon {
+  color: #2563eb !important;
+}
+
+.ba-guide-badge.color-blue {
+  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35) !important;
+}
+.ba-guide-badge.color-blue .guide-icon {
+  color: #ffffff !important;
+}
+
+
+.ba-handle-line {
+  position: absolute;
+  top: -1000px;
+  bottom: -1000px;
+  left: 50%;
+  width: 2px;
+  background: #2563eb;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+
+
+
+
+
+/* Terminal Console (Clean Dark accent inside Light theme) */
+.terminal-card {
+  background: #0f172a;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: #1e293b;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Buttons */
+.emology-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 16px 36px;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.emology-btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(6, 182, 212, 0.35);
+}
+
+.emology-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #FFFFFF;
+  color: var(--text-primary);
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 16px 36px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.emology-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: rgba(37, 99, 235, 0.3);
+  color: var(--accent-blue);
+}
+
+/* Accordion Item (Rich Modern Card Style) */
+.clean-accordion-item {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 20px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+}
+
+.clean-accordion-item:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+  transform: translateY(-2px);
+}
+
+.clean-accordion-item {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+}
+
+.clean-accordion-item:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+}
+
+.clean-accordion-item.active {
+  border-color: #10b981;
+  border-left: 5px solid #10b981;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.10);
+}
+
+.clean-accordion-header {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.clean-accordion-header:hover {
+  background-color: #f8fafc;
+}
+
+.accordion-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.clean-accordion-item:hover .accordion-icon-badge {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.clean-accordion-item.active .accordion-icon-badge {
+  background: #10b981;
+  color: #ffffff;
+  transform: rotate(180deg);
+}
+
+.clean-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  opacity: 0;
+}
+
+.clean-accordion-item.active .clean-accordion-content {
+  max-height: 600px;
+  opacity: 1;
+}
+
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Header */
+header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+
+header.header-scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Nav */
+@media (max-width: 767px) {
+  .mobile-nav:not(.hidden) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Modals */
+.modal-overlay {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+/* Floating Animation Switcher Controller (Desktop Only) */
+.anim-switcher-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  width: 256px;
+  pointer-events: auto;
+}
+
+@media (min-width: 768px) {
+  .anim-switcher-container {
+    display: flex;
+  }
+}
+
+.anim-switcher-panel {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.16);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  max-height: 55vh;
+  overflow-y: auto;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim-switcher-btn {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: #f8fafc;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+  transition: all 0.2s ease;
+}
+
+.anim-switcher-btn:hover {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+
+.anim-switcher-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.anim-switcher-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #64748b;
+  padding: 4px 6px 6px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 4px;
+}
+
+/* ========================================================
+   🔥 Dynamic Typography Scale System (.font-dynamic)
+   カード類・見出し・数字のメリハリとスケールを劇的に拡大
+   ======================================================== */
+.font-dynamic .emology-card h3,
+.font-dynamic .emology-card h4,
+.font-dynamic .work-tile h3,
+.font-dynamic .cinematic-card h3 {
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.3 !important;
+}
+
+@media (min-width: 768px) {
+  .font-dynamic .emology-card h3,
+  .font-dynamic .work-tile h3,
+  .font-dynamic .cinematic-card h3 {
+    font-size: 1.55rem !important;
+  }
+}
+
+/* 本文テキストのゆったり拡大 */
+.font-dynamic .emology-card p,
+.font-dynamic .work-tile p,
+.font-dynamic .cinematic-card p,
+.font-dynamic .flow-step-node p,
+.font-dynamic .ba-layer p {
+  font-size: 0.925rem !important;
+  line-height: 1.8 !important;
+  color: #334155 !important;
+}
+
+@media (min-width: 768px) {
+  .font-dynamic .emology-card p,
+  .font-dynamic .work-tile p,
+  .font-dynamic .cinematic-card p,
+  .font-dynamic .flow-step-node p,
+  .font-dynamic .ba-layer p {
+    font-size: 0.985rem !important;
+  }
+}
+
+/* 数字・ステップ番号のビッグナンバー化 */
+.font-dynamic .flow-step-node .font-mono,
+.font-dynamic .clean-accordion-header .font-mono {
+  font-size: 1.25rem !important;
+  font-weight: 900 !important;
+}
+
+/* バッジ・ラベルの視認性強化 */
+.font-dynamic .emology-card span[class*="text-[11px]"],
+.font-dynamic .emology-card span[class*="text-[10px]"],
+.font-dynamic .cinematic-card span[class*="text-[11px]"] {
+  font-size: 0.775rem !important;
+  font-weight: 800 !important;
+}
+
+/* ============================================================
+   📐 全体角丸スタイル切り替え（Border Radius Switcher）完全網羅版
+   ============================================================ */
+
+/* 💎 1. モダン・シャープ（微角丸 6px〜8px） */
+/* カード・大枠・ウィンドウ */
+body.radius-sharp .emology-card,
+body.radius-sharp .work-tile,
+body.radius-sharp .cinematic-card,
+body.radius-sharp .terminal-card,
+body.radius-sharp .ba-comparison-wrapper,
+body.radius-sharp .clean-accordion-item,
+body.radius-sharp .bento-item,
+body.radius-sharp [class*="max-w-4xl"].rounded-lg,
+body.radius-sharp [class*="max-w-4xl"].rounded-2xl,
+body.radius-sharp [class*="rounded-3xl"],
+body.radius-sharp [class*="rounded-2xl"] {
+  border-radius: 8px !important;
+}
+
+/* ボタン類（ヒーローCTA、ヘッダーCTA、送信ボタン、タブボタン、モーダル内ボタン） */
+body.radius-sharp .emology-btn-primary,
+body.radius-sharp .emology-btn-secondary,
+body.radius-sharp #contact-form-submit,
+body.radius-sharp .scenario-btn,
+body.radius-sharp .ai-tab-btn,
+body.radius-sharp .works-tab-btn,
+body.radius-sharp .flow-tab-btn,
+body.radius-sharp .concerns-tab-btn,
+body.radius-sharp .profile-tab-btn,
+body.radius-sharp a[href="#contact"].bg-primary,
+body.radius-sharp [class*="rounded-xl"],
+body.radius-sharp [class*="rounded-lg"],
+body.radius-sharp [class*="rounded-md"]:not(.emology-badge-dot) {
+  border-radius: 6px !important;
+}
+
+/* バッジ類（ヒーロー上部、セクションバッジ、案内バッジ、タグ） */
+body.radius-sharp .emology-badge,
+body.radius-sharp .hero-anim .rounded-full,
+body.radius-sharp .ba-guide-badge,
+body.radius-sharp [class*="bg-primary-container"].rounded-sm,
+body.radius-sharp [class*="bg-primary/10"].rounded-sm,
+body.radius-sharp span[class*="rounded-full"]:not(.emology-badge-dot):not(.w-2):not(.w-2\.5):not(.w-3):not(.w-3\.5) {
+  border-radius: 6px !important;
+}
+
+/* フォーム入力欄・画像・アイコン枠 */
+body.radius-sharp input,
+body.radius-sharp textarea,
+body.radius-sharp select,
+body.radius-sharp img.rounded-2xl,
+body.radius-sharp img.rounded-xl,
+body.radius-sharp img.rounded-lg,
+body.radius-sharp .work-tile-img-box,
+body.radius-sharp .cinematic-img-box {
+  border-radius: 6px !important;
+}
+
+body.radius-sharp .work-tile-img-box,
+body.radius-sharp .cinematic-img-box {
+  border-radius: 6px 6px 0 0 !important;
+}
+
+/* メーターバー */
+body.radius-sharp [class*="h-2"].rounded-full,
+body.radius-sharp [class*="h-3"].rounded-full {
+  border-radius: 4px !important;
+}
+
+
+/* 🏛️ 2. ソリッド・直角（完全スクエア 0px） */
+/* カード・大枠・ウィンドウ */
+body.radius-solid .emology-card,
+body.radius-solid .work-tile,
+body.radius-solid .cinematic-card,
+body.radius-solid .terminal-card,
+body.radius-solid .ba-comparison-wrapper,
+body.radius-solid .clean-accordion-item,
+body.radius-solid .bento-item,
+body.radius-solid [class*="max-w-4xl"],
+body.radius-solid [class*="rounded-3xl"],
+body.radius-solid [class*="rounded-2xl"],
+body.radius-solid [class*="rounded-xl"],
+body.radius-solid [class*="rounded-lg"],
+body.radius-solid [class*="rounded-md"],
+body.radius-solid [class*="rounded-sm"] {
+  border-radius: 0px !important;
+}
+
+/* 全ボタン・全バッジ・全フォーム */
+body.radius-solid .emology-btn-primary,
+body.radius-solid .emology-btn-secondary,
+body.radius-solid #contact-form-submit,
+body.radius-solid .emology-badge,
+body.radius-solid .ba-guide-badge,
+body.radius-solid .scenario-btn,
+body.radius-solid .ai-tab-btn,
+body.radius-solid .works-tab-btn,
+body.radius-solid .flow-tab-btn,
+body.radius-solid .concerns-tab-btn,
+body.radius-solid .profile-tab-btn,
+body.radius-solid input,
+body.radius-solid textarea,
+body.radius-solid select,
+body.radius-solid img,
+body.radius-solid .work-tile-img-box,
+body.radius-solid .cinematic-img-box,
+body.radius-solid a[href="#contact"],
+body.radius-solid .hero-anim .rounded-full,
+body.radius-solid [class*="rounded-full"]:not(.emology-badge-dot):not(.w-2):not(.w-2\.5):not(.w-3):not(.w-3\.5):not(.w-8):not(.w-10):not(.w-12):not(.w-14) {
+  border-radius: 0px !important;
+}
+
+/* 📱 3. ソフト・現行（16px〜24px）: デフォルトCSSのまま */
+
+
+
+
+
+/* Header Contact Button Size Optimization */
+.header-contact-btn {
+  padding: 6px 14px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  gap: 4px !important;
+  border-radius: 9999px !important;
+  white-space: nowrap !important;
+}
+
+@media (min-width: 768px) {
+  .header-contact-btn {
+    padding: 10px 22px !important;
+    font-size: 12px !important;
+    gap: 8px !important;
+  }
+}
+
+/* Hero Scroll Down Indicator (Sirona Design style) */
+.hero-scroll-indicator {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 10px;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 36px;
+  cursor: pointer;
+}
+
+.hero-scroll-indicator:hover {
+  color: #2563eb;
+  transform: translateY(2px);
+}
+
+.hero-scroll-line {
+  width: 1.5px;
+  height: 48px;
+  background-color: rgba(148, 163, 184, 0.25);
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.hero-scroll-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background: linear-gradient(to bottom, transparent, #2563eb, #06b6d4);
+  animation: hero-scroll-anim 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes hero-scroll-anim {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(200%);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
 }
