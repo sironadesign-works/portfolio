@@ -2119,13 +2119,7 @@ window.runWorkbenchScenario = function(scenarioKey) {
     data.reviews.forEach((rev) => {
       const card = document.createElement("div");
       card.className = "p-4 rounded-xl bg-[#1e293b] border border-gray-700/80 space-y-2 transition-all hover:border-cyan-500/50 shadow-md";
-      card.innerHTML = 
-        <div class="flex items-center gap-2 text-sm sm:text-base font-black text-cyan-300">
-          <span class="material-symbols-outlined text-base text-[#38bdf8]"></span>
-          <span></span>
-        </div>
-        <p class="text-xs sm:text-sm text-gray-200 leading-relaxed font-sans"></p>
-      ;
+      card.innerHTML = '<div class="flex items-center gap-2 text-sm sm:text-base font-black text-cyan-300"><span class="material-symbols-outlined text-base text-[#38bdf8]">' + rev.icon + '</span><span>' + rev.title + '</span></div><p class="text-xs sm:text-sm text-gray-200 leading-relaxed font-sans">' + rev.desc + '</p>';
       humanReviewEl.appendChild(card);
     });
   }
