@@ -71,7 +71,7 @@ if (canvas) {
     }
 
     clearTimeout(mouseMoveTimeout);
-    mouseMoveTimeout = const tId = setTimeout(() => { mouse.isMoving = false; }, 100);
+    mouseMoveTimeout = setTimeout(() => { mouse.isMoving = false; }, 100);
   });
 
   window.addEventListener("mouseleave", () => {
@@ -2094,6 +2094,7 @@ window.runWorkbenchScenario = function(scenarioKey) {
   if (aiOutputEl) {
     aiOutputEl.innerHTML = "";
     data.aiLines.forEach((line, index) => {
+      const tId =
       setTimeout(() => {
         const p = document.createElement("p");
         p.innerHTML = line;
@@ -2105,7 +2106,6 @@ window.runWorkbenchScenario = function(scenarioKey) {
           statusEl.className = "text-[10px] bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800";
         }
       }, index * 120);
-      scenarioTimeouts.push(tId);
     });
   }
 
