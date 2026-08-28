@@ -930,196 +930,94 @@ header.header-scrolled {
    📐 全体角丸スタイル切り替え（Border Radius Switcher）完全網羅版
    ============================================================ */
 
-/* 💎 1. モダン・シャープ（微角丸 6px〜8px） */
-/* カード・大枠・ウィンドウ */
+
+/* ========================================================
+   🔲 角丸システム完全定義（sharp / solid / soft）
+   ======================================================== */
+
+/* 1. モダン・シャープ (6~8px) */
 body.radius-sharp .emology-card,
 body.radius-sharp .work-tile,
 body.radius-sharp .cinematic-card,
-body.radius-sharp .terminal-card,
-body.radius-sharp .ba-comparison-wrapper,
 body.radius-sharp .clean-accordion-item,
-body.radius-sharp .bento-item,
-body.radius-sharp [class*="max-w-4xl"].rounded-lg,
-body.radius-sharp [class*="max-w-4xl"].rounded-2xl,
+body.radius-sharp .modal-content,
+body.radius-sharp .anim-switcher-panel,
+body.radius-sharp .rounded-3xl,
+body.radius-sharp .rounded-2xl,
+body.radius-sharp .rounded-4xl,
 body.radius-sharp [class*="rounded-3xl"],
 body.radius-sharp [class*="rounded-2xl"] {
   border-radius: 8px !important;
 }
-
-/* ボタン類（ヒーローCTA、ヘッダーCTA、送信ボタン、タブボタン、モーダル内ボタン） */
 body.radius-sharp .emology-btn-primary,
 body.radius-sharp .emology-btn-secondary,
+body.radius-sharp .header-contact-btn,
 body.radius-sharp #contact-form-submit,
-body.radius-sharp .scenario-btn,
+body.radius-sharp .wb-scenario-btn,
 body.radius-sharp .ai-tab-btn,
-body.radius-sharp .works-tab-btn,
-body.radius-sharp .flow-tab-btn,
-body.radius-sharp .concerns-tab-btn,
-body.radius-sharp .profile-tab-btn,
-body.radius-sharp a[href="#contact"].bg-primary,
-body.radius-sharp [class*="rounded-xl"],
-body.radius-sharp [class*="rounded-lg"],
-body.radius-sharp [class*="rounded-md"]:not(.emology-badge-dot) {
-  border-radius: 6px !important;
-}
-
-/* バッジ類（ヒーロー上部、セクションバッジ、案内バッジ、タグ） */
+body.radius-sharp .anim-switcher-btn,
 body.radius-sharp .emology-badge,
-body.radius-sharp .hero-anim .rounded-full,
-body.radius-sharp .ba-guide-badge,
-body.radius-sharp [class*="bg-primary-container"].rounded-sm,
-body.radius-sharp [class*="bg-primary/10"].rounded-sm,
-body.radius-sharp span[class*="rounded-full"]:not(.emology-badge-dot):not(.w-2):not(.w-2\.5):not(.w-3):not(.w-3\.5) {
-  border-radius: 6px !important;
-}
-
-/* フォーム入力欄・画像・アイコン枠 */
+body.radius-sharp [class*="rounded-full"]:not(.emology-badge-dot):not(.w-2):not(.w-2\.5):not(.w-3):not(.hero-scroll-line),
+body.radius-sharp img,
 body.radius-sharp input,
 body.radius-sharp textarea,
 body.radius-sharp select,
-body.radius-sharp img.rounded-2xl,
-body.radius-sharp img.rounded-xl,
-body.radius-sharp img.rounded-lg,
-body.radius-sharp .work-tile-img-box,
-body.radius-sharp .cinematic-img-box {
+body.radius-sharp [class*="rounded-xl"],
+body.radius-sharp [class*="rounded-lg"] {
   border-radius: 6px !important;
 }
 
-body.radius-sharp .work-tile-img-box,
-body.radius-sharp .cinematic-img-box {
-  border-radius: 6px 6px 0 0 !important;
-}
-
-/* メーターバー */
-body.radius-sharp [class*="h-2"].rounded-full,
-body.radius-sharp [class*="h-3"].rounded-full {
-  border-radius: 4px !important;
-}
-
-
-/* 🏛️ 2. ソリッド・直角（完全スクエア 0px） */
-/* カード・大枠・ウィンドウ */
+/* 2. ソリッド・直角 (0px) */
 body.radius-solid .emology-card,
 body.radius-solid .work-tile,
 body.radius-solid .cinematic-card,
-body.radius-solid .terminal-card,
-body.radius-solid .ba-comparison-wrapper,
 body.radius-solid .clean-accordion-item,
-body.radius-solid .bento-item,
-body.radius-solid [class*="max-w-4xl"],
-body.radius-solid [class*="rounded-3xl"],
-body.radius-solid [class*="rounded-2xl"],
-body.radius-solid [class*="rounded-xl"],
-body.radius-solid [class*="rounded-lg"],
-body.radius-solid [class*="rounded-md"],
-body.radius-solid [class*="rounded-sm"] {
-  border-radius: 0px !important;
-}
-
-/* 全ボタン・全バッジ・全フォーム */
+body.radius-solid .modal-content,
+body.radius-solid .anim-switcher-panel,
 body.radius-solid .emology-btn-primary,
 body.radius-solid .emology-btn-secondary,
+body.radius-solid .header-contact-btn,
 body.radius-solid #contact-form-submit,
-body.radius-solid .emology-badge,
-body.radius-solid .ba-guide-badge,
-body.radius-solid .scenario-btn,
+body.radius-solid .wb-scenario-btn,
 body.radius-solid .ai-tab-btn,
-body.radius-solid .works-tab-btn,
-body.radius-solid .flow-tab-btn,
-body.radius-solid .concerns-tab-btn,
-body.radius-solid .profile-tab-btn,
+body.radius-solid .anim-switcher-btn,
+body.radius-solid .emology-badge,
+body.radius-solid img,
 body.radius-solid input,
 body.radius-solid textarea,
 body.radius-solid select,
-body.radius-solid img,
-body.radius-solid .work-tile-img-box,
-body.radius-solid .cinematic-img-box,
-body.radius-solid a[href="#contact"],
-body.radius-solid .hero-anim .rounded-full,
-body.radius-solid [class*="rounded-full"]:not(.emology-badge-dot):not(.w-2):not(.w-2\.5):not(.w-3):not(.w-3\.5):not(.w-8):not(.w-10):not(.w-12):not(.w-14) {
+body.radius-solid [class*="rounded-"] {
   border-radius: 0px !important;
 }
 
-/* 📱 3. ソフト・現行（16px〜24px）: デフォルトCSSのまま */
-
-
-
-
-
-/* Header Contact Button Size Optimization */
-.header-contact-btn {
-  padding: 6px 14px !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  gap: 4px !important;
+/* 3. ソフト (16~24px / フルピル) */
+body.radius-soft .emology-card,
+body.radius-soft .work-tile,
+body.radius-soft .cinematic-card,
+body.radius-soft .clean-accordion-item,
+body.radius-soft .modal-content,
+body.radius-soft .anim-switcher-panel,
+body.radius-soft [class*="rounded-3xl"],
+body.radius-soft [class*="rounded-2xl"],
+body.radius-soft [class*="rounded-4xl"] {
+  border-radius: 24px !important;
+}
+body.radius-soft .emology-btn-primary,
+body.radius-soft .emology-btn-secondary,
+body.radius-soft .header-contact-btn,
+body.radius-soft #contact-form-submit,
+body.radius-soft .emology-badge,
+body.radius-soft .wb-scenario-btn,
+body.radius-soft .ai-tab-btn,
+body.radius-soft [class*="rounded-full"]:not(.emology-badge-dot):not(.w-2):not(.w-2\.5):not(.w-3):not(.hero-scroll-line) {
   border-radius: 9999px !important;
-  white-space: nowrap !important;
 }
-
-@media (min-width: 768px) {
-  .header-contact-btn {
-    padding: 10px 22px !important;
-    font-size: 12px !important;
-    gap: 8px !important;
-  }
-}
-
-/* Hero Scroll Down Indicator (Sirona Design style) */
-.hero-scroll-indicator {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: #64748b;
-  font-size: 10px;
-  font-family: var(--font-mono, monospace);
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-top: 36px;
-  cursor: pointer;
-}
-
-.hero-scroll-indicator:hover {
-  color: #2563eb;
-  transform: translateY(2px);
-}
-
-.hero-scroll-line {
-  width: 1.5px;
-  height: 48px;
-  background-color: rgba(148, 163, 184, 0.25);
-  position: relative;
-  overflow: hidden;
-  border-radius: 9999px;
-}
-
-.hero-scroll-line::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 24px;
-  background: linear-gradient(to bottom, transparent, #2563eb, #06b6d4);
-  animation: hero-scroll-anim 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-}
-
-@keyframes hero-scroll-anim {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  30% {
-    opacity: 1;
-  }
-  80% {
-    transform: translateY(200%);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(200%);
-    opacity: 0;
-  }
+body.radius-soft img,
+body.radius-soft input,
+body.radius-soft textarea,
+body.radius-soft select,
+body.radius-soft .anim-switcher-btn,
+body.radius-soft [class*="rounded-xl"],
+body.radius-soft [class*="rounded-lg"] {
+  border-radius: 16px !important;
 }
