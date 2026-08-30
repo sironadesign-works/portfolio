@@ -1828,7 +1828,7 @@ window.switchWorksView = function(viewType) {
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCarousel);
+    // initCarousel will be called in main DOMContentLoaded
   } else {
     initCarousel();
   }
@@ -2127,8 +2127,10 @@ window.runWorkbenchScenario = function(scenarioKey) {
 
 // 初期化（重複呼び出しを完全防止）
 document.addEventListener("DOMContentLoaded", () => {
+  if (typeof initCarousel === "function") initCarousel();
+  if (typeof initComparisonSlider === "function") initComparisonSlider();
   const savedRadius = localStorage.getItem("sirona_radius_style") || "sharp";
-  switchRadiusStyle(savedRadius);
+  if (typeof switchRadiusStyle === "function") switchRadiusStyle(savedRadius);
 });
 
 window.switchRadiusStyle = function(styleId) {

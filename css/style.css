@@ -1021,3 +1021,48 @@ body.radius-soft [class*="rounded-xl"],
 body.radius-soft [class*="rounded-lg"] {
   border-radius: 16px !important;
 }
+
+/* Hero Scroll Down Indicator (Sirona Design style) */
+.hero-scroll-indicator {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 10px;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 32px;
+  cursor: pointer;
+}
+.hero-scroll-indicator:hover {
+  color: #2563eb;
+  transform: translateY(2px);
+}
+.hero-scroll-line {
+  width: 1.5px;
+  height: 48px;
+  background-color: rgba(148, 163, 184, 0.25);
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+.hero-scroll-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background: linear-gradient(to bottom, transparent, #2563eb, #06b6d4);
+  animation: hero-scroll-anim 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+@keyframes hero-scroll-anim {
+  0% { transform: translateY(-100%); opacity: 0; }
+  30% { opacity: 1; }
+  80% { transform: translateY(200%); opacity: 0.8; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
