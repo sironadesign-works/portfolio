@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 <html class="light" lang="ja">
-<!--
-    保守メモ:
-    このファイルはCookieポリシー専用の独立ページ。
-    ヘッダー、フッター、CSS、main.jsはトップページと共用するため、共通導線を変えた時は
-    index.html / privacy-policy.html と3ページ揃っているか確認する。
-    計測ツールを追加・変更した場合は、本文の利用サービス説明とGTM設定を同時に見直すこと。
--->
 <head>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -17,19 +10,19 @@
     <!-- End Google Tag Manager -->
     <!--
         ページ基本設定: 検索結果の説明は meta description、ブラウザ名は title、アイコンは favicon を変更する。
-        手動変更: CSS・JavaScript 更新後は、末尾の ?v=YYYYMMDD を index.html・privacy-policy.html と同じ値へ更新する。
+        手動変更: CSS・JavaScript 更新後は、末尾の ?v=YYYYMMDD を index.html・cookie-policy.html と同じ値へ更新する。
     -->
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta name="description" content="Sirona Designで利用するCookie、アクセス解析、Cookieの管理方法について説明するCookieポリシーです。" />
-    <title>Cookie Policy | Sirona Design</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="Sirona Designにおける個人情報の取り扱い、利用目的、第三者提供、アクセス解析、免責事項などをまとめたプライバシーポリシーです。"/>
+    <title>Privacy Policy | Sirona Design</title>
     <link rel="icon" href="images/favicon-64.png" type="image/png" sizes="64x64" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/tailwind.css?v=20260831_maintenance" />
-    <link rel="stylesheet" href="css/style.css?v=20260831_maintenance" />
+    <link rel="stylesheet" href="css/tailwind.css?v=20260713" />
+    <link rel="stylesheet" href="css/style.css?v=20260609" />
 </head>
 <body class="bg-surface text-on-surface font-body-md antialiased">
     <!-- Google Tag Manager (noscript) -->
@@ -38,7 +31,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <!--
         共通ヘッダー: ホームページ内の各セクションへ移動する。
-        手動変更: ナビ項目を変える場合は index.html・privacy-policy.html のヘッダーも同じ内容へ更新する。
+        手動変更: ナビ項目を変える場合は index.html・cookie-policy.html のヘッダーも同じ内容へ更新する。
     -->
     <header class="bg-surface/80 backdrop-blur-md fixed top-0 left-0 w-full z-50 shadow-sm">
         <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
@@ -60,74 +53,78 @@
     </header>
     <main class="pt-20">
         <!--
-            Cookieポリシー本文: 導入文、規約5項目、問い合わせ導線、制定日を表示する。
+            プライバシーポリシー本文: 導入文、規約9項目、問い合わせ導線、制定日を表示する。
             手動変更: 各項目は下記 section 内の h2 と本文、制定日は本文末尾の日付を変更する。項目追加時は番号も揃える。
         -->
         <section class="px-grid-margin py-section-gap-mobile md:py-section-gap-desktop">
             <div class="max-w-3xl mx-auto">
-                <p class="text-sm font-bold uppercase tracking-wider text-primary mb-4">Cookie Policy</p>
-                <h1 class="font-display-lg text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">クッキーポリシー</h1>
+                <p class="text-sm font-bold uppercase tracking-wider text-primary mb-4">Privacy Policy</p>
+                <h1 class="font-display-lg text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">プライバシーポリシー</h1>
                 <p class="text-on-surface-variant leading-8 mb-10">
-                    Sirona Design（以下、「当サイト」といいます。）は、お客様のウェブサイト利用体験の向上、およびアクセス状況の解析のためにクッキー（Cookie）を使用しています。本ポリシーでは、当サイトが使用するクッキーの種類、利用目的、および設定の管理方法について説明します。
+                    Sirona Design（以下、「当サイト」といいます。）は、お問い合わせや制作相談に際して取得する個人情報を、適切に取り扱うため、以下の方針を定めます。
                 </p>
                 <div class="space-y-10">
-                    <!-- 項目1: Cookieの説明。説明内容を更新する場合に変更する。 -->
+                    <!-- 項目1: 取得する情報。取得項目が変わった場合に見出しと本文を変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
-                        <h2 class="text-xl font-bold text-on-surface mb-4">1. クッキー（Cookie）とは</h2>
-                        <p class="text-on-surface-variant leading-8">クッキーとは、ウェブサイトを訪問した際にお客様のコンピューターやスマートフォンなどのデバイスに保存される小さなテキストファイルです。これにより、ウェブサイトはお客様の行動や好みの設定（ログイン状態、言語設定など）を一定期間記憶することができます。</p>
+                        <h2 class="text-xl font-bold text-on-surface mb-4">1. 取得する情報</h2>
+                        <p class="text-on-surface-variant leading-8">当サイトでは、お問い合わせフォームの送信時に、お名前、会社名、メールアドレス、相談内容など、必要な範囲の情報を取得する場合があります。</p>
                     </section>
-                    <!-- 項目2: 利用目的。Cookieの用途が変わった場合に変更する。 -->
+                    <!-- 項目2: 利用目的。情報の利用目的が変わった場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
-                        <h2 class="text-xl font-bold text-on-surface mb-4">2. クッキーの利用目的</h2>
-                        <p class="text-on-surface-variant leading-8 mb-4">当サイトでは、以下の目的でクッキーを使用しています。</p>
-                        <ul class="list-disc list-inside text-on-surface-variant leading-8 space-y-2 pl-4">
-                            <li><strong>サイト機能の最適化:</strong> お客様が快適にサイトを閲覧・操作できるようにするため。</li>
-                            <li><strong>アクセス解析とパフォーマンス改善:</strong> 訪問者数や閲覧されたページ、滞在時間などの統計的データを分析し、サイト設計の改善やコンテンツの質向上に役立てるため。</li>
-                        </ul>
+                        <h2 class="text-xl font-bold text-on-surface mb-4">2. 利用目的</h2>
+                        <p class="text-on-surface-variant leading-8">取得した情報は、お問い合わせへの回答、制作相談への対応、見積もりや業務連絡、サービス改善のために利用します。</p>
                     </section>
-                    <!-- 項目3: 使用サービス。解析ツール等を追加・削除した場合に提供者名と説明を変更する。 -->
+                    <!-- 項目3: 第三者提供。外部提供の方針が変わった場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
-                        <h2 class="text-xl font-bold text-on-surface mb-4">3. 当サイトが使用する主なクッキー</h2>
-                        <p class="text-on-surface-variant leading-8 mb-4">当サイトでは、主に以下のツールを通じてクッキーを取得・利用しています。</p>
-                        <div class="bg-surface-container rounded-md p-6 border border-surface-variant">
-                            <h3 class="font-bold text-primary mb-2">Google アナリティクス</h3>
-                            <p class="text-sm text-on-surface-variant leading-7 mb-3">提供者: Google Inc.</p>
-                            <p class="text-sm text-on-surface-variant leading-7">当サイトではアクセス状況の計測・分析のために Google アナリティクス を利用しています。取得するデータは匿名化されており、個人を特定する情報は含まれません。</p>
-                        </div>
+                        <h2 class="text-xl font-bold text-on-surface mb-4">3. 第三者提供</h2>
+                        <p class="text-on-surface-variant leading-8">法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供することはありません。</p>
                     </section>
-                    <!-- 項目4: Cookie管理方法。ブラウザ別リンクや注意文を変更する場合に更新する。 -->
+                    <!-- 項目4: 管理方法。個人情報の管理方法が変わった場合に変更する。 -->
                     <section class="border-t border-outline-variant pt-8">
-                        <h2 class="text-xl font-bold text-on-surface mb-4">4. クッキーの管理・無効化方法</h2>
-                        <p class="text-on-surface-variant leading-8 mb-4">お客様は、ご利用のウェブブラウザの設定を変更することにより、クッキーの受け入れを拒否したり、保存されたクッキーを削除したりすることができます。主要なブラウザの設定方法は以下のリンクをご参照ください。</p>
-                        <ul class="list-disc list-inside text-on-surface-variant leading-8 space-y-2 pl-4">
-                            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Google Chrome</a></li>
-                            <li><a href="https://support.apple.com/ja-jp/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Apple Safari</a></li>
-                            <li><a href="https://support.mozilla.org/ja/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Mozilla Firefox</a></li>
-                            <li><a href="https://support.microsoft.com/ja-jp/microsoft-edge/microsoft-edge-%E3%81%A7%E3%82%AF%E3%83%83%E3%82%AD%E3%83%BC%E3%82%92%E5%89%8A%E9%99%A4%E3%81%99%E3%82%8B-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Microsoft Edge</a></li>
-                        </ul>
-                        <p class="text-sm text-on-surface-variant leading-7 mt-4">※ クッキーを無効に設定した場合、当サイトの一部機能が正常に動作しない場合がありますので、あらかじめご了承ください。</p>
+                        <h2 class="text-xl font-bold text-on-surface mb-4">4. 管理方法</h2>
+                        <p class="text-on-surface-variant leading-8">取得した個人情報は、不正アクセス、紛失、改ざん、漏えい等を防ぐため、適切な管理に努めます。</p>
                     </section>
-                    <!-- 項目5: お問い合わせ。連絡方法を変える場合はリンク先も確認する。 -->
+                    <!-- 項目5: Cookie等の利用。利用状況が変わった場合は cookie-policy.html も確認する。 -->
                     <section class="border-t border-outline-variant pt-8">
-                        <h2 class="text-xl font-bold text-on-surface mb-4">5. お問い合わせ</h2>
-                        <p class="text-on-surface-variant leading-8">本ポリシーに関するご質問やご相談は、当サイトのお問い合わせフォームよりご連絡ください。</p>
+                        <h2 class="text-xl font-bold text-on-surface mb-4">5. Cookie等の利用</h2>
+                        <p class="text-on-surface-variant leading-8">当サイトでは、アクセス解析や表示改善のためにCookie等を利用する場合があります。ブラウザの設定によりCookieを無効にすることも可能です。</p>
+                    </section>
+                    <!-- 項目6: 開示・訂正・削除。受付方法や対応方針が変わった場合に変更する。 -->
+                    <section class="border-t border-outline-variant pt-8">
+                        <h2 class="text-xl font-bold text-on-surface mb-4">6. 開示・訂正・削除</h2>
+                        <p class="text-on-surface-variant leading-8">ご本人から個人情報の開示、訂正、利用停止、削除等のご依頼があった場合は、本人確認のうえ、合理的な範囲で対応します。</p>
+                    </section>
+                    <!-- 項目7: 免責事項。外部サイト等への責任範囲が変わった場合に変更する。 -->
+                    <section class="border-t border-outline-variant pt-8">
+                        <h2 class="text-xl font-bold text-on-surface mb-4">7. 免責事項</h2>
+                        <p class="text-on-surface-variant leading-8">当サイトからリンクされた外部サイトにおける個人情報の取り扱いについて、当サイトは責任を負いません。</p>
+                    </section>
+                    <!-- 項目8: 改定。ポリシー変更時の扱いが変わった場合に変更する。 -->
+                    <section class="border-t border-outline-variant pt-8">
+                        <h2 class="text-xl font-bold text-on-surface mb-4">8. 改定</h2>
+                        <p class="text-on-surface-variant leading-8">本ポリシーの内容は、法令の変更や運営方針に応じて、予告なく変更する場合があります。</p>
+                    </section>
+                    <!-- 項目9: お問い合わせ。連絡方法を変える場合はリンク先も確認する。 -->
+                    <section class="border-t border-outline-variant pt-8">
+                        <h2 class="text-xl font-bold text-on-surface mb-4">9. お問い合わせ</h2>
+                        <p class="text-on-surface-variant leading-8">本ポリシーに関するお問い合わせは、当サイトのお問い合わせフォームよりご連絡ください。</p>
                     </section>
                 </div>
                 <div class="mt-12 flex flex-col sm:flex-row gap-4">
                     <a class="inline-flex items-center justify-center bg-primary text-on-primary font-bold px-6 py-3 rounded-md hover:bg-primary-container transition-colors" href="index.html#contact">お問い合わせへ</a>
                     <a class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-bold px-6 py-3 rounded-md hover:border-primary hover:text-primary transition-colors" href="index.html#hero">トップへ戻る</a>
                 </div>
-                <p class="text-sm text-on-surface-variant mt-10">制定日：2026年5月20日</p>
+                <p class="text-sm text-on-surface-variant mt-10">制定日：2026年5月19日</p>
             </div>
         </section>
     </main>
-    <!-- 共通フッター: 文章・年・リンク変更時は index.html・privacy-policy.html も同じ内容へ更新する。 -->
+    <!-- 共通フッター: 文章・年・リンク変更時は index.html・cookie-policy.html も同じ内容へ更新する。 -->
     <footer class="py-section-gap-mobile md:py-section-gap-desktop bg-primary-container">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-grid-gutter px-grid-margin max-w-container-max mx-auto">
             <div class="col-span-1 lg:col-span-2">
                 <a class="font-display-lg text-headline-md font-bold mb-4 block text-white" href="index.html#hero">Sirona Design</a>
                 <p class="font-body-md text-body-md mb-6 max-w-sm text-white/80">
-                    伝わるデザインと小さな業務改善を。<br />
+                    伝わるデザインと小さな業務改善を。<br/>
                     AI活用 × 実務経験で、使われるWeb制作を。
                 </p>
                 <p class="font-label-sm text-label-sm text-white/60">© 2026 Sirona Design</p>
@@ -144,6 +141,6 @@
             </div>
         </div>
     </footer>
-    <script src="js/main.js?v=20260831_maintenance" defer></script>
+    <script src="js/main.js?v=20260608" defer></script>
 </body>
 </html>
