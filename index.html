@@ -830,6 +830,17 @@
             スマホは works-mobile-hidden を初期非表示にし、toggleMoreWorksMobile()で展開する。
         -->
         <section class="py-24 px-grid-margin bg-white overflow-hidden" id="works">
+<!-- 
+    ============================================================
+    📌 【保守・運用ガイド: 制作実績（WORKS）の追加手順】
+    ------------------------------------------------------------
+    1. 下記の .works-carousel-track 内に新しいカード（.work-tile）を追加します。
+    2. 6件目以降のカードには class="works-mobile-hidden" を付与します（スマホ初期非表示用）。
+    3. ページ最下部（</body>直前）に、対応するモーダル（#modal-work-10 など）を追加します。
+    4. ボタンのカウント表記（「制作実績をもっと見る（全○件）」）の数値を更新します。
+    ============================================================
+-->
+
             <div class="max-w-container-max mx-auto">
                 <div class="text-center mb-10 fade-up">
                     <div class="emology-badge mb-3">
@@ -1220,6 +1231,16 @@
             注意: action URLは送信先アカウントに直結するため、変更時は実送信テストを行う。
         -->
         <section class="py-24 px-grid-margin bg-white" id="contact">
+<!-- 
+    ============================================================
+    📌 【保守・運用ガイド: お問い合わせフォームの設定】
+    ------------------------------------------------------------
+    - action属性: Formspree のエンドポイントURL（フォームID）を設定します。
+    - 送信先メールアドレスの変更は Formspree ダッシュボード側で行います。
+    - スパム対策用 <input name="_gotcha"> は削除しないでください。
+    ============================================================
+-->
+
             <div class="max-w-2xl mx-auto">
                 <div class="text-center mb-12 fade-up">
                     <div class="emology-badge mb-3">

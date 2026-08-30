@@ -22,3 +22,24 @@ npm run build:css
 ```
 
 HTML内のTailwindクラスや`tailwind.config.js`を変更した場合は、`npm run build:css`を実行してから公開してください。
+
+
+## 🛠️ サイト更新・日常のメンテナンス手順
+
+### 1. 制作実績（WORKS）の追加・修正
+- index.html の #works セクション内に .work-tile を追加し、ページ最下部のモーダル（#modal-work-○）を作成します。
+- 実績画像は images/works/ に配置し、軽量な **WebPフォーマット** を推奨します。
+
+### 2. CSSのビルド（重要）
+HTMLのクラス名やデザインを変更した後は、必ず以下のコマンドでCSSを再生成します：
+`ash
+npm run build:css
+`
+
+### 3. 本番公開（デプロイ）
+Gitでコミットを作成し、origin/main にプッシュすることでGitHub Pages/ホスティングサーバーへ自動反映されます：
+`ash
+git add .
+git commit -m "feat: 更新内容のメモ"
+git push origin main
+`

@@ -2099,6 +2099,12 @@ window.switchAiDevView = function(viewId) {
  * ========================================================
  */
 // シナリオ追加時はHTMLのボタンdata-scenarioと、このオブジェクトのキーを一致させる。
+
+/**
+ * 📌 【保守・運用ガイド: 新しいAIシナリオの追加】
+ * シナリオを増やす場合は、下記の workbenchScenarios に新しいキー（例: salon, ec など）を追加し、
+ * index.html の .wb-scenario-btn に onclick="runWorkbenchScenario('salon')" data-scenario="salon" を配置します。
+ */
 const workbenchScenarios = {
   temple: {
     title: "お寺のWebサイト＆行事案内",
