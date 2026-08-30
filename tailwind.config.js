@@ -4,10 +4,15 @@
 module.exports = {
     // 現在は class="dark" が付いた時だけダークモードを有効にする設定。
     darkMode: "class",
+    // Tailwindが実際に使われているクラス名を探す範囲。
+    // HTMLやJavaScriptを別フォルダーへ追加した場合は、そのパスもここへ追加しないと
+    // 本番CSSから必要なクラスが除外される可能性がある。
     content: [
         "./*.html",
         "./js/**/*.js"
     ],
+    // JavaScriptから動的に付与するため、静的解析では発見できないクラスを生成対象へ残す。
+    // main.jsで新しい状態クラスを文字列から組み立てる場合は、必要に応じてここへ追加する。
     safelist: [
         "cursor-not-allowed",
         "flex",
@@ -110,6 +115,8 @@ module.exports = {
             }
         }
     },
+    // forms: input/textarea/selectのブラウザ差を整える。
+    // container-queries: 親要素幅を基準にした @container 系ユーティリティを有効にする。
     plugins: [
         require("@tailwindcss/forms"),
         require("@tailwindcss/container-queries")

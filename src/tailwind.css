@@ -1,3 +1,8 @@
+/*
+ * Tailwind CSSの生成入口。
+ * base=標準化、components=部品層、utilities=HTMLで使うユーティリティ群を出力する。
+ * npm run build:css の出力先である css/tailwind.css は生成物なので直接編集しないこと。
+ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

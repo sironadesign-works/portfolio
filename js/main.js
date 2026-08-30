@@ -1,17 +1,32 @@
 /**
- * Emology Creative System - Main JS
- * - Interactive Canvas Metaballs (Organic Floating Spheres)
- * - Custom Cursor with Hover Elevation
- * - Works Modal Dialogs (9 Items)
- * - GSAP ScrollTrigger Animations
- * - Formspree Contact Form
+ * Sirona Design Portfolio - メイン制御ファイル
+ *
+ * 【このファイルが担当するもの】
+ * 1. ヒーローCanvasの11種類の背景演出
+ * 2. カスタムカーソル、固定ヘッダー、モバイルメニュー
+ * 3. お悩みアコーディオン、AIタブ、制作フロー表示切替
+ * 4. 作品カルーセルと9件の詳細モーダル
+ * 5. GSAP出現演出、Formspree問い合わせ送信
+ * 6. 制作中プレビュー用の角丸・背景演出切替
+ *
+ * 【HTMLとの結合点】
+ * 関数の多くは index.html の onclick から呼ばれるため、window.* として公開している。
+ * ID、data-target、data-mode、data-radiusを変える時はindex.html側も同時に更新すること。
+ * DOMが存在しないページ（privacy-policy.html等）でも例外にならないよう、各処理は存在確認を行う。
+ *
+ * 【保守ルール】
+ * - 表示/非表示は原則 hidden クラスで制御する。
+ * - アクセシブルな部品はCSS状態だけでなく aria-* / inert / tabindex も同期する。
+ * - requestAnimationFrameやsetTimeoutを増やす場合は、二重起動と停止条件を必ず確認する。
  */
 
 // ============================================================
-// 1. Custom Cursor
+// 1. カスタムカーソル
+// #custom-cursorを実ポインターへ追従させる装飾。CSS側でタッチ端末は非表示にする。
 // ============================================================
 const cursor = document.getElementById("custom-cursor");
 if (cursor) {
+  // 目標座標(mouse*)と表示座標(cursor*)を分け、補間して遅れて追従させる。
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
   let cursorX = mouseX;
@@ -31,7 +46,8 @@ if (cursor) {
   };
   requestAnimationFrame(updateCursor);
 
-  // Hover effect on interactive elements
+  // 操作可能要素へ入った時だけcursor-hoverを付け、CSSで円を拡大する。
+  // 新しい独自ボタンを追加した時は、このセレクターへ含めるか検討する。
   const interactiveElements = "a, button, input, textarea, .work-tile, .emology-card, .clean-accordion-header";
   document.querySelectorAll(interactiveElements).forEach((el) => {
     el.addEventListener("mouseenter", () => cursor.classList.add("cursor-hover"));
@@ -40,15 +56,19 @@ if (cursor) {
 }
 
 // ============================================================
-// 2. Interactive Multi-Mode Background Animation System
+// 2. ヒーロー背景: Canvasマルチモード描画エンジン
+// #metaballs-canvas一枚を共有し、currentModeに応じて毎フレーム描画関数を切り替える。
 // ============================================================
 const canvas = document.getElementById("metaballs-canvas");
 if (canvas) {
   const ctx = canvas.getContext("2d");
   let width, height;
+  // mouse.radiusは演出が反応する範囲。null座標はポインターが画面外であることを示す。
   let mouse = { x: null, y: null, radius: 180, prevX: null, prevY: null, isMoving: false };
-  let currentMode = "nodes_pulse"; // default mode: AI Synapse Pulse
+  // 初期表示。index.htmlのselected/activeなoption・buttonも同じモードに揃える。
+  let currentMode = "nodes_pulse";
 
+  // Canvasの内部解像度を表示サイズへ合わせる。ウィンドウサイズ変更時にも再実行する。
   const resize = () => {
     width = canvas.width = canvas.parentElement.offsetWidth;
     height = canvas.height = canvas.parentElement.offsetHeight;
@@ -79,7 +99,7 @@ if (canvas) {
     mouse.y = null;
   });
 
-  // Palette
+  // 複数演出で共有するブランド色。演出全体の色味を変える時はここを起点に確認する。
   const palette = [
     "rgba(6, 182, 212, 0.55)",   // Cyan
     "rgba(37, 99, 235, 0.45)",   // Royal Blue
@@ -1279,7 +1299,9 @@ if (canvas) {
   let autoRippleTimer = 0;
 
   // ------------------------------------------------------------
-  // Mode Initializer
+  // モード初期化
+  // index.htmlのdata-mode/valueから渡された文字列を、各演出の初期データ生成へ振り分ける。
+  // 新モード追加時は「初期化」「animate内の描画分岐」「HTMLの選択肢」の3箇所を更新する。
   // ------------------------------------------------------------
   const initMode = (mode) => {
     currentMode = mode;
@@ -1333,7 +1355,8 @@ if (canvas) {
   resize();
 
   // ------------------------------------------------------------
-  // Main Animation Loop
+  // メイン描画ループ
+  // currentModeごとに描画関数を1つ選ぶ。multiply指定は色を重ねる演出だけに限定する。
   // ------------------------------------------------------------
   const animate = () => {
     ctx.clearRect(0, 0, width, height);
@@ -1395,7 +1418,11 @@ if (canvas) {
   };
   animate();
 
-  // Expose switcher globally
+  /**
+   * ヒーロー背景を切り替える公開関数。
+   * @param {string} mode initMode()が受け付けるモード名。
+   * 副作用: Canvas初期化、PCボタン.active、スマホselectの選択値を同期する。
+   */
   window.switchHeroAnimation = (mode) => {
     initMode(mode);
     document.querySelectorAll(".hero-anim-btn, .anim-switcher-btn").forEach((btn) => {
@@ -1414,21 +1441,22 @@ if (canvas) {
 
 
 // ============================================================
-// 2. Profile Layout Switcher (3 Switchable Layouts)
+// 3. プロフィール表示切替（旧レイアウト比較用）
+// 現在のindex.htmlに対応UIがない場合は何も表示変更しない。将来削除時は参照有無を確認する。
 // ============================================================
 window.switchProfileLayout = (layoutId) => {
-  // Hide all profile layouts
+  // .profile-layout-containerを一旦すべて閉じ、#profile-{layoutId}だけを表示する。
   document.querySelectorAll(".profile-layout-container").forEach((el) => {
     el.classList.add("hidden");
   });
 
-  // Show target layout
+  // data-targetとID末尾を同じ値にすること。
   const target = document.getElementById(`profile-${layoutId}`);
   if (target) {
     target.classList.remove("hidden");
   }
 
-  // Update tab buttons state
+  // 比較用タブの見た目も選択中レイアウトへ合わせる。
   document.querySelectorAll(".profile-tab-btn").forEach((btn) => {
     if (btn.dataset.target === layoutId) {
       btn.classList.add("active", "bg-white", "text-[#2563eb]", "shadow-sm");
@@ -1442,7 +1470,8 @@ window.switchProfileLayout = (layoutId) => {
 
 
 // ============================================================
-// 3. Header Scrolled Effect
+// 4. 固定ヘッダーのスクロール状態
+// 20pxを超えたらheader-scrolledを付け、style.cssで背景濃度と影を強める。
 // ============================================================
 const header = document.querySelector("header");
 if (header) {
@@ -1458,13 +1487,15 @@ if (header) {
 }
 
 // ============================================================
-// 4. Mobile Menu
+// 5. モバイルメニュー
+// [data-mobile-menu-toggle]のaria-controlsから対象メニューIDを取得する。
 // ============================================================
 const mobileMenuToggle = document.querySelector("[data-mobile-menu-toggle]");
 const mobileMenu = mobileMenuToggle ? document.getElementById(mobileMenuToggle.getAttribute("aria-controls")) : null;
 
 if (mobileMenu && mobileMenuToggle) {
   const toggleMobileMenu = () => {
+    // hidden状態を反転し、aria-expandedとMaterial Symbolsの文字も同時に更新する。
     const isHidden = mobileMenu.classList.contains("hidden");
     mobileMenu.classList.toggle("hidden");
     mobileMenuToggle.setAttribute("aria-expanded", isHidden ? "true" : "false");
@@ -1484,20 +1515,39 @@ if (mobileMenu && mobileMenuToggle) {
 }
 
 // ============================================================
-// 5. Clean Accordion for Concerns (Before ➔ After Resolution)
+// 6. お悩みアコーディオン（Before → After）
+// .clean-accordion-item内のheader/contentを1組として扱い、最大1項目だけ開く。
 // ============================================================
 window.toggleCleanAccordion = (headerEl) => {
   const item = headerEl.closest(".clean-accordion-item");
   if (!item) return;
   const isActive = item.classList.contains("active");
-  document.querySelectorAll(".clean-accordion-item").forEach((other) => other.classList.remove("active"));
-  if (!isActive) {
-    item.classList.add("active");
-  }
+  document.querySelectorAll(".clean-accordion-item").forEach((other) => {
+    // 開いている項目を再選択した場合はshouldOpen=falseとなり、全件閉じる。
+    const shouldOpen = other === item && !isActive;
+    const otherHeader = other.querySelector(".clean-accordion-header");
+    const otherPanel = other.querySelector(".clean-accordion-content");
+
+    // 見た目(active)、読み上げ(aria)、フォーカス可否(inert)を必ず同じ状態にする。
+    other.classList.toggle("active", shouldOpen);
+    otherHeader?.setAttribute("aria-expanded", String(shouldOpen));
+    otherPanel?.setAttribute("aria-hidden", String(!shouldOpen));
+    otherPanel?.toggleAttribute("inert", !shouldOpen);
+  });
 };
 
+// headerはdiv role=buttonのため、クリックに加えてEnter/Space操作をここで補う。
+document.querySelectorAll(".clean-accordion-header").forEach((header) => {
+  header.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    window.toggleCleanAccordion(header);
+  });
+});
+
 // ============================================================
-// 6. AI Dev Terminal Dynamic Simulator
+// 7. 旧AIターミナル表示（#terminal-bodyが存在するページだけ実行）
+// 3.5秒ごとに表示例をローテーションする。現在のワークベンチ#wb-*とは別系統。
 // ============================================================
 const terminalBody = document.getElementById("terminal-body");
 if (terminalBody) {
@@ -1524,15 +1574,52 @@ if (terminalBody) {
 }
 
 // ============================================================
-// 7. Modals Management (Works 1-9)
+// 8. 作品詳細モーダル（modal-work-1〜9）
+// 開閉、背景無効化、スクロール固定、フォーカストラップ、Esc終了を一括管理する。
 // ============================================================
-let activeModal = null;
-let lastFocusedElement = null;
+let activeModal = null; // 現在開いているdialog。Esc/Tab処理の対象になる。
+let lastFocusedElement = null; // 閉じた後に戻す作品カードまたはリンク。
+let modalBackgroundSnapshot = []; // 背景要素が元々持っていたaria-hidden/inertを退避する。
 
+/** モーダル表示中、背面を読み上げ・キーボード操作対象から除外し、終了時に元へ戻す。 */
+const setModalBackgroundInactive = (inactive) => {
+  if (inactive) {
+    if (modalBackgroundSnapshot.length) return;
+
+    modalBackgroundSnapshot = Array.from(document.querySelectorAll("header, main, footer, .anim-switcher-container")).map((element) => ({
+      element,
+      ariaHidden: element.getAttribute("aria-hidden"),
+      inert: element.hasAttribute("inert")
+    }));
+
+    modalBackgroundSnapshot.forEach(({ element }) => {
+      element.setAttribute("aria-hidden", "true");
+      element.setAttribute("inert", "");
+    });
+    return;
+  }
+
+  modalBackgroundSnapshot.forEach(({ element, ariaHidden, inert }) => {
+    if (ariaHidden === null) {
+      element.removeAttribute("aria-hidden");
+    } else {
+      element.setAttribute("aria-hidden", ariaHidden);
+    }
+    element.toggleAttribute("inert", inert);
+  });
+  modalBackgroundSnapshot = [];
+};
+
+// モーダル内のTab移動対象。入力欄を追加する場合はセレクターへ含まれるか確認する。
 const getFocusableElements = (modal) => {
   return Array.from(modal.querySelectorAll("a[href], button:not([disabled]), [tabindex]:not([tabindex='-1'])"));
 };
 
+/**
+ * 指定IDの作品モーダルを開く。
+ * @param {string} modalId index.htmlのmodal-work-N。
+ * 副作用: bodyスクロール停止、背景inert化、先頭操作要素へフォーカス移動。
+ */
 const openModal = (modalId) => {
   const modal = document.getElementById(modalId);
   if (!modal) return;
@@ -1545,8 +1632,9 @@ const openModal = (modalId) => {
   activeModal = modal;
   modal.classList.remove("hidden");
   modal.classList.add("flex");
-  document.body.classList.add("overflow-hidden");
+  document.body.classList.add("overflow-hidden", "modal-open");
   modal.setAttribute("aria-hidden", "false");
+  setModalBackgroundInactive(true);
 
   const firstFocusable = getFocusableElements(modal)[0];
   requestAnimationFrame(() => {
@@ -1554,6 +1642,11 @@ const openModal = (modalId) => {
   });
 };
 
+/**
+ * 作品モーダルを閉じる。
+ * @param {string} modalId 閉じるdialogのID。
+ * @param {{restoreFocus?: boolean}} options CTAから#contactへ移動する時だけfalseを使う。
+ */
 const closeModal = (modalId, options = {}) => {
   const modal = typeof modalId === "string" ? document.getElementById(modalId) : activeModal;
   if (!modal) return;
@@ -1567,7 +1660,8 @@ const closeModal = (modalId, options = {}) => {
   }
 
   if (!document.querySelector("[id^='modal-work-'][role='dialog']:not(.hidden)")) {
-    document.body.classList.remove("overflow-hidden");
+    document.body.classList.remove("overflow-hidden", "modal-open");
+    setModalBackgroundInactive(false);
   }
 
   if (options.restoreFocus !== false && lastFocusedElement instanceof HTMLElement) {
@@ -1575,12 +1669,15 @@ const closeModal = (modalId, options = {}) => {
   }
 };
 
+// div role=buttonで作られた作品カード用のEnter/Space補助関数。
+// HTML側のkeydownから呼ぶ場合に使用する。カードをbutton化した場合は不要。
 const handleWorkCardKeydown = (event, modalId) => {
   if (event.key !== "Enter" && event.key !== " ") return;
   event.preventDefault();
   openModal(modalId);
 };
 
+// モーダル表示中だけEsc終了とTabの循環（フォーカストラップ）を有効にする。
 document.addEventListener("keydown", (event) => {
   if (!activeModal) return;
 
@@ -1611,7 +1708,8 @@ window.closeModal = closeModal;
 window.handleWorkCardKeydown = handleWorkCardKeydown;
 
 // ============================================================
-// 8. GSAP Scroll Animations
+// 9. GSAP出現演出
+// CDN読込失敗時は処理をスキップし、本文自体は通常表示できるようにする。
 // ============================================================
 if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -1640,7 +1738,8 @@ if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
 }
 
 // ============================================================
-// 9. Formspree Contact Form
+// 10. Formspree問い合わせフォーム
+// 通常送信を止め、fetchで送信して同じページ上へ成功/失敗メッセージを表示する。
 // ============================================================
 const contactForm = document.getElementById("contact-form");
 const contactFormStatus = document.getElementById("contact-form-status");
@@ -1654,6 +1753,7 @@ if (contactForm) {
       return;
     }
 
+    // 送信先はHTMLのform[action]を正とし、JavaScriptへURLを重複保持しない。
     const endpoint = contactForm.getAttribute("action");
     const formData = new FormData(contactForm);
 
@@ -1698,9 +1798,12 @@ if (contactForm) {
 
 /**
  * ========================================================
- * 制作実績（WORKS）ビュー切り替え ＆ カルーセル操作（無限オートグライド ＋ 手動両立）
+ * 11. 制作実績（WORKS）表示とカルーセル
+ * #works-view-carousel / #works-view-grid と data-target を切り替える比較用処理。
+ * 現在のHTMLがカルーセルのみの場合、switchWorksView()はガードで終了する。
  * ========================================================
  */
+/** @param {"carousel"|"grid"} viewType 表示する作品一覧方式。 */
 window.switchWorksView = function(viewType) {
   const carouselView = document.getElementById("works-view-carousel");
   const gridView = document.getElementById("works-view-grid");
@@ -1727,13 +1830,15 @@ window.switchWorksView = function(viewType) {
   }
 };
 
+// 即時関数で内部状態を外部へ漏らさない。公開するのは矢印用scrollWorksCarousel()だけ。
 (function setupCinematicCarousel() {
   function initCarousel() {
     const track = document.getElementById("works-carousel-track");
     if (!track || track.dataset.initialized) return;
     track.dataset.initialized = "true";
 
-    // 1. PC横スクロール用にカード群をクローン（スマホではCSSで非表示）
+    // PCで末尾から先頭へ途切れず戻すため、原本カード一式を後ろへ複製する。
+    // data-initializedにより同じtrackへ二重複製されることを防ぐ。
     const originalCards = Array.from(track.children);
     originalCards.forEach((card) => {
       const clone = card.cloneNode(true);
@@ -1741,16 +1846,16 @@ window.switchWorksView = function(viewType) {
       track.appendChild(clone);
     });
 
-    let isHovered = false;
-    let isDown = false;
+    let isHovered = false; // カーソルがtrack上にある間は自動移動を止める。
+    let isDown = false; // マウスドラッグ中か。
     let startX = 0;
     let startScrollLeft = 0;
-    let virtualScrollLeft = 0;
+    let virtualScrollLeft = 0; // smooth scrollと自動移動をつなぐ内部上の現在位置。
     const autoScrollSpeed = 0.75; // 心地よい微速スクロール速度 (px/frame)
     let resumeTimer = null;
     let isUserInteracting = false;
 
-    // 2. 自動スクロールループ（PC大画面のみ動作）
+    // 自動スクロールループ（768px以上のみ）。複製境界で位置を半周戻して無限に見せる。
     function autoScrollLoop() {
       if (window.innerWidth >= 768) {
         if (!isHovered && !isDown && !isUserInteracting) {
@@ -1770,7 +1875,7 @@ window.switchWorksView = function(viewType) {
     }
     requestAnimationFrame(autoScrollLoop);
 
-    // 3. マウスホバーで一時停止（PC）
+    // マウスホバーで一時停止（PC）。カードを読みたい利用者の操作を優先する。
     track.addEventListener("mouseenter", () => {
       if (window.innerWidth < 768) return;
       isHovered = true;
@@ -1782,7 +1887,7 @@ window.switchWorksView = function(viewType) {
       isDown = false;
     });
 
-    // 4. マウスドラッグ操作（PC）
+    // マウスドラッグ操作（PC）。mouseup後1.2秒待って自動移動を再開する。
     track.addEventListener("mousedown", (e) => {
       if (window.innerWidth < 768) return;
       isDown = true;
@@ -1812,7 +1917,10 @@ window.switchWorksView = function(viewType) {
       virtualScrollLeft = track.scrollLeft;
     });
 
-    // 5. 前へ / 次へ 矢印ボタン関数
+    /**
+     * PC用「前へ/次へ」ボタン。
+     * @param {-1|1} direction -1=前、1=次。track幅の65%ずつ移動する。
+     */
     window.scrollWorksCarousel = function(direction) {
       if (window.innerWidth < 768) return;
       isUserInteracting = true;
@@ -1834,6 +1942,10 @@ window.switchWorksView = function(viewType) {
   }
 })();
 
+/**
+ * 制作フローの表示方式を切り替える。
+ * @param {"story"|"cards"} viewType #flow-view-*の末尾と一致させる。
+ */
 window.switchFlowView = function(viewType) {
   const storyView = document.getElementById("flow-view-story");
   const cardsView = document.getElementById("flow-view-cards");
@@ -1862,7 +1974,8 @@ window.switchFlowView = function(viewType) {
 
 /**
  * ========================================================
- * お悩み（CONCERNS）ビュー切り替え ＆ Before/After スライダー
+ * 12. 旧お悩みビュー比較とBefore/Afterスライダー
+ * 現在のclean accordionとは別の比較実装。対応DOMがなければガードで終了する。
  * ========================================================
  */
 window.switchConcernsView = function(viewType) {
@@ -1891,7 +2004,7 @@ window.switchConcernsView = function(viewType) {
   }
 };
 
-// Before / After スライダーのドラッグ＆スワイプ処理
+// Before / Afterスライダー: ポインター位置を0〜100%へ変換し、before幅とhandle位置を同期する。
 (function setupBeforeAfterSlider() {
   window.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("ba-slider-container");
@@ -1902,6 +2015,7 @@ window.switchConcernsView = function(viewType) {
 
     let isDragging = false;
 
+    /** @param {number} clientX ビューポート左端からのマウス/タッチX座標。 */
     function updateSlider(clientX) {
       const rect = container.getBoundingClientRect();
       let offsetX = clientX - rect.left;
@@ -1947,7 +2061,9 @@ window.switchConcernsView = function(viewType) {
 
 /**
  * ========================================================
- * 🤖 AI Dev 表示モード切り替え（4パターン）
+ * 13. 旧AIビュー切替
+ * 注意: 現行index.htmlは下部のswitchAiView()を使用する。この関数は互換用で未参照。
+ * 削除する場合は、外部HTMLや保存済み試作ページからの呼び出しがないか確認する。
  * ========================================================
  */
 window.switchAiDevView = function(viewId) {
@@ -1977,9 +2093,12 @@ window.switchAiDevView = function(viewId) {
 
 /**
  * ========================================================
- * 🎮 協調ワークベンチ シナリオ実行エンジン
+ * 14. AI協調ワークベンチ シナリオ実行エンジン
+ * workbenchScenariosの静的データを #wb-steps-container / #wb-human-review /
+ * #wb-ai-output / #wb-status へ描画する。
  * ========================================================
  */
+// シナリオ追加時はHTMLのボタンdata-scenarioと、このオブジェクトのキーを一致させる。
 const workbenchScenarios = {
   temple: {
     title: "お寺のWebサイト＆行事案内",
@@ -2064,10 +2183,17 @@ const workbenchScenarios = {
   }
 };
 
+// 旧実装との互換変数。現在の描画キャンセル判定はcurrentRunIdを使用する。
 let scenarioTimeouts = [];
 
+// 連打時に古いsetTimeoutの描画を無効化する世代番号。
 let currentRunId = 0;
 
+/**
+ * 選択シナリオをワークベンチへ描画する。
+ * @param {"temple"|"food"|"app"} scenarioKey workbenchScenariosのキー。
+ * 不明な値はtempleへフォールバックする。
+ */
 window.runWorkbenchScenario = function(scenarioKey) {
   const thisRunId = ++currentRunId;
   const data = workbenchScenarios[scenarioKey] || workbenchScenarios.temple;
@@ -2095,6 +2221,7 @@ window.runWorkbenchScenario = function(scenarioKey) {
   if (aiOutputEl) {
     aiOutputEl.innerHTML = "";
     data.aiLines.forEach((line, index) => {
+      // 行ごとに120ms遅延してストリーミング風に表示する。
       setTimeout(() => {
         if (thisRunId !== currentRunId) return;
         const p = document.createElement("p");
@@ -2125,7 +2252,7 @@ window.runWorkbenchScenario = function(scenarioKey) {
   }
 };
 
-// 初期化（重複呼び出しを完全防止）
+// DOM構築完了後の共通初期化。存在しない旧関数はtypeofガードで安全に無視する。
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof initCarousel === "function") initCarousel();
   if (typeof initComparisonSlider === "function") initComparisonSlider();
@@ -2133,6 +2260,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof switchRadiusStyle === "function") switchRadiusStyle(savedRadius);
 });
 
+/**
+ * サイト全体の角丸テーマを変更し、次回訪問用にlocalStorageへ保存する。
+ * @param {"sharp"|"solid"|"soft"} styleId bodyへ付けるradius-*の末尾。
+ * 制御先: style.cssの body.radius-*、PCボタン、#mobile-radius-select。
+ */
 window.switchRadiusStyle = function(styleId) {
   document.body.classList.remove("radius-sharp", "radius-solid", "radius-soft");
   document.body.classList.add(`radius-${styleId}`);
@@ -2168,7 +2300,8 @@ window.switchRadiusStyle = function(styleId) {
 
 /**
  * ========================================================
- * 📱 スマホ専用: 制作実績の「もっと見る / 閉じる」トグル（初期5件）
+ * 15. スマホ作品一覧「もっと見る / 閉じる」（初期5件）
+ * .works-mobile-hiddenへexpandedを付け外しし、CSSの表示条件を切り替える。
  * ========================================================
  */
 window.toggleMoreWorksMobile = function() {
@@ -2207,23 +2340,35 @@ window.toggleMoreWorksMobile = function() {
 
 /**
  * ========================================================
- * 🤖 AI開発 表示モード切り替え（workbench / metrics）
+ * 16. 現行AI表示モード切替（workbench / metrics）
+ * 表示パネル、タブ見た目、aria-selected、tabindexを一括同期する。
  * ========================================================
  */
+/** @param {"workbench"|"metrics"} viewId panelIdsに定義されたビュー名。 */
 window.switchAiView = function(viewId) {
-  const workbenchView = document.getElementById("ai-view-workbench");
-  const metricsView = document.getElementById("ai-view-metrics");
+  // HTMLのtabpanel IDを一箇所で管理し、想定外の値は何もせず終了する。
+  const panelIds = {
+    workbench: "ai-view-workbench",
+    metrics: "ai-view-metrics"
+  };
+  if (!panelIds[viewId]) return;
 
-  if (viewId === "workbench") {
-    if (workbenchView) workbenchView.classList.remove("hidden");
-    if (metricsView) metricsView.classList.add("hidden");
-  } else {
-    if (workbenchView) workbenchView.classList.add("hidden");
-    if (metricsView) metricsView.classList.remove("hidden");
-  }
+  // hidden属性とTailwindのhiddenクラスを両方揃え、表示と支援技術の状態を一致させる。
+  Object.entries(panelIds).forEach(([target, panelId]) => {
+    const panel = document.getElementById(panelId);
+    const isSelected = target === viewId;
+    if (!panel) return;
+    panel.classList.toggle("hidden", !isSelected);
+    panel.hidden = !isSelected;
+  });
 
+  // 選択タブだけをTabキーの停止位置にする「roving tabindex」方式。
   document.querySelectorAll(".ai-tab-btn").forEach(btn => {
-    if (btn.dataset.target === viewId) {
+    const isSelected = btn.dataset.target === viewId;
+    btn.setAttribute("aria-selected", String(isSelected));
+    btn.tabIndex = isSelected ? 0 : -1;
+
+    if (isSelected) {
       btn.classList.add("active", "bg-[#2563eb]", "text-white", "shadow-sm");
       btn.classList.remove("text-[#64748b]");
     } else {
@@ -2237,7 +2382,30 @@ window.switchAiView = function(viewId) {
   }
 };
 
-// AIセクション進入時に自動でアニメーション開始
+// WAI-ARIA Tabsの標準操作: 左右矢印/Home/Endで選択とフォーカスを移動する。
+const aiTabList = document.querySelector("[role='tablist'][aria-label='AI開発体験切り替え']");
+if (aiTabList) {
+  aiTabList.addEventListener("keydown", (event) => {
+    const tabs = Array.from(aiTabList.querySelectorAll("[role='tab']"));
+    const currentIndex = tabs.indexOf(document.activeElement);
+    if (currentIndex === -1) return;
+
+    let nextIndex = currentIndex;
+    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
+    else if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    else if (event.key === "Home") nextIndex = 0;
+    else if (event.key === "End") nextIndex = tabs.length - 1;
+    else return;
+
+    event.preventDefault();
+    const nextTab = tabs[nextIndex];
+    window.switchAiView(nextTab.dataset.target);
+    nextTab.focus();
+  });
+}
+
+// AIセクションが20%見えた最初の1回だけ、初期シナリオの描画を開始する。
+// 画面外で不要なsetTimeout描画を始めないための遅延初期化。
 const aiSection = document.getElementById("ai");
 if (aiSection && "IntersectionObserver" in window) {
   let aiTriggered = false;

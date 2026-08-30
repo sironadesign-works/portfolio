@@ -1,8 +1,26 @@
 @charset "UTF-8";
 
-/* ==========================================================================
-   Emology Style Creative Web System
-   Clean light aesthetic (#F9FAFB), organic canvas metaballs, custom cursor
+/* ===========================================================================
+   Emology Style Creative Web System / 保守ガイド
+
+   このファイルの役割:
+   - Tailwindだけでは表現しにくい共通部品、状態変化、独自アニメーションを担当する。
+   - 色や文字色の共通値は直下の :root、HTML内のユーティリティは
+     tailwind.config.js、画面の動作は js/main.js が担当する。
+   - css/tailwind.css は生成物なので直接編集しない。Tailwind側の変更は
+     src/tailwind.css または tailwind.config.js から再生成すること。
+
+   JavaScriptと連動する主な状態クラス:
+   - .active                 : アコーディオンや各種切替の選択状態
+   - .hidden / .expanded     : AI表示、作品追加表示などの表示状態
+   - header-scrolled         : スクロール後のヘッダー外観
+   - body.modal-open         : 作品モーダル表示中の背景制御
+   - body.radius-*           : 角丸プリセットの全体切替
+   - .gooey-active           : ヒーロー背景のSVGフィルター有効化
+
+   重なり順の目安:
+   canvas(1) < 通常コンテンツ < 切替UI(9999) < カスタムカーソル(99999)
+   z-indexを増やす場合は、モーダルや固定UIとの競合を必ず確認すること。
    ========================================================================== */
 
 :root {
@@ -19,7 +37,7 @@
   --border-focus: rgba(37, 99, 235, 0.3);
 }
 
-/* Base Body */
+/* サイト全体の土台。横方向のはみ出しを隠し、フォントと背景色を統一する。 */
 html {
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
@@ -35,7 +53,10 @@ body {
   padding: 0;
 }
 
-/* Custom Cursor */
+/*
+ * カスタムカーソル。位置と .cursor-hover の付け外しは main.js が制御する。
+ * pointer-events:none により、リンクやボタンのクリックを妨げない。
+ */
 #custom-cursor {
   position: fixed;
   top: 0;
@@ -64,12 +85,16 @@ body {
 }
 
 @media (pointer: coarse) {
+  /* タッチ端末には実カーソルがないため装飾カーソルを表示しない。 */
   #custom-cursor {
     display: none;
   }
 }
 
-/* Canvas Metaballs Container */
+/*
+ * ヒーロー背景Canvasの配置領域。描画内容・モード切替は main.js が担当する。
+ * .gooey-active は index.html 内の #metaball-goo SVGフィルターを参照する。
+ */
 .canvas-container {
   position: absolute;
   top: 0;
@@ -92,7 +117,7 @@ body {
   display: block;
 }
 
-/* Decorative Badges & Headings */
+/* セクション見出し周辺で再利用する小型バッジ。色変更は :root のアクセント色から行う。 */
 .emology-badge {
   display: inline-flex;
   align-items: center;
@@ -121,7 +146,10 @@ body {
   50% { transform: scale(1.5); opacity: 0.6; }
 }
 
-/* Card & Tile Aesthetics */
+/*
+ * 汎用カードの基本外観。サービス、プロフィール等で共用するため、
+ * 余白や角丸の変更は複数セクションへ波及する。
+ */
 .emology-card {
   background: #FFFFFF;
   border: 1px solid var(--border-subtle);
@@ -152,7 +180,10 @@ body {
   box-shadow: 0 24px 48px rgba(15, 23, 42, 0.45) !important;
 }
 
-/* 提供サービス用 フルカラーカード（確実な背景グラデーション） */
+/*
+ * 提供サービス用カラーカード。HTML側の emology-card-tint-* と対応する。
+ * !important はTailwindの背景・枠色より、この配色を優先するために使用している。
+ */
 .emology-card-tint-blue {
   background: linear-gradient(145deg, #ffffff 10%, #eff6ff 100%) !important;
   border-color: #bfdbfe !important;
@@ -204,7 +235,7 @@ body {
 
 
 
-/* Works Tile Gallery */
+/* 旧作品タイル用の共通外観。現在の .cinematic-card と併存する互換スタイル。 */
 .work-tile {
   background: #FFFFFF;
   border-radius: 20px;
@@ -242,7 +273,10 @@ body {
   transform: scale(1.06);
 }
 
-/* Cinematic Works Responsive Layout (Mobile Vertical Grid, Desktop Horizontal Carousel) */
+/*
+ * 作品一覧のレスポンシブ構造。
+ * モバイルは1列グリッド、768px以上は main.js が制御する横カルーセルになる。
+ */
 .works-carousel-container {
   position: relative;
   width: 100%;
@@ -260,7 +294,10 @@ body {
   cursor: default;
 }
 
-/* Mobile Works Visibility Limit (Initial 5 items) */
+/*
+ * モバイル作品一覧の初期表示数を制御する状態。
+ * main.js の「もっと見る」が .works-mobile-hidden に .expanded を付け外しする。
+ */
 @media (max-width: 767px) {
   .works-mobile-hidden:not(.expanded) {
     display: none !important;
@@ -283,6 +320,7 @@ body {
 }
 
 .carousel-clone-item {
+  /* 無限カルーセル用の複製カード。モバイルでは重複表示を避けるため隠す。 */
   display: none !important;
 }
 
@@ -379,7 +417,7 @@ body {
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Flow Timeline Storytelling */
+/* 制作の流れを示すタイムライン。疑似要素 ::before が各ステップの丸印を描く。 */
 .flow-step-node {
   position: relative;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -414,7 +452,10 @@ body {
   transform: translateX(-50%) scale(1.2);
 }
 
-/* Before / After Comparison Slider */
+/*
+ * Before / After比較スライダー。main.js が .ba-before-layer の幅と
+ * .ba-handle の left を同期更新する。touch-action:pan-y は縦スクロールを維持する。
+ */
 .ba-comparison-wrapper {
   position: relative;
   width: 100%;
@@ -592,7 +633,7 @@ body {
 
 
 
-/* Terminal Console (Clean Dark accent inside Light theme) */
+/* AI制作デモ内の端末風表示。テキスト更新や進行状態は main.js が制御する。 */
 .terminal-card {
   background: #0f172a;
   border-radius: 16px;
@@ -610,7 +651,7 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Buttons */
+/* サイト共通ボタン。primaryは主要導線、secondaryは補助導線に使用する。 */
 .emology-btn-primary {
   display: inline-flex;
   align-items: center;
@@ -651,8 +692,16 @@ body {
   color: var(--accent-blue);
 }
 
-/* Accordion Item (Rich Modern Card Style) */
+/*
+ * お悩みアコーディオン。main.js が親要素へ .active を付与し、
+ * aria-expanded / hidden / inert と、この開閉アニメーションを同期させる。
+ * max-heightは内容量の上限でもあるため、文章を増やして切れる場合はここを調整する。
+ */
 .clean-accordion-item {
+  /*
+   * 上の同名定義と合わせて最終外観を構成する後勝ちルール。
+   * 統合する場合は、hover/activeの見え方が変わらないか確認すること。
+   */
   background: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 20px;
@@ -699,6 +748,12 @@ body {
   background-color: #f8fafc;
 }
 
+.clean-accordion-header:focus-visible {
+  position: relative;
+  z-index: 1;
+  border-radius: 16px;
+}
+
 .accordion-icon-badge {
   width: 36px;
   height: 36px;
@@ -736,20 +791,20 @@ body {
 }
 
 
-/* Focus styles */
+/* キーボード操作時だけ表示する共通フォーカス枠。削除すると現在位置が分からなくなる。 */
 :focus-visible {
   outline: 2px solid var(--accent-blue);
   outline-offset: 2px;
 }
 
-/* Material Symbols */
+/* Google Material Symbolsの共通描画設定。HTML内のアイコン文字へ適用される。 */
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   display: inline-block;
   vertical-align: middle;
 }
 
-/* Header */
+/* 固定ヘッダー。main.js がスクロール量に応じて .header-scrolled を付け外しする。 */
 header {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(16px);
@@ -763,7 +818,7 @@ header.header-scrolled {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Mobile Nav */
+/* モバイルメニュー。main.js が .hidden を外した時だけドロップダウンとして配置する。 */
 @media (max-width: 767px) {
   .mobile-nav:not(.hidden) {
     position: absolute;
@@ -779,13 +834,16 @@ header.header-scrolled {
   }
 }
 
-/* Modals */
+/* 作品モーダルの背景幕。開閉、フォーカス移動、背景固定は main.js が担当する。 */
 .modal-overlay {
   background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(8px);
 }
 
-/* Floating Animation Switcher Controller (Desktop Only) */
+/*
+ * 右下のアニメーション／角丸切替パネル。デスクトップ専用。
+ * 作品モーダル中は body.modal-open を使って隠し、操作の重なりを防止する。
+ */
 .anim-switcher-container {
   position: fixed;
   bottom: 20px;
@@ -797,6 +855,12 @@ header.header-scrolled {
   gap: 10px;
   width: 256px;
   pointer-events: auto;
+}
+
+body.modal-open .anim-switcher-container {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 @media (min-width: 768px) {
@@ -871,6 +935,9 @@ header.header-scrolled {
 /* ========================================================
    🔥 Dynamic Typography Scale System (.font-dynamic)
    カード類・見出し・数字のメリハリとスケールを劇的に拡大
+
+   bodyへ .font-dynamic が付いた時だけ有効になる一括文字サイズ調整。
+   HTML内の構造クラスを横断指定するため、対象カードを追加したらここも確認する。
    ======================================================== */
 .font-dynamic .emology-card h3,
 .font-dynamic .emology-card h4,
@@ -933,6 +1000,10 @@ header.header-scrolled {
 
 /* ========================================================
    🔲 角丸システム完全定義（sharp / solid / soft）
+
+   main.js の switchRadiusStyle() が body の radius-* を入れ替える。
+   新しいカード・ボタンを追加した場合は、3プリセットすべての対象へ追加すること。
+   Tailwindの rounded-* を上書きするため、この範囲では !important が必要になる。
    ======================================================== */
 
 /* 1. モダン・シャープ (6~8px) */
@@ -1022,7 +1093,7 @@ body.radius-soft [class*="rounded-lg"] {
   border-radius: 16px !important;
 }
 
-/* Hero Scroll Down Indicator (Sirona Design style) */
+/* ヒーロー下部のスクロール案内。リンク先は index.html の #profile。 */
 .hero-scroll-indicator {
   display: inline-flex;
   flex-direction: column;

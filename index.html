@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+<!--
+    ================================================================
+    保守担当者向け: このページの構造と連動関係
+    ================================================================
+    このファイルは「表示する文章・画像・セクション順・操作部品」を管理する。
+    見た目の独自調整は css/style.css、動作は js/main.js、Tailwind の共通値は
+    tailwind.config.js が担当する。css/tailwind.css は生成物なので直接編集しない。
+
+    主要な連動:
+    - #metaballs-canvas       -> main.js のヒーロー背景描画
+    - .clean-accordion-*      -> toggleCleanAccordion()
+    - #ai-tab-* / #ai-view-* -> switchAiView()
+    - .cinematic-card         -> openModal('modal-work-N')
+    - #modal-work-N           -> openModal() / closeModal()
+    - #contact-form           -> Formspree 送信処理
+    - .anim-switcher-*        -> switchRadiusStyle() / switchHeroAnimation()
+
+    IDや data-* を変更する時は、対応するJavaScriptのセレクターも同時に確認すること。
+    -->
+
 <head>
-    <!-- Google Tag Manager -->
+    <!-- アクセス計測: GTMコンテナ。IDを変更する場合はbody直下のnoscript側も同じ値にする。 -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KLHJJ8C9');</script>
-    <!-- End Google Tag Manager -->
+    <!-- /アクセス計測 -->
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="Sirona Designは、Web制作、デザイン、コーディング、運用改善、AI活用まで相談できるフリーランスWeb制作パートナーです。" />
@@ -23,23 +43,33 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <!--
+        CSS読込順: Tailwind生成CSSを先に、独自上書きCSSを後に読む。
+        クエリ文字列はブラウザキャッシュ更新用。公開時にCSSを変えたら値も更新する。
+    -->
     <link rel="stylesheet" href="css/tailwind.css?v=20260821_emology" />
     <link rel="stylesheet" href="css/style.css?v=20260821_emology" />
-    <!-- GSAP & ScrollTrigger -->
+    <!-- スクロール出現演出用。main.jsは両ライブラリが存在する時だけGSAP処理を実行する。 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 
 <body class="bg-[#F9FAFB] text-[#111827] font-body-md antialiased selection:bg-[#06b6d4] selection:text-white relative font-dynamic">
-    <!-- Google Tag Manager (noscript) -->
+    <!-- JavaScript無効時にもGTMへ計測を送る代替iframe。head側と同じGTM IDを維持する。 -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLHJJ8C9"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <!-- /GTM noscript -->
 
-    <!-- カスタムカーソル -->
+    <!--
+        カスタムカーソル: main.jsが座標を更新し、style.cssが見た目を定義する装飾要素。
+        読み上げ対象ではなく、タッチ端末ではCSSの (pointer: coarse) で非表示になる。
+    -->
     <div id="custom-cursor" aria-hidden="true"></div>
 
-    <!-- ヘッダー -->
+    <!--
+        固定ヘッダー: #hero〜#flowへのページ内導線と問い合わせCTAを提供する。
+        data-mobile-menu-toggle / #mobile-menu は main.js のモバイルメニュー処理と連動する。
+    -->
     <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
         <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
             <a class="flex items-center gap-3.5 group" href="#hero" aria-label="シロナデザイン ホーム">
@@ -54,7 +84,10 @@
                 <a class="text-xs uppercase font-bold tracking-wider text-[#4B5563] hover:text-[#2563eb] transition-colors py-1" href="#works">Works</a>
                 <a class="text-xs uppercase font-bold tracking-wider text-[#4B5563] hover:text-[#2563eb] transition-colors py-1" href="#flow">Flow</a>
 
-                <!-- 📱 スマホ専用: デザイン＆演出切り替えプルダウン -->
+                <!--
+                    スマホ専用プレビュー設定: PC右下コントローラーと同じ状態を<select>で操作する。
+                    optionのvalueは main.js のモード名・角丸名と完全一致させること。
+                -->
                 <div class="md:hidden pt-4 mt-2 border-t border-gray-200/80 space-y-3 w-full">
                     <div class="text-[10px] font-black uppercase tracking-widest text-[#2563eb] flex items-center gap-1">
                         <span class="material-symbols-outlined text-xs">tune</span> デザイン・演出切り替え
@@ -107,11 +140,14 @@
     <main class="relative z-10 pt-0">
         <!--
             1. ヒーローセクション（Emology スタイル × Canvas Metaballs）
+            役割: サービスの第一印象、問い合わせ・制作実績への主要導線を担当する。
+            連動: #metaballs-canvas を main.js が描画し、.hero-anim をGSAPが出現させる。
+            注意: id="hero" はヘッダー、ロゴ、フッターのページ内リンクから参照される。
         -->
         <section
             class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-32 pb-24 px-grid-margin overflow-hidden bg-gradient-to-b from-[#ffffff] via-[#f0fdfa]/40 to-[#F9FAFB]"
             id="hero">
-            <!-- SVG Filter for Organic Metaball Gooey Fusion -->
+            <!-- メタボール同士を液体のように融合させるSVGフィルター。filter IDはCSS/JSから参照する。 -->
             <svg class="sr-only" aria-hidden="true" style="position: absolute; width: 0; height: 0; pointer-events: none;">
                 <defs>
                     <filter id="metaball-goo">
@@ -122,7 +158,7 @@
                 </defs>
             </svg>
 
-            <!-- Emology 風 Canvas Metaballs -->
+            <!-- ヒーロー背景の描画面。aria-hiddenのままにして情報コンテンツには使用しない。 -->
             <div class="canvas-container" id="canvas-wrapper" aria-hidden="true">
                 <canvas id="metaballs-canvas"></canvas>
             </div>
@@ -158,7 +194,7 @@
                     </a>
                 </div>
 
-                <!-- 🔽 シロナデザインスタイル: SCROLL ダウンインジケーター -->
+                <!-- 次のプロフィールへ誘導する装飾リンク。線の動きはstyle.cssのhero-scroll-animで制御する。 -->
                 <div class="pt-6 hero-anim flex justify-center">
                     <a href="#profile" class="hero-scroll-indicator group" aria-label="プロフィールへスクロール">
                         <span class="group-hover:text-[#2563eb] transition-colors">SCROLL</span>
@@ -170,6 +206,8 @@
 
         <!--
             2. プロフィール & スタンス
+            役割: 制作者の経歴・拠点・仕事姿勢・外部公式サイトへの導線をまとめる。
+            保守: 写真は images/prf.webp。alt、氏名、肩書き、本文は内容変更時に揃えて更新する。
         -->
         <section class="py-24 px-grid-margin bg-white" id="profile">
             <div class="max-w-container-max mx-auto">
@@ -270,6 +308,10 @@
 
         <!--
             3. こんなお悩みはありませんか？（Before ➔ After 解決アコーディオン）
+            役割: 訪問者の課題を入口に、対応できる解決策を段階表示する。
+            連動: trigger-N と panel-N は aria-controls / aria-labelledby で1対1対応し、
+                  main.js の toggleCleanAccordion() が active・aria・inert を同期する。
+            追加時: item、trigger、panelの番号を揃え、初期状態のaria値もactiveの有無と一致させる。
         -->
         <section class="py-24 px-grid-margin bg-[#F9FAFB]" id="concerns">
             <div class="max-w-4xl mx-auto">
@@ -284,11 +326,11 @@
                     </p>
                 </div>
 
-                <!-- Before ➔ After 解決アコーディオン -->
+                <!-- 開閉グループ: 同時に開く項目は最大1件。開いている項目を再選択すると全件閉じる。 -->
                 <div class="space-y-4 fade-up">
                     <!-- 01: 何から始めればいいか分からない -->
                     <div class="clean-accordion-item active">
-                        <div class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" onclick="toggleCleanAccordion(this)">
+                        <div id="concern-trigger-1" class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" role="button" tabindex="0" aria-expanded="true" aria-controls="concern-panel-1" onclick="toggleCleanAccordion(this)">
                             <div class="space-y-2">
                                 <div class="flex items-center gap-3">
                                     <span class="px-2.5 py-0.5 bg-red-100 text-red-700 rounded-md text-[11px] font-black border border-red-200 flex items-center gap-1">
@@ -313,7 +355,7 @@
                         </div>
 
                         <!-- 展開コンテンツ: AFTER 解決策 -->
-                        <div class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7">
+                        <div id="concern-panel-1" class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7" role="region" aria-labelledby="concern-trigger-1" aria-hidden="false">
                             <div class="p-5 sm:p-6 bg-gradient-to-br from-[#f0fdf4] via-white to-blue-50/50 rounded-2xl border border-emerald-200/90 shadow-xs space-y-3.5">
                                 <div class="flex items-center justify-between">
                                     <span class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold border border-emerald-200 flex items-center gap-1">
@@ -345,7 +387,7 @@
 
                     <!-- 02: スマホで見づらく崩れている -->
                     <div class="clean-accordion-item">
-                        <div class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" onclick="toggleCleanAccordion(this)">
+                        <div id="concern-trigger-2" class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" role="button" tabindex="0" aria-expanded="false" aria-controls="concern-panel-2" onclick="toggleCleanAccordion(this)">
                             <div class="space-y-2">
                                 <div class="flex items-center gap-3">
                                     <span class="px-2.5 py-0.5 bg-red-100 text-red-700 rounded-md text-[11px] font-black border border-red-200 flex items-center gap-1">
@@ -370,7 +412,7 @@
                         </div>
 
                         <!-- 展開コンテンツ: AFTER 解決策 -->
-                        <div class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7">
+                        <div id="concern-panel-2" class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7" role="region" aria-labelledby="concern-trigger-2" aria-hidden="true" inert>
                             <div class="p-5 sm:p-6 bg-gradient-to-br from-[#f0fdf4] via-white to-blue-50/50 rounded-2xl border border-emerald-200/90 shadow-xs space-y-3.5">
                                 <div class="flex items-center justify-between">
                                     <span class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold border border-emerald-200 flex items-center gap-1">
@@ -402,7 +444,7 @@
 
                     <!-- 03: 写真が暗く・フリー素材で冷たい -->
                     <div class="clean-accordion-item">
-                        <div class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" onclick="toggleCleanAccordion(this)">
+                        <div id="concern-trigger-3" class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" role="button" tabindex="0" aria-expanded="false" aria-controls="concern-panel-3" onclick="toggleCleanAccordion(this)">
                             <div class="space-y-2">
                                 <div class="flex items-center gap-3">
                                     <span class="px-2.5 py-0.5 bg-red-100 text-red-700 rounded-md text-[11px] font-black border border-red-200 flex items-center gap-1">
@@ -427,7 +469,7 @@
                         </div>
 
                         <!-- 展開コンテンツ: AFTER 解決策 -->
-                        <div class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7">
+                        <div id="concern-panel-3" class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7" role="region" aria-labelledby="concern-trigger-3" aria-hidden="true" inert>
                             <div class="p-5 sm:p-6 bg-gradient-to-br from-[#f0fdf4] via-white to-blue-50/50 rounded-2xl border border-emerald-200/90 shadow-xs space-y-3.5">
                                 <div class="flex items-center justify-between">
                                     <span class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold border border-emerald-200 flex items-center gap-1">
@@ -459,7 +501,7 @@
 
                     <!-- 04: 公開後に放置され更新できない -->
                     <div class="clean-accordion-item">
-                        <div class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" onclick="toggleCleanAccordion(this)">
+                        <div id="concern-trigger-4" class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" role="button" tabindex="0" aria-expanded="false" aria-controls="concern-panel-4" onclick="toggleCleanAccordion(this)">
                             <div class="space-y-2">
                                 <div class="flex items-center gap-3">
                                     <span class="px-2.5 py-0.5 bg-red-100 text-red-700 rounded-md text-[11px] font-black border border-red-200 flex items-center gap-1">
@@ -484,7 +526,7 @@
                         </div>
 
                         <!-- 展開コンテンツ: AFTER 解決策 -->
-                        <div class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7">
+                        <div id="concern-panel-4" class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7" role="region" aria-labelledby="concern-trigger-4" aria-hidden="true" inert>
                             <div class="p-5 sm:p-6 bg-gradient-to-br from-[#f0fdf4] via-white to-blue-50/50 rounded-2xl border border-emerald-200/90 shadow-xs space-y-3.5">
                                 <div class="flex items-center justify-between">
                                     <span class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold border border-emerald-200 flex items-center gap-1">
@@ -519,6 +561,8 @@
 
         <!--
             4. 提供サービス（カラフルタイルグリッド）
+            役割: 対応範囲を8項目で一覧表示する静的セクション。
+            保守: emology-card-tint-* が色分けを担当し、項目追加時はgrid列数と文章量も確認する。
         -->
         <section class="py-24 px-grid-margin bg-white" id="services">
             <div class="max-w-container-max mx-auto">
@@ -624,6 +668,9 @@
 
         <!--
             5. AI Dev（リアルタイム協調開発・マルチビュー切り替え）
+            役割: AI協調の進行デモと、制作期間・手戻り比較の2ビューを提示する。
+            連動: data-target="workbench|metrics"、#ai-view-*、switchAiView()を同じ名前で揃える。
+            ワークベンチ内の #wb-* は runWorkbenchScenario() が内容を書き換える出力先。
         -->
         <section class="py-24 px-grid-margin bg-[#F9FAFB]" id="ai">
             <div class="max-w-container-max mx-auto">
@@ -635,20 +682,23 @@
                     <h2 class="font-display-lg text-3xl md:text-5xl font-black text-[#0f172a] mb-4">AI駆動開発 ＆ 協調プロセス</h2>
                     <p class="text-sm text-[#64748b] max-w-xl mx-auto mb-6">要件整理・設計からコーディングまでAIと協調。爆速の可視化と高精度な品質保証を実現します。</p>
 
-                    <!-- 表示モード切り替えタブ -->
+                    <!--
+                        AIビュー切替タブ: role/aria-selected/tabindexもmain.jsが同期する。
+                        IDを変える場合は各tabpanelのaria-labelledbyも同時に更新する。
+                    -->
                     <div class="inline-flex items-center justify-center p-1.5 bg-[#f1f5f9] rounded-2xl border border-gray-200 gap-1.5 shadow-inner" role="tablist" aria-label="AI開発体験切り替え">
-                        <button class="ai-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-[#2563eb] text-white shadow-sm flex items-center gap-1.5" onclick="switchAiView('workbench')" data-target="workbench" type="button">
+                        <button id="ai-tab-workbench" class="ai-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-[#2563eb] text-white shadow-sm flex items-center gap-1.5" role="tab" aria-selected="true" aria-controls="ai-view-workbench" tabindex="0" onclick="switchAiView('workbench')" data-target="workbench" type="button">
                             <span>⚡</span> インタラクティブ・ワークベンチ
                         </button>
-                        <button class="ai-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-[#64748b] hover:text-[#0f172a] hover:bg-white/60 flex items-center gap-1.5" onclick="switchAiView('metrics')" data-target="metrics" type="button">
+                        <button id="ai-tab-metrics" class="ai-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-[#64748b] hover:text-[#0f172a] hover:bg-white/60 flex items-center gap-1.5" role="tab" aria-selected="false" aria-controls="ai-view-metrics" tabindex="-1" onclick="switchAiView('metrics')" data-target="metrics" type="button">
                             <span>📊</span> 開発メトリクス・比較
                         </button>
                     </div>
                 </div>
 
                 <!-- 【ビュー1】AI協調インタラクティブ・ワークベンチ -->
-                <div id="ai-view-workbench" class="ai-view-container space-y-8">
-                    <!-- シナリオ切り替えボタン -->
+                <div id="ai-view-workbench" class="ai-view-container space-y-8" role="tabpanel" aria-labelledby="ai-tab-workbench">
+                    <!-- シナリオ切替: data-scenarioとrunWorkbenchScenario()のキーを一致させる。 -->
                     <div class="flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto mb-4">
                         <button class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#0f172a] text-white border border-[#0f172a] shadow-sm flex items-center gap-1.5 wb-scenario-btn active" onclick="runWorkbenchScenario('temple')" data-scenario="temple">
                             <span>🏛️</span> 寺院サイト刷新
@@ -713,7 +763,7 @@
                 </div>
 
                 <!-- 【ビュー2】開発メトリクス・比較 -->
-                <div id="ai-view-metrics" class="ai-view-container hidden space-y-12">
+                <div id="ai-view-metrics" class="ai-view-container hidden space-y-12" role="tabpanel" aria-labelledby="ai-tab-metrics" hidden>
                     <div class="emology-card p-8 md:p-12 space-y-10">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-8 border-b border-gray-200">
                             <div class="text-center sm:text-left space-y-2">
@@ -774,6 +824,10 @@
 
         <!--
             6. 制作実績（PC: シネマティック横スクロール / スマホ: 縦羅列グリッド）
+            役割: 9作品の概要を見せ、選択した作品の詳細モーダルへ接続する。
+            対応規則: カードNの openModal('modal-work-N') と、下部の #modal-work-N を必ず揃える。
+            PCはmain.jsがカードを複製して無限カルーセル化するため、原本カードだけを編集する。
+            スマホは works-mobile-hidden を初期非表示にし、toggleMoreWorksMobile()で展開する。
         -->
         <section class="py-24 px-grid-margin bg-white overflow-hidden" id="works">
             <div class="max-w-container-max mx-auto">
@@ -786,9 +840,9 @@
                     <p class="text-sm text-[#64748b] max-w-xl mx-auto mb-6">クリックすると詳細（課題・提案・成果）をご確認いただけます。</p>
                 </div>
 
-                <!-- 制作実績コンテナ（PC: 横スクロール / スマホ: 縦羅列グリッド） -->
+                <!-- #works-view-carousel は表示方式の親。内部trackをmain.jsがスクロール・複製制御する。 -->
                 <div id="works-view-carousel" class="works-view-container">
-                    <!-- ナビゲーション矢印（PC大画面のみ表示） -->
+                    <!-- PC用送りボタン: 引数 -1/1 が scrollWorksCarousel() の移動方向を表す。 -->
                     <div class="hidden md:flex items-center justify-end gap-3 max-w-container-max mx-auto mb-4 px-4 sm:px-0">
                         <span class="text-xs font-bold text-[#64748b] mr-auto inline-flex items-center gap-1.5">
                             <span class="material-symbols-outlined text-sm text-[#2563eb]">swipe</span>
@@ -802,7 +856,7 @@
                         </button>
                     </div>
 
-                    <!-- カルーセルトラック（スマホ時は自動で縦1列グリッドへ変化） -->
+                    <!-- カルーセルトラック: #works-carousel-track はmain.jsの必須セレクターなので変更しない。 -->
                     <div class="works-carousel-container">
                         <div class="works-carousel-track" id="works-carousel-track">
                             <!-- Card 1 -->
@@ -980,6 +1034,11 @@
             </div>
         </section>
 
+        <!--
+            7. 制作の流れ
+            役割: story（縦ライン＋sticky）と cards（4列カード）の2形式で同じ工程を表示する。
+            連動: data-target、#flow-view-*、switchFlowView()の名前を一致させる。
+        -->
         <section class="py-24 px-grid-margin bg-[#F9FAFB]" id="flow">
             <div class="max-w-container-max mx-auto">
                 <div class="text-center mb-10 fade-up">
@@ -990,7 +1049,7 @@
                     <h2 class="font-display-lg text-3xl md:text-5xl font-black text-[#0f172a] mb-4">制作の流れ</h2>
                     <p class="text-sm text-[#64748b] max-w-xl mx-auto mb-6">「何から始めればいいか分からない」段階から、伴走しながら形にしていきます。</p>
 
-                    <!-- 表示モード切り替えタブ -->
+                    <!-- フロー表示切替。見た目はタブだが、表示状態はhiddenクラスで制御する。 -->
                     <div class="inline-flex items-center justify-center p-1.5 bg-white rounded-2xl border border-gray-200 gap-1.5 shadow-xs" role="tablist" aria-label="プロセス表示切り替え">
                         <button class="flow-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-[#2563eb] text-white shadow-sm flex items-center gap-1.5" onclick="switchFlowView('story')" data-target="story" type="button">
                             <span>✨</span> スクロール連動ストーリー
@@ -1156,6 +1215,9 @@
 
         <!--
             8. お問い合わせフォーム
+            役割: Formspreeへ相談内容を送信するコンバージョン地点。
+            連動: #contact-form / #contact-form-submit / #contact-form-status をmain.jsが使用する。
+            注意: action URLは送信先アカウントに直結するため、変更時は実送信テストを行う。
         -->
         <section class="py-24 px-grid-margin bg-white" id="contact">
             <div class="max-w-2xl mx-auto">
@@ -1168,6 +1230,7 @@
                     <p class="text-sm text-[#64748b]">「まず何から始めればいい？」という段階からでも大丈夫です。<br />Webまわりのことを、お気軽にご相談ください。</p>
                 </div>
 
+                <!-- _gotchaはボット送信を弾くハニーポット。画面には表示しない。 -->
                 <form class="emology-card p-8 md:p-10 space-y-6 fade-up" id="contact-form" action="https://formspree.io/f/mbdeoowz" method="POST">
                     <input type="text" name="_gotcha" style="display:none" />
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1216,7 +1279,7 @@
         </section>
     </main>
 
-    <!-- フッター -->
+    <!-- フッター: ブランド再掲、法的ページ、問い合わせへの補助導線。 -->
     <footer class="py-16 bg-[#0f172a] text-white relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-grid-margin max-w-container-max mx-auto">
             <div class="col-span-1 lg:col-span-2">
@@ -1239,11 +1302,14 @@
                 </a>
             </div>
         </div>
+        <!-- 全インタラクションをまとめたメインスクリプト。deferによりHTML解析後に実行される。 -->
         <script src="js/main.js?v=20260821_emology_v2" defer></script>
     </footer>
     <!--
         制作実績モーダル: Works カードを選択した時に詳細を表示する。
         手動変更: タイトル、画像、タグ、導入文、詳細3列、進行状況、CTAを対応する一覧カードと一致させる。
+        構造規則: role="dialog"、aria-modal、aria-labelledby、aria-hiddenを維持する。
+        開閉制御: main.jsがhidden/flex、bodyのスクロール、背景inert、フォーカスをまとめて管理する。
         モーダル対応:
         modal-work-1 -> アーリーホーム株式会社
         modal-work-2 -> ごちそうさん
@@ -1251,6 +1317,9 @@
         modal-work-4 -> サブカルDJパーティカレンダー
         modal-work-5 -> 10GAI 公式サイト
         modal-work-6 -> 大阪ガス フリーアドレス座席表
+        modal-work-7 -> さわやかデンタルクリニック（作例）
+        modal-work-8 -> まち水道レスキュー（作例）
+        modal-work-9 -> LUMIÈRE ÉCLAT（作例）
     -->
     <!-- modal-work-1: アーリーホーム株式会社 -->
     <div aria-hidden="true" aria-labelledby="modal-work-1-title" aria-modal="true"
@@ -1814,6 +1883,10 @@
 
     <!--
         💻 PC専用: プレビュー切り替えコントローラー（縦並びスタック・幅統一）
+        用途: 制作中に角丸とヒーロー演出を比較する内部確認UI。
+        連動: data-radius / data-mode とmain.jsの切替関数、mobile selectのvalueを一致させる。
+        注意: position:fixed / z-index:9999 のため本文へ重なる。公開版では非表示化を検討する。
+        モーダル表示中は body.modal-open によりstyle.css側で非表示になる。
     -->
     <div class="anim-switcher-container hidden md:flex flex-col items-end gap-2.5 w-64" aria-label="プレビュー切り替え">
         <!-- 角丸スタイル切り替えパネル -->
