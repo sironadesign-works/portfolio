@@ -20,6 +20,16 @@
  * - requestAnimationFrameやsetTimeoutを増やす場合は、二重起動と停止条件を必ず確認する。
  */
 
+
+// ♿ 作品カード（.cinematic-card）のキーボード（Enter / Space）アクセシビリティ対応
+document.querySelectorAll(".cinematic-card[role='button']").forEach((card) => {
+  card.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    card.click();
+  });
+});
+
 // ============================================================
 // 1. カスタムカーソル
 // #custom-cursorを実ポインターへ追従させる装飾。CSS側でタッチ端末は非表示にする。
