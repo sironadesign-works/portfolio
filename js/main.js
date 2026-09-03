@@ -1732,7 +1732,8 @@ if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
     ease: "power3.out"
   });
 
-  gsap.utils.toArray("section h2").forEach((h2) => {
+  // プロフィール以外の見出しは従来の軽い出現演出を維持する。
+  gsap.utils.toArray("section h2:not(#profile h2)").forEach((h2) => {
     gsap.from(h2, {
       scrollTrigger: {
         trigger: h2,
@@ -1745,6 +1746,57 @@ if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
       ease: "power2.out"
     });
   });
+
+  // 参照サイト（tochi-sanwa.jp）風の「ポンッと弾けて飛び出す（Back Out）」プロフィール演出
+  const profile = document.getElementById("profile");
+  if (profile) {
+    const profileMotion = gsap.matchMedia();
+    profileMotion.add({
+      desktop: "(min-width: 768px)",
+      mobile: "(max-width: 767px)",
+      reduceMotion: "(prefers-reduced-motion: reduce)"
+    }, (context) => {
+      const { desktop, reduceMotion } = context.conditions;
+      if (reduceMotion) return;
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: profile,
+          start: desktop ? "top 72%" : "top 80%",
+          toggleActions: "play none none none",
+          once: true
+        }
+      });
+
+      // 1. タイトル＆バッジのポンッとした飛び出し
+      timeline
+        .fromTo(".profile-motion-title",
+          { y: 25, scale: 0.82, autoAlpha: 0 },
+          { y: 0, scale: 1, autoAlpha: 1, duration: 0.5, ease: "back.out(1.75)" })
+
+      // 2. メインカード全体の弾ける浮上
+        .fromTo(".profile-main-card",
+          { y: 35, scale: 0.88, autoAlpha: 0 },
+          { y: 0, scale: 1, autoAlpha: 1, duration: 0.6, ease: "back.out(1.5)" }, "-=0.25")
+
+      // 3. 顔写真アイコンの小気味よいポップ
+        .fromTo(".profile-portrait",
+          { scale: 0.45, rotation: -8, autoAlpha: 0 },
+          { scale: 1, rotation: 0, autoAlpha: 1, duration: 0.55, ease: "back.out(2.2)" }, "-=0.35")
+
+      // 4. 自己紹介テキスト＆リンクのフェードイン
+        .fromTo(".profile-intro-copy",
+          { y: 20, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.45, ease: "power2.out" }, "-=0.3")
+
+      // 5. 4つのスタンスカードが順にポンッポンッポンッポンッと飛び出すスタッガー演出
+        .fromTo(".profile-stance-card",
+          { y: 40, scale: 0.78, autoAlpha: 0 },
+          { y: 0, scale: 1, autoAlpha: 1, duration: 0.55, stagger: 0.12, ease: "back.out(1.8)" }, "-=0.2");
+
+      return () => timeline.kill();
+    });
+  }
 }
 
 // ============================================================
