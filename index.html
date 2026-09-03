@@ -101,8 +101,8 @@
                     <div class="space-y-1">
                         <label for="mobile-radius-select" class="text-[11px] font-bold text-[#475569] block">角丸スタイル</label>
                         <select id="mobile-radius-select" class="w-full p-2.5 bg-white border border-gray-300 rounded-xl text-xs font-bold text-[#0f172a] shadow-xs focus:ring-2 focus:ring-[#2563eb] focus:border-[#2563eb]" onchange="switchRadiusStyle(this.value)">
-                            <option value="sharp" selected>モダン・シャープ (6~8px)</option>
                             <option value="solid">ソリッド・直角 (0px)</option>
+                            <option value="sharp" selected>モダン・シャープ (6~8px)</option>
                             <option value="soft">ソフト (16~24px)</option>
                         </select>
                     </div>
@@ -1937,11 +1937,11 @@
                 <span class="text-[9px] text-[#2563eb] font-black">SELECT</span>
             </div>
             <div class="space-y-1">
-                <button class="anim-switcher-btn radius-switcher-btn active" data-radius="sharp" onclick="switchRadiusStyle('sharp')" type="button">
-                    <strong>モダン・シャープ (6~8px)</strong>
-                </button>
                 <button class="anim-switcher-btn radius-switcher-btn" data-radius="solid" onclick="switchRadiusStyle('solid')" type="button">
                     <strong>ソリッド・直角 (0px)</strong>
+                </button>
+                <button class="anim-switcher-btn radius-switcher-btn active" data-radius="sharp" onclick="switchRadiusStyle('sharp')" type="button">
+                    <strong>モダン・シャープ (6~8px)</strong>
                 </button>
                 <button class="anim-switcher-btn radius-switcher-btn" data-radius="soft" onclick="switchRadiusStyle('soft')" type="button">
                     <strong>ソフト (16~24px)</strong>
