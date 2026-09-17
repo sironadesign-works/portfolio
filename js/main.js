@@ -1749,7 +1749,7 @@ if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
 
   // 参照サイト（tochi-sanwa.jp）風の「ポンッと弾けて飛び出す（Back Out）」プロフィール演出
   const profile = document.getElementById("profile");
-  if (profile) {
+  if (profile && profile.querySelector(".profile-motion-title")) {
     const profileMotion = gsap.matchMedia();
     profileMotion.add({
       desktop: "(min-width: 768px)",
