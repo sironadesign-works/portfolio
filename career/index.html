@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!--
+    ================================================================
+    中村 浩樹 転職用ポートフォリオ (Career Portfolio)
+    ================================================================
+    対象: UI/UX Designer / Creative Technologist / Frontend Engineer
+    構造:
+    - #hero         : ファーストビュー & アクション
+    - #profile      : 経歴・自己紹介・スタンス
+    - #strengths    : 3つのコアバリュー（旧Concernsから刷新）
+    - #services     : スキル & 対応領域
+    - #ai           : AI駆動開発プロセス（インタラクティブ）
+    - #works        : 制作実績（9作品・モーダル詳細）
+    - #flow         : プロジェクト推進プロセス
+    - #contact      : お問い合わせ・カジュアル面談
+    ================================================================
+-->
+
+<head>
+    <!-- アクセス計測: GTMコンテナ -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KLHJJ8C9');</script>
+    <!-- /アクセス計測 -->
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="WEBデザイナー歴17年の確かな造形力と最新AI駆動開発を融合。事業課題を解決し、プロダクト価値を最大化するクリエイティブテクノロジスト 中村浩樹のポートフォリオ。" />
+    <title>中村 浩樹 - Portfolio | Creative Technologist (Webデザイン × フロントエンド × AI駆動開発)</title>
+    <link rel="icon" href="../images/favicon-64.png" type="image/png" sizes="64x64" />
+    <link rel="preload" as="image" href="../images/hero.webp" fetchpriority="high" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../css/tailwind.css?v=20260831_maintenance" />
+    <link rel="stylesheet" href="../css/style.css?v=20260831_maintenance" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+</head>
+
+<body class="bg-[#F9FAFB] text-[#111827] font-body-md antialiased selection:bg-[#06b6d4] selection:text-white relative font-dynamic">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLHJJ8C9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div id="custom-cursor" aria-hidden="true"></div>
+
+    <!-- 固定ヘッダー -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
+            <a class="flex items-center gap-3.5 group" href="#hero" aria-label="中村浩樹 ポートフォリオ">
+                <img src="../images/sirona-logo.webp" alt="ロゴ" width="160" height="40" class="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105" />
+                <span class="hidden sm:inline-block text-[11px] font-mono uppercase tracking-widest text-[#64748b] border-l border-gray-200 pl-3.5">Hiroki Nakamura Portfolio</span>
+            </a>
+            <nav class="mobile-nav hidden md:flex items-center gap-7" id="mobile-menu">
+                <a class="text-xs uppercase font-bold tracking-wider text-[#4B5563] hover:text-[#2563eb] transition-colors py-1" href="#profile">Profile</a>
+                <a class="text-xs uppercase font-bold tracking-wider text-[#4B5563] hover:text-[#2563eb] transition-colors py-1" href="#strengths">Strengths</a>
+                <a class="text-xs uppercase font-bold tracking-wider text-[#4B5563] hover:text-[#2563eb] transition-colors py-1" href="#services">Capabilities</a>
+                <a class="text-xs uppercase font-bold tracking-wider text-[#4B5563] hover:text-[#2563eb] transition-colors py-1" href="#ai">AI Dev</a>
+                <a class="text-xs uppercase font-bold tracking-wider text-[#4B5563] hover:text-[#2563eb] transition-colors py-1" href="#works">Works</a>
+                <a class="text-xs uppercase font-bold tracking-wider text-[#4B5563] hover:text-[#2563eb] transition-colors py-1" href="#flow">Process</a>
+
+                <!-- スマホ専用プレビュー設定: ハンバーガーメニュー内に格納 -->
+                <div class="md:hidden pt-4 mt-2 border-t border-gray-200/80 space-y-3 w-full">
+                    <div class="text-[10px] font-black uppercase tracking-widest text-[#2563eb] flex items-center gap-1">
+                        <span class="material-symbols-outlined text-xs">tune</span> デザイン・演出切り替え
+                    </div>
+                    <p class="text-[11px] text-[#64748b] font-bold leading-relaxed">
+                        トンマナに合わせ演出を自由に切り替えられるデザインシステムの一例です。
+                    </p>
+
+                    <!-- 角丸スタイル切替 -->
+                    <div class="space-y-1">
+                        <label for="mobile-radius-select" class="text-[11px] font-bold text-[#475569] block">角丸スタイル</label>
+                        <select id="mobile-radius-select" class="w-full p-2.5 bg-white border border-gray-300 rounded-xl text-xs font-bold text-[#0f172a] shadow-xs focus:ring-2 focus:ring-[#2563eb] focus:border-[#2563eb]" onchange="switchRadiusStyle(this.value)">
+                            <option value="solid">ソリッド・直角 (0px)</option>
+                            <option value="sharp" selected>モダン・シャープ (6~8px)</option>
+                            <option value="soft">ソフト (16~24px)</option>
+                        </select>
+                    </div>
+
+                    <!-- ヒーロー演出切替 -->
+                    <div class="space-y-1">
+                        <label for="mobile-anim-select" class="text-[11px] font-bold text-[#475569] block">ヒーロー演出</label>
+                        <select id="mobile-anim-select" class="w-full p-2.5 bg-white border border-gray-300 rounded-xl text-xs font-bold text-[#0f172a] shadow-xs focus:ring-2 focus:ring-[#2563eb] focus:border-[#2563eb]" onchange="switchHeroAnimation(this.value)">
+                            <optgroup label="インタラクティブ・UI系">
+                                <option value="nodes_pulse" selected>AIシナプス・パルス</option>
+                                <option value="metaballs">水玉</option>
+                                <option value="uitokens">浮遊UI</option>
+                                <option value="ripple">和モダン波紋</option>
+                            </optgroup>
+                            <optgroup label="流体・オーロラ系">
+                                <option value="aurora_v2">ネオン・オーロラV2</option>
+                                <option value="liquid">多層リキッドメッシュ</option>
+                            </optgroup>
+                            <optgroup label="3D・光彩・パーティクル系">
+                                <option value="crystal">3Dホロ・クリスタル</option>
+                                <option value="warp">3Dスター・ワープ</option>
+                                <option value="magnetic">マグネティック・オーブ</option>
+                                <option value="caustics">プリズム・コースティクス</option>
+                                <option value="cyber">サイバー・3Dグリッド</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+            </nav>
+            <a class="header-contact-btn emology-btn-primary shadow-xs md:shadow-md text-xs sm:text-sm font-bold" href="#contact">採用・面談のお問い合わせ</a>
+            <button aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く"
+                class="md:hidden text-[#111827] p-2" data-mobile-menu-toggle type="button">
+                <span aria-hidden="true" class="material-symbols-outlined text-2xl">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-0">
+        <!-- 1. ヒーローセクション -->
+        <section
+            class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-32 pb-24 px-grid-margin overflow-hidden bg-gradient-to-b from-[#ffffff] via-[#f0fdfa]/40 to-[#F9FAFB]"
+            id="hero">
+            <svg class="sr-only" aria-hidden="true" style="position: absolute; width: 0; height: 0; pointer-events: none;">
+                <defs>
+                    <filter id="metaball-goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9" result="goo" />
+                        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                    </filter>
+                </defs>
+            </svg>
+
+            <div class="canvas-container" id="canvas-wrapper" aria-hidden="true">
+                <canvas id="metaballs-canvas"></canvas>
+            </div>
+
+            <div class="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+                <div class="inline-flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2.5 px-4 py-2 rounded-full bg-white/80 backdrop-blur-md border border-[#2563eb]/20 shadow-xs mb-4 sm:mb-6 hero-anim max-w-full">
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#06b6d4] animate-ping shrink-0"></span>
+                        <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#2563eb]">
+                            CREATIVE TECHNOLOGIST
+                        </span>
+                    </div>
+                    <span class="hidden sm:inline-block text-gray-300">|</span>
+                    <span class="text-[10px] sm:text-[11px] font-bold text-[#64748b]">
+                        Webデザイン × フロントエンド実装 × AI駆動開発
+                    </span>
+                </div>
+
+                <h1 class="font-display-lg text-[28px] xs:text-3xl sm:text-6xl md:text-7xl lg:text-[74px] font-black tracking-tight text-[#0f172a] leading-[1.42] sm:leading-[1.28] md:leading-[1.32] hero-anim">
+                    <span class="inline-block">伝わるデザインと、</span><br class="hidden sm:inline" />
+                    <span class="bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981] bg-clip-text text-transparent inline-block">
+                        <span class="inline-block">AIが生む</span><span class="inline-block">圧倒的な機動力。</span>
+                    </span>
+                </h1>
+
+                <p class="text-sm md:text-base lg:text-[17px] text-[#475569] leading-relaxed max-w-3xl mx-auto hero-anim">
+                    <span class="inline-block">WEBデザイナー歴17年の確かな造形力と、最新のAI駆動開発を融合。</span><br class="hidden md:inline" />
+                    <span class="inline-block">事業課題を最短で形にする高速プロトタイピングから、堅牢なフロントエンド実装、</span><span class="inline-block">ユーザー体験の継続改善まで一気通貫でバリューを発揮します。</span>
+                </p>
+
+                <div class="flex flex-wrap gap-4 sm:gap-6 justify-center items-center pt-4 hero-anim">
+                    <a class="emology-btn-primary font-bold text-sm" href="#works">
+                        制作実績（9作品）を見る
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
+                    <a class="emology-btn-secondary font-bold text-sm" href="#strengths">
+                        3つの強み・提供価値を見る
+                        <span class="material-symbols-outlined text-lg">expand_more</span>
+                    </a>
+                </div>
+
+                <!-- ヒーロー下部: インタラクティブ演出・デザインシステム コントロールコンソール（PC/タブレット専用） -->
+                <div class="hidden md:block pt-6 hero-anim max-w-2xl mx-auto w-full px-2 sm:px-0">
+                    <div class="bg-white/85 backdrop-blur-md rounded-2xl border border-blue-100/80 shadow-md p-4 sm:p-5 text-left transition-all">
+                        <!-- コンソールヘッダー -->
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 pb-3 mb-3 border-b border-gray-100">
+                            <div class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[#2563eb] text-lg">tune</span>
+                                <span class="text-xs font-bold text-[#0f172a] uppercase tracking-wider">Canvas &amp; Design System Demo</span>
+                            </div>
+                            <span class="text-[11px] text-[#64748b]">ブランドに合わせて演出・角丸を動的に切り替え可能</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-center">
+                            <!-- ヒーロー演出（11種） -->
+                            <div class="md:col-span-7 space-y-2">
+                                <div class="flex justify-between items-center text-[11px] font-bold text-[#475569]">
+                                    <label for="hero-dock-anim-select" class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs text-[#2563eb]">animation</span>
+                                        ヒーロー演出 (11種)
+                                    </label>
+                                    <span class="text-[10px] text-[#2563eb] font-semibold">ワンタップで即時反映</span>
+                                </div>
+                                <!-- クイック選択ピルボタン（主要4種） -->
+                                <div class="flex flex-wrap gap-1.5">
+                                    <button class="anim-switcher-btn hero-anim-btn !w-auto !py-1 !px-2.5 !text-[11px] !rounded-full active" data-mode="nodes_pulse" onclick="switchHeroAnimation('nodes_pulse'); const s=document.getElementById('hero-dock-anim-select'); if(s) s.value='nodes_pulse';" type="button">
+                                        AIパルス
+                                    </button>
+                                    <button class="anim-switcher-btn hero-anim-btn !w-auto !py-1 !px-2.5 !text-[11px] !rounded-full" data-mode="metaballs" onclick="switchHeroAnimation('metaballs'); const s=document.getElementById('hero-dock-anim-select'); if(s) s.value='metaballs';" type="button">
+                                        水玉
+                                    </button>
+                                    <button class="anim-switcher-btn hero-anim-btn !w-auto !py-1 !px-2.5 !text-[11px] !rounded-full" data-mode="aurora_v2" onclick="switchHeroAnimation('aurora_v2'); const s=document.getElementById('hero-dock-anim-select'); if(s) s.value='aurora_v2';" type="button">
+                                        オーロラ
+                                    </button>
+                                    <button class="anim-switcher-btn hero-anim-btn !w-auto !py-1 !px-2.5 !text-[11px] !rounded-full" data-mode="crystal" onclick="switchHeroAnimation('crystal'); const s=document.getElementById('hero-dock-anim-select'); if(s) s.value='crystal';" type="button">
+                                        クリスタル
+                                    </button>
+                                </div>
+                                <!-- 全11種ドロップダウン -->
+                                <select id="hero-dock-anim-select" class="w-full mt-1.5 p-2 bg-gray-50/90 hover:bg-white border border-gray-200 rounded-lg text-xs font-bold text-[#0f172a] shadow-2xs focus:ring-2 focus:ring-[#2563eb] focus:border-[#2563eb] cursor-pointer transition-colors" onchange="switchHeroAnimation(this.value)">
+                                    <optgroup label="インタラクティブ・UI系">
+                                        <option value="nodes_pulse" selected>AIシナプス・パルス</option>
+                                        <option value="metaballs">水玉</option>
+                                        <option value="uitokens">浮遊UI</option>
+                                        <option value="ripple">和モダン波紋</option>
+                                    </optgroup>
+                                    <optgroup label="流体・オーロラ系">
+                                        <option value="aurora_v2">ネオン・オーロラV2</option>
+                                        <option value="liquid">多層リキッドメッシュ</option>
+                                    </optgroup>
+                                    <optgroup label="3D・光彩・パーティクル系">
+                                        <option value="crystal">3Dホロ・クリスタル</option>
+                                        <option value="warp">3Dスター・ワープ</option>
+                                        <option value="magnetic">マグネティック・オーブ</option>
+                                        <option value="caustics">プリズム・コースティクス</option>
+                                        <option value="cyber">サイバー・3Dグリッド</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <!-- 角丸スタイル（3種） -->
+                            <div class="md:col-span-5 space-y-2 md:border-l md:border-gray-150 md:pl-4">
+                                <label class="flex items-center gap-1 text-[11px] font-bold text-[#475569]">
+                                    <span class="material-symbols-outlined text-xs text-[#2563eb]">rounded_corner</span>
+                                    角丸スタイル (全3種)
+                                </label>
+                                <!-- 角丸ボタングリッド -->
+                                <div class="grid grid-cols-3 gap-1">
+                                    <button class="anim-switcher-btn radius-switcher-btn !w-full !justify-center !py-1 !px-1 !text-[11px] !rounded-lg" data-radius="solid" onclick="switchRadiusStyle('solid')" type="button">
+                                        直角 0px
+                                    </button>
+                                    <button class="anim-switcher-btn radius-switcher-btn !w-full !justify-center !py-1 !px-1 !text-[11px] !rounded-lg active" data-radius="sharp" onclick="switchRadiusStyle('sharp')" type="button">
+                                        8px
+                                    </button>
+                                    <button class="anim-switcher-btn radius-switcher-btn !w-full !justify-center !py-1 !px-1 !text-[11px] !rounded-lg" data-radius="soft" onclick="switchRadiusStyle('soft')" type="button">
+                                        20px
+                                    </button>
+                                </div>
+                                <p class="text-[10px] text-[#64748b] leading-tight">カードやボタンの角丸がサイト全体で切り替わります</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 hero-anim flex justify-center">
+                    <a href="#profile" class="hero-scroll-indicator group" aria-label="プロフィールへスクロール">
+                        <span class="group-hover:text-[#2563eb] transition-colors">SCROLL</span>
+                        <div class="hero-scroll-line"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. プロフィール & スタンス -->
+        <section class="py-24 px-grid-margin bg-white" id="profile">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-10 fade-up">
+                    <div class="emology-badge mb-3">
+                        <span class="emology-badge-dot"></span>
+                        <span>01 // PROFILE &amp; STANCE</span>
+                    </div>
+                    <h2 class="font-display-lg text-3xl md:text-5xl font-black text-[#0f172a] mb-6">プロフィール</h2>
+                </div>
+
+                <div class="space-y-8 fade-up">
+                    <div class="emology-card p-6 sm:p-8 md:p-12">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center gap-6">
+                                <img alt="中村 浩樹 Profile"
+                                    class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-3xl md:rounded-4xl object-contain object-bottom bg-[#f1f5f9] border border-gray-200 shadow-sm"
+                                    src="../images/prf.webp" width="512" height="512" loading="lazy" decoding="async" />
+                                <div class="w-full">
+                                    <h3 class="font-display-lg text-2xl md:text-3xl font-bold text-[#0f172a]">中村 浩樹</h3>
+                                    <p class="text-xs md:text-sm font-bold text-[#2563eb] tracking-wide my-1.5">Creative Technologist <span class="block sm:inline sm:ml-1.5 text-xs font-semibold text-[#64748b]">（Webデザイン × フロントエンド × AI駆動開発）</span></p>
+                                    <p class="text-xs text-[#64748b] flex items-center justify-center sm:justify-start lg:justify-center gap-1">
+                                        <span class="material-symbols-outlined text-sm">location_on</span>
+                                        大阪府在住 / 出社・リモート両対応可
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-8 lg:border-l lg:border-gray-100 lg:pl-8 space-y-4">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-[#2563eb] rounded-full text-xs font-bold">
+                                    <span class="material-symbols-outlined text-sm">history_edu</span>
+                                    <span>ABOUT &amp; BACKGROUND</span>
+                                </div>
+                                <p class="text-xs md:text-sm text-[#475569] leading-relaxed">
+                                    WEBデザイナーとして約17年の実務経験を有し、企業サイトやメディアの立ち上げ・運用改善、EC構築から、70インチ大型タッチパネルで動作する社内座席表アプリ開発まで幅広く牽引してきました。<br /><br />
+                                    少数精鋭の組織でデザインからフロントエンド実装までを横断的に担うことが多く、新規事業や業務フローが未整備な環境でも、自ら課題を発見・定義し、ゼロから動く形にする自走力を培ってきました。方針が急に決まるような流動的な状況下でも、高速なプロトタイプ構築と対話を通じて迅速にチームの合意形成を導きます。<br /><br />
+                                    現在は最新のAIツール（Codex、Antigravity、Cursor等）を日常の開発・デザインプロセスに深く組み込み、開発スピードと設計品質を高い次元で両立。デザイナーとエンジニアの境界を越え、プロダクトの価値最大化にコミットします。
+                                </p>
+                                <div class="pt-2 flex flex-wrap gap-3">
+                                    <span class="inline-flex items-center gap-1 text-xs font-bold text-[#475569] bg-gray-100 px-3 py-1.5 rounded-lg">
+                                        実務経験 17年
+                                    </span>
+                                    <span class="inline-flex items-center gap-1 text-xs font-bold text-[#2563eb] bg-blue-50 px-3 py-1.5 rounded-lg">
+                                        デザイン &times; フロントエンド一貫対応
+                                    </span>
+                                    <span class="inline-flex items-center gap-1 text-xs font-bold text-[#06b6d4] bg-cyan-50 px-3 py-1.5 rounded-lg">
+                                        AI駆動開発実践
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                        <div class="emology-card p-5 sm:p-6 space-y-3 flex flex-col justify-between">
+                            <div class="space-y-2.5">
+                                <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#2563eb] flex items-center justify-center font-bold">
+                                    <span class="material-symbols-outlined text-xl">bolt</span>
+                                </div>
+                                <h4 class="font-bold text-base text-[#0f172a]">アイデアを即日具現化</h4>
+                                <p class="text-xs text-[#64748b] leading-relaxed">仕様書を待つのではなく、実際に動くプロトタイプで早期にチームの認識を一致させます。</p>
+                            </div>
+                            <div class="text-[11px] font-bold text-[#2563eb] pt-2 border-t border-gray-100">01 // RAPID PROTOTYPING</div>
+                        </div>
+                        <div class="emology-card p-5 sm:p-6 space-y-3 flex flex-col justify-between">
+                            <div class="space-y-2.5">
+                                <div class="w-10 h-10 rounded-xl bg-cyan-50 text-[#06b6d4] flex items-center justify-center font-bold">
+                                    <span class="material-symbols-outlined text-xl">speed</span>
+                                </div>
+                                <h4 class="font-bold text-base text-[#0f172a]">AI駆動開発による高速実装</h4>
+                                <p class="text-xs text-[#64748b] leading-relaxed">AIツールを開発サイクルに組み込み、開発リードタイム短縮と品質検証を両立させます。</p>
+                            </div>
+                            <div class="text-[11px] font-bold text-[#06b6d4] pt-2 border-t border-gray-100">02 // AI AGILITY</div>
+                        </div>
+                        <div class="emology-card p-5 sm:p-6 space-y-3 flex flex-col justify-between">
+                            <div class="space-y-2.5">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-[#10b981] flex items-center justify-center font-bold">
+                                    <span class="material-symbols-outlined text-xl">favorite</span>
+                                </div>
+                                <h4 class="font-bold text-base text-[#0f172a]">ユーザー体験の徹底追求</h4>
+                                <p class="text-xs text-[#64748b] leading-relaxed">単なる見た目の装飾ではなく、誰にとっても迷いのない情報設計と操作性を追求します。</p>
+                            </div>
+                            <div class="text-[11px] font-bold text-[#10b981] pt-2 border-t border-gray-100">03 // UI/UX CRAFT</div>
+                        </div>
+                        <div class="emology-card p-5 sm:p-6 space-y-3 flex flex-col justify-between">
+                            <div class="space-y-2.5">
+                                <div class="w-10 h-10 rounded-xl bg-amber-50 text-[#f59e0b] flex items-center justify-center font-bold">
+                                    <span class="material-symbols-outlined text-xl">trending_up</span>
+                                </div>
+                                <h4 class="font-bold text-base text-[#0f172a]">作って終わらない事業貢献</h4>
+                                <p class="text-xs text-[#64748b] leading-relaxed">リリース後の計測・分析、運用のしやすさ、チームへの還元まで見据えて伴走します。</p>
+                            </div>
+                            <div class="text-[11px] font-bold text-[#f59e0b] pt-2 border-t border-gray-100">04 // BUSINESS IMPACT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. コアバリュー（旧Concernsお悩みセクションからの刷新） -->
+        <section class="py-24 px-grid-margin bg-[#F9FAFB]" id="strengths">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12 fade-up">
+                    <div class="emology-badge mb-3">
+                        <span class="emology-badge-dot"></span>
+                        <span>02 // CORE STRENGTHS &amp; VALUE</span>
+                    </div>
+                    <h2 class="font-display-lg text-3xl md:text-5xl font-black text-[#0f172a] mb-4">提供できる3つのコアバリュー</h2>
+                    <p class="text-xs md:text-sm text-[#64748b]">
+                        事業会社や開発チームの課題に対し、デザインと実装技術の両面から貢献できる強みです。
+                    </p>
+                </div>
+
+                <div class="space-y-4 fade-up">
+                    <!-- 強み 01: 最速プロトタイピング力 -->
+                    <div class="clean-accordion-item active">
+                        <div id="concern-trigger-1" class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" role="button" tabindex="0" aria-expanded="true" aria-controls="concern-panel-1" onclick="toggleCleanAccordion(this)">
+                            <div class="space-y-2.5 sm:space-y-3">
+                                <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-[#2563eb] rounded-full text-[11px] font-black border border-blue-200 flex items-center gap-1 shrink-0">
+                                        <span class="material-symbols-outlined text-xs">bolt</span>
+                                        CORE STRENGTH 01
+                                    </span>
+                                    <span class="text-xs text-gray-500 font-mono font-bold leading-relaxed">企画・初期フェーズ</span>
+                                </div>
+                                <h3 class="font-black text-lg md:text-xl text-[#0f172a] flex items-center gap-2">
+                                    事業課題を即日可視化する「超高速プロトタイピング力」
+                                </h3>
+                                <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                                    仕様が固まりきっていない構想段階でも、対話とAIを活用して最短即日でブラウザ上で動く画面を構築します。
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between sm:justify-end gap-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-gray-100">
+                                <span class="text-xs font-bold text-[#2563eb] sm:hidden">詳細を見る</span>
+                                <div class="accordion-icon-badge w-9 h-9 rounded-full bg-blue-50 text-[#2563eb] flex items-center justify-center border border-blue-150 transition-transform">
+                                    <span class="material-symbols-outlined text-xl">expand_more</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="concern-panel-1" class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7" role="region" aria-labelledby="concern-trigger-1" aria-hidden="false">
+                            <div class="p-5 sm:p-6 bg-gradient-to-br from-[#f0fdf4] via-white to-blue-50/50 rounded-2xl border border-emerald-200/90 shadow-xs space-y-3.5">
+                                <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+                                    <span class="text-xs text-emerald-800 font-mono font-bold leading-relaxed">チーム・事業へのバリュー</span>
+                                    <span class="text-[11px] font-bold text-[#10b981] bg-white/90 px-2.5 py-0.5 rounded-full border border-emerald-200/80 shadow-2xs shrink-0">意思決定の迅速化</span>
+                                </div>
+                                <h4 class="font-black text-base sm:text-lg text-[#0f172a]">
+                                    「動く画面」でステークホルダー間の認識のズレをゼロに
+                                </h4>
+                                <p class="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                                    分厚い仕様書や静止画モックだけでは伝わりにくいインタラクションや操作感を、最短即日で動くWeb画面として提示。企画者、エンジニア、経営陣が同じ手触りを共有できるため、手戻りを未然に防ぎプロジェクトを最速で推進できます。
+                                </p>
+                                <div class="flex flex-wrap gap-2 pt-2 border-t border-emerald-150/70">
+                                    <span class="px-3 py-1 bg-white text-[#2563eb] rounded-lg text-xs font-bold border border-blue-150 shadow-2xs flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs">speed</span> 最短即日プロトタイプ
+                                    </span>
+                                    <span class="px-3 py-1 bg-white text-[#2563eb] rounded-lg text-xs font-bold border border-blue-150 shadow-2xs flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs">group</span> チーム合意形成の加速
+                                    </span>
+                                    <span class="px-3 py-1 bg-white text-[#2563eb] rounded-lg text-xs font-bold border border-blue-150 shadow-2xs flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs">sync_problem</span> 手戻りリスク -85%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 強み 02: デザインから実装までの一貫力 -->
+                    <div class="clean-accordion-item">
+                        <div id="concern-trigger-2" class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" role="button" tabindex="0" aria-expanded="false" aria-controls="concern-panel-2" onclick="toggleCleanAccordion(this)">
+                            <div class="space-y-2.5 sm:space-y-3">
+                                <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                                    <span class="px-2.5 py-0.5 bg-cyan-100 text-[#0891b2] rounded-full text-[11px] font-black border border-cyan-200 flex items-center gap-1 shrink-0">
+                                        <span class="material-symbols-outlined text-xs">layers</span>
+                                        CORE STRENGTH 02
+                                    </span>
+                                    <span class="text-xs text-gray-500 font-mono font-bold leading-relaxed">設計・実装フェーズ</span>
+                                </div>
+                                <h3 class="font-black text-lg md:text-xl text-[#0f172a] flex items-center gap-2">
+                                    デザインからフロントエンド実装までの一貫力（デザインシステム &amp; 堅牢なコード）
+                                </h3>
+                                <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                                    Figma等のUIデザインにとどまらず、Tailwind CSSやJavaScriptを用いた高品質・高保守性なコードを自ら実装します。
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between sm:justify-end gap-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-gray-100">
+                                <span class="text-xs font-bold text-[#2563eb] sm:hidden">詳細を見る</span>
+                                <div class="accordion-icon-badge w-9 h-9 rounded-full bg-blue-50 text-[#2563eb] flex items-center justify-center border border-blue-150 transition-transform">
+                                    <span class="material-symbols-outlined text-xl">expand_more</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="concern-panel-2" class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7" role="region" aria-labelledby="concern-trigger-2" aria-hidden="true" inert>
+                            <div class="p-5 sm:p-6 bg-gradient-to-br from-[#f0fdf4] via-white to-blue-50/50 rounded-2xl border border-emerald-200/90 shadow-xs space-y-3.5">
+                                <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+                                    <span class="text-xs text-emerald-800 font-mono font-bold leading-relaxed">チーム・事業へのバリュー</span>
+                                    <span class="text-[11px] font-bold text-[#10b981] bg-white/90 px-2.5 py-0.5 rounded-full border border-emerald-200/80 shadow-2xs shrink-0">越境コラボレーション</span>
+                                </div>
+                                <h4 class="font-black text-base sm:text-lg text-[#0f172a]">
+                                    デザイナーとエンジニアの共通言語となり、実装クオリティを担保
+                                </h4>
+                                <p class="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                                    「デザインの意図がコードに落ちない」「コードの都合でデザインが崩れる」といった開発現場の溝を解消。デザインシステムのトークン管理、アクセシビリティ（WCAG）、表示速度100点標準のレスポンシブコーディングまで責任を持って完結させます。
+                                </p>
+                                <div class="flex flex-wrap gap-2 pt-2 border-t border-emerald-150/70">
+                                    <span class="px-3 py-1 bg-white text-[#06b6d4] rounded-lg text-xs font-bold border border-cyan-150 shadow-2xs flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs">palette</span> デザインシステム構築
+                                    </span>
+                                    <span class="px-3 py-1 bg-white text-[#06b6d4] rounded-lg text-xs font-bold border border-cyan-150 shadow-2xs flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs">accessibility</span> アクセシビリティ・表示速度
+                                    </span>
+                                    <span class="px-3 py-1 bg-white text-[#06b6d4] rounded-lg text-xs font-bold border border-cyan-150 shadow-2xs flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs">hub</span> 職種間の架け橋
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 強み 03: AI駆動開発の実践力 -->
+                    <div class="clean-accordion-item">
+                        <div id="concern-trigger-3" class="clean-accordion-header cursor-pointer p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4" role="button" tabindex="0" aria-expanded="false" aria-controls="concern-panel-3" onclick="toggleCleanAccordion(this)">
+                            <div class="space-y-2.5 sm:space-y-3">
+                                <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                                    <span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 rounded-full text-[11px] font-black border border-emerald-200 flex items-center gap-1 shrink-0">
+                                        <span class="material-symbols-outlined text-xs">psychology</span>
+                                        CORE STRENGTH 03
+                                    </span>
+                                    <span class="text-xs text-gray-500 font-mono font-bold leading-relaxed">生産性・開発生産性</span>
+                                </div>
+                                <h3 class="font-black text-lg md:text-xl text-[#0f172a] flex items-center gap-2">
+                                    最新AI駆動開発（AI-Assisted Engineering）による開発生産性の劇的向上
+                                </h3>
+                                <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                                    設計、コーディング、テストの各工程にAIを深く統合し、従来比約3倍の開発スピードと高い品質検証を実現します。
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between sm:justify-end gap-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-gray-100">
+                                <span class="text-xs font-bold text-[#2563eb] sm:hidden">詳細を見る</span>
+                                <div class="accordion-icon-badge w-9 h-9 rounded-full bg-blue-50 text-[#2563eb] flex items-center justify-center border border-blue-150 transition-transform">
+                                    <span class="material-symbols-outlined text-xl">expand_more</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="concern-panel-3" class="clean-accordion-content px-6 pb-6 sm:px-7 sm:pb-7" role="region" aria-labelledby="concern-trigger-3" aria-hidden="true" inert>
+                            <div class="p-5 sm:p-6 bg-gradient-to-br from-[#f0fdf4] via-white to-blue-50/50 rounded-2xl border border-emerald-200/90 shadow-xs space-y-3.5">
+                                <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+                                    <span class="text-xs text-emerald-800 font-mono font-bold leading-relaxed">チーム・事業へのバリュー</span>
+                                    <span class="text-[11px] font-bold text-[#10b981] bg-white/90 px-2.5 py-0.5 rounded-full border border-emerald-200/80 shadow-2xs shrink-0">開発生産性 3.2倍</span>
+                                </div>
+                                <h4 class="font-black text-base sm:text-lg text-[#0f172a]">
+                                    AIの機動力と17年の経験値による「品質の担保」を両立
+                                </h4>
+                                <p class="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                                    AIツール（Codex、Antigravity等）を単なるコード生成にとどまらず、要件の洗い出しやエッジケースの検証、リファクタリングに活用。人間ならではの美意識やアクセシビリティのレビューを組み合わせることで、短納期かつ高水準なプロダクトを実現します。
+                                </p>
+                                <div class="flex flex-wrap gap-2 pt-2 border-t border-emerald-150/70">
+                                    <span class="px-3 py-1 bg-white text-[#10b981] rounded-lg text-xs font-bold border border-emerald-150 shadow-2xs flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs">smart_toy</span> AI駆動開発ワークフロー
+                                    </span>
+                                    <span class="px-3 py-1 bg-white text-[#10b981] rounded-lg text-xs font-bold border border-emerald-150 shadow-2xs flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs">verified</span> 人間による確かな品質保証
+                                    </span>
+                                    <span class="px-3 py-1 bg-white text-[#10b981] rounded-lg text-xs font-bold border border-emerald-150 shadow-2xs flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs">rocket_launch</span> 迅速な機能リリース
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. スキル & 対応領域 -->
+        <section class="py-24 px-grid-margin bg-white" id="services">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-16 fade-up">
+                    <div class="emology-badge mb-3">
+                        <span class="emology-badge-dot"></span>
+                        <span>03 // CAPABILITIES</span>
+                    </div>
+                    <h2 class="font-display-lg text-3xl md:text-5xl font-black text-[#0f172a]">スキル &amp; 対応領域</h2>
+                    <p class="text-xs md:text-sm text-[#64748b] mt-3">デザイン設計からフロントエンド実装、最新AIの活用まで横断的に対応可能です。</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="emology-card emology-card-tint-blue p-6 space-y-3.5 fade-up">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-11 h-11 rounded-2xl bg-blue-100/70 text-[#2563eb] flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-2xl">web</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-[#0f172a] leading-snug">UI/UXデザイン</h3>
+                        </div>
+                        <p class="text-xs text-[#475569] leading-relaxed">目的やユーザー行動に合わせた情報設計。ブランドの信頼感を醸成し、迷いのない体験を設計します。</p>
+                    </div>
+
+                    <div class="emology-card emology-card-tint-cyan p-6 space-y-3.5 fade-up">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-11 h-11 rounded-2xl bg-cyan-100/70 text-[#0891b2] flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-2xl">code</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-[#0f172a] leading-snug">フロントエンド実装</h3>
+                        </div>
+                        <p class="text-xs text-[#475569] leading-relaxed">HTML/CSS/JS、Tailwind CSSを用いた堅牢なコーディング。レスポンシブや表示速度にも配慮します。</p>
+                    </div>
+
+                    <div class="emology-card emology-card-tint-emerald p-6 space-y-3.5 fade-up">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-11 h-11 rounded-2xl bg-emerald-100/70 text-[#059669] flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-2xl">storefront</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-[#0f172a] leading-snug">WordPress / CMS</h3>
+                        </div>
+                        <p class="text-xs text-[#475569] leading-relaxed">オリジナルテーマ構築からブロックエディタのカスタマイズまで、日々の更新しやすさを重視して設計します。</p>
+                    </div>
+
+                    <div class="emology-card emology-card-tint-amber p-6 space-y-3.5 fade-up">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-11 h-11 rounded-2xl bg-amber-100/70 text-[#d97706] flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-2xl">view_carousel</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-[#0f172a] leading-snug">LP &amp; プロダクトサイト</h3>
+                        </div>
+                        <p class="text-xs text-[#475569] leading-relaxed">訴求力の高いランディングページを導線設計から制作。コンバージョン向上と上質な世界観を両立します。</p>
+                    </div>
+
+                    <div class="emology-card emology-card-tint-purple p-6 space-y-3.5 fade-up">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-11 h-11 rounded-2xl bg-purple-100/70 text-[#7c3aed] flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-2xl">motion_mode</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-[#0f172a] leading-snug">モーション &amp; 演出</h3>
+                        </div>
+                        <p class="text-xs text-[#475569] leading-relaxed">GSAPやCanvasを用いたスクロール連動演出やマイクロインタラクションで、心地よい手触りを付加します。</p>
+                    </div>
+
+                    <div class="emology-card emology-card-tint-rose p-6 space-y-3.5 fade-up">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-11 h-11 rounded-2xl bg-rose-100/70 text-[#e11d48] flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-2xl">app_shortcut</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-[#0f172a] leading-snug">業務Webアプリ開発</h3>
+                        </div>
+                        <p class="text-xs text-[#475569] leading-relaxed">70インチ大型タッチパネル座席表アプリなど、現場のオペレーション課題を解消するWebツールを開発します。</p>
+                    </div>
+
+                    <div class="emology-card emology-card-tint-indigo p-6 space-y-3.5 fade-up">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-11 h-11 rounded-2xl bg-indigo-100/70 text-[#4f46e5] flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-2xl">psychology</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-[#0f172a] leading-snug">AI駆動開発（AI-Driven Dev）</h3>
+                        </div>
+                        <p class="text-xs text-[#475569] leading-relaxed">要件定義からコーディング、テストまでAI駆動で推進。開発スピードと設計品質を高い次元で両立します。</p>
+                    </div>
+
+                    <div class="emology-card emology-card-tint-teal p-6 space-y-3.5 fade-up">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-11 h-11 rounded-2xl bg-teal-100/70 text-[#0d9488] flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-2xl">architecture</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-[#0f172a] leading-snug">デザインシステム設計</h3>
+                        </div>
+                        <p class="text-xs text-[#475569] leading-relaxed">デザイントークンやコンポーネントの再利用性を高め、チーム全体の開発効率と一貫性を向上させます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. AI Dev（AI駆動開発・マルチビュー切り替え） -->
+        <section class="py-24 px-grid-margin bg-[#F9FAFB]" id="ai">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-10 fade-up">
+                    <div class="emology-badge mb-3">
+                        <span class="emology-badge-dot"></span>
+                        <span>04 // AI INTEGRATION</span>
+                    </div>
+                    <h2 class="font-display-lg text-3xl md:text-5xl font-black text-[#0f172a] mb-4">AI駆動開発プロセス</h2>
+                    <p class="text-sm text-[#64748b] max-w-xl mx-auto mb-6">要件整理・設計からコーディングまでAI駆動で加速。爆速の可視化と高精度な品質保証を実現します。</p>
+
+                    <div class="inline-flex items-center justify-center p-1.5 bg-[#f1f5f9] rounded-2xl border border-gray-200 gap-1.5 shadow-inner" role="tablist" aria-label="AI開発体験切り替え">
+                        <button id="ai-tab-workbench" class="ai-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-[#2563eb] text-white shadow-sm flex items-center gap-1.5" role="tab" aria-selected="true" aria-controls="ai-view-workbench" tabindex="0" onclick="switchAiView('workbench')" data-target="workbench" type="button">
+                            <span>⚡</span> インタラクティブ・ワークベンチ
+                        </button>
+                        <button id="ai-tab-metrics" class="ai-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-[#64748b] hover:text-[#0f172a] hover:bg-white/60 flex items-center gap-1.5" role="tab" aria-selected="false" aria-controls="ai-view-metrics" tabindex="-1" onclick="switchAiView('metrics')" data-target="metrics" type="button">
+                            <span>📊</span> 開発メトリクス・比較
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 【ビュー1】AI駆動インタラクティブ・ワークベンチ -->
+                <div id="ai-view-workbench" class="ai-view-container space-y-8" role="tabpanel" aria-labelledby="ai-tab-workbench">
+                    <div class="flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto mb-4">
+                        <button class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#0f172a] text-white border border-[#0f172a] shadow-sm flex items-center gap-1.5 wb-scenario-btn active" onclick="runWorkbenchScenario('temple')" data-scenario="temple">
+                            <span>🏛️</span> 寺院サイト刷新
+                        </button>
+                        <button class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-[#64748b] border border-gray-200 hover:bg-gray-50 flex items-center gap-1.5 wb-scenario-btn" onclick="runWorkbenchScenario('food')" data-scenario="food">
+                            <span>🍳</span> グルメメディア
+                        </button>
+                        <button class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-[#64748b] border border-gray-200 hover:bg-gray-50 flex items-center gap-1.5 wb-scenario-btn" onclick="runWorkbenchScenario('app')" data-scenario="app">
+                            <span>📱</span> 業務Webアプリ
+                        </button>
+                    </div>
+
+                    <div class="bg-[#0f172a] rounded-3xl p-6 md:p-8 border border-gray-800 text-white shadow-2xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                                <span class="text-xs font-mono text-gray-400 ml-2">AI Co-Pilot Console</span>
+                            </div>
+                            <span id="wb-status" class="text-[10px] bg-blue-950 text-blue-300 px-2.5 py-0.5 rounded-full border border-blue-800 font-mono">CO-PILOT READY</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-sm text-[#38bdf8]">smart_toy</span>
+                                    AI自動生成・解析パイプライン
+                                </div>
+                                <div id="wb-steps-container" class="space-y-3 font-mono text-xs">
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 space-y-4">
+                                <div class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-sm text-emerald-400">verified_user</span>
+                                    人間（中村）による品質保証・伴走
+                                </div>
+                                <div id="wb-human-review" class="space-y-3">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-800">
+                            <div class="text-xs font-mono text-gray-400 mb-2 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-sm text-emerald-400">terminal</span>
+                                生成結果・要件サマリー
+                            </div>
+                            <div id="wb-ai-output" class="bg-[#1e293b] p-4 rounded-xl font-mono text-xs text-emerald-300 min-h-[60px] flex items-center border border-gray-700/80">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 【ビュー2】開発メトリクス・比較 -->
+                <div id="ai-view-metrics" class="ai-view-container hidden space-y-12" role="tabpanel" aria-labelledby="ai-tab-metrics" hidden>
+                    <div class="emology-card p-8 md:p-12 space-y-10">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-8 border-b border-gray-200">
+                            <div class="text-center sm:text-left space-y-2">
+                                <span class="text-xs sm:text-sm font-black text-[#64748b] uppercase tracking-wider">開発スピード</span>
+                                <div class="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">3.2 倍速</div>
+                                <p class="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">即日動くプロトタイプで迅速化</p>
+                            </div>
+                            <div class="text-center sm:text-left space-y-2 sm:border-l sm:border-gray-200 sm:pl-6">
+                                <span class="text-xs sm:text-sm font-black text-[#64748b] uppercase tracking-wider">認識のズレ・手戻り</span>
+                                <div class="text-4xl md:text-5xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">-85 %</div>
+                                <p class="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">実画面で早期合意形成するため安心</p>
+                            </div>
+                            <div class="text-center sm:text-left space-y-2 sm:border-l sm:border-gray-200 sm:pl-6">
+                                <span class="text-xs sm:text-sm font-black text-[#64748b] uppercase tracking-wider">実装クオリティ</span>
+                                <div class="text-4xl md:text-5xl font-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">高精度担保</div>
+                                <p class="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">17年の造形力とコードレビューで保証</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-8">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between text-sm sm:text-base font-black text-[#64748b]">
+                                    <span class="flex items-center gap-2 text-gray-500">
+                                        <span class="material-symbols-outlined text-lg">timer</span>
+                                        従来型の一般的な開発フロー（約 60 日間）
+                                    </span>
+                                    <span class="text-red-600 text-xs sm:text-sm font-black bg-red-50 px-2.5 py-1 rounded-md border border-red-200">手戻りリスク高</span>
+                                </div>
+                                <div class="w-full h-12 bg-gray-100 rounded-2xl overflow-hidden flex text-[10px] sm:text-xs md:text-sm font-black text-gray-600">
+                                    <div class="w-[30%] bg-gray-200 flex items-center justify-center border-r border-white whitespace-nowrap px-1">要件定義 (18d)</div>
+                                    <div class="w-[25%] bg-gray-300 flex items-center justify-center border-r border-white whitespace-nowrap px-1">静止画デザイン (15d)</div>
+                                    <div class="w-[25%] bg-gray-400 text-white flex items-center justify-center border-r border-white whitespace-nowrap px-1">実装 (15d)</div>
+                                    <div class="w-[20%] bg-red-200 text-red-900 flex items-center justify-center whitespace-nowrap px-1">修正・手戻り (12d)</div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between text-sm sm:text-base font-black gap-1.5">
+                                    <span class="flex items-center gap-2 text-[#2563eb]">
+                                        <span class="material-symbols-outlined text-lg text-[#2563eb]">bolt</span>
+                                        AI駆動アジャイルフロー（約 14 日間・約1/4に短縮）
+                                    </span>
+                                    <span class="text-emerald-700 text-xs sm:text-sm font-black bg-emerald-50 px-3 py-1 rounded-md border border-emerald-200 self-start sm:self-auto">即日プロトタイプ検証</span>
+                                </div>
+                                <div class="w-full h-14 bg-gray-100 rounded-2xl overflow-hidden flex text-[10px] sm:text-xs md:text-sm font-black text-white shadow-lg">
+                                    <div class="w-[25%] bg-gradient-to-r from-blue-600 to-cyan-500 flex items-center justify-center border-r border-white/20 whitespace-nowrap px-1">対話・要件抽出 (3d)</div>
+                                    <div class="w-[35%] bg-gradient-to-r from-cyan-500 to-emerald-500 flex items-center justify-center border-r border-white/20 whitespace-nowrap px-1">AI駆動・実装 (5d)</div>
+                                    <div class="w-[40%] bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center whitespace-nowrap px-1">品質検証・本番化 (6d)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. 制作実績（SELECTED WORKS） -->
+        <section class="py-24 px-grid-margin bg-white overflow-hidden" id="works">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-10 fade-up">
+                    <div class="emology-badge mb-3">
+                        <span class="emology-badge-dot"></span>
+                        <span>05 // SELECTED WORKS (9 ITEMS)</span>
+                    </div>
+                    <h2 class="font-display-lg text-3xl md:text-5xl font-black text-[#0f172a] mb-4">制作実績・プロジェクト</h2>
+                    <p class="text-sm text-[#64748b] max-w-xl mx-auto mb-6">実務における課題解決実績と、最新UIを検証したプロジェクトを掲載しています。クリックで詳細（課題・提案・成果）を表示します。</p>
+                </div>
+
+                <div id="works-view-carousel" class="works-view-container">
+                    <div class="hidden md:flex items-center justify-end gap-3 max-w-container-max mx-auto mb-4 px-4 sm:px-0">
+                        <span class="text-xs font-bold text-[#64748b] mr-auto inline-flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm text-[#2563eb]">swipe</span>
+                            左右ドラッグまたはスクロールで作品を閲覧
+                        </span>
+                        <button class="w-10 h-10 rounded-full border border-gray-200 bg-white hover:bg-blue-50 text-[#0f172a] hover:text-[#2563eb] flex items-center justify-center transition-all shadow-sm active:scale-95" onclick="scrollWorksCarousel(-1)" aria-label="前へ" type="button">
+                            <span class="material-symbols-outlined text-lg">arrow_back</span>
+                        </button>
+                        <button class="w-10 h-10 rounded-full border border-gray-200 bg-white hover:bg-blue-50 text-[#0f172a] hover:text-[#2563eb] flex items-center justify-center transition-all shadow-sm active:scale-95" onclick="scrollWorksCarousel(1)" aria-label="次へ" type="button">
+                            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                        </button>
+                    </div>
+
+                    <div class="works-carousel-container">
+                        <div class="works-carousel-track" id="works-carousel-track">
+                            <!-- Card 1: アーリーホーム -->
+                            <div class="cinematic-card" onclick="openModal('modal-work-1')" role="button" tabindex="0">
+                                <div class="cinematic-card-img-box">
+                                    <img alt="アーリーホーム株式会社" class="cinematic-card-img" src="../images/works/early-home.webp" width="1024" height="683" loading="lazy" decoding="async" />
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#2563eb] border border-white/40 shadow-xs">Corporate Site (実務)</div>
+                                </div>
+                                <div class="p-6 md:p-8 space-y-3 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-[#0f172a]">アーリーホーム株式会社</h3>
+                                        <p class="text-xs sm:text-sm text-[#64748b] leading-relaxed line-clamp-2 mt-2">不動産・美容・フードなど多角的な事業展開を分かりやすく整理し、企業の信頼感を伝えるデザインへ刷新。</p>
+                                    </div>
+                                    <div class="pt-4 flex items-center justify-between text-xs font-bold text-[#2563eb] border-t border-gray-100">
+                                        <span class="flex items-center gap-1">詳細を見る <span class="material-symbols-outlined text-sm">open_in_new</span></span>
+                                        <span class="text-[11px] text-gray-400 font-mono">01 / 09</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: ごちそうさん -->
+                            <div class="cinematic-card" onclick="openModal('modal-work-2')" role="button" tabindex="0">
+                                <div class="cinematic-card-img-box">
+                                    <img alt="ごちそうさん" class="cinematic-card-img" src="../images/works/gochisosan.webp" width="1024" height="683" loading="lazy" decoding="async" />
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#06b6d4] border border-white/40 shadow-xs">Media Site (実務)</div>
+                                </div>
+                                <div class="p-6 md:p-8 space-y-3 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-[#0f172a]">ごちそうさん グルメメディア</h3>
+                                        <p class="text-xs sm:text-sm text-[#64748b] leading-relaxed line-clamp-2 mt-2">関西の名店紹介とお取り寄せ情報を届けるメディア。サイト構築および記事制作・編集にも携わりました。</p>
+                                    </div>
+                                    <div class="pt-4 flex items-center justify-between text-xs font-bold text-[#06b6d4] border-t border-gray-100">
+                                        <span class="flex items-center gap-1">詳細を見る <span class="material-symbols-outlined text-sm">open_in_new</span></span>
+                                        <span class="text-[11px] text-gray-400 font-mono">02 / 09</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: 元立寺 -->
+                            <div class="cinematic-card" onclick="openModal('modal-work-3')" role="button" tabindex="0">
+                                <div class="cinematic-card-img-box">
+                                    <img alt="元立寺" class="cinematic-card-img" src="../images/works/ganryuji.webp" width="1024" height="683" loading="lazy" decoding="async" />
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#10b981] border border-white/40 shadow-xs">Official Site (実務)</div>
+                                </div>
+                                <div class="p-6 md:p-8 space-y-3 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-[#0f172a]">元立寺 寺院公式Webサイト</h3>
+                                        <p class="text-xs sm:text-sm text-[#64748b] leading-relaxed line-clamp-2 mt-2">歴史と温かみが伝わる情報設計に刷新。公開後は永代合同墓に関する問い合わせ増加に貢献。</p>
+                                    </div>
+                                    <div class="pt-4 flex items-center justify-between text-xs font-bold text-[#10b981] border-t border-gray-100">
+                                        <span class="flex items-center gap-1">詳細を見る <span class="material-symbols-outlined text-sm">open_in_new</span></span>
+                                        <span class="text-[11px] text-gray-400 font-mono">03 / 09</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4: サブカルDJカレンダー -->
+                            <div class="cinematic-card" onclick="openModal('modal-work-4')" role="button" tabindex="0">
+                                <div class="cinematic-card-img-box">
+                                    <img alt="サブカルDJパーティカレンダー" class="cinematic-card-img" src="../images/works/subculture-dj-party-calendar.webp" width="1024" height="683" loading="lazy" decoding="async" />
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#f59e0b] border border-white/40 shadow-xs">Web App (自主開発)</div>
+                                </div>
+                                <div class="p-6 md:p-8 space-y-3 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-[#0f172a]">サブカルDJパーティカレンダー</h3>
+                                        <p class="text-xs sm:text-sm text-[#64748b] leading-relaxed line-clamp-2 mt-2">「今日どこで何があるか」がひと目で分かる、関西のイベント情報に特化したWebアプリ。</p>
+                                    </div>
+                                    <div class="pt-4 flex items-center justify-between text-xs font-bold text-[#f59e0b] border-t border-gray-100">
+                                        <span class="flex items-center gap-1">詳細を見る <span class="material-symbols-outlined text-sm">open_in_new</span></span>
+                                        <span class="text-[11px] text-gray-400 font-mono">04 / 09</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 5: 10GAI 公式サイト -->
+                            <div class="cinematic-card" onclick="openModal('modal-work-5')" role="button" tabindex="0">
+                                <div class="cinematic-card-img-box">
+                                    <img alt="10GAI 公式サイト" class="cinematic-card-img" src="../images/works/10gai-site-collage.webp" width="1024" height="683" loading="lazy" decoding="async" />
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#8b5cf6] border border-white/40 shadow-xs">Supporter LP (実務)</div>
+                                </div>
+                                <div class="p-6 md:p-8 space-y-3 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-[#0f172a]">10GAI 公式サイト</h3>
+                                        <p class="text-xs sm:text-sm text-[#64748b] leading-relaxed line-clamp-2 mt-2">飲食・エンタメなど多ジャンルが集う街のサポーター会員募集LP。夜の空気感と入会導線を設計。</p>
+                                    </div>
+                                    <div class="pt-4 flex items-center justify-between text-xs font-bold text-[#8b5cf6] border-t border-gray-100">
+                                        <span class="flex items-center gap-1">詳細を見る <span class="material-symbols-outlined text-sm">open_in_new</span></span>
+                                        <span class="text-[11px] text-gray-400 font-mono">05 / 09</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 6: 大阪ガス 座席表アプリ -->
+                            <div class="cinematic-card works-mobile-hidden" onclick="openModal('modal-work-6')" role="button" tabindex="0">
+                                <div class="cinematic-card-img-box">
+                                    <img alt="大阪ガス フリーアドレス座席表" class="cinematic-card-img" src="../images/works/osaka-gas-seat-map.webp" width="1024" height="683" loading="lazy" decoding="async" />
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#6366f1] border border-white/40 shadow-xs">Web App (実務)</div>
+                                </div>
+                                <div class="p-6 md:p-8 space-y-3 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-[#0f172a]">大阪ガス 座席表アプリ</h3>
+                                        <p class="text-xs sm:text-sm text-[#64748b] leading-relaxed line-clamp-2 mt-2">70インチ大型タッチディスプレイで名札を直感的にドラッグ&amp;ドロップ操作できる社内Webアプリ。</p>
+                                    </div>
+                                    <div class="pt-4 flex items-center justify-between text-xs font-bold text-[#6366f1] border-t border-gray-100">
+                                        <span class="flex items-center gap-1">詳細を見る <span class="material-symbols-outlined text-sm">open_in_new</span></span>
+                                        <span class="text-[11px] text-gray-400 font-mono">06 / 09</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 7: さわやかデンタルクリニック（提案プロトタイプ） -->
+                            <div class="cinematic-card works-mobile-hidden" onclick="openModal('modal-work-7')" role="button" tabindex="0">
+                                <div class="cinematic-card-img-box">
+                                    <img alt="さわやか歯科クリニック" class="cinematic-card-img" src="../images/works/wp-dental-clinic.webp" width="1024" height="683" loading="lazy" decoding="async" />
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#06b6d4] border border-white/40 shadow-xs">WordPress (提案プロトタイプ)</div>
+                                </div>
+                                <div class="p-6 md:p-8 space-y-3 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-[#0f172a]">さわやかデンタルクリニック</h3>
+                                        <p class="text-xs sm:text-sm text-[#64748b] leading-relaxed line-clamp-2 mt-2">「スタッフでも更新できる医院サイトは可能か？」という相談を受け、操作感を直接体感いただくため構築した実機プロトタイプ。</p>
+                                    </div>
+                                    <div class="pt-4 flex items-center justify-between text-xs font-bold text-[#06b6d4] border-t border-gray-100">
+                                        <span class="flex items-center gap-1">詳細を見る <span class="material-symbols-outlined text-sm">open_in_new</span></span>
+                                        <span class="text-[11px] text-gray-400 font-mono">07 / 09</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 8: まち水道レスキュー（提案プロトタイプ） -->
+                            <div class="cinematic-card works-mobile-hidden" onclick="openModal('modal-work-8')" role="button" tabindex="0">
+                                <div class="cinematic-card-img-box">
+                                    <img alt="まちの水道屋さん" class="cinematic-card-img" src="../images/works/machimizu.webp" width="1024" height="683" loading="lazy" decoding="async" />
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#2563eb] border border-white/40 shadow-xs">Landing Page (提案プロトタイプ)</div>
+                                </div>
+                                <div class="p-6 md:p-8 space-y-3 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-[#0f172a]">まち水道レスキュー</h3>
+                                        <p class="text-xs sm:text-sm text-[#64748b] leading-relaxed line-clamp-2 mt-2">「急な水道トラブルで迷わず相談できるLPは作れるか？」という相談に応え、料金明朗性とスマホ緊急コール導線を検証したプロトタイプ。</p>
+                                    </div>
+                                    <div class="pt-4 flex items-center justify-between text-xs font-bold text-[#2563eb] border-t border-gray-100">
+                                        <span class="flex items-center gap-1">詳細を見る <span class="material-symbols-outlined text-sm">open_in_new</span></span>
+                                        <span class="text-[11px] text-gray-400 font-mono">08 / 09</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 9: LUMIÈRE ÉCLAT（提案プロトタイプ） -->
+                            <div class="cinematic-card works-mobile-hidden" onclick="openModal('modal-work-9')" role="button" tabindex="0">
+                                <div class="cinematic-card-img-box">
+                                    <img alt="ルミエールエクラ" class="cinematic-card-img" src="../images/works/lumiere-eclat.webp" width="1024" height="683" loading="lazy" decoding="async" />
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-[#f43f5e] border border-white/40 shadow-xs">Cosmetic LP (提案プロトタイプ)</div>
+                                </div>
+                                <div class="p-6 md:p-8 space-y-3 flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-bold text-xl text-[#0f172a]">LUMIÈRE ÉCLAT（美容液LP）</h3>
+                                        <p class="text-xs sm:text-sm text-[#64748b] leading-relaxed line-clamp-2 mt-2">「高価格帯コスメの定期購入へ繋がる上質な世界観は作れるか？」という相談を受け、D2CファストチェックアウトUIを具現化したプロトタイプ。</p>
+                                    </div>
+                                    <div class="pt-4 flex items-center justify-between text-xs font-bold text-[#f43f5e] border-t border-gray-100">
+                                        <span class="flex items-center gap-1">詳細を見る <span class="material-symbols-outlined text-sm">open_in_new</span></span>
+                                        <span class="text-[11px] text-gray-400 font-mono">09 / 09</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:hidden mt-8 text-center" id="works-more-container">
+                        <button class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white border border-gray-200 text-xs font-bold text-[#0f172a] hover:bg-blue-50 hover:text-[#2563eb] hover:border-blue-200 shadow-sm transition-all active:scale-95" onclick="toggleMoreWorksMobile()" id="works-more-btn" type="button">
+                            <span id="works-more-text">制作実績をもっと見る (全9件)</span>
+                            <span class="material-symbols-outlined text-base transition-transform duration-300" id="works-more-icon">expand_more</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. プロジェクト推進・開発プロセス -->
+        <section class="py-24 px-grid-margin bg-[#F9FAFB]" id="flow">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-10 fade-up">
+                    <div class="emology-badge mb-3">
+                        <span class="emology-badge-dot"></span>
+                        <span>06 // COLLABORATION PROCESS</span>
+                    </div>
+                    <h2 class="font-display-lg text-3xl md:text-5xl font-black text-[#0f172a] mb-4">プロジェクト推進プロセス</h2>
+                    <p class="text-sm text-[#64748b] max-w-xl mx-auto mb-6">「思っていたのと違う」をゼロにし、最速で成果を出す4つのステップ。</p>
+
+                    <div class="inline-flex items-center justify-center p-1.5 bg-white rounded-2xl border border-gray-200 gap-1.5 shadow-xs" role="tablist" aria-label="プロセス表示切り替え">
+                        <button class="flow-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-[#2563eb] text-white shadow-sm flex items-center gap-1.5" onclick="switchFlowView('story')" data-target="story" type="button">
+                            <span>✨</span> スクロール連動ストーリー
+                        </button>
+                        <button class="flow-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-[#64748b] hover:text-[#0f172a] hover:bg-gray-100 flex items-center gap-1.5" onclick="switchFlowView('cards')" data-target="cards" type="button">
+                            <span>▦</span> ステップカード
+                        </button>
+                    </div>
+                </div>
+
+                <div id="flow-view-story" class="flow-view-container">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                        <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+                            <div class="emology-card p-6 md:p-8 space-y-6 bg-gradient-to-br from-white via-[#f8fafc] to-blue-50/40">
+                                <div class="space-y-3">
+                                    <span class="text-xs font-bold text-[#2563eb] tracking-wider uppercase">HOW I COLLABORATE</span>
+                                    <h3 class="font-display-lg text-2xl md:text-3xl font-black text-[#0f172a] leading-tight">手戻りを防ぎ、最速で理想を形にするアプローチ</h3>
+                                    <p class="text-xs sm:text-sm text-[#64748b] leading-relaxed">
+                                        分厚い仕様書を待つのではなく、実際に動くプロトタイプで手触りを確認しながら進めるため、認識のズレなく最速で成果物へと導きます。
+                                    </p>
+                                </div>
+
+                                <div class="p-4 bg-blue-50/70 rounded-xl border border-blue-150 space-y-2 text-xs text-[#1e40af]">
+                                    <div class="flex items-center gap-2 font-bold">
+                                        <span class="material-symbols-outlined text-sm">bolt</span>
+                                        <span>最短即日のプロトタイプ共有</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 font-bold">
+                                        <span class="material-symbols-outlined text-sm">layers</span>
+                                        <span>デザインシステム連動の堅牢な実装</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 font-bold">
+                                        <span class="material-symbols-outlined text-sm">psychology</span>
+                                        <span>AI駆動による開発生産性の最大化</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 space-y-6 relative pl-6 md:pl-8 border-l-2 border-blue-200">
+                            <!-- Step 1 -->
+                            <div class="flow-step-node emology-card p-6 md:p-8 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-8 h-8 rounded-lg bg-blue-100 text-[#2563eb] font-bold text-sm flex items-center justify-center font-mono">01</span>
+                                        <h4 class="font-bold text-lg md:text-xl text-[#0f172a]">課題抽出・要件定義</h4>
+                                    </div>
+                                    <span class="text-[11px] font-bold text-[#2563eb] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">DISCOVER</span>
+                                </div>
+                                <p class="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                                    事業目標や現状のボトルネックを対話を通じて丁寧にヒアリング。ステークホルダーの意図を汲み取り、本質的な課題と優先順位を明確にします。
+                                </p>
+                                <div class="pt-3 border-t border-gray-100 flex flex-wrap gap-2 text-[11px] text-[#64748b]">
+                                    <span class="px-2.5 py-1 bg-gray-50 rounded-lg border border-gray-150">定性・定量分析</span>
+                                    <span class="px-2.5 py-1 bg-gray-50 rounded-lg border border-gray-150">要件・KPIの整理</span>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="flow-step-node emology-card p-6 md:p-8 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-8 h-8 rounded-lg bg-cyan-100 text-[#06b6d4] font-bold text-sm flex items-center justify-center font-mono">02</span>
+                                        <h4 class="font-bold text-lg md:text-xl text-[#0f172a]">企画構成・プロトタイプ検証</h4>
+                                    </div>
+                                    <span class="text-[11px] font-bold text-[#06b6d4] bg-cyan-50 px-2.5 py-1 rounded-full border border-cyan-100">PROTOTYPE</span>
+                                </div>
+                                <p class="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                                    情報設計や導線設計を立案。AIツールも活用し、初期段階でブラウザ上で動くプロトタイプを作成してチーム全体で実機検証を行います。
+                                </p>
+                                <div class="pt-3 border-t border-gray-100 flex flex-wrap gap-2 text-[11px] text-[#64748b]">
+                                    <span class="px-2.5 py-1 bg-gray-50 rounded-lg border border-gray-150">動くプロトタイプ検証</span>
+                                    <span class="px-2.5 py-1 bg-gray-50 rounded-lg border border-gray-150">早期のチーム合意形成</span>
+                                </div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="flow-step-node emology-card p-6 md:p-8 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-8 h-8 rounded-lg bg-emerald-100 text-[#10b981] font-bold text-sm flex items-center justify-center font-mono">03</span>
+                                        <h4 class="font-bold text-lg md:text-xl text-[#0f172a]">デザイン &amp; AI駆動実装</h4>
+                                    </div>
+                                    <span class="text-[11px] font-bold text-[#10b981] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">BUILD</span>
+                                </div>
+                                <p class="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                                    デザインシステムに準拠したUIの肉付けと、コンポーネント指向・アクセシビリティに配慮したフロントエンドコーディングを迅速に推進します。
+                                </p>
+                                <div class="pt-3 border-t border-gray-100 flex flex-wrap gap-2 text-[11px] text-[#64748b]">
+                                    <span class="px-2.5 py-1 bg-gray-50 rounded-lg border border-gray-150">レスポンシブ完全対応</span>
+                                    <span class="px-2.5 py-1 bg-gray-50 rounded-lg border border-gray-150">高保守性コード実装</span>
+                                </div>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="flow-step-node emology-card p-6 md:p-8 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-8 h-8 rounded-lg bg-purple-100 text-[#8b5cf6] font-bold text-sm flex items-center justify-center font-mono">04</span>
+                                        <h4 class="font-bold text-lg md:text-xl text-[#0f172a]">検証・リリース・運用改善</h4>
+                                    </div>
+                                    <span class="text-[11px] font-bold text-[#8b5cf6] bg-purple-50 px-2.5 py-1 rounded-full border border-purple-100">LAUNCH &amp; GROW</span>
+                                </div>
+                                <p class="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                                    クロスブラウザテスト、パフォーマンスチューニングを経て本番公開。リリース後もデータ計測やユーザーフィードバックに基づく改善に伴走します。
+                                </p>
+                                <div class="pt-3 border-t border-gray-100 flex flex-wrap gap-2 text-[11px] text-[#64748b]">
+                                    <span class="px-2.5 py-1 bg-gray-50 rounded-lg border border-gray-150">品質検証・最適化</span>
+                                    <span class="px-2.5 py-1 bg-gray-50 rounded-lg border border-gray-150">継続的グロース支援</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="flow-view-cards" class="flow-view-container hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="emology-card p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-full bg-blue-50 text-[#2563eb] flex items-center justify-center font-bold text-xl">1</div>
+                                <h3 class="font-bold text-lg text-[#0f172a]">課題抽出・要件定義</h3>
+                                <p class="text-xs text-[#64748b] leading-relaxed">事業目標や現状のボトルネックを対話を通じて丁寧にヒアリング。ステークホルダーの意図を汲み取り、本質的な課題と優先順位を明確にします。</p>
+                            </div>
+                            <div class="pt-3 border-t border-gray-100 text-[11px] text-[#2563eb] font-bold">01 // DISCOVER</div>
+                        </div>
+                        <div class="emology-card p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-full bg-cyan-50 text-[#06b6d4] flex items-center justify-center font-bold text-xl">2</div>
+                                <h3 class="font-bold text-lg text-[#0f172a]">企画構成・プロトタイプ検証</h3>
+                                <p class="text-xs text-[#64748b] leading-relaxed">情報設計や導線設計を立案。AIツールも活用し、初期段階でブラウザ上で動くプロトタイプを作成してチーム全体で実機検証を行います。</p>
+                            </div>
+                            <div class="pt-3 border-t border-gray-100 text-[11px] text-[#06b6d4] font-bold">02 // PROTOTYPE</div>
+                        </div>
+                        <div class="emology-card p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-full bg-emerald-50 text-[#10b981] flex items-center justify-center font-bold text-xl">3</div>
+                                <h3 class="font-bold text-lg text-[#0f172a]">デザイン &amp; AI駆動実装</h3>
+                                <p class="text-xs text-[#64748b] leading-relaxed">デザインシステムに準拠したUIの肉付けと、コンポーネント指向・アクセシビリティに配慮したフロントエンドコーディングを迅速に推進します。</p>
+                            </div>
+                            <div class="pt-3 border-t border-gray-100 text-[11px] text-[#10b981] font-bold">03 // BUILD</div>
+                        </div>
+                        <div class="emology-card p-6 space-y-4 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-full bg-purple-50 text-[#8b5cf6] flex items-center justify-center font-bold text-xl">4</div>
+                                <h3 class="font-bold text-lg text-[#0f172a]">検証・リリース・運用改善</h3>
+                                <p class="text-xs text-[#64748b] leading-relaxed">クロスブラウザテスト、パフォーマンスチューニングを経て本番公開。リリース後もデータ計測やユーザーフィードバックに基づく改善に伴走します。</p>
+                            </div>
+                            <div class="pt-3 border-t border-gray-100 text-[11px] text-[#8b5cf6] font-bold">04 // LAUNCH &amp; GROW</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. お問い合わせ・カジュアル面談 -->
+        <section class="py-24 px-grid-margin bg-white" id="contact">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-12 fade-up">
+                    <div class="emology-badge mb-3">
+                        <span class="emology-badge-dot"></span>
+                        <span>CONTACT</span>
+                    </div>
+                    <h2 class="font-display-lg text-3xl md:text-4xl font-black text-[#0f172a] mb-4">お問い合わせ・カジュアル面談</h2>
+                    <p class="text-sm text-[#64748b]">中途採用のご相談、カジュアル面談のご連絡など、お気軽にお問い合わせください。<br />これまでの実務実績や技術的な取り組みに関するご質問も歓迎いたします。</p>
+                </div>
+
+                <form class="emology-card p-8 md:p-10 space-y-6 fade-up" id="contact-form" action="https://formspree.io/f/mbdeoowz" method="POST">
+                    <input type="text" name="_gotcha" style="display:none" />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-[#0f172a] mb-2" for="name">お名前 <span class="text-red-500">*</span></label>
+                            <input class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f8fafc] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#2563eb] text-sm"
+                                id="name" name="name" placeholder="山田 太郎" required="" type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-[#0f172a] mb-2" for="company">貴社名 / 組織名</label>
+                            <input class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f8fafc] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#2563eb] text-sm"
+                                id="company" name="company" placeholder="株式会社〇〇" type="text" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#0f172a] mb-2" for="email">メールアドレス <span class="text-red-500">*</span></label>
+                        <input class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f8fafc] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#2563eb] text-sm"
+                            id="email" name="email" placeholder="example@email.com" required="" type="email" />
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#0f172a] mb-2" for="type">ご用件（種別）</label>
+                        <select class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f8fafc] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#2563eb] text-sm"
+                            id="type" name="type">
+                            <option value="">選択してください</option>
+                            <option value="recruit" selected>中途採用・選考に関するご連絡</option>
+                            <option value="casual">カジュアル面談のご相談</option>
+                            <option value="project">業務委託・開発プロジェクトのご相談</option>
+                            <option value="other">その他・ご質問など</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-[#0f172a] mb-2" for="message">メッセージ <span class="text-red-500">*</span></label>
+                        <textarea class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-[#f8fafc] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#2563eb] text-sm h-32 resize-none"
+                            id="message" name="message" placeholder="面談のご希望やご用件についてご記入ください。" required=""></textarea>
+                    </div>
+                    <div class="text-center pt-2">
+                        <button class="emology-btn-primary w-full md:w-auto text-sm" id="contact-form-submit" type="submit">
+                            メッセージを送信する
+                            <span class="material-symbols-outlined text-sm">send</span>
+                        </button>
+                        <p class="mt-4 hidden text-sm font-bold" id="contact-form-status" role="status"></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="py-16 bg-[#0f172a] text-white relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-grid-margin max-w-container-max mx-auto">
+            <div class="col-span-1 lg:col-span-2">
+                <a class="mb-4 block" href="#hero" aria-label="ホーム">
+                    <img src="../images/sirona-logo-white.webp" alt="ロゴ" width="180" height="45" class="h-9 w-auto object-contain" />
+                </a>
+                <p class="text-xs text-white/60 mb-6 max-w-sm leading-relaxed">
+                    WEBデザイナー歴17年の造形力と最新AI実装力を融合し、プロダクトの成長と快適なユーザー体験にコミットします。
+                </p>
+                <p class="font-mono text-xs text-white/40">&copy; 2026 Hiroki Nakamura Portfolio</p>
+            </div>
+            <div class="flex flex-col gap-3">
+                <a class="text-xs text-white/70 hover:text-[#06b6d4] transition-colors" href="../privacy-policy.html">Privacy Policy</a>
+                <a class="text-xs text-white/70 hover:text-[#06b6d4] transition-colors" href="../cookie-policy.html">Cookie Policy</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <p class="font-mono text-xs uppercase tracking-widest text-[#06b6d4]">Connect</p>
+                <a class="text-xs text-white/70 hover:text-[#06b6d4] transition-colors flex items-center gap-2" href="#contact">
+                    <span class="material-symbols-outlined text-sm">mail</span> Contact Me
+                </a>
+            </div>
+        </div>
+        <script src="../js/main.js?v=20260831_maintenance" defer></script>
+    </footer>
+
+    <!-- 制作実績モーダル（詳細表示） -->
+    <!-- modal-work-1: アーリーホーム株式会社 -->
+    <div aria-hidden="true" aria-labelledby="modal-work-1-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-1" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-1')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-1')">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <img alt="アーリーホームの不動産事業を想起させる建物外観の写真。" class="w-full h-56 sm:h-72 object-cover" src="../images/works/early-home.webp" width="1024" height="683" loading="lazy" decoding="async" />
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-sm inline-block mb-4">Corporate Site (実務)</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-1-title">アーリーホーム株式会社<br />企業サイトのリニューアル</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    不動産、美容事業（まつげパーマ専門店）、グルメプラットフォーム等、多角的に事業を展開するアーリーホーム様のコーポレートサイトリニューアルです。情報設計からデザイン、WordPress実装まで一貫して支援しました。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            多角展開する事業（不動産・美容・フード）の全体像と信頼性が伝わりにくい状態でした。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            3つの主要事業をトップページで整理し、各ターゲットに合わせた明快な導線を設計しました。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            多角的な事業の魅力が直感的に伝わる構成に刷新し、企業全体の信頼感を高めました。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">情報設計 / UIデザイン / WordPress実装 /
+                            文章調整 / 基本SEO</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2"><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3"><a
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="https://early-home.com/" target="_blank" rel="noopener noreferrer">Webサイトを見る<span
+                            class="material-symbols-outlined ml-2 text-sm">open_in_new</span></a><a
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-1', { restoreFocus: false })">この実績について話を聞く<span
+                            class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-1')">閉じる</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-work-2: ごちそうさん -->
+    <div aria-hidden="true" aria-labelledby="modal-work-2-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-2" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-2')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-2')"><span class="material-symbols-outlined">close</span></button>
+            <img alt="ごちそうさんのグルメ記事を想起させる料理写真。" class="w-full h-56 sm:h-72 object-cover" src="../images/works/gochisosan.webp" width="820" height="480" loading="lazy" decoding="async" />
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-secondary font-bold uppercase tracking-wider bg-secondary-container/50 px-3 py-1 rounded-sm inline-block mb-4">Media Site (実務)</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-2-title">ごちそうさん<br />グルメメディアサイト</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    関西の予約困難店や名店の取材記事、特集記事、全国のお取り寄せ情報を届けるグルメメディアサイトです。サイト構築に加え、記事の制作・編集にも携わりました。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            取材記事・特集記事・オンラインショップへの導線を整理し、読者が目的の情報へ進みやすい構成が求められていました。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            WordPressをベースに、記事一覧・カテゴリ・ショップ導線を分かりやすく見せるメディア設計に整えました。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            名店紹介とお取り寄せ情報を横断しやすく、記事コンテンツの制作・更新を続けやすいサイト運用を支えています。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">WordPressサイト構築 / 記事導線設計 /
+                            記事制作・編集 / オンラインショップ導線 / 更新運用設計</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2"><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3"><a
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="https://gochisosan.com/" target="_blank" rel="noopener noreferrer">Webサイトを見る<span
+                            class="material-symbols-outlined ml-2 text-sm">open_in_new</span></a><a
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-2', { restoreFocus: false })">この実績について話を聞く<span
+                            class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-2')">閉じる</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-work-3: 元立寺 -->
+    <div aria-hidden="true" aria-labelledby="modal-work-3-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-3" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-3')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-3')"><span class="material-symbols-outlined">close</span></button>
+            <img alt="大阪府堺市の寺院サイト、元立寺の外観イメージ。" class="w-full h-56 sm:h-72 object-cover" src="../images/works/ganryuji.webp" width="750" height="1000" loading="lazy" decoding="async" />
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-[#4f3b66] font-bold uppercase tracking-wider bg-[#ece5f3] px-3 py-1 rounded-sm inline-block mb-4">Official Site (実務)</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-3-title">元立寺<br />公式サイト</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    大阪府堺市の浄土真宗本願寺派寺院「元立寺」様の公式サイト新規制作です。堺市認定の永代合同墓を検討する方へ向けて、安心感、供養内容、相談導線が伝わる構成にしています。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            永代合同墓の存在や安心して相談できる理由が伝わりにくく、検討者が問い合わせ前に不安を解消できる導線が必要でした。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            永代合同墓を主要コンテンツとして見せ、寺院のご案内、法要・儀式、アクセス、お問い合わせまで自然につながる構成にしました。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            寺院としての信頼感を保ちながら相談先を明確にし、公開後は合同墓に関する問い合わせ増加にもつながっています。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">合同墓訴求設計 / 情報設計 /
+                            WordPress構築 / お問い合わせ導線設計</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2"><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3"><a
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="https://honpa-ganryuji.jp/" target="_blank" rel="noopener noreferrer">Webサイトを見る<span
+                            class="material-symbols-outlined ml-2 text-sm">open_in_new</span></a><a
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-3', { restoreFocus: false })">この実績について話を聞く<span
+                            class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-3')">閉じる</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-work-4: サブカルDJパーティカレンダー -->
+    <div aria-hidden="true" aria-labelledby="modal-work-4-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-4" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-4')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-4')"><span class="material-symbols-outlined">close</span></button>
+            <img alt="空いている日に開催されるサブカル系DJイベントを一覧できるカレンダーアプリのプレビュー。" class="w-full h-56 sm:h-72 object-cover" src="../images/works/subculture-dj-party-calendar.webp" width="1200" height="838" loading="lazy" decoding="async" />
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-3 py-1 rounded-sm inline-block mb-4">Web App (自主開発)</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-4-title">サブカルDJパーティ<br />カレンダー</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    サブカル系DJパーティの開催情報を、日付・ジャンル・エリアごとに探せるイベントカレンダーWebアプリです。スマホから素早く見比べられるよう、一覧性と探しやすさを重視して設計しています。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            イベント情報がSNS等に分散し、空いている日に行けるイベントを横断して探しにくい状態でした。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            カレンダー表示を軸に、ジャンル、開催エリア、イベント詳細を整理し、気になる予定へすぐ進めるUIにしました。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">実装</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            JavaScriptによる動的カレンダー描画とフィルタリングロジックを実装し、快適なブラウジング体験を提供。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">企画整理 / UI設計 /
+                            フロントエンド実装 / イベント導線設計</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2"><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">HTML/CSS</span><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">JavaScript</span><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">Web App</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3"><a
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-4', { restoreFocus: false })">この実績について話を聞く<span
+                            class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-4')">閉じる</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-work-5: 10GAI 公式サイト -->
+    <div aria-hidden="true" aria-labelledby="modal-work-5-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-5" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-5')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-5')"><span class="material-symbols-outlined">close</span></button>
+            <img alt="10GAI公式サイトのページ画面を分割して横並びにしたプレビュー。" class="w-full h-56 sm:h-72 object-cover" src="../images/works/10gai-site-collage.webp" width="1200" height="600" loading="lazy" decoding="async" />
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-[#633f0f] font-bold uppercase tracking-wider bg-[#f2bc82]/40 px-3 py-1 rounded-sm inline-block mb-4">Supporter LP (実務)</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-5-title">10GAI<br />公式サイト</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    天満・天神界隈の個人店を応援し、常連の輪を広げるグルメガイドブック「10GAI」のサポーター会員募集LPです。冊子、カード特典、加盟25店舗、街への想いを一つの流れで伝え、申し込みへ進みやすい構成を整えています。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            ガイドブック、サポーターカード、加盟店特典、地域支援という複数の価値を、初めて知る人にも短時間で伝える必要がありました。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            夜の飲食街の空気感を入口に、会員特典、25店舗の紹介、冊子の魅力、購入方法まで順に理解できるLP構成を設計。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">実装</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            独自の世界観を保ちつつ、レスポンシブ環境で迷いなく購入手続きに進めるUIコンポーネントを実装。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">LP構成 / コピー整理 / UIデザイン /
+                            フロントエンド実装 / 会員募集導線設計</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2"><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">HTML/CSS</span><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">JavaScript</span><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">LP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3"><a
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-5', { restoreFocus: false })">この実績について話を聞く<span
+                            class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-5')">閉じる</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-work-6: 大阪ガス フリーアドレス座席表 -->
+    <div aria-hidden="true" aria-labelledby="modal-work-6-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-6" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-6')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-6')"><span class="material-symbols-outlined">close</span></button>
+            <img alt="70インチタッチディスプレイで操作するフリーアドレス座席表アプリの画面。" class="w-[118%] max-w-none h-56 sm:h-72 object-cover -translate-x-[8%]" src="../images/works/osaka-gas-seat-map.webp" width="1280" height="720" loading="lazy" decoding="async" />
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-3 py-1 rounded-sm inline-block mb-4">Web App (実務)</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-6-title">大阪ガス<br />フリーアドレス座席表アプリ</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    大阪ガス様向けに、70インチの大型タッチディスプレイで操作するフリーアドレス座席表Webアプリを制作しました。画面上の名札を指でドラッグ&amp;ドロップして配置し、誰がどの席にいるかを直感的に更新・共有できます。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">課題</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            フリーアドレス運用で在席状況が分かりにくく、メンバーの所在確認に時間がかかる場面がありました。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            70インチ画面で見やすい座席レイアウトを設計し、名札を指でドラッグ&amp;ドロップして配置できる直感操作にしました。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            大型タッチディスプレイ上で座席状況を共有でき、現場での確認や席移動の反映がスムーズになりました。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">UI設計 / タッチ操作設計 /
+                            ドラッグ&amp;ドロップ実装 / JavaScript実装</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2"><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">HTML</span><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">CSS</span><span
+                                class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3"><a
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-6', { restoreFocus: false })">この実績について話を聞く<span
+                            class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-6')">閉じる</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-work-7: さわやかデンタルクリニック（提案プロトタイプ） -->
+    <div aria-hidden="true" aria-labelledby="modal-work-7-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-7" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-7')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-7')"><span class="material-symbols-outlined">close</span></button>
+            <img alt="さわやかデンタルクリニックのホームページ画面。パステルカラーのやさしいデザイン。" class="w-full h-56 sm:h-72 object-cover" src="../images/works/wp-dental-clinic.webp" width="1200" height="800" loading="lazy" decoding="async" />
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-primary font-bold uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-sm inline-block mb-4">WordPress Site (提案プロトタイプ)</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-7-title">さわやかデンタルクリニック<br />医院向けオリジナルWP構築（顧客相談プロトタイプ）</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    「専門知識のないスタッフでも休診案内やブログを迷わず更新できるサイトは作れるか？」という顧客相談を受け、操作感を直接体感いただくため即座に具現化した実機プロトタイプです。AI支援を活用してオリジナルテーマを高速構築し、ブロックエディタの入力負荷を抑えた運用体験を提示しました。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">ご相談の背景</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            HTMLの知識がない医院スタッフでも、日々の休診日やお知らせを安全かつ直感的に更新できるWordPressサイトの可否確認・技術相談。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案アプローチ</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            要件定義からオリジナルテーマ構築までAI支援をフル活用し最短で実機化。ブロックエディタをカスタマイズし管理画面の入力負荷を低減。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果・検証結果</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            言葉だけでは伝わりにくい「更新のしやすさ」を動く画面で体感いただき認識ズレを解消。運用性とスピードを両立する試作として高評価を獲得。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">要件ヒアリング / AI高速モックアップ / UIデザイン / WordPressオリジナルテーマ構築 / ブロックカスタマイズ</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">WordPress(オリジナルテーマ)</span>
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">AI駆動開発</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3"><a
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="https://preview.sironadesign.net/wp_dental_clinic/" target="_blank" rel="noopener noreferrer">デモサイトを見る<span
+                            class="material-symbols-outlined ml-2 text-sm">open_in_new</span></a><a
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-7', { restoreFocus: false })">この実績について話を聞く<span
+                            class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-7')">閉じる</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-work-8: まち水道レスキュー（提案プロトタイプ） -->
+    <div aria-hidden="true" aria-labelledby="modal-work-8-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-8" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-8')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-8')"><span class="material-symbols-outlined">close</span></button>
+            <img alt="水しぶきの中で工具を持つ水道修理スタッフを大きく配置した、まち水道レスキューのランディングページ。" class="w-full h-56 sm:h-72 object-cover" src="../images/works/machimizu.webp" width="960" height="1200" loading="lazy" decoding="async" />
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-3 py-1 rounded-sm inline-block mb-4">Landing Page (提案プロトタイプ)</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-8-title">まち水道レスキュー<br />水道修理サービスLP（顧客相談プロトタイプ）</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    「急な水まわりトラブルで焦っているユーザーが、不安なく即座に電話相談できるLPは作れるか？」という顧客相談を受け、構成案を動く実機プロトタイプとしてスピード提示した作例です。緊急時特有の心理に寄り添い、料金の明朗さ・駆けつけスピード・相談導線の視認性を徹底検証しました。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">ご相談の背景</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            水漏れや詰まりなど緊急性の高いサービスにおいて、利用者の焦りや不安を払拭し、最短時間で電話やWeb相談へ繋げる情報設計の検討。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案アプローチ</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            FVに重要情報（到着目安・料金・無料相談コール）を即座に視認できるよう集約。スマホでの片手操作に配慮した固定アクションボタンを実装。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果・検証結果</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            緊急時の導線シミュレーションを実機で実演。ユーザーが迷わないミニマルな画面設計と迅速な提案により、具体的な仕様確定を円滑にリード。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">要件ヒアリング / 情報設計 / UIデザイン / レスポンシブ実装</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">HTML</span>
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3"><a
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="https://preview.sironadesign.net/machimizu/" target="_blank" rel="noopener noreferrer">デモサイトを見る<span
+                            class="material-symbols-outlined ml-2 text-sm">open_in_new</span></a><a
+                        class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-8', { restoreFocus: false })">この実績について話を聞く<span
+                            class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a><button
+                        class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-8')">閉じる</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-work-9: LUMIÈRE ÉCLAT（提案プロトタイプ） -->
+    <div aria-hidden="true" aria-labelledby="modal-work-9-title" aria-modal="true"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" id="modal-work-9" role="dialog">
+        <div aria-hidden="true" class="absolute inset-0 bg-on-surface/60 backdrop-blur-sm cursor-pointer"
+            onclick="closeModal('modal-work-9')"></div>
+        <div
+            class="relative bg-surface rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto z-10 overscroll-contain">
+            <button aria-label="詳細を閉じる"
+                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container z-20 bg-surface/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                onclick="closeModal('modal-work-9')"><span class="material-symbols-outlined">close</span></button>
+            <img alt="上質なスキンケア商品をイメージした、LUMIÈRE ÉCLAT（ルミエール エクラ）のコスメティックランディングページ。" class="w-full h-56 sm:h-72 object-cover" src="../images/works/lumiere-eclat.webp" width="1200" height="800" loading="lazy" decoding="async" />
+            <div class="p-6 sm:p-10">
+                <span
+                    class="text-xs font-label-sm text-[#2d476f] font-bold uppercase tracking-wider bg-primary-container/40 px-3 py-1 rounded-sm inline-block mb-4">Cosmetic LP (提案プロトタイプ)</span>
+                <h2 class="font-headline-md text-[26px] md:text-[32px] font-bold text-on-surface mb-4 leading-tight"
+                    id="modal-work-9-title">LUMIÈRE ÉCLAT<br />美容液ランディングページ（顧客相談プロトタイプ）</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-8 mb-8">
+                    「高価格帯スキンケア美容液において、上質なブランドイメージを担保しながら定期購入への高いCVを獲得できるLPは可能か？」という顧客相談を受け制作した提案プロトタイプです。ラグジュアリーな世界観と、購入意欲を高めるストーリーテリング、ストレスのない購入フローを実機上で検証・提示しました。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">ご相談の背景</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            高価格帯D2C商品において、チープな通販LPに見せない洗練されたクリエイティブと、定期購入の離脱を防ぐスムーズな決済導線の両立。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">提案アプローチ</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            繊細なタイポグラフィと余白設計でブランド価値を演出しつつ、FVから成分根拠・顧客体験・FAQへ淀みなく流れるストーリーラインを構築。</p>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-md p-5">
+                        <h3 class="font-label-sm text-label-sm text-primary font-bold mb-2">成果・検証結果</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">
+                            スマートフォンにおけるファストチェックアウトUIの操作感を実機検証。視覚的クオリティとコンバージョン設計が両立した実例として提案を具現化。</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">担当範囲</h3>
+                        <p class="font-body-md text-sm text-on-surface-variant leading-7">要件ヒアリング / コンセプト策定 / UIデザイン / レスポンシブ実装</p>
+                    </div>
+                    <div>
+                        <h3 class="font-label-sm text-label-sm text-on-surface font-bold mb-3">使用技術</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">HTML</span>
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">CSS</span>
+                            <span class="text-xs text-on-surface-variant bg-surface-container px-2 py-1 rounded-sm">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="https://preview.sironadesign.net/lumiere-eclat-lp/" target="_blank" rel="noopener noreferrer">
+                        デモサイトを見る
+                        <span class="material-symbols-outlined ml-2 text-sm">open_in_new</span>
+                    </a>
+                    <a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-md hover:bg-primary-container transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        href="#contact" onclick="closeModal('modal-work-9', { restoreFocus: false })">
+                        この実績について話を聞く
+                        <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+                    </a>
+                    <button class="inline-flex items-center justify-center border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-md hover:border-primary hover:text-primary hover:bg-surface-container-high transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                        onclick="closeModal('modal-work-9')">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

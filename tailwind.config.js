@@ -9,6 +9,7 @@ module.exports = {
     // 本番CSSから必要なクラスが除外される可能性がある。
     content: [
         "./*.html",
+        "./career/**/*.html",
         "./js/**/*.js"
     ],
     // JavaScriptから動的に付与するため、静的解析では発見できないクラスを生成対象へ残す。
