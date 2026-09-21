@@ -2195,7 +2195,7 @@ const workbenchScenarios = {
       }
     ]
   },
-  lp: {
+  food: {
     title: "最短3日公開のセールスLP",
     aiLines: [
       "<span class='text-purple-400'>[Prompt]</span> '新商品・美容液のローンチLP。高CV導線、初回限定バナー、最短3日納品'",
