@@ -2196,29 +2196,29 @@ const workbenchScenarios = {
     ]
   },
   food: {
-    title: "最短3日公開のセールスLP",
+    title: "ごちそうさん グルメメディア",
     aiLines: [
-      "<span class='text-purple-400'>[Prompt]</span> '新商品・美容液のローンチLP。高CV導線、初回限定バナー、最短3日納品'",
-      "<span class='text-blue-400'>[AI-1]</span> 解析完了: D2Cモデル、スマートフォン流入90%想定",
-      "<span class='text-blue-400'>[AI-2]</span> 構成生成: FV強い訴求 ➔ 悩み共感 ➔ 解決根拠 ➔ 定期コース誘導",
-      "<span class='text-cyan-400'>[Code]</span> &lt;button class='sticky-cta shadow-2xl animate-pulse'&gt;今すぐ試す&lt;/button&gt;",
-      "<span class='text-emerald-400'>[Status]</span> レスポンシブLPコード 2.8秒で出力完了"
+      "<span class='text-purple-400'>[Prompt]</span> '関西の名店紹介とお取り寄せ情報を届けるグルメメディア。記事を探しやすく、継続して更新できる構成'",
+      "<span class='text-blue-400'>[AI-1]</span> 読者導線を整理: エリア・ジャンル・お取り寄せ情報から記事へ到達しやすい構成を検討",
+      "<span class='text-blue-400'>[AI-2]</span> 記事テンプレート案: 店舗情報、写真、取材記事、関連コンテンツを整理",
+      "<span class='text-cyan-400'>[Code]</span> &lt;article class='feature-story'&gt;...&lt;/article&gt; を起点に一覧・詳細画面を試作",
+      "<span class='text-emerald-400'>[Status]</span> 情報設計と初期画面の試作を完了"
     ],
     reviews: [
       {
-        icon: "trending_up",
-        title: "CVRを高めるマイクロコピー改善",
-        desc: "『購入する』ではなく『30秒で簡単お申し込み』に変更し、クリック心理ハードルを低減。"
+        icon: "account_tree",
+        title: "記事を探しやすい情報設計",
+        desc: "エリア・ジャンル・特集を横断して読み進められる導線を整理し、目的の記事へ到達しやすい構成を検討。"
       },
       {
-        icon: "speed",
-        title: "ページ表示速度の極限チューニング",
-        desc: "画像WebP次世代フォーマット化、遅延読み込み（lazy）、CSSインライン化で0.4秒表示を実現。"
+        icon: "edit_note",
+        title: "編集・更新しやすい記事テンプレート",
+        desc: "店舗情報、写真、本文、関連リンクの役割を分け、継続的な記事制作・編集に対応しやすい画面構成を整備。"
       },
       {
-        icon: "verified",
-        title: "薬機法・景表法に配慮した表現調律",
-        desc: "過度な煽りを抑えつつ商品の魅力と信頼性を引き出す言葉遣いに17年の経験で推敲。"
+        icon: "search",
+        title: "検索と回遊を意識したコンテンツ整理",
+        desc: "記事タイトル、見出し、関連コンテンツを整理し、検索流入後も興味に合わせて読み進められる導線を設計。"
       }
     ]
   },
