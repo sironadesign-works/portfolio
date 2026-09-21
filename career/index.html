@@ -526,7 +526,7 @@
                             <div class="p-5 sm:p-6 bg-gradient-to-br from-[#f0fdf4] via-white to-blue-50/50 rounded-2xl border border-emerald-200/90 shadow-xs space-y-3.5">
                                 <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
                                     <span class="text-xs text-emerald-800 font-mono font-bold leading-relaxed">チーム・事業へのバリュー</span>
-                                    <span class="text-[11px] font-bold text-[#10b981] bg-white/90 px-2.5 py-0.5 rounded-full border border-emerald-200/80 shadow-2xs shrink-0">開発生産性 3.2倍</span>
+                                    <span class="text-[11px] font-bold text-[#10b981] bg-white/90 px-2.5 py-0.5 rounded-full border border-emerald-200/80 shadow-2xs shrink-0">試作・検証の反復を高速化</span>
                                 </div>
                                 <h4 class="font-black text-base sm:text-lg text-[#0f172a]">
                                     AIの機動力と17年の経験値による「品質の担保」を両立
@@ -664,7 +664,7 @@
                             <span>⚡</span> インタラクティブ・ワークベンチ
                         </button>
                         <button id="ai-tab-metrics" class="ai-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-[#64748b] hover:text-[#0f172a] hover:bg-white/60 flex items-center gap-1.5" role="tab" aria-selected="false" aria-controls="ai-view-metrics" tabindex="-1" onclick="switchAiView('metrics')" data-target="metrics" type="button">
-                            <span>📊</span> 開発メトリクス・比較
+                            <span>📊</span> 開発プロセス・比較
                         </button>
                     </div>
                 </div>
@@ -725,24 +725,24 @@
                     </div>
                 </div>
 
-                <!-- 【ビュー2】開発メトリクス・比較 -->
+                <!-- 【ビュー2】開発プロセス・比較 -->
                 <div id="ai-view-metrics" class="ai-view-container hidden space-y-12" role="tabpanel" aria-labelledby="ai-tab-metrics" hidden>
                     <div class="emology-card p-8 md:p-12 space-y-10">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-8 border-b border-gray-200">
                             <div class="text-center sm:text-left space-y-2">
-                                <span class="text-xs sm:text-sm font-black text-[#64748b] uppercase tracking-wider">開発スピード</span>
-                                <div class="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">3.2 倍速</div>
-                                <p class="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">即日動くプロトタイプで迅速化</p>
+                                <span class="text-xs sm:text-sm font-black text-[#64748b] uppercase tracking-wider">試作・検証</span>
+                                <div class="text-3xl md:text-4xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">反復を高速化</div>
+                                <p class="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">初期段階から動く画面で確認</p>
                             </div>
                             <div class="text-center sm:text-left space-y-2 sm:border-l sm:border-gray-200 sm:pl-6">
-                                <span class="text-xs sm:text-sm font-black text-[#64748b] uppercase tracking-wider">認識のズレ・手戻り</span>
-                                <div class="text-4xl md:text-5xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">-85 %</div>
-                                <p class="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">実画面で早期合意形成するため安心</p>
+                                <span class="text-xs sm:text-sm font-black text-[#64748b] uppercase tracking-wider">認識合わせ</span>
+                                <div class="text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">早期に確認</div>
+                                <p class="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">実画面を使い、関係者で認識をそろえる</p>
                             </div>
                             <div class="text-center sm:text-left space-y-2 sm:border-l sm:border-gray-200 sm:pl-6">
-                                <span class="text-xs sm:text-sm font-black text-[#64748b] uppercase tracking-wider">実装クオリティ</span>
-                                <div class="text-4xl md:text-5xl font-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">高精度担保</div>
-                                <p class="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">17年の造形力とコードレビューで保証</p>
+                                <span class="text-xs sm:text-sm font-black text-[#64748b] uppercase tracking-wider">品質確認</span>
+                                <div class="text-3xl md:text-4xl font-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">人が最終確認</div>
+                                <p class="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">要件・動作・使いやすさを確認して進める</p>
                             </div>
                         </div>
 
@@ -751,15 +751,15 @@
                                 <div class="flex items-center justify-between text-sm sm:text-base font-black text-[#64748b]">
                                     <span class="flex items-center gap-2 text-gray-500">
                                         <span class="material-symbols-outlined text-lg">timer</span>
-                                        従来型の一般的な開発フロー（約 60 日間）
+                                        一般的な開発フロー
                                     </span>
-                                    <span class="text-red-600 text-xs sm:text-sm font-black bg-red-50 px-2.5 py-1 rounded-md border border-red-200">手戻りリスク高</span>
+                                    <span class="text-red-600 text-xs sm:text-sm font-black bg-red-50 px-2.5 py-1 rounded-md border border-red-200">後工程で確認・調整</span>
                                 </div>
                                 <div class="w-full h-12 bg-gray-100 rounded-2xl overflow-hidden flex text-[10px] sm:text-xs md:text-sm font-black text-gray-600">
-                                    <div class="w-[30%] bg-gray-200 flex items-center justify-center border-r border-white whitespace-nowrap px-1">要件定義 (18d)</div>
-                                    <div class="w-[25%] bg-gray-300 flex items-center justify-center border-r border-white whitespace-nowrap px-1">静止画デザイン (15d)</div>
-                                    <div class="w-[25%] bg-gray-400 text-white flex items-center justify-center border-r border-white whitespace-nowrap px-1">実装 (15d)</div>
-                                    <div class="w-[20%] bg-red-200 text-red-900 flex items-center justify-center whitespace-nowrap px-1">修正・手戻り (12d)</div>
+                                    <div class="w-[30%] bg-gray-200 flex items-center justify-center border-r border-white whitespace-nowrap px-1">要件整理</div>
+                                    <div class="w-[25%] bg-gray-300 flex items-center justify-center border-r border-white whitespace-nowrap px-1">静止画デザイン</div>
+                                    <div class="w-[25%] bg-gray-400 text-white flex items-center justify-center border-r border-white whitespace-nowrap px-1">実装</div>
+                                    <div class="w-[20%] bg-red-200 text-red-900 flex items-center justify-center whitespace-nowrap px-1">修正・調整</div>
                                 </div>
                             </div>
 
@@ -767,14 +767,14 @@
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between text-sm sm:text-base font-black gap-1.5">
                                     <span class="flex items-center gap-2 text-[#2563eb]">
                                         <span class="material-symbols-outlined text-lg text-[#2563eb]">bolt</span>
-                                        AI駆動アジャイルフロー（約 14 日間・約1/4に短縮）
+                                        AI駆動の反復フロー
                                     </span>
-                                    <span class="text-emerald-700 text-xs sm:text-sm font-black bg-emerald-50 px-3 py-1 rounded-md border border-emerald-200 self-start sm:self-auto">即日プロトタイプ検証</span>
+                                    <span class="text-emerald-700 text-xs sm:text-sm font-black bg-emerald-50 px-3 py-1 rounded-md border border-emerald-200 self-start sm:self-auto">初期段階から試作・検証</span>
                                 </div>
                                 <div class="w-full h-14 bg-gray-100 rounded-2xl overflow-hidden flex text-[10px] sm:text-xs md:text-sm font-black text-white shadow-lg">
-                                    <div class="w-[25%] bg-gradient-to-r from-blue-600 to-cyan-500 flex items-center justify-center border-r border-white/20 whitespace-nowrap px-1">対話・要件抽出 (3d)</div>
-                                    <div class="w-[35%] bg-gradient-to-r from-cyan-500 to-emerald-500 flex items-center justify-center border-r border-white/20 whitespace-nowrap px-1">AI駆動・実装 (5d)</div>
-                                    <div class="w-[40%] bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center whitespace-nowrap px-1">品質検証・本番化 (6d)</div>
+                                    <div class="w-[25%] bg-gradient-to-r from-blue-600 to-cyan-500 flex items-center justify-center border-r border-white/20 whitespace-nowrap px-1">対話・要件整理</div>
+                                    <div class="w-[35%] bg-gradient-to-r from-cyan-500 to-emerald-500 flex items-center justify-center border-r border-white/20 whitespace-nowrap px-1">AI活用・試作</div>
+                                    <div class="w-[40%] bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center whitespace-nowrap px-1">品質確認・改善</div>
                                 </div>
                             </div>
                         </div>
