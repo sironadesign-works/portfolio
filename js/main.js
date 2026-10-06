@@ -6,7 +6,7 @@
  * 2. カスタムカーソル、固定ヘッダー、モバイルメニュー
  * 3. お悩みアコーディオン、AIタブ、制作フロー表示切替
  * 4. 作品カルーセルと9件の詳細モーダル
- * 5. GSAP出現演出、Formspree問い合わせ送信
+ * 5. GSAP出現演出、Xserver問い合わせ送信
  * 6. 制作中プレビュー用の角丸・背景演出切替
  *
  * 【HTMLとの結合点】
@@ -1818,6 +1818,7 @@ if (contactForm) {
     // 送信先はHTMLのform[action]を正とし、JavaScriptへURLを重複保持しない。
     const endpoint = contactForm.getAttribute("action");
     const formData = new FormData(contactForm);
+    const payload = Object.fromEntries(formData.entries());
 
     if (contactFormStatus) {
       contactFormStatus.textContent = "送信しています...";
@@ -1832,8 +1833,11 @@ if (contactForm) {
     try {
       const response = await fetch(endpoint, {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" }
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload)
       });
       if (!response.ok) throw new Error("Form submission failed");
 

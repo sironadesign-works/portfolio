@@ -15,7 +15,7 @@
     - #ai-tab-* / #ai-view-* -> switchAiView()
     - .cinematic-card         -> openModal('modal-work-N')
     - #modal-work-N           -> openModal() / closeModal()
-    - #contact-form           -> Formspree 送信処理
+    - #contact-form           -> Xserverフォーム送信処理
     - .anim-switcher-*        -> switchRadiusStyle() / switchHeroAnimation()
 
     IDや data-* を変更する時は、対応するJavaScriptのセレクターも同時に確認すること。
@@ -1241,7 +1241,7 @@
 
         <!--
             8. お問い合わせフォーム
-            役割: Formspreeへ相談内容を送信するコンバージョン地点。
+            役割: Xserverへ相談内容を送信するコンバージョン地点。
             連動: #contact-form / #contact-form-submit / #contact-form-status をmain.jsが使用する。
             注意: action URLは送信先アカウントに直結するため、変更時は実送信テストを行う。
         -->
@@ -1250,8 +1250,8 @@
     ============================================================
     📌 【保守・運用ガイド: お問い合わせフォームの設定】
     ------------------------------------------------------------
-    - action属性: Formspree のエンドポイントURL（フォームID）を設定します。
-    - 送信先メールアドレスの変更は Formspree ダッシュボード側で行います。
+    - action属性: Xserver上のフォーム受付エンドポイントURLを設定します。
+    - 送信先メールアドレスの変更は forms.sironadesign.net/contact.php 側で行います。
     - スパム対策用 <input name="_gotcha"> は削除しないでください。
     ============================================================
 -->
@@ -1267,8 +1267,9 @@
                 </div>
 
                 <!-- _gotchaはボット送信を弾くハニーポット。画面には表示しない。 -->
-                <form class="emology-card p-8 md:p-10 space-y-6 fade-up" id="contact-form" action="https://formspree.io/f/mbdeoowz" method="POST">
+                <form class="emology-card p-8 md:p-10 space-y-6 fade-up" id="contact-form" action="https://forms.sironadesign.net/contact.php" method="POST">
                     <input type="text" name="_gotcha" style="display:none" />
+                    <input type="hidden" name="form_source" value="freelance" />
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs font-bold text-[#0f172a] mb-2" for="name">お名前 <span class="text-red-500">*</span></label>
