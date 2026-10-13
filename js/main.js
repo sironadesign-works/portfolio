@@ -35,7 +35,7 @@ document.querySelectorAll(".cinematic-card[role='button']").forEach((card) => {
 // #custom-cursorを実ポインターへ追従させる装飾。CSS側でタッチ端末は非表示にする。
 // ============================================================
 const cursor = document.getElementById("custom-cursor");
-if (cursor) {
+if (cursor && window.matchMedia("(pointer: fine)").matches) {
   // 目標座標(mouse*)と表示座標(cursor*)を分け、補間して遅れて追従させる。
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
@@ -1725,15 +1725,14 @@ if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.from(".hero-anim", {
-    y: 40,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.15,
-    ease: "power3.out"
+    y: 16,
+    duration: 0.4,
+    stagger: 0.05,
+    ease: "power2.out"
   });
 
-  // プロフィール以外の見出しは従来の軽い出現演出を維持する。
-  gsap.utils.toArray("section h2:not(#profile h2)").forEach((h2) => {
+  // プロフィール・スキル対応領域・制作フロー以外の見出しは従来の軽い出現演出を維持する。
+  gsap.utils.toArray("section h2:not(#profile h2):not(#services h2):not(#flow h2)").forEach((h2) => {
     gsap.from(h2, {
       scrollTrigger: {
         trigger: h2,
@@ -1797,10 +1796,226 @@ if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
       return () => timeline.kill();
     });
   }
+
+  // ============================================================
+  // 9-B. スキル & 対応領域（#services）のダイナミック・ポップアップ演出
+  // スクロール連動で8つのカードが弾性（Back Out）を伴って勢いよく飛び出す
+  // ============================================================
+  const services = document.getElementById("services");
+  if (services) {
+    const serviceCards = services.querySelectorAll(".emology-card");
+    const serviceHeader = services.querySelector(".text-center");
+
+    if (serviceCards.length > 0) {
+      const servicesMotion = gsap.matchMedia();
+      servicesMotion.add({
+        desktop: "(min-width: 768px)",
+        mobile: "(max-width: 767px)",
+        reduceMotion: "(prefers-reduced-motion: reduce)"
+      }, (context) => {
+        const { desktop, reduceMotion } = context.conditions;
+        if (reduceMotion) {
+          gsap.set(serviceCards, { opacity: 1, y: 0, scale: 1 });
+          return;
+        }
+
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: services,
+            start: desktop ? "top 72%" : "top 80%",
+            toggleActions: "play none none none",
+            once: true
+          }
+        });
+
+        // 1. セクションヘッダー（見出し・バッジ）のポップアップ
+        if (serviceHeader) {
+          timeline.fromTo(serviceHeader,
+            { y: 35, scale: 0.88, autoAlpha: 0 },
+            { y: 0, scale: 1, autoAlpha: 1, duration: 0.6, ease: "back.out(1.6)" }
+          );
+        }
+
+        // 2. 8つのカードが順にポンッポンッと勢いよく弾け飛ぶスタッガーポップ
+        timeline.fromTo(serviceCards,
+          {
+            y: desktop ? 80 : 55,
+            scale: 0.58,
+            rotationZ: (i) => (i % 2 === 0 ? -4 : 4),
+            autoAlpha: 0,
+            transformOrigin: "center bottom"
+          },
+          {
+            y: 0,
+            scale: 1,
+            rotationZ: 0,
+            autoAlpha: 1,
+            duration: 0.72,
+            stagger: {
+              each: desktop ? 0.08 : 0.07,
+              from: "start"
+            },
+            ease: "back.out(2.4)", // 派手にポンッと弾ける強いバウンス
+            onComplete: () => {
+              gsap.set(serviceCards, { clearProps: "rotationZ" });
+            }
+          },
+          serviceHeader ? "-=0.25" : 0
+        );
+
+        // 3. 各カード内の丸型カラフルアイコンバッジが時間差でクルッと回転ポップ
+        const iconBadges = services.querySelectorAll(".emology-card .w-11");
+        if (iconBadges.length > 0) {
+          timeline.fromTo(iconBadges,
+            { scale: 0.2, rotation: -28, autoAlpha: 0 },
+            {
+              scale: 1,
+              rotation: 0,
+              autoAlpha: 1,
+              duration: 0.55,
+              stagger: {
+                each: desktop ? 0.08 : 0.07,
+                from: "start"
+              },
+              ease: "back.out(3.0)",
+              onComplete: () => {
+                gsap.set(iconBadges, { clearProps: "transform,rotation" });
+              }
+            },
+            "-=0.6" // カードの浮上と重なるタイミングでアイコンが弾ける
+          );
+        }
+
+        return () => timeline.kill();
+      });
+    }
+  }
+
+  // ============================================================
+  // 9-C. プロジェクト推進プロセス / 制作の流れ（#flow）のステップ演出
+  // スクロールに合わせて各ステップ（01〜04）が順次アクティブ化＆ポップ
+  // ============================================================
+  const flowSection = document.getElementById("flow");
+  if (flowSection) {
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduce) {
+      gsap.set(flowSection.querySelectorAll(".flow-step-node, .emology-card"), { opacity: 1, x: 0, y: 0, scale: 1 });
+    } else {
+      const isDesktop = window.innerWidth >= 768;
+
+      // 1. セクションヘッダー（見出し・バッジ・タブ）
+      const flowHeader = flowSection.querySelector(".text-center");
+      if (flowHeader) {
+        gsap.fromTo(flowHeader,
+          { y: 30, scale: 0.94, autoAlpha: 0 },
+          {
+            y: 0,
+            scale: 1,
+            autoAlpha: 1,
+            duration: 0.65,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: flowHeader,
+              start: "top 85%",
+              once: true
+            }
+          }
+        );
+      }
+
+      // 2. 左側スティッキー概要カード（HOW WE COLLABORATE / HOW I COLLABORATE）
+      const flowStickyCard = flowSection.querySelector(".lg\\:col-span-5 .emology-card, .flow-view-container .emology-card");
+      if (flowStickyCard) {
+        gsap.fromTo(flowStickyCard,
+          { x: isDesktop ? -40 : 0, y: isDesktop ? 0 : 30, autoAlpha: 0 },
+          {
+            x: 0,
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: flowStickyCard,
+              start: isDesktop ? "top 80%" : "top 88%",
+              once: true
+            }
+          }
+        );
+      }
+
+      // 3. 右側タイムラインの各ステップノード（.flow-step-node）
+      const stepNodes = flowSection.querySelectorAll(".flow-step-node");
+      stepNodes.forEach((node) => {
+        const stepBadge = node.querySelector(".w-8.h-8");
+        const categoryTag = node.querySelector(".rounded-full.border");
+        const subTags = node.querySelectorAll(".pt-3 span");
+
+        const stepTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: node,
+            start: isDesktop ? "top 82%" : "top 85%",
+            once: true
+          }
+        });
+
+        // ノード本体の浮上
+        stepTl.fromTo(node,
+          {
+            x: isDesktop ? 35 : 0,
+            y: isDesktop ? 0 : 30,
+            scale: 0.95,
+            autoAlpha: 0
+          },
+          {
+            x: 0,
+            y: 0,
+            scale: 1,
+            autoAlpha: 1,
+            duration: 0.65,
+            ease: "power3.out"
+          }
+        );
+
+        // ステップ番号バッジの弾性ポップ（01, 02...）
+        if (stepBadge) {
+          stepTl.fromTo(stepBadge,
+            { scale: 0.25, rotation: -25, autoAlpha: 0 },
+            {
+              scale: 1,
+              rotation: 0,
+              autoAlpha: 1,
+              duration: 0.52,
+              ease: "back.out(2.8)",
+              clearProps: "transform,rotation"
+            },
+            "-=0.45"
+          );
+        }
+
+        // 右上のカテゴリタグ（DISCOVER等）のフェードイン
+        if (categoryTag) {
+          stepTl.fromTo(categoryTag,
+            { x: 12, autoAlpha: 0 },
+            { x: 0, autoAlpha: 1, duration: 0.35, ease: "power2.out" },
+            "-=0.35"
+          );
+        }
+
+        // 下部タグ群のスタッガーフェード
+        if (subTags.length > 0) {
+          stepTl.fromTo(subTags,
+            { y: 8, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.3, stagger: 0.05, ease: "power2.out" },
+            "-=0.25"
+          );
+        }
+      });
+    }
+  }
 }
 
 // ============================================================
-// 10. Formspree問い合わせフォーム
+// 10. Xserver問い合わせフォーム
 // 通常送信を止め、fetchで送信して同じページ上へ成功/失敗メッセージを表示する。
 // ============================================================
 const contactForm = document.getElementById("contact-form");
@@ -1921,12 +2136,21 @@ window.switchWorksView = function(viewType) {
     let resumeTimer = null;
     let isUserInteracting = false;
 
-    // 自動スクロールループ（768px以上のみ）。複製境界で位置を半周戻して無限に見せる。
+    let autoScrollRafId = null;
+    let isTrackVisible = false;
+    let halfWidth = 0;
+
+    function updateHalfWidth() {
+      halfWidth = track.scrollWidth / 2;
+    }
+    updateHalfWidth();
+    window.addEventListener("resize", updateHalfWidth);
+
+    // 自動スクロールループ（768px以上かつ画面内表示時のみ）。複製境界で位置を半周戻して無限に見せる。
     function autoScrollLoop() {
-      if (window.innerWidth >= 768) {
-        if (!isHovered && !isDown && !isUserInteracting) {
+      if (window.innerWidth >= 768 && isTrackVisible) {
+        if (!isHovered && !isDown && !isUserInteracting && halfWidth > 0) {
           virtualScrollLeft += autoScrollSpeed;
-          const halfWidth = track.scrollWidth / 2;
 
           if (virtualScrollLeft >= halfWidth) {
             virtualScrollLeft -= halfWidth;
@@ -1936,10 +2160,36 @@ window.switchWorksView = function(viewType) {
 
           track.scrollLeft = virtualScrollLeft;
         }
+        autoScrollRafId = requestAnimationFrame(autoScrollLoop);
+      } else {
+        autoScrollRafId = null;
       }
-      requestAnimationFrame(autoScrollLoop);
     }
-    requestAnimationFrame(autoScrollLoop);
+
+    function startAutoScroll() {
+      if (window.innerWidth >= 768 && isTrackVisible && !autoScrollRafId) {
+        autoScrollRafId = requestAnimationFrame(autoScrollLoop);
+      }
+    }
+
+    if ("IntersectionObserver" in window) {
+      const carouselObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          isTrackVisible = entry.isIntersecting;
+          if (isTrackVisible) {
+            updateHalfWidth();
+            startAutoScroll();
+          } else if (autoScrollRafId) {
+            cancelAnimationFrame(autoScrollRafId);
+            autoScrollRafId = null;
+          }
+        });
+      }, { threshold: 0.05 });
+      carouselObserver.observe(track);
+    } else {
+      isTrackVisible = true;
+      startAutoScroll();
+    }
 
     // マウスホバーで一時停止（PC）。カードを読みたい利用者の操作を優先する。
     track.addEventListener("mouseenter", () => {
@@ -2032,9 +2282,29 @@ window.switchFlowView = function(viewType) {
   if (viewType === "story") {
     storyView.classList.remove("hidden");
     cardsView.classList.add("hidden");
+    if (typeof ScrollTrigger !== "undefined") {
+      ScrollTrigger.refresh();
+    }
   } else {
     storyView.classList.add("hidden");
     cardsView.classList.remove("hidden");
+    if (typeof gsap !== "undefined") {
+      const cards = cardsView.querySelectorAll(".emology-card");
+      if (cards.length > 0) {
+        gsap.fromTo(cards,
+          { y: 24, scale: 0.92, autoAlpha: 0 },
+          {
+            y: 0,
+            scale: 1,
+            autoAlpha: 1,
+            duration: 0.5,
+            stagger: 0.08,
+            ease: "back.out(2.0)",
+            clearProps: "transform"
+          }
+        );
+      }
+    }
   }
 };
 

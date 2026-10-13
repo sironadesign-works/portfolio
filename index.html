@@ -34,21 +34,24 @@
     <meta name="description" content="Sirona Designは、Web制作、デザイン、コーディング、運用改善、AI活用まで相談できるフリーランスWeb制作パートナーです。" />
     <title>Sirona Design - Web Designer &amp; Creative Technologist</title>
     <link rel="icon" href="images/favicon-64.png" type="image/png" sizes="64x64" />
-    <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high" />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" />
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" />
+    </noscript>
     <!--
-        CSS読込順: Tailwind生成CSSを先に、独自上書きCSSを後に読む。
+        CSS読込順: Tailwind生成CSSを先に、独自上書きCSS（圧縮版）を後に読む。
         クエリ文字列はブラウザキャッシュ更新用。公開時にCSSを変えたら値も更新する。
     -->
-    <link rel="stylesheet" href="css/tailwind.css?v=20260831_maintenance" />
-    <link rel="stylesheet" href="css/style.css?v=20260831_maintenance" />
+    <link rel="stylesheet" href="css/tailwind.css?v=20261012_perf" />
+    <link rel="stylesheet" href="css/style.min.css?v=20261012_perf" />
     <!-- スクロール出現演出用。main.jsは両ライブラリが存在する時だけGSAP処理を実行する。 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -73,7 +76,7 @@
     <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
         <div class="flex justify-between items-center h-20 px-grid-margin max-w-container-max mx-auto">
             <a class="flex items-center gap-3.5 group" href="#hero" aria-label="シロナデザイン ホーム">
-                <img src="images/sirona-logo.webp" alt="シロナデザイン" width="160" height="40" class="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105" />
+                <img src="images/sirona-logo.webp" alt="シロナデザイン" width="160" height="40" decoding="async" class="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105" />
                 <span class="hidden sm:inline-block text-[11px] font-mono uppercase tracking-widest text-[#64748b] border-l border-gray-200 pl-3.5">Hiroki Nakamura Portfolio</span>
             </a>
             <nav class="mobile-nav hidden md:flex items-center gap-8" id="mobile-menu">
@@ -1321,7 +1324,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-grid-margin max-w-container-max mx-auto">
             <div class="col-span-1 lg:col-span-2">
                 <a class="mb-4 block" href="#hero" aria-label="シロナデザイン ホーム">
-                    <img src="images/sirona-logo-white.webp" alt="シロナデザイン" width="180" height="45" class="h-9 w-auto object-contain" />
+                    <img src="images/sirona-logo-white.webp" alt="シロナデザイン" width="180" height="45" loading="lazy" decoding="async" class="h-9 w-auto object-contain" />
                 </a>
                 <p class="text-xs text-white/60 mb-6 max-w-sm leading-relaxed">
                     17年のデザイン経験と最新AI実装力を融合し、成果につながるWebプロダクトを届けます。
@@ -1340,7 +1343,7 @@
             </div>
         </div>
         <!-- 全インタラクションをまとめたメインスクリプト。deferによりHTML解析後に実行される。 -->
-        <script src="js/main.js?v=20261006_xserver_forms" defer></script>
+        <script src="js/main.js?v=20261012_perf" defer></script>
     </footer>
     <!--
         制作実績モーダル: Works カードを選択した時に詳細を表示する。
