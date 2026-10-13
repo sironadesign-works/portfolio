@@ -1634,6 +1634,12 @@ const openModal = (modalId) => {
   const modal = document.getElementById(modalId);
   if (!modal) return;
 
+  // モーダル画像を開いた瞬間にオンデマンド読込 (初期読み込み完全抑止)
+  const img = modal.querySelector("img[data-src]");
+  if (img && img.dataset.src && (!img.src || img.src.startsWith("data:"))) {
+    img.src = img.dataset.src;
+  }
+
   if (activeModal && activeModal !== modal) {
     closeModal(activeModal.id, { restoreFocus: false });
   }
@@ -2118,14 +2124,16 @@ window.switchWorksView = function(viewType) {
     if (!track || track.dataset.initialized) return;
     track.dataset.initialized = "true";
 
-    // PCで末尾から先頭へ途切れず戻すため、原本カード一式を後ろへ複製する。
+    // PCで末尾から先頭へ途切れず戻すため、原本カード一式を後ろへ複製する（モバイル時は複製抑止）。
     // data-initializedにより同じtrackへ二重複製されることを防ぐ。
     const originalCards = Array.from(track.children);
-    originalCards.forEach((card) => {
-      const clone = card.cloneNode(true);
-      clone.classList.add("carousel-clone-item");
-      track.appendChild(clone);
-    });
+    if (window.innerWidth >= 768) {
+      originalCards.forEach((card) => {
+        const clone = card.cloneNode(true);
+        clone.classList.add("carousel-clone-item");
+        track.appendChild(clone);
+      });
+    }
 
     let isHovered = false; // カーソルがtrack上にある間は自動移動を止める。
     let isDown = false; // マウスドラッグ中か。

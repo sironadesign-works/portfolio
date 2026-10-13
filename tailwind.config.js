@@ -99,9 +99,9 @@ module.exports = {
             fontFamily: {
                 "label-sm": ["Manrope"],
                 "display-lg-mobile": ["Manrope"],
-                "body-md": ["Noto Sans JP"],
-                "body-lg": ["Noto Sans JP"],
-                "headline-md": ["Noto Sans JP"],
+                "body-md": ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", "Meiryo", "sans-serif"],
+                "body-lg": ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", "Meiryo", "sans-serif"],
+                "headline-md": ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", "Meiryo", "sans-serif"],
                 "display-lg": ["Manrope"]
             },
             // 用途別の文字サイズ・行間・太さ。
